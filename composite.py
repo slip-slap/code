@@ -8,6 +8,7 @@ def calc_stiffness_matrices(lamiCons={'angle':np.zeros((1,3)),'height':np.zeros(
     height=lamiCons['height']
     Q=calc_stiffness_matrices_Q(elasCons)
     Q=np.array([[20,0.7,0],[0.7,2.0,0],[0,0,0.7]])
+    coordList=height_encode(height)
 
     #extensional stiffness matrix
     A=np.zeros((3,3))
@@ -20,10 +21,13 @@ def calc_stiffness_matrices(lamiCons={'angle':np.zeros((1,3)),'height':np.zeros(
     for i in range(0,angle.size):
         inverse_T=calc_inverse_T(angle[0][i])
         temp_Q=np.dot(np.dot(inverse_T,Q),inverse_T.T)
-        A=A+height[0][i]*temp_Q
-        print(A)
+        A=A+(coordList[i]-coordList[i+1])*temp_Q
+        B=B+0.5*(coordList[i]*coordList[i]-coordList[i+1]*coordList[i+1])*temp_Q
+        D=D+(1/3)*(coordList[i]*coordList[i]*coordList[i]-coordList[i+1]*coordList[i+1]*coordList[i+1])*temp_Q
 
-
+    print(A)
+    print(B)
+    print(D)
 
 def calc_stiffness_matrices_Q(elasCons={"E1":1,"E2":2,"mu21":0.1,"G12":3}):
     mu12=elasCons['E1']*elasCons['mu21']/elasCons['E2']
@@ -67,12 +71,22 @@ def calc_inverse_T(theta=np.pi/6):
     inverseT=np.linalg.inv(T)
     return inverseT
 
+# height encoding
+def height_encode(height=np.array([[5,3,4,6,7,9]])):
+    totalHeight=0
+    for i in range(0,height.size):
+        totalHeight=totalHeight+height[0][i]
+
+    coordList=[totalHeight/2]
+    tempCoord=totalHeight/2
+    for i in range(0,height.size):
+        tempCoord=tempCoord-height[0][i]
+        coordList.append(tempCoord)
+
+    return coordList
 
 
 if __name__=='__main__':
-    #cons={"E1":3.9e4,"E2":1.3e4,'mu21':0.25,'G12':0.42e4}
-    #calc_stiffness_matrices(cons)
-    #laminate_angle()
     lamiCons={'angle':np.zeros((1,2)),'height':np.zeros((1,2))}
     lamiCons['angle']=np.array([[0,np.pi/4]])
     lamiCons['height']=np.array([[5,3]])
