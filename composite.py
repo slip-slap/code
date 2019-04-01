@@ -3,20 +3,26 @@ import numpy as np
 # input argu1 lamiCons: lamination construction
 # lamiCons{'angle':{45,30,45,90},'height':[3,2,1,2]}
 # input argu2 elasCons: elastic constants
-def calc_stiffness_matrices(lamiCons={'angle':np.zeros((1,3)),'height':np.zeros((1,3))}),elasCons={"E1":1,"E2":2,"mu21":0.1,"G12":3}:
+def calc_stiffness_matrices(lamiCons={'angle':np.zeros((1,3)),'height':np.zeros((1,3))},elasCons={"E1":1,"E2":2,"mu21":0.1,"G12":3}):
     angle=lamiCons['angle']
     height=lamiCons['height']
     Q=calc_stiffness_matrices_Q(elasCons)
-    # 最终刚度为A
-    ？？？？？？？？？？？？？？？？？？
+    Q=np.array([[20,0.7,0],[0.7,2.0,0],[0,0,0.7]])
+
+    #extensional stiffness matrix
+    A=np.zeros((3,3))
+    #coupling stiffness matrix
+    B=np.zeros((3,3))
+    # bending stiffness matrix
+    D=np.zeros((3,3))
+
     # calculate A
     for i in range(0,angle.size):
         inverse_T=calc_inverse_T(angle[0][i])
-        Q=np.dot(np.dot(inverseT,Q),inverseT.T)
-        A=height[0][i]*Q
-        # print stiffness A
-        print("stiffness A is ")
+        temp_Q=np.dot(np.dot(inverse_T,Q),inverse_T.T)
+        A=A+height[0][i]*temp_Q
         print(A)
+
 
 
 def calc_stiffness_matrices_Q(elasCons={"E1":1,"E2":2,"mu21":0.1,"G12":3}):
@@ -67,8 +73,10 @@ if __name__=='__main__':
     #cons={"E1":3.9e4,"E2":1.3e4,'mu21':0.25,'G12':0.42e4}
     #calc_stiffness_matrices(cons)
     #laminate_angle()
-    lamiCons={'angle':np.zeros((1,3)),'height':np.zeros((1,3))})
-    elasCons={"E1":1,"E2":2,"mu21":0.1,"G12":3}:
+    lamiCons={'angle':np.zeros((1,2)),'height':np.zeros((1,2))}
+    lamiCons['angle']=np.array([[0,np.pi/4]])
+    lamiCons['height']=np.array([[5,3]])
+    elasCons={"E1":1,"E2":2,"mu21":0.1,"G12":3}
     calc_stiffness_matrices(lamiCons,elasCons)
 
 
