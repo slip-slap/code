@@ -32,57 +32,72 @@
 \maketitle
 
 \begin{abstract}
-    Sharing mechanism is widely used in genetic algorithm (GA) to solve multimodal problems.
-    In this paper, the influenece of parameters of share function on the search performance of GA is
-    studied. There are three key factors in the share function, which are metric space, distance constant
-    and index constant. First, the metric space is studied based on the peroformance of GA; second the 
-    distance constant is determined based on optimal metric space; finaly,According to the metric space
-    and distance constant, the index constant is decided. According to the five criterias of the experiment,
-    the optimal combination of these three parameters are determined to maxmize the performance of GAs.
+    Sharing mechanism is widely used in genetic algorithm (GA) to solve
+    multimodal problems.  In this paper, the influenece of parameters of share
+    function on the search performance of GA is studied. There are three key
+    factors in the share function, which are metric space, distance constant and
+    index constant. First, the metric space is studied based on the peroformance
+    of GA; second the distance constant is determined based on optimal metric
+    space; finaly,According to the metric space and distance constant, the index
+    constant is decided. According to the five criterias of the experiment, the
+    optimal combination of these three parameters are determined to maxmize the
+    performance of GAs.
 \keywords{Genetic Algorithm \and Niche \and Metric Space \and Multimodal}
 \end{abstract}
 
 \begin{multicols}{2}
 
 \section{Introduction}
-Genetic algorithms (GAs) are first introduced in 1975 by Holland\cite{sampson1976adaptation}, because
-of its powerful search ability, which was widely been used to solve many search problems. Compared with
-other random search algorithm, for example, particle swarm optimization, ant colony optimization, and 
-simulated annealing algorithm\cite{zabinsky2010random}, GAs are not easily trapped in local optima,Traditional
-GAs has been to successfully find the optimal value in the domain for unimodal problems, however,
-sometimes, not only the optimal point but also the secondary important point is needed. Because of its
-search rule, traditional GAs are failed to maintain the information for a multimodal problem.
+Genetic algorithms (GAs) are first introduced in 1975 by
+Holland\cite{sampson1976adaptation}, because of its powerful search ability,
+which was widely been used to solve many search problems. Compared with other
+random search algorithm, for example, particle swarm optimization, ant colony
+optimization, and simulated annealing algorithm\cite{zabinsky2010random}, GAs
+are not easily trapped in local optima,Traditional GAs has been to successfully
+find the optimal value in the domain for unimodal problems, however, sometimes,
+not only the optimal point but also the secondary important point is needed.
+Because of its search rule, traditional GAs are failed to maintain the
+information for a multimodal problem.
 
 \subsection{Multimodal Optimization}
-In order to maintain the diversity of the population for a multimodal problems, it is significant to
-maximize the number of niche in the population. There are several methods to achieve this target,which
-are Crowding, Deterministic Crowding and Sharing methods.
-share Function\cite{goldberg1987genetic}
+Because GA select the best individual according to their fitness, so the GA
+converges quickly to find the global optimal value. Howerver, In order to deal
+with the multimodal problem, It is significant to maintain the diversity of the
+population.  There are several methods to achieve this target,which are
+Crowding, Deterministic Crowding and Sharing methods.  share
+Function\cite{goldberg1987genetic}. In this paper, the share function mechanism
+is studied. share function introduces cooperation into the process of GA, which
+simulates the 
 
 \subsection{Genetic Algorithm Procedure}
-According to Darwin natural evolution theory, the one who fits the environment most well are more 
-possilbe to survive and reproduction. GA simulates the process of natural evolution which includes 
-selection,crossover and mutation. Because of the powerful search ability of GA,it has been widely 
-used in many fields for multimodal problems. The procedure diagram of GA as shown in figure \ref{plot:GA} 
+According to Darwin natural evolution theory, the one who fits the environment
+most well are more possilbe to survive and reproduction. GA simulates the
+process of natural evolution which includes selection,crossover and mutation.
+Because of the powerful search ability of GA,it has been widely used in many
+fields for multimodal problems. The procedure diagram of GA as shown in figure
+\ref{plot:GA} 
  
 \subsection{Parent Selection}
-Selection is the most important step of GA algorithm which decides the diversity of the population.
-To improve the search ability and reduce the search cost, many selection methods \cite{goldberg1991comparative}
-has been invented,the selection schemes can be divided into four classes which are proportionate reproduction,
-ranking selection, tournament selection and Genitor(or "steady state") selection.In this paper, to maintain a 
-stable subpopulation
-for multimodel problems,the stochastic remainer algorithm is used for experiment.
+Selection is the most important step of GA algorithm which decides the diversity
+of the population.  To improve the search ability and reduce the search cost,
+many selection methods \cite{goldberg1991comparative} has been invented,the
+selection schemes can be divided into four classes which are proportionate
+reproduction, ranking selection, tournament selection and Genitor(or "steady
+state") selection.In this paper, to maintain a stable subpopulation for
+multimodel problems,the stochastic remainer algorithm is used for experiment.
 
 \subsection{Parents Crossover}
-According to the selected parents, crossover is used to generate the offspring, combining genes from
-parents to reproduce new members. There are so many research \cite{ahmed2010genetic,nebro2009mocell} about the crossover
-operation in GAs to maximize the divistiy of the population. In this paper, one-point crossover strategy
-is implemented.
+According to the selected parents, crossover is used to generate the offspring,
+combining genes from parents to reproduce new members. There are so many
+research \cite{ahmed2010genetic,nebro2009mocell} about the crossover operation
+in GAs to maximize the divistiy of the population. In this paper, one-point
+crossover strategy is implemented.
 
 \subsection{Offspring Mutation}
-Mutation simulates the situation  genes on the chromosomes which received from parents randomly changed.
-The process are used to provide new evolution direction and information for the population, the parameters
-has during this process has been well researched by Schaffer\cite{schaffer1989study}.  
+Mutation simulates the situation  genes on the chromosomes which received from
+parents randomly changed.  The process are used to provide new evolution
+direction and information for the population, the parameters has during this
+process has been well researched by Schaffer\cite{schaffer1989study}.  
 
 \begin{center}
 \begin{tikzpicture}
@@ -121,16 +136,19 @@ has during this process has been well researched by Schaffer\cite{schaffer1989st
 \end{center}
 
 \subsection{Sharing}
-Sharing mechanism is first introduced by Holland \cite{miller1996genetic} to reduce the fitness of 
-similar individual in the population and increase the diversity of the population. For Sharing mechanism,
-the most important thing is how to identify the number of niches, Miller comed up dynamic niche sharing
-method, and lin developed the method to identify the number of niches in the population.\cite{lin2002niche}
+Sharing mechanism is first introduced by Holland \cite{miller1996genetic} to
+reduce the fitness of similar individual in the population and increase the
+diversity of the population. For Sharing mechanism, the most important thing is
+how to identify the number of niches, Miller comed up dynamic niche sharing
+method, and lin developed the method to identify the number of niches in the
+population.\cite{lin2002niche}
 
 \subsection{Shareing Issue}
-The problem within sharing mechanism is how to identiy the range of parameters in the formula. Given 
-the number of peaks in population,Deb and Goldberg comed up method to set up the appropriate value for 
-$\sigma_{sh}$, however,in many problems, the number of peaks is difficult to identify, and more often,
-the fitness is discrete. So it is important to determine these parameters properly.
+The problem within sharing mechanism is how to identiy the range of parameters
+in the formula. Given the number of peaks in population,Deb and Goldberg comed
+up method to set up the appropriate value for $\sigma_{sh}$, however,in many
+problems, the number of peaks is difficult to identify, and more often, the
+fitness is discrete. So it is important to determine these parameters properly.
 \begin{equation}
 s h\left(d_{i, j}\right)=\left\{\begin{array}{ll}{1-\left(\frac{d_{i, j}}{\sigma_{s h}}\right)^{\alpha_{s h}}} 
     & {\text { if } d_{i, j}<\sigma_{s h}} \\ 
@@ -149,8 +167,8 @@ $$
                               & = 0, \quad \text { otherwise }
 \end{aligned}
 $$
-where $d$ denotes distance between two strings, $\alpha$ is a contant number, $\sigma_{\text {share}}$ 
-is also a constant number.
+where $d$ denotes distance between two strings, $\alpha$ is a contant number,
+$\sigma_{\text {share}}$ is also a constant number.
 
 define share fitness $f_i^{\prime}$ as the following
 
@@ -168,19 +186,20 @@ where $m_i^{\prime}$ indicates niche count,
 d_{ij} = d(x_i,x_j)
 \end{equation}
 
-There are three factors which influence the performance of GAs, which are metric space and two constant numbers.
-Metric space is one of the most important factors which influence the effect of GA. 
-Suppose $x_i$ and $x_j$ denotes two different string in the population. Given the metric space $(M,d)$,
-metric function $d$ is:
-$$d: M\times M \rightarrow R$$
-
-This can be divided into the following three steps, the first is the normalization of metric space.
+There are three factors which influence the performance of GAs, which are metric
+space and two constant numbers.  Metric space is one of the most important
+factors which influence the effect of GA.  Suppose $x_i$ and $x_j$ denotes two
+different string in the population. Given the metric space $(M,d)$, metric
+function $d$ is: $$d: M\times M \rightarrow R$$
+This can be divided into the following three steps, the first is the
+normalization of metric space.
 
 1: Metric Normalization
 
-In order to discuss the influence of different parameters, the normalization of metric distance is 
-necessary, suppose $d_{max}$ means the longest distance between two strings in the population, So the 
-distance can be normalized by the following formula:
+In order to discuss the influence of different parameters, the normalization of
+metric distance is necessary, suppose $d_{max}$ means the longest distance
+between two strings in the population, So the distance can be normalized by the
+following formula:
 \begin{equation}
 d_{norm} = \frac{d_i}{d_{max}}
 \end{equation}
@@ -193,9 +212,10 @@ After normalization the distance between any two points is:
 
 2: Define Tensor
 
-Define $D$ and $D^{\ast}$ as the basic metric space and dual metric space, which can be used as the 
-basic building block to define all the metric space, and a tensor with $r$ basic metric space and
-$q$ dual metric space is defined as by the formula:
+Define $D$ and $D^{\ast}$ as the basic metric space and dual metric space, which
+can be used as the basic building block to define all the metric space, and a
+tensor with $r$ basic metric space and $q$ dual metric space is defined as by
+the formula:
 
 \begin{equation}
     D = |x_i-x_j|
@@ -214,10 +234,11 @@ where $R$ stands for real number.
 3: constant $d_{share}$ in share formula
 
 
-Given the best tensor condition, increase the value of $d_{share}$ to check the influence of d on the 
-search ability of GAs.take the step length $d_{step}=0.5$, after the nomalization of metric space, the
-distance $d_{max}$ between two points in M satisfiy $d_{max}\leq 1$. According to the share function 
-theory, $d_{share}$ needs great then $d_{max}$. So the range of is $\{d_{share}|d > 1\}$
+Given the best tensor condition, increase the value of $d_{share}$ to check the
+influence of d on the search ability of GAs.take the step length $d_{step}=0.5$,
+after the nomalization of metric space, the distance $d_{max}$ between two
+points in M satisfiy $d_{max}\leq 1$. According to the share function theory,
+$d_{share}$ needs great then $d_{max}$. So the range of is $\{d_{share}|d > 1\}$
 
  
 
@@ -227,8 +248,8 @@ theory, $d_{share}$ needs great then $d_{max}$. So the range of is $\{d_{share}|
 \subsection{Experiment Method}
 1. GA
 
-In order to evaluate the impact of the parameters, the mutation process is ignored. The parameters
-of GA is shown in the table \ref{tab:GA}
+In order to evaluate the impact of the parameters, the mutation process is
+ignored. The parameters of GA is shown in the table \ref{tab:GA}
 
 \begin{center}
 \captionof{table}{GA-parameters}
@@ -248,7 +269,8 @@ of GA is shown in the table \ref{tab:GA}
 \end{center}
 
 
-The ith individual in the population converted  from binary to decimal by the following formula:
+The ith individual in the population converted  from binary to decimal by the
+following formula:
 
 \begin{equation}
 x_i=\frac{\sum_{j=1}^{16}2^{j-1}g_i^j}{2^{15}}
@@ -257,32 +279,29 @@ x_i=\frac{\sum_{j=1}^{16}2^{j-1}g_i^j}{2^{15}}
 
 2. Evaluation indexes
 
-To evaluate the performance of GA algorithm, four index are come up. The first evaluation criterion
-is apparent reliability denoted as $R$, which is calulate by the following formula
+To evaluate the performance of GA algorithm, four index are come up. The first
+evaluation criterion is apparent reliability denoted as $R$, which is calulate
+by the following formula
 \begin{equation}
 R = \frac{n}{\text{N}}
 \end{equation}
-$n$ stands for the number of GA finds at least one optimal point, $N$ stands for the number of the 
-runtime of GA.
-
-The second criterion is the normalized cost of GA,denoted as $C_n$,which is calculated by the following
-equation:
+$n$ stands for the number of GA finds at least one optimal point, $N$ stands for
+the number of the runtime of GA.
+The second criterion is the normalized cost of GA,denoted as $C_n$,which is
+calculated by the following equation:
 \begin{equation}
 C_{n} = N_{g}P/R
 \end{equation}
-where P is population size. 
-
-The third criterion is population richness, denoted as $P_{r}$, which is calculated by the following
-formula:
+where P is population size.  The third criterion is population richness, denoted
+as $P_{r}$, which is calculated by the following formula:
 $$
 P_{r} = N/P
 $$
-Population richness is used to denote how many optimal points these GA maintains.
-
-The fourth criterion is the number of best output, denoted by $O_{n}$.
-
-The last criterion is the number of niche, denoted by $N_{n}$, the number of niche can be used to 
-represents the ability of the GA to maintain subpopluation.
+Population richness is used to denote how many optimal points these GA
+maintains.  The fourth criterion is the number of best output, denoted by
+$O_{n}$.  The last criterion is the number of niche, denoted by $N_{n}$, the
+number of niche can be used to represents the ability of the GA to maintain
+subpopluation.
 
 
 \subsection{Result}
@@ -316,10 +335,11 @@ is 1.
 \label{tab:tensor}
 \end{center}
 
-According to the table \ref{tab:tensor}, with the sum of $r+s$ increases, the population richness $P_r$,
-The number of best output $O_n$ and the number of niches $N_n$ decrease,and 
-when $r=1$ and $q=0$,apparent reliability R obtain the maximaize value,GA obtains the best result. 
-as shown in Fig. \ref{fig:sin-result} 
+According to the table \ref{tab:tensor}, with the sum of $r+s$ increases, the
+population richness $P_r$, The number of best output $O_n$ and the number of
+niches $N_n$ decrease,and when $r=1$ and $q=0$,apparent reliability R obtain the
+maximaize value,GA obtains the best result.  as shown in Fig.
+\ref{fig:sin-result} 
 
 \begin{center}
   \includegraphics[width=\linewidth]{GA_images/example-sin-result.png}
@@ -443,9 +463,10 @@ cost is determinted by the following formula.
 
 
 \section{Conclusion}
-In this paper, three variables of sharing function tensor,$d_{share}$,$\sigma$ was analysed.
-The experiment result is measured by five indexes, normalized search cost, population richness, 
-the number of niche number, the number of optima. 
+In this paper, three variables of sharing function tensor,$d_{share}$,$\sigma$
+was analysed.  The experiment result is measured by five indexes, normalized
+search cost, population richness, the number of niche number, the number of
+optima. 
 
 \section{Acknowledgements}
 This is work was supported by China Schloarship Council(CSC).

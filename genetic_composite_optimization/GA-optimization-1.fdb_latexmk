@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex GA-optimization-1"] 1572486052 "GA-optimization-1.aux" "GA-optimization-1.bbl" "GA-optimization-1" 1574051914
+["bibtex GA-optimization-1"] 1572486052 "GA-optimization-1.aux" "GA-optimization-1.bbl" "GA-optimization-1" 1574052560
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1480098435 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "GA-optimization-1.aux" 1572486053 3276 fa9be5ca6a75bc713c4ca85ef9598fb2 ""
+  "GA-optimization-1.aux" 1574052560 3276 fa9be5ca6a75bc713c4ca85ef9598fb2 ""
   "ga-citation-database.bib" 1572341116 2685 8cce404ee4853f3ba0d7be743737b791 ""
   (generated)
-  "GA-optimization-1.blg"
   "GA-optimization-1.bbl"
-["pdflatex"] 1572486052 "GA-optimization-1.tex" "GA-optimization-1.pdf" "GA-optimization-1" 1574051914
+  "GA-optimization-1.blg"
+["pdflatex"] 1574052558 "GA-optimization-1.tex" "GA-optimization-1.pdf" "GA-optimization-1" 1574052560
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1480098689 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -206,9 +206,9 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1523934492 2717033 f61a5287d9c22a39a74f1979fe3f905c ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1543314305 4220281 55387d130e429795b9ce1e6c6d6351bb ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "GA-optimization-1.aux" 1572486053 3276 fa9be5ca6a75bc713c4ca85ef9598fb2 ""
+  "GA-optimization-1.aux" 1574052560 3276 fa9be5ca6a75bc713c4ca85ef9598fb2 ""
   "GA-optimization-1.bbl" 1572486052 2743 0df63e308cd74d5d59e968a464d0c267 "bibtex GA-optimization-1"
-  "GA-optimization-1.tex" 1572486107 18027 896703643bae4639b546ff6c48cc5cc2 ""
+  "GA-optimization-1.tex" 1574052553 18040 0b133c94ae562603f0b0e415ff07d1b1 ""
   "GA_images/d_constant.png" 1572253711 15392 f1b9b47e5856a1ef40549aba796df1aa ""
   "GA_images/example-cos-result.png" 1572072288 21930 e3a5179de013a16da0ed31fcf0a6ca86 ""
   "GA_images/example-sin-result.png" 1572073052 21791 dcfa2c36206cbe7c7246e235681ce27c ""
@@ -216,6 +216,6 @@
   "svglov3.clo" 1261106714 3809 f8e29af71acd1bd1b2a58b6166058c66 ""
   "svjour3.cls" 1526259428 47679 993de5be39389e8a2c40c32e48f0687c ""
   (generated)
-  "GA-optimization-1.log"
-  "GA-optimization-1.pdf"
   "GA-optimization-1.aux"
+  "GA-optimization-1.pdf"
+  "GA-optimization-1.log"
