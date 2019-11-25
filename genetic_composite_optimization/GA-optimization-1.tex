@@ -1,8 +1,7 @@
 \RequirePackage{fix-cm}
 \documentclass[smallextended]{svjour3}       % onecolumn (second format)
 \smartqed  % flush right qed marks, e.g. at end of proof
-\usepackage{graphicx,multicol,lipsum,caption,authblk}
-\usepackage{amsmath,booktabs,verbatim,tikz}
+\usepackage{graphicx,multicol,lipsum,caption,authblk} \usepackage{amsmath,booktabs,verbatim,tikz}
 \usepackage{geometry,pgf,pgfplots,}
 \usepackage{mathptmx}
 \usetikzlibrary{shapes.geometric, arrows,positioning,matrix,calc}
@@ -50,24 +49,16 @@
 \section{Introduction}
 Genetic algorithms (GAs) are first introduced in 1975 by
 Holland\cite{sampson1976adaptation}, because of its powerful search ability,
-which was widely been used to solve many search problems. Compared with other
-random search algorithm, for example, particle swarm optimization, ant colony
-optimization, and simulated annealing algorithm\cite{zabinsky2010random}, GAs
-are not easily trapped in local optima,Traditional GAs has been to successfully
-find the optimal value in the domain for unimodal problems, however, sometimes,
-not only the optimal point but also the secondary important point is needed.
+which was widely been used to solve many search, optimiation, and classification
+problem. Compared with other random search algorithm, for example, particle
+swarm optimization, ant colony optimization, and simulated annealing
+algorithm\cite{zabinsky2010random}, GAs are not easily trapped in local optima,
+and obtain the global optimal.  Traditional GAs has been to successfully find
+the optimal value in the domain for unimodal problems, however, sometimes, not
+only the optimal point but also the secondary important point is needed.
 Because of its search rule, traditional GAs are failed to maintain the
 information for a multimodal problem.
 
-\subsection{Multimodal Optimization}
-Because GA select the best individual according to their fitness, so the GA
-converges quickly to find the global optimal value. Howerver, In order to deal
-with the multimodal problem, It is significant to maintain the diversity of the
-population.  There are several methods to achieve this target,which are
-Crowding, Deterministic Crowding and Sharing methods.  share
-Function\cite{goldberg1987genetic}. In this paper, the share function mechanism
-is studied. share function introduces cooperation into the process of GA, which
-simulates the 
 
 \subsection{Genetic Algorithm Procedure}
 According to Darwin natural evolution theory, the one who fits the environment
@@ -79,12 +70,16 @@ fields for multimodal problems. The procedure diagram of GA as shown in figure
  
 \subsection{Parent Selection}
 Selection is the most important step of GA algorithm which decides the diversity
-of the population.  To improve the search ability and reduce the search cost,
+of the population. In the step, if the selection pressure increase, the converge
+speed of the population increase, however, the diversity of the dopulation
+decrease. To improve the search ability and reduce the search cost,
 many selection methods \cite{goldberg1991comparative} has been invented,the
 selection schemes can be divided into four classes which are proportionate
 reproduction, ranking selection, tournament selection and Genitor(or "steady
 state") selection.In this paper, to maintain a stable subpopulation for
-multimodel problems,the stochastic remainer algorithm is used for experiment.
+multimodel problems,the stochastic remainer algorithm is used for experiment,
+stochastic remainder algorithm is one of proportional selection method according
+to corresponding fitness.
 
 \subsection{Parents Crossover}
 According to the selected parents, crossover is used to generate the offspring,
@@ -99,6 +94,17 @@ parents randomly changed.  The process are used to provide new evolution
 direction and information for the population, the parameters has during this
 process has been well researched by Schaffer\cite{schaffer1989study}.  
 
+
+\subsection{Niched Mechanism}
+Niched mechanism simulates another natural process of subpopulation in the
+evolutionary process, and introduce the concept niches which means sharing
+resource.  Because GA select the best individual according to their fitness, so
+the GA converges quickly to find the global optimal value. Howerver, In order to
+deal with the multimodal problem, It is significant to maintain the diversity of
+the population.  Niched mechanism simulates the There are several methods to
+achieve this target,which are Crowding, Deterministic Crowding and Sharing
+methods.  share Function\cite{goldberg1987genetic}. In this paper, the
+parameters of share function is studied. 
 \begin{center}
 \begin{tikzpicture}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=1.0cm,minimum height=0.6cm, 
@@ -315,21 +321,16 @@ The experiment result in the table \ref{tab:tensor}, with $d_share$ equals 2 and
 is 1.
 
 \begin{center}
-\captionof{table}{Tensor Parameter}
+    \captionof{table}{$\alpha_{sh}$}
 \begin{tabular}{cccccc}
 	\toprule
-    tensor & $R$ & $C$ & $O_{n}$ & $P_{r}$ & $N_{n}$\\
+    $\alpha_{sh}$& $R$ & $C$ & $O_{n}$ & $P_{r}$ & $N_{n}$\\
 	\midrule
-    $t(1,0)$ & 0.99 & 2020 & 5.1 & 11.84 & 5.12 \\
-    $t(0,1)$ & 0.97 & 2051 & 3.83 & 7.32 & 4.0 \\
-    $t(1,1)$ & 0.82 & 2439 & 1.9 & 3.9 & 2.46 \\
-    $t(0,2)$ & 0.86 & 2339 & 1.94 & 3.77 & 2.34 \\
-    $t(1,2)$ & 0.94 & 2127 & 2.06 & 3.58 & 2.34 \\
-    $t(2,2)$ & 0.82 & 2439 & 1.84 & 3.24 & 2.30 \\
-    $t(0,3)$ & 0.89 & 2234 & 1.89 & 3.46 & 2.25 \\
-    $t(1,3)$ & 0.89 & 2272 & 1.72 & 3.38 & 2.22 \\
-    $t(2,3)$ & 0.90 & 2222 & 1.86 & 3.40 & 2.20 \\
-    $t(3,3)$ & 0.94 & 2127 & 1.96 & 3.24 & 2.10 \\
+    1/3  & 0.96  & 2094.24 & 3.21 & 10.82  & 4.50 \\
+    1/2  & 0.93  & 2150.54 & 3.08 & 9.26  & 4.41 \\
+    1    & 0.96  & 2094.24 & 3.29 & 7.76  & 4.47 \\
+    2    & 0.95  & 2116.40 & 3.04 & 7.13 & 4.47 \\
+    3    & 0.93  & 2150.53 & 2.48 & 6.99 & 4.40 \\
 	\bottomrule
 \end{tabular}
 \label{tab:tensor}
@@ -347,7 +348,7 @@ maximaize value,GA obtains the best result.  as shown in Fig.
   \label{fig:sin-result}
 \end{center}
 
-2. constant influence under tensor $t(1,0)$
+2. niche radius influence under tensor $t(1,0)$
 
 Because $t(1,0)$ obtain the best search result,
 
@@ -355,7 +356,7 @@ Because $t(1,0)$ obtain the best search result,
 \captionof{table}{$d_{share}$ parameter}
 \begin{tabular}{cccccc}
 	\toprule
-    $d_{share}$ & $R$ & $C$ & $O_{n}$ & $P_{r}$ & $N_{n}$\\
+    $r_{niche}$ & $R$ & $C$ & $O_{n}$ & $P_{r}$ & $N_{n}$\\
 	\midrule
     1.1 & 0.98 & 2040 & 4.08 & 12.24 & 5.42 \\
     1.6 & 0.98 & 2040 & 5.10 & 13.36 & 5.52 \\
@@ -371,7 +372,7 @@ Because $t(1,0)$ obtain the best search result,
 
 \begin{center}
   \includegraphics[width=\linewidth]{GA_images/d_constant.png}
-  \captionof{figure}{metric denominator}
+  \captionof{figure}{niche radius}
   \label{fig:d-share}
 \end{center}
 
@@ -407,13 +408,13 @@ The GA performed the best.
 
 Example 2:
 
-%$$
-%\mathrm{f}_{2}(\mathrm{x})=\mathrm{f}_{1}(\mathrm{x}) \cdot \mathrm{e}^{\left[-4 \ln 2 \frac{(\mathrm{x}-0.086)^{2}}{0.8^{2}}\right]}
-%$$
+$$
+\mathrm{f}_{2}(\mathrm{x})=\mathrm{f}_{1}(\mathrm{x}) \cdot \mathrm{e}^{\left[-4 \ln 2 \frac{(\mathrm{x}-0.086)^{2}}{0.8^{2}}\right]}
+$$
 
-$$
-f_{1}(x)=\cos^{6}(5.1 \pi x+.5)
-$$
+%$$
+%f_{1}(x)=\cos^{6}(5.1 \pi x+.5)
+%$$
 
 
 \captionof{table}{Metric Space Example}
@@ -436,7 +437,7 @@ $$
 
 
 \begin{center}
-  \includegraphics[width=\linewidth]{GA_images/example-cos-result.png}
+  \includegraphics[width=\linewidth]{GA_images/example-transtandal-sin-result.png}
   \captionof{figure}{Result 2}
 \end{center}
 
@@ -457,6 +458,21 @@ $$
 	\bottomrule
 \end{tabular}
 
+\captionof{table}{$\alpha_{sh}$}
+\begin{tabular}{cccccc}
+	\toprule
+    $\alpha_{sh}$ & $R$ & $C$ & $O_{n}$ & $P_{r}$ & $N_{n}$\\
+	\midrule
+    1/2 & 0.92 & 2173 & 2.82 & 5.36 & 3.12 \\
+    1/3 & 0.92 & 2173 & 4.02 & 6.52 & 3.16 \\
+    1.0 & 0.94 & 2127 & 3.66 & 5.32 & 3.14 \\
+    2.0 & 0.94 & 2127 & 3.76 & 5.36 & 3.18 \\
+    3.0 & 0.98 & 2083 & 3.14 & 5.32 & 3.14 \\
+    4.0 & 0.92 & 2173 & 3.48 & 5.28 & 3.12 \\
+	\bottomrule
+\end{tabular}
+\\
+\\
 Four evaluation criteria are used. 
 The first is normalized cost per genetic search, $$C_{n}$$
 cost is determinted by the following formula.

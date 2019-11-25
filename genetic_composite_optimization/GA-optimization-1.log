@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.27)  18 NOV 2019 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.27)  25 NOV 2019 14:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -652,21 +652,21 @@ Package: notoccite 2000/07/20
 ) (./GA-optimization-1.aux)
 \openout1 = `GA-optimization-1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 13.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -771,78 +771,79 @@ ABD: EveryShipout initializing macros
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.16} into your preamble.
- on input line 14.
+ on input line 13.
 
 SVJour3 warning: Missing \journalname
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 31.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 32.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 31.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 32.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 31.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 32.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 31.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 
 
-Package mathptmx Warning: There are no bold math fonts on input line 32.
+Package mathptmx Warning: There are no bold math fonts on input line 31.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
-
-Package multicol Warning: I moved some lines to the next page.
-(multicol)                Footnotes on page 1 might be wrong on input line 84.
-
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
 <GA_images/example-sin-result.png, id=24, 373.395pt x 248.93pt>
 File: GA_images/example-sin-result.png Graphic file (type png)
 <use GA_images/example-sin-result.png>
-Package pdftex.def Info: GA_images/example-sin-result.png  used on input line 341.
+Package pdftex.def Info: GA_images/example-sin-result.png  used on input line 351.
 (pdftex.def)             Requested size: 199.49677pt x 132.9958pt.
 <GA_images/d_constant.png, id=26, 425.59pt x 275.0275pt>
 File: GA_images/d_constant.png Graphic file (type png)
 <use GA_images/d_constant.png>
-Package pdftex.def Info: GA_images/d_constant.png  used on input line 369.
+Package pdftex.def Info: GA_images/d_constant.png  used on input line 379.
 (pdftex.def)             Requested size: 199.49677pt x 128.92302pt.
  [4 <./GA_images/example-sin-result.png> <./GA_images/d_constant.png>]
 <GA_images/sigma-parameter.png, id=32, 425.59pt x 271.0125pt>
 File: GA_images/sigma-parameter.png Graphic file (type png)
 <use GA_images/sigma-parameter.png>
-Package pdftex.def Info: GA_images/sigma-parameter.png  used on input line 399.
+Package pdftex.def Info: GA_images/sigma-parameter.png  used on input line 409.
 (pdftex.def)             Requested size: 199.49677pt x 127.04092pt.
-<GA_images/example-cos-result.png, id=33, 373.395pt x 248.93pt>
-File: GA_images/example-cos-result.png Graphic file (type png)
-<use GA_images/example-cos-result.png>
-Package pdftex.def Info: GA_images/example-cos-result.png  used on input line 435.
+<GA_images/example-transtandal-sin-result.png, id=33, 373.395pt x 248.93pt>
+File: GA_images/example-transtandal-sin-result.png Graphic file (type png)
+<use GA_images/example-transtandal-sin-result.png>
+Package pdftex.def Info: GA_images/example-transtandal-sin-result.png  used on input line 445.
 (pdftex.def)             Requested size: 199.49677pt x 132.9958pt.
- (./GA-optimization-1.bbl [5 <./GA_images/sigma-parameter.png> <./GA_images/example-cos-result.png>]) [6] (./GA-optimization-1.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--482
+
+ []
+
+(./GA-optimization-1.bbl [5 <./GA_images/sigma-parameter.png> <./GA_images/example-transtandal-sin-result.png>]) [6] (./GA-optimization-1.aux) ) 
 Here is how much of TeX's memory you used:
- 26459 strings out of 492649
- 662189 string characters out of 6129621
+ 26467 strings out of 492649
+ 662292 string characters out of 6129621
  925906 words of memory out of 5000000
  29865 multiletter control sequences out of 15000+600000
- 33026 words of font info for 71 fonts, out of 8000000 for 9000
+ 35934 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,96p,734b,753s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on GA-optimization-1.pdf (6 pages, 171216 bytes).
+Output written on GA-optimization-1.pdf (6 pages, 157648 bytes).
 PDF statistics:
  72 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream

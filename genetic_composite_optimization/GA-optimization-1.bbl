@@ -15,14 +15,6 @@ Zelda~B Zabinsky.
 \newblock \emph{Wiley Encyclopedia of Operations Research and Management
   Science}, 2010.
 
-\bibitem[Goldberg et~al.(1987)Goldberg, Richardson,
-  et~al.]{goldberg1987genetic}
-David~E Goldberg, Jon Richardson, et~al.
-\newblock Genetic algorithms with sharing for multimodal function optimization.
-\newblock In \emph{Genetic algorithms and their applications: Proceedings of
-  the Second International Conference on Genetic Algorithms}, pages 41--49.
-  Hillsdale, NJ: Lawrence Erlbaum, 1987.
-
 \bibitem[Goldberg and Deb(1991)]{goldberg1991comparative}
 David~E Goldberg and Kalyanmoy Deb.
 \newblock A comparative analysis of selection schemes used in genetic
@@ -50,6 +42,14 @@ JDAR Schaffer.
 \newblock A study of control parameters affecting online performance of genetic
   algorithms for function optimization.
 \newblock \emph{San Meteo, California}, 1989.
+
+\bibitem[Goldberg et~al.(1987)Goldberg, Richardson,
+  et~al.]{goldberg1987genetic}
+David~E Goldberg, Jon Richardson, et~al.
+\newblock Genetic algorithms with sharing for multimodal function optimization.
+\newblock In \emph{Genetic algorithms and their applications: Proceedings of
+  the Second International Conference on Genetic Algorithms}, pages 41--49.
+  Hillsdale, NJ: Lawrence Erlbaum, 1987.
 
 \bibitem[Miller and Shaw(1996)]{miller1996genetic}
 Brad~L Miller and Michael~J Shaw.
