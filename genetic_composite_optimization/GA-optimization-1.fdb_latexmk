@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex GA-optimization-1"] 1574658899 "GA-optimization-1.aux" "GA-optimization-1.bbl" "GA-optimization-1" 1574658901
+["bibtex GA-optimization-1"] 1574658899 "GA-optimization-1.aux" "GA-optimization-1.bbl" "GA-optimization-1" 1574740144
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1480098435 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "GA-optimization-1.aux" 1574658900 3351 6f94511873b37257286c490c3e51ce42 ""
+  "GA-optimization-1.aux" 1574740143 3351 6f94511873b37257286c490c3e51ce42 ""
   "ga-citation-database.bib" 1572341116 2685 8cce404ee4853f3ba0d7be743737b791 ""
   (generated)
-  "GA-optimization-1.blg"
   "GA-optimization-1.bbl"
-["pdflatex"] 1574658899 "GA-optimization-1.tex" "GA-optimization-1.pdf" "GA-optimization-1" 1574658901
+  "GA-optimization-1.blg"
+["pdflatex"] 1574740141 "GA-optimization-1.tex" "GA-optimization-1.pdf" "GA-optimization-1" 1574740144
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1480098689 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -206,9 +206,9 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1523934492 2717033 f61a5287d9c22a39a74f1979fe3f905c ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1543314305 4220281 55387d130e429795b9ce1e6c6d6351bb ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "GA-optimization-1.aux" 1574658900 3351 6f94511873b37257286c490c3e51ce42 ""
+  "GA-optimization-1.aux" 1574740143 3351 6f94511873b37257286c490c3e51ce42 ""
   "GA-optimization-1.bbl" 1574658899 2743 200bba4cd597085114664f8189f707d8 "bibtex GA-optimization-1"
-  "GA-optimization-1.tex" 1574658896 19189 b582557afa925f913c5803fb92fcd33f ""
+  "GA-optimization-1.tex" 1574675820 18942 5b15099b7651cd1b21e0a4d2348bae01 ""
   "GA_images/d_constant.png" 1572253711 15392 f1b9b47e5856a1ef40549aba796df1aa ""
   "GA_images/example-sin-result.png" 1574654541 17060 0851a1200dda4b38aa7b31209483fd10 ""
   "GA_images/example-transtandal-sin-result.png" 1574647914 13557 1acf41e3f72ef2c1a6a346f56a014c77 ""
