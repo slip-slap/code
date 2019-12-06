@@ -1,0 +1,68 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Sampson(1976)]{sampson1976adaptation}
+Jeffrey~R Sampson.
+\newblock Adaptation in natural and artificial systems (john h. holland), 1976.
+
+\bibitem[Zabinsky(2010)]{zabinsky2010random}
+Zelda~B Zabinsky.
+\newblock Random search algorithms.
+\newblock \emph{Wiley Encyclopedia of Operations Research and Management
+  Science}, 2010.
+
+\bibitem[Goldberg and Deb(1991)]{goldberg1991comparative}
+David~E Goldberg and Kalyanmoy Deb.
+\newblock A comparative analysis of selection schemes used in genetic
+  algorithms.
+\newblock In \emph{Foundations of genetic algorithms}, volume~1, pages 69--93.
+  Elsevier, 1991.
+
+\bibitem[Ahmed(2010)]{ahmed2010genetic}
+Zakir~H Ahmed.
+\newblock Genetic algorithm for the traveling salesman problem using sequential
+  constructive crossover operator.
+\newblock \emph{International Journal of Biometrics \& Bioinformatics (IJBB)},
+  3\penalty0 (6):\penalty0 96, 2010.
+
+\bibitem[Nebro et~al.(2009)Nebro, Durillo, Luna, Dorronsoro, and
+  Alba]{nebro2009mocell}
+Antonio~J Nebro, Juan~J Durillo, Francisco Luna, Bernab{\'e} Dorronsoro, and
+  Enrique Alba.
+\newblock Mocell: A cellular genetic algorithm for multiobjective optimization.
+\newblock \emph{International Journal of Intelligent Systems}, 24\penalty0
+  (7):\penalty0 726--746, 2009.
+
+\bibitem[Schaffer(1989)]{schaffer1989study}
+JDAR Schaffer.
+\newblock A study of control parameters affecting online performance of genetic
+  algorithms for function optimization.
+\newblock \emph{San Meteo, California}, 1989.
+
+\bibitem[Goldberg et~al.(1987)Goldberg, Richardson,
+  et~al.]{goldberg1987genetic}
+David~E Goldberg, Jon Richardson, et~al.
+\newblock Genetic algorithms with sharing for multimodal function optimization.
+\newblock In \emph{Genetic algorithms and their applications: Proceedings of
+  the Second International Conference on Genetic Algorithms}, pages 41--49.
+  Hillsdale, NJ: Lawrence Erlbaum, 1987.
+
+\bibitem[Miller and Shaw(1996)]{miller1996genetic}
+Brad~L Miller and Michael~J Shaw.
+\newblock Genetic algorithms with dynamic niche sharing for multimodal function
+  optimization.
+\newblock In \emph{Proceedings of IEEE international conference on evolutionary
+  computation}, pages 786--791. IEEE, 1996.
+
+\bibitem[Lin and Wu(2002)]{lin2002niche}
+Chyi-Yeu Lin and Wen-Hong Wu.
+\newblock Niche identification techniques in multimodal genetic search with
+  sharing scheme.
+\newblock \emph{Advances in Engineering Software}, 33\penalty0
+  (11-12):\penalty0 779--791, 2002.
+
+\end{thebibliography}
