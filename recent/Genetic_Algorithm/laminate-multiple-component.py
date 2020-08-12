@@ -274,12 +274,13 @@ def get_failure_lamina(lamina_stress_strain,material_list):
 get first ply failure load and last ply failure load
 """
 def get_FPF_and_LPF():
-    angle = [0, np.pi/2, np.pi/2, 0]
     angle = [np.pi/4,np.pi/4,np.pi/4,np.pi/4]
     angle = [np.pi/4, -np.pi/4, -np.pi/4, np.pi/4]
+    angle = [0, np.pi/2, 0]
+    angle = [0, np.pi/2, np.pi/2, 0]
     height=[0.005] * 4 
     load=[1,0,0,0,0,0]
-    material=[GRAPHITE_EPOXY] * 4
+    material=[GRAPHITE_EPOXY] * 4 
 
     laminate_stiffness = calc_laminate_stiffness_matrice(angle,height,material)
     midplane_strain_and_curvature = \
@@ -287,6 +288,8 @@ def get_FPF_and_LPF():
     stress_and_strain_of_every_lamina = calc_each_lamina_stress_and_strain(midplane_strain_and_curvature,angle, \
                             height,material)
     LPF_and_FPF = get_failure_lamina(stress_and_strain_of_every_lamina,material)
+
+    FPF = LPF_and_FPF['min_strenght_ratio']
     while(LPF_and_FPF["max_strength_ratio"] > LPF_and_FPF["min_strenght_ratio"]):
         pos_1 = LPF_and_FPF['failure_lamina_pos']
         pos_2 = len(angle) - 1 - pos_1
@@ -303,6 +306,10 @@ def get_FPF_and_LPF():
         stress_and_strain_of_every_lamina = calc_each_lamina_stress_and_strain(midplane_strain_and_curvature,angle, \
                                 height,material)
         LPF_and_FPF = get_failure_lamina(stress_and_strain_of_every_lamina,material)
+
+    LPF = LPF_and_FPF['min_strenght_ratio']
+    laminate_efficiency = np.divide(FPF, LPF)
+    print("laminate efficiency" + str(laminate_efficiency))
 
 
 # 0 1 2 correspond to 0 -45/45 90
@@ -359,12 +366,13 @@ if __name__=='__main__':
     """
     #Q = calc_lamina_stiffness_matrix_Q()
     #angle_Q = calc_lamina_stiffness_matriceQ_with_angle_theta(Q,theta = -np.pi/4)
-    #get_FPF_and_LPF()
+    get_FPF_and_LPF()
     #angle = get_possible_combination([0,np.pi/2,np.pi/2],1)
     #angle = get_possible_combination([np.pi/3, -np.pi/3],4)
     #angle = get_possible_combination([np.pi/3, -np.pi/3],5)
     #angle = get_possible_combination([np.pi/4, -np.pi/4,np.pi/4, -np.pi/4, \
     #    np.pi/3, -np.pi/3, np.pi/3, -np.pi/3,  np.pi/3, -np.pi/3, ],1)
+    """
     #angle = [0] * 100
     #angle = [np.pi/4,np.pi/4,np.pi/4,np.pi/4]
     angle = [0, np.pi/2,np.pi/2,np.pi/2,np.pi/2,0]
@@ -384,10 +392,4 @@ if __name__=='__main__':
                             height,material)
     a = get_failure_lamina(stress_and_strain_of_every_lamina,material)
     print(a)
-
-
-
-
-
-
-
+    """
