@@ -365,13 +365,14 @@ if __name__=='__main__':
     #angle = get_possible_combination([np.pi/3, -np.pi/3],5)
     #angle = get_possible_combination([np.pi/4, -np.pi/4,np.pi/4, -np.pi/4, \
     #    np.pi/3, -np.pi/3, np.pi/3, -np.pi/3,  np.pi/3, -np.pi/3, ],1)
-    angle = [0]
+    #angle = [0] * 100
     #angle = [np.pi/4,np.pi/4,np.pi/4,np.pi/4]
-    #angle = [0, np.pi/2,np.pi/2,np.pi/2,np.pi/2,0]
-    height=[0.000125] * 1  
-    load=[0,0,0,0.02891343,0,0]
-    #material = [GRAPHITE_EPOXY] * 4 
-    material=[GLASS_EPOXY] * 1 
+    angle = [0, np.pi/2,np.pi/2,np.pi/2,np.pi/2,0]
+    height=[0.000125] * 6  
+    #load=[0,0,0,0.02891343,0,0]
+    load=[0.02343858,0.02343858*2,0,0,0,0]
+    material = [GRAPHITE_EPOXY] * 6 
+    #material=[GRAPHITE_EPOXY] * 17 + [GLASS_EPOXY] * 66 + [GRAPHITE_EPOXY] * 17 
     #material = [GRAPHITE_EPOXY,GLASS_EPOXY,GLASS_EPOXY,GRAPHITE_EPOXY]
 
     laminate_stiffness = calc_laminate_stiffness_matrice(angle,height,material)
@@ -381,7 +382,8 @@ if __name__=='__main__':
     #coordinate_list = get_height_coordinate_list()
     stress_and_strain_of_every_lamina = calc_each_lamina_stress_and_strain(midplane_strain_and_curvature,angle, \
                             height,material)
-    get_failure_lamina(stress_and_strain_of_every_lamina,material)
+    a = get_failure_lamina(stress_and_strain_of_every_lamina,material)
+    print(a)
 
 
 
