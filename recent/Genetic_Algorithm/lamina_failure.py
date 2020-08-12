@@ -37,8 +37,8 @@ GRAPHITE_EPOXY_PROPERTIES  = {"E1":181,  "E2":10.3, "v12":0.28,  "G12":7.17 }
 
 def maximum_strain_failure_theory(component, material):
     if(material == GLASS_EPOXY):
-        global properties
-        global four_elastic_property
+        #global properties
+        #global four_elastic_property
         properties = glass_properties
         four_elastic_property = GLASS_EPOXY_PROPERTIES
     if(material == GRAPHITE_EPOXY):
@@ -86,7 +86,7 @@ local stress sigma_1, sigma_2, tau_12
 def maximum_stress_failure_theory(component, material):
 
     if(material == GLASS_EPOXY):
-        global properties
+        #global properties
         properties = glass_properties
     if(material == GRAPHITE_EPOXY):
         properties = graphite_properties
@@ -127,8 +127,9 @@ argument: sigma1 = 1.714S,sigma2 = -2.714S tau_12 = -4.165S
 component=[1.714, -2.714, -4.165]
 """
 def tsai_wu_failure_theory(component,material):
+
+    #global properties
     if(material == GLASS_EPOXY):
-        global properties
         properties = glass_properties
     if(material == GRAPHITE_EPOXY):
         properties = graphite_properties
@@ -164,7 +165,7 @@ def tsai_wu_failure_theory(component,material):
 
 if __name__ == "__main__":
     #tsai_wu_failure_theory([1.714, -2.714, -4.165],GRAPHITE_EPOXY)
-    #sr = maximum_stress_failure_theory([1.714, -2.714, -4.165],GRAPHITE_EPOXY)
+    sr = maximum_stress_failure_theory([1.714, -2.714, -4.165],GRAPHITE_EPOXY)
     sr = maximum_strain_failure_theory([0.1369,-2.662,-5.809], GRAPHITE_EPOXY)
     print(sr)
 
