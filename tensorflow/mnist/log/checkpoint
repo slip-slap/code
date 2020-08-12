@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/kismet/Desktop/tensorflow/mnist/log/model.ckpt"
+all_model_checkpoint_paths: "/Users/kismet/Desktop/tensorflow/mnist/log/model.ckpt"
