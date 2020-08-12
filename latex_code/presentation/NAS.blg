@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.12
+[0] Config.pm:307> INFO - Logfile is 'NAS.blg'
+[50] biber-darwin:315> INFO - === Sun Jul  5, 2020, 12:19:49
+[78] Biber.pm:371> INFO - Reading 'NAS.bcf'
+[194] Biber.pm:889> INFO - Found 4 citekeys in bib section 0
+[210] Biber.pm:4093> INFO - Processing section 0
+[224] Biber.pm:4254> INFO - Looking for bibtex format file 'NAS.bib' for section 0
+[225] bibtex.pm:1523> INFO - LaTeX decoding ...
+[238] bibtex.pm:1340> INFO - Found BibTeX data source 'NAS.bib'
+[240] Utils.pm:193> WARN - Duplicate entry key: 'liu1996evolutionary' in file 'NAS.bib', skipping ...
+[283] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[283] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[283] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[283] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
+[289] bbl.pm:636> INFO - Writing 'NAS.bbl' with encoding 'UTF-8'
+[291] bbl.pm:739> INFO - Output to NAS.bbl
+[291] Biber.pm:110> INFO - WARNINGS: 1

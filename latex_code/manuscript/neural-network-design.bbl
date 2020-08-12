@@ -1,0 +1,50 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Hopfield(1982)]{hopfield1982neural}
+John~J Hopfield.
+\newblock Neural networks and physical systems with emergent collective
+  computational abilities.
+\newblock \emph{Proceedings of the national academy of sciences}, 79\penalty0
+  (8):\penalty0 2554--2558, 1982.
+
+\bibitem[Grossberg(1976)]{grossberg1976adaptive}
+Stephen Grossberg.
+\newblock Adaptive pattern classification and universal recoding: Ii. feedback,
+  expectation, olfaction, illusions.
+\newblock \emph{Biological cybernetics}, 23\penalty0 (4):\penalty0 187--202,
+  1976.
+
+\bibitem[Murata et~al.(1994)Murata, Yoshizawa, and Amari]{murata1994network}
+Noboru Murata, Shuji Yoshizawa, and Shun-ichi Amari.
+\newblock Network information criterion-determining the number of hidden units
+  for an artificial neural network model.
+\newblock \emph{IEEE transactions on neural networks}, 5\penalty0 (6):\penalty0
+  865--872, 1994.
+
+\bibitem[Demuth et~al.(2014)Demuth, Beale, De~Jess, and
+  Hagan]{demuth2014neural}
+Howard~B Demuth, Mark~H Beale, Orlando De~Jess, and Martin~T Hagan.
+\newblock \emph{Neural network design}.
+\newblock Martin Hagan, 2014.
+
+\bibitem[Goldberg et~al.(1987)Goldberg, Richardson,
+  et~al.]{goldberg1987genetic}
+David~E Goldberg, Jon Richardson, et~al.
+\newblock Genetic algorithms with sharing for multimodal function optimization.
+\newblock In \emph{Genetic algorithms and their applications: Proceedings of
+  the Second International Conference on Genetic Algorithms}, pages 41--49.
+  Hillsdale, NJ: Lawrence Erlbaum, 1987.
+
+\bibitem[Karlik and Olgac(2011)]{karlik2011performance}
+Bekir Karlik and A~Vehbi Olgac.
+\newblock Performance analysis of various activation functions in generalized
+  mlp architectures of neural networks.
+\newblock \emph{International Journal of Artificial Intelligence and Expert
+  Systems}, 1\penalty0 (4):\penalty0 111--122, 2011.
+
+\end{thebibliography}

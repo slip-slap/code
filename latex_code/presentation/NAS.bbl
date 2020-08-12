@@ -1,0 +1,151 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{elsken2018neural}{article}{}
+      \name{author}{3}{}{%
+        {{hash=17831398c93648de0ce8c5bcfbbc9784}{%
+           family={Elsken},
+           familyi={E\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=21923fb486ef4c63bad4c8fcac6cc124}{%
+           family={Metzen},
+           familyi={M\bibinitperiod},
+           given={Jan\bibnamedelima Hendrik},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=528d4af87fd2ecf5fb8a22db913ce088}{%
+           family={Hutter},
+           familyi={H\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{ed1f11ecdd12a620b5f6316dbe235ed3}
+      \strng{fullhash}{ed1f11ecdd12a620b5f6316dbe235ed3}
+      \strng{bibnamehash}{ed1f11ecdd12a620b5f6316dbe235ed3}
+      \strng{authorbibnamehash}{ed1f11ecdd12a620b5f6316dbe235ed3}
+      \strng{authornamehash}{ed1f11ecdd12a620b5f6316dbe235ed3}
+      \strng{authorfullhash}{ed1f11ecdd12a620b5f6316dbe235ed3}
+      \field{sortinit}{E}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1808.05377}
+      \field{title}{Neural architecture search: A survey}
+      \field{year}{2018}
+    \endentry
+    \entry{liu1996evolutionary}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=bc6c6f66f139beef784a50d9f1485019}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=48a347d6ad0f3cf8a1eb79c21b58eb75}{%
+           family={Yao},
+           familyi={Y\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{cb6717639c0db127caaf1376fd88eddb}
+      \strng{fullhash}{cb6717639c0db127caaf1376fd88eddb}
+      \strng{bibnamehash}{cb6717639c0db127caaf1376fd88eddb}
+      \strng{authorbibnamehash}{cb6717639c0db127caaf1376fd88eddb}
+      \strng{authornamehash}{cb6717639c0db127caaf1376fd88eddb}
+      \strng{authorfullhash}{cb6717639c0db127caaf1376fd88eddb}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of IEEE international conference on evolutionary computation}
+      \field{title}{Evolutionary design of artificial neural networks with different nodes}
+      \field{year}{1996}
+      \field{pages}{670\bibrangedash 675}
+      \range{pages}{6}
+    \endentry
+    \entry{miller1989designing}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=773e9c5e07cf8cd723a7f0e841f2bde6}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Geoffrey\bibnamedelima F},
+           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=20c5abe02d87cb3086e223351e44e900}{%
+           family={Todd},
+           familyi={T\bibinitperiod},
+           given={Peter\bibnamedelima M},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=267232ab33b4a24f09ef68407ac2ae1d}{%
+           family={Hegde},
+           familyi={H\bibinitperiod},
+           given={Shailesh\bibnamedelima U},
+           giveni={S\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+      }
+      \strng{namehash}{7df0046b4be7cc029ce702ad24685b51}
+      \strng{fullhash}{7df0046b4be7cc029ce702ad24685b51}
+      \strng{bibnamehash}{7df0046b4be7cc029ce702ad24685b51}
+      \strng{authorbibnamehash}{7df0046b4be7cc029ce702ad24685b51}
+      \strng{authornamehash}{7df0046b4be7cc029ce702ad24685b51}
+      \strng{authorfullhash}{7df0046b4be7cc029ce702ad24685b51}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{ICGA}
+      \field{title}{Designing Neural Networks using Genetic Algorithms.}
+      \field{volume}{89}
+      \field{year}{1989}
+      \field{pages}{379\bibrangedash 384}
+      \range{pages}{6}
+    \endentry
+    \entry{zoph2016neural}{article}{}
+      \name{author}{2}{}{%
+        {{hash=91aafc93e68e8c6a55e8cd804c2acaf2}{%
+           family={Zoph},
+           familyi={Z\bibinitperiod},
+           given={Barret},
+           giveni={B\bibinitperiod}}}%
+        {{hash=c636f146591d51579a8119b777394878}{%
+           family={Le},
+           familyi={L\bibinitperiod},
+           given={Quoc\bibnamedelima V},
+           giveni={Q\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{7b5b7588650936405aaf8743b8edaff2}
+      \strng{fullhash}{7b5b7588650936405aaf8743b8edaff2}
+      \strng{bibnamehash}{7b5b7588650936405aaf8743b8edaff2}
+      \strng{authorbibnamehash}{7b5b7588650936405aaf8743b8edaff2}
+      \strng{authornamehash}{7b5b7588650936405aaf8743b8edaff2}
+      \strng{authorfullhash}{7b5b7588650936405aaf8743b8edaff2}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1611.01578}
+      \field{title}{Neural architecture search with reinforcement learning}
+      \field{year}{2016}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
