@@ -338,8 +338,9 @@ if __name__=='__main__':
     #angle = [np.pi/4,np.pi/4,np.pi/4,np.pi/4]
     #angle = [0, np.pi/2,np.pi/2,np.pi/2,np.pi/2,0]
     angle = [0,np.pi/2,np.pi/2,0]
+    angle = [0,0,0,0]
     # unit is meter
-    height=[0.005]*4  
+    height=[0.000165]*4  
     #load=[0,0,0,0.02891343,0,0]
     #load=[0.02343858,0.02343858*2,0,0,0,0]
     material = [GRAPHITE_EPOXY]*4

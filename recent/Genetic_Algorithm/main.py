@@ -1,9 +1,11 @@
 import individual as ind
 import numpy as np
+import laminate_multiple_component as lmc
+import copy
 
 
 LAMINATELAYER=12
-POPULATION=2
+POPULATION=50
 MUTATION_PROBABILITY=0.8
 CROSSOVER_PROBABLITY=0.8
 ELITIST_PERCENT=0.10
@@ -20,27 +22,38 @@ pop_size = (POPULATION,LAMINATELAYER) # The population will have POPULATION chro
 def get_initial_population():
     initial_population = []
     for i in range(POPULATION):
-        length = int(np.random.randint(low=3,high=10,size=1))
+        length = int(np.random.randint(low=3,high=30,size=1))
         angle_list = []
         height_list = []
         material_list = []
         for k in range(length):
             random_angle_pos = int(np.random.randint(low=0,high=len(ANGLE),size=1))
             angle_list.append(ANGLE[random_angle_pos])
-            height_list.append(0.000125)
+            height_list.append(0.000165)
             material_list.append(MATERIAL[1])
         temp_ind = ind.Individual(angle_list,height_list,material_list)
+        temp_ind.fitness = get_fitness(temp_ind)
         initial_population.append(temp_ind)
+        print(temp_ind.fitness)
 
     return initial_population
 
+def get_symmetry_list(half_list):
+    upper_half = copy.deepcopy(half_list)
+    half_list.reverse()
+    return upper_half + half_list
 
+
+def get_fitness(ind):
+    load = [1,0,0,0,0,0]
+    angle = get_symmetry_list(ind.angle_list)
+    height = get_symmetry_list(ind.height_list)
+    material = get_symmetry_list(ind.material_list)
+    result = lmc.get_strength_ratio_and_weight(angle, height, material, load)
+    return result
 
 
 pop = get_initial_population()
-for i in range(len(pop)):
-    print(pop[i])
-    print('\n')
 
 
 """
