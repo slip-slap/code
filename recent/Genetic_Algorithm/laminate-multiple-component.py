@@ -1,5 +1,6 @@
 import numpy as np
 import lamina_failure as lf
+import lamina_mass_and_cost as lmac
 import copy
 # laminate stiffness matrices[A], [B],  and[D]
 # input argu1 lamiCons: lamination construction
@@ -248,7 +249,7 @@ argument  dictionay result = {'global_strain':[],'global_stress':[], \
                               'local_strain':[], 'local_stress':[]}
 stress and strain of every lamina
 """
-def get_failure_lamina(lamina_stress_strain,material_list):
+def get_failure_lamina_SR_and_pos(lamina_stress_strain,material_list):
     min_strenght_ratio = 10000000000000 
     failure_lamina_pos  = 0
     max_strength_ratio = -10000000
@@ -258,7 +259,7 @@ def get_failure_lamina(lamina_stress_strain,material_list):
         for j in range(len(local_stress[i])):
             SR = lf.tsai_wu_failure_theory(local_stress[i][j],material_list[i])
             #SR = lf.maximum_strain_failure_theory(local_stress[i][j],material_list[i])
-            print(SR)
+            #print(SR)
             if(min_strenght_ratio > SR):
                 min_strenght_ratio = SR
                 failure_lamina_pos = i
@@ -287,7 +288,7 @@ def get_FPF_and_LPF():
                  calc_midplane_strain_and_curvature(laminate_stiffness,load)
     stress_and_strain_of_every_lamina = calc_each_lamina_stress_and_strain(midplane_strain_and_curvature,angle, \
                             height,material)
-    LPF_and_FPF = get_failure_lamina(stress_and_strain_of_every_lamina,material)
+    LPF_and_FPF = get_failure_lamina_SR_and_pos(stress_and_strain_of_every_lamina,material)
 
     FPF = LPF_and_FPF['min_strenght_ratio']
     while(LPF_and_FPF["max_strength_ratio"] > LPF_and_FPF["min_strenght_ratio"]):
@@ -305,91 +306,49 @@ def get_FPF_and_LPF():
                      calc_midplane_strain_and_curvature(laminate_stiffness,load)
         stress_and_strain_of_every_lamina = calc_each_lamina_stress_and_strain(midplane_strain_and_curvature,angle, \
                                 height,material)
-        LPF_and_FPF = get_failure_lamina(stress_and_strain_of_every_lamina,material)
+        LPF_and_FPF = get_failure_lamina_SR_and_pos(stress_and_strain_of_every_lamina,material)
 
     LPF = LPF_and_FPF['min_strenght_ratio']
     laminate_efficiency = np.divide(FPF, LPF)
     print("laminate efficiency" + str(laminate_efficiency))
 
+def get_strength_ratio_and_weight(angle, height, material, load):
+    laminate_stiffness = calc_laminate_stiffness_matrice(angle,height,material)
+    midplane_strain_and_curvature = \
+                 calc_midplane_strain_and_curvature(laminate_stiffness,load)
+    stress_and_strain_of_every_lamina = calc_each_lamina_stress_and_strain(midplane_strain_and_curvature,angle, \
+                            height,material)
+    sr_and_pos = get_failure_lamina_SR_and_pos(stress_and_strain_of_every_lamina,material)
+    min_strength_ratio = sr_and_pos['min_strenght_ratio']
+    mass = lmac.get_laminate_mass(height,material)
 
-# 0 1 2 correspond to 0 -45/45 90
-def angle_decoder(population=np.random.randint(low=0, high=3, size=(24, 12))):
-    population=population.astype(np.float)
-    for i in range(0, population.shape[0]):
-        for j in range(0, population[i, :].size):
-            if population[i][j]==0:
-                population[i][j]=0
-            elif population[i][j]==2:
-                population[i][j]=np.pi/2
-            elif population[i][j]==1 and j%2==0 :
-                population[i][j]=np.pi/4
-            else:
-                population[i][j]=-np.pi/4
-
-    return population
-
-
-#get population fitness
-def get_population_fitness(population):
-    lamiCons={'angle':np.zeros((1, 2)), 'height':np.zeros((1, 2))}
-    lamiCons['height']=np.array([[0.30509, 0.30509, 0.30509, 0.30509, 0.30509, 0.30509, 0.30509, 0.30509, 0.30509, 0.30509, 0.30509, 0.30509]])
-    fitList=[]
-    afterDecodePopulation=angle_decoder(population)
-    for i in range(0, afterDecodePopulation.shape[0]):
-        lamiCons['angle']=afterDecodePopulation[i, :].reshape(1, -1)
-        stiff=calc_stiffness_matrices(lamiCons)
-        strain=calc_strain(np.array([[200, 50, 0, 0, 0, 0]]), stiff)
-        eachLayerStressLTList=calc_each_layer_stress(lamiCons, strain[0:3])
-        R=fitness(eachLayerStressLTList)
-        fitList.append(1/R)
-    result=np.array(fitList)
-    return result
-
-def get_possible_combination(basic_unit,repeat_times):
-    temp = basic_unit * repeat_times
-    symmetry_upper_part = copy.deepcopy(temp)
-    temp.reverse()
-    return symmetry_upper_part + temp
+    return {'SR':min_strength_ratio,'mass':mass}
 
 
 if __name__=='__main__':
-    """
-    population=np.random.randint(low=0, high=3, size=(1, 12))
-    population[0, :]=[0, 1, 1, 2, 0, 1, 2, 0, 0, 0, 1, 1]
-    population[1, :]=[1, 0, 0, 1, 1, 0, 2, 1, 0, 1, 0, 0]
-    population[2, :]=[0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0]
-    population[3, :]=[0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0]
-    population[4, :]=[1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0]
-    result=get_population_fitness(population)
-    a=result[0]
-    print(a)
-    """
     #Q = calc_lamina_stiffness_matrix_Q()
     #angle_Q = calc_lamina_stiffness_matriceQ_with_angle_theta(Q,theta = -np.pi/4)
-    get_FPF_and_LPF()
+    #get_FPF_and_LPF()
     #angle = get_possible_combination([0,np.pi/2,np.pi/2],1)
     #angle = get_possible_combination([np.pi/3, -np.pi/3],4)
     #angle = get_possible_combination([np.pi/3, -np.pi/3],5)
     #angle = get_possible_combination([np.pi/4, -np.pi/4,np.pi/4, -np.pi/4, \
     #    np.pi/3, -np.pi/3, np.pi/3, -np.pi/3,  np.pi/3, -np.pi/3, ],1)
-    """
-    #angle = [0] * 100
+    #angle = [np.pi/2, -np.pi/2, -np.pi/2, np.pi/2] 
     #angle = [np.pi/4,np.pi/4,np.pi/4,np.pi/4]
-    angle = [0, np.pi/2,np.pi/2,np.pi/2,np.pi/2,0]
-    height=[0.000125] * 6  
+    #angle = [0, np.pi/2,np.pi/2,np.pi/2,np.pi/2,0]
+    angle = [0,np.pi/2,np.pi/2,0]
+    # unit is meter
+    height=[0.005]*4  
     #load=[0,0,0,0.02891343,0,0]
-    load=[0.02343858,0.02343858*2,0,0,0,0]
-    material = [GRAPHITE_EPOXY] * 6 
+    #load=[0.02343858,0.02343858*2,0,0,0,0]
+    material = [GRAPHITE_EPOXY]*4
+    #material = [GRAPHITE_EPOXY, GLASS_EPOXY, GLASS_EPOXY, GRAPHITE_EPOXY]
+    load=[1,0,0,0,0,0]
+
+    result = get_strength_ratio_and_weight(angle,height,material,load)
+    print(result)
     #material=[GRAPHITE_EPOXY] * 17 + [GLASS_EPOXY] * 66 + [GRAPHITE_EPOXY] * 17 
     #material = [GRAPHITE_EPOXY,GLASS_EPOXY,GLASS_EPOXY,GRAPHITE_EPOXY]
 
-    laminate_stiffness = calc_laminate_stiffness_matrice(angle,height,material)
-    # given load, calculate midplane stain and curvature
-    midplane_strain_and_curvature = \
-    calc_midplane_strain_and_curvature(laminate_stiffness,load)
-    #coordinate_list = get_height_coordinate_list()
-    stress_and_strain_of_every_lamina = calc_each_lamina_stress_and_strain(midplane_strain_and_curvature,angle, \
-                            height,material)
-    a = get_failure_lamina(stress_and_strain_of_every_lamina,material)
-    print(a)
-    """
+

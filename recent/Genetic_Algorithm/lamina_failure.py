@@ -159,7 +159,7 @@ def tsai_wu_failure_theory(component,material):
     determinant = np.power(b*b - 4*a*c,0.5)
     x1 = np.divide(-b + determinant, 2*a)
     #x2 = np.divide(-b - determinant, 2*a)
-    print(x1)
+    #print(x1)
     return x1
     
 
