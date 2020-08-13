@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1590546984 "presentation.tex" "presentation.pdf" "presentation" 1590546987
-  "/dev/null" 1590546986 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1597277215 "presentation.tex" "presentation.pdf" "presentation" 1597277230
+  "/dev/null" 1597277229 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -237,15 +237,15 @@
   "GA_images/neural-network-design.png" 1590403539 26401 180ef1dc6edefd9ef73d3c81a17d34a1 ""
   "GA_images/neural-network-train.png" 1590287265 46609 f1d0e2708346b7df38520bccf9044021 ""
   "GA_images/neural-network.png" 1590285616 62664 a5d75ec393a6a242d80d0171a4be70a1 ""
-  "presentation.aux" 1590546987 2068 0f3ec71c6a8821454a3dab58b562025b ""
-  "presentation.nav" 1590546987 923 2b9be37b19b6a595c427440b1b5b8dd6 ""
-  "presentation.out" 1590546985 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "presentation.tex" 1590546983 5542 29f63b6f0eb160f92776f3083d527b21 ""
+  "presentation.aux" 1597277218 2076 d6dd93becc750a2d8473f7bb7f4fcbd9 ""
+  "presentation.nav" 1597277218 931 e4543a38d0d011233ece0f8bd79f9afe ""
+  "presentation.out" 1597277217 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "presentation.tex" 1597277226 5857 6fc7f07358b0f18a95ad864ee370aab9 ""
   (generated)
+  "presentation.nav"
   "presentation.aux"
+  "presentation.toc"
   "presentation.log"
   "presentation.pdf"
   "presentation.snm"
-  "presentation.nav"
   "presentation.out"
-  "presentation.toc"

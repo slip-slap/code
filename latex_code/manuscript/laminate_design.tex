@@ -64,12 +64,30 @@ $$C_{n} = N_{g}P/R$$
 where P is population size, R is Apparent reliability.
 
 
+\section{Failure Theores}
 
+For orthoropic materials with three planes of symmetry, 
+\begin{equation}\label{Tsai-wu}
+	\begin{split}
+		F_1\sigma_1+F_2\sigma_2+F_{11}\sigma_1^2+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_2F_2=1
+    \end{split}
+\end{equation}
 
-\section{Optimization formulation and solution}\label{sec:1}
-Text with citations \cite{RefB} and \cite{RefJ}.
-\subsection{Formulation}
-For the orthotropic lamina, the strain-stress relation as:
+\section{Objective Function}
+
+Given the safety factor, The objective function is minimum the weight of the laminate.
+\begin{equation*}\label{strength-ratio}
+	obj=min(weight) 
+\end{equation*}
+Substituting Eq. \ref{strength-ratio} for $R$ into Eq. \ref{Tsai-wu},we obtain
+\begin{equation*}
+	\begin{split}
+		(F_{11}\sigma_1^2&+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_{12}\sigma_1\sigma_2)R^2 \\
+						 &+(F_1\sigma_1+F_2\sigma_2)R-1=0
+	\end{split}
+\end{equation*}
+
+\section{Stress-Strain Relationship for a Laminate}
 \begin{equation}
     \begin{bmatrix}
         \sigma_1\\
@@ -172,6 +190,8 @@ The transformation of the equation*sof the off-axis coordinates to the principal
     %\end{split}
 \end{equation*}
 
+where
+
 \begin{equation}
     \begin{split}
     &A_{ij}
@@ -185,6 +205,10 @@ The transformation of the equation*sof the off-axis coordinates to the principal
 	\frac{1}{3}\sum_{k=1}^n(\overline{Q_{ij}})_k(h_k-h_{k-1}) \\
     \end{split}
 \end{equation}
+
+The $[A]$, $[B]$, and $[D]$ matrices are called the extensional, coupling, and bending stiffness
+matrices.
+
 \begin{equation}
     \begin{split}
     &F_{1}=\frac{1}{X_t}-\frac{1}{X_c},\quad  F_{11}=\frac{1}{X_tX_c} \\
@@ -211,19 +235,6 @@ For orthoropic materials with three planes of symmetry,
 		&(F_{11}\sigma_1^2+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_{12}\sigma_1\sigma_2)R^2 \\
 		&+(F_1\sigma_1+F_2\sigma_2)R-1=0 
     \end{split}
-\end{equation*}
-\subsection{fitness function}
-The objective function to be maximized is the strenght of the laminate.
-the ratio of the component of allowable stress and the stress component under stress.
-\begin{equation*}\label{strength-ratio}
-	F=max(\frac{1}{R(i)-1})
-\end{equation*}
-Substituting Eq. \ref{strength-ratio} for $R$ into Eq. \ref{Tsai-wu},we obtain
-\begin{equation*}
-	\begin{split}
-		(F_{11}\sigma_1^2&+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_{12}\sigma_1\sigma_2)R^2 \\
-						 &+(F_1\sigma_1+F_2\sigma_2)R-1=0
-	\end{split}
 \end{equation*}
 
 
@@ -270,42 +281,6 @@ and subsection a unique label).
 	\bottomrule
 \end{tabular}
 
-\captionof{table}{Anneal Parameters}
-\begin{tabular}{cc}
-	\toprule
-	parameter & value \\
-	\midrule
-    initial position & (10,10) \\
-    initial temperature  &  25000 \\
-	\bottomrule
-\end{tabular}
-
-\captionof{table}{Random Walk Algorithm}
-\begin{tabular}{cc}
-	\toprule
-	parameter & value \\
-	\midrule
-    initial position & (10,10) \\
-    initial step length &  0.5   \\
-    number of random normalization vector & 1 \\
-	\bottomrule
-\end{tabular}
-
-
-
-\captionof{table}{Improved Random Walk Algorithm}
-\begin{tabular}{cc}
-	\toprule
-	parameter & value \\
-	\midrule
-    initial position & (10,10) \\
-    initial step length &  10   \\
-    number of random normalization vector & 10 \\
-	\bottomrule
-\end{tabular}
-
-
-
 
 
 \section{Concluding Remarks}
@@ -342,12 +317,6 @@ p=\left\{
 
 
 
-For orthoropic materials with three planes of symmetry, 
-\begin{equation}\label{Tsai-wu}
-	\begin{split}
-		F_1\sigma_1+F_2\sigma_2+F_{11}\sigma_1^2+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_2F_2=1
-    \end{split}
-\end{equation}
 
 we define $R$ is the strength ratio,
 \begin{equation}\label{strength-ratio}
@@ -439,13 +408,11 @@ where $i$ is the layer number
 \caption{the flowchart of Genetic Algorithm} \label{flowchart}
 \end{figure}
 
-
 % draw neural network
 
 
-
 \bibliographystyle{plain}
-\bibliography{citation-database}
+\bibliography{laminate_design}
 
 
 \end{document}

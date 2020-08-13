@@ -4,11 +4,9 @@ The top-level auxiliary file: laminate_design.aux
 The style file: plain.bst
 Database file #1: citation-database.bib
 Warning--I didn't find a database entry for "back1994selective"
-Warning--I didn't find a database entry for "RefB"
-Warning--I didn't find a database entry for "RefJ"
 You've used 0 entries,
             2118 wiz_defined-function locations,
-            502 strings with 4053 characters,
+            498 strings with 4037 characters,
 and the built_in function-call counts, 18 in all, are:
 = -- 0
 > -- 0
@@ -47,4 +45,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 2
-(There were 3 warnings)
+(There was 1 warning)

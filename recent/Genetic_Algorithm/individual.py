@@ -11,7 +11,9 @@ class Individual(object):
         height = str(self.height_list)
         material = str(self.material_list)
         fitness = str(self.fitness)
-        return "angle: "+angle+" height: "+height+" material: "+material+"fitness: "+fitness
+        #return "angle: "+angle+" height: "+height+" material: "+material+"fitness: "+fitness
+        return "angle: " + angle+ " fitness: "+fitness
+        #return "fitness: "+fitness
 
 
 

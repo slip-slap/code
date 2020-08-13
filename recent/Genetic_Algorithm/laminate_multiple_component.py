@@ -324,6 +324,10 @@ def get_strength_ratio_and_weight(angle, height, material, load):
 
     return {'SR':min_strength_ratio,'mass':mass}
 
+def get_symmetry_list(half_list):
+    upper_half = copy.deepcopy(half_list)
+    half_list.reverse()
+    return upper_half + half_list
 
 if __name__=='__main__':
     #Q = calc_lamina_stiffness_matrix_Q()
@@ -337,19 +341,17 @@ if __name__=='__main__':
     #angle = [np.pi/2, -np.pi/2, -np.pi/2, np.pi/2] 
     #angle = [np.pi/4,np.pi/4,np.pi/4,np.pi/4]
     #angle = [0, np.pi/2,np.pi/2,np.pi/2,np.pi/2,0]
-    angle = [0,np.pi/2,np.pi/2,0]
-    angle = [0,0,0,0]
+    angle = [np.pi/2] * 9 + [0] * 17 + [np.pi/2] * 9 
+    angle =[0,np.pi/4,np.pi/-4,np.pi/4,np.pi/-4]
+    angle = get_symmetry_list(angel)
     # unit is meter
-    height=[0.000165]*4  
+    height=[0.000125] * 10 
     #load=[0,0,0,0.02891343,0,0]
     #load=[0.02343858,0.02343858*2,0,0,0,0]
-    material = [GRAPHITE_EPOXY]*4
+    material = [GRAPHITE_EPOXY] * 9
     #material = [GRAPHITE_EPOXY, GLASS_EPOXY, GLASS_EPOXY, GRAPHITE_EPOXY]
     load=[1,0,0,0,0,0]
-
     result = get_strength_ratio_and_weight(angle,height,material,load)
     print(result)
-    #material=[GRAPHITE_EPOXY] * 17 + [GLASS_EPOXY] * 66 + [GRAPHITE_EPOXY] * 17 
-    #material = [GRAPHITE_EPOXY,GLASS_EPOXY,GLASS_EPOXY,GRAPHITE_EPOXY]
 
 
