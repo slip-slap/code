@@ -6,10 +6,12 @@
 \usepackage{geometry,pgf,pgfplots,}
 \usepackage{mathptmx}
 \usetikzlibrary{shapes.geometric, matrix,arrows,positioning,calc,intersections}
+\usepackage{booktabs, makecell, multirow, threeparttable}
+\usepackage{tablefootnote}
 \begin{document}
 
 
-\title{Stacking Sequence Optimization by an Improved Genetic Algorithm}
+\title{Laminated Composite Plate Optimization by Genetic Algorithm}
 \titlerunning{Stacking Sequence Optimization}        % if too long for running head
 \author{Zhang Huiyao$^1$  \and
 	Atsushi Yokoyama $^{1,*}$
@@ -27,12 +29,13 @@
 \maketitle
 
 \begin{abstract}
-% 遗传算法
-An improved genetic algorithm is used to obtain the stacking sequence of the laminate that reach the maximum strength
-% BP神经网络
+Failure analysis of laminated composite plates under different mechanical loads for different
+stacking sequences, fiber orientation, and composite material system is studied in this paper.
+An optimum composite material and laminate layup is studied for a targeted strength ratio which
+makes a compromise between weight and cost through genetic algorithm.
 
 
-\keywords{Genetic Algorithm \and Laminates \and Stacking Sequence}
+\keywords{Genetic Algorithm \and Laminates \and Stacking Sequence \and Hybrid Composites}
 \end{abstract}
 
 %\begin{multicols}{2}
@@ -42,8 +45,15 @@ An improved genetic algorithm is used to obtain the stacking sequence of the lam
 \section{Introduction}
 % 第一段
 % 第一句话，FRP复合材料在众多领域都有着广泛的应用，因为它具有很高的强度比等性质.
-Fiber-reinfored composites are widely used in automotive, aerospace, shipbuilding, and other branches of engineering because of their high specific strength and stiffness.
-% 第二句话，复合材料层合板因为可以tailor，适合定制，所以它的优化策略就显得非常重要，fiber orientation, thickness and stacking sequence
+Composites material offer improved strength, stiffness, fatigue, and corrosion resistance, etc over
+conventional materials, which is widely used in automotive, aerospace, and ship building industry.
+However, the high cost of fabrication of composites is a critical drawback for its application, for
+example, the graphite/epoxy composite part may cost as much as \$650 to \$900 per kilogram.
+The mechanical performance of a composite is affected by a wide range of factors, fiber length,
+fiber orientation, fiber shape, and the matrix etc.
+
+
+
 
 % 第三句话，各种关于这种材料的优化都使用遗传算法
 
@@ -86,6 +96,51 @@ Substituting Eq. \ref{strength-ratio} for $R$ into Eq. \ref{Tsai-wu},we obtain
 						 &+(F_1\sigma_1+F_2\sigma_2)R-1=0
 	\end{split}
 \end{equation*}
+
+
+\section{Stress-Strain Relationship for a Lamina}
+
+\begin{center}
+  \includegraphics[width=\linewidth]{A_laminate_design_images/lamina_local_global_axes.png}
+  \captionof{figure}{Lamina}
+  \label{fig:lamina}
+\end{center}
+
+The local and global stresses in an angle lamina are related to each other through the angle of
+lamina $\theta$
+\begin{equation}
+	\left[\begin{array}{l}\sigma_{1} \\ \sigma_{2} \\ \tau_{12
+			}\end{array}\right]=[T]\left[\begin{array}{l}\sigma_{x} \\ \sigma_{y} \\
+	\tau_{xy}\end{array}\right]
+\end{equation}
+
+\begin{equation}
+	[T]=\left[\begin{array}{ccc}c^{2} & s^{2} & 2 s c \\ s^{2} & c^{2} & -2 s c \\ -s c & s c &
+	c^{2}-s^{2}\end{array}\right]
+\end{equation}
+
+\begin{equation}
+	\left[\begin{array}{l}\sigma_{x} \\ \sigma_{y} \\ \tau_{x
+			y}\end{array}\right]=\left[\begin{array}{lll}\bar{Q}_{11} & \bar{Q}_{12} & \bar{Q}_{16}
+			\\ \bar{Q}_{12} & \bar{Q}_{22} & \bar{Q}_{26} \\ \bar{Q}_{16} & \bar{Q}_{26} &
+			\bar{Q}_{66}\end{array}\right]\left[\begin{array}{l}\varepsilon_{x} \\ \varepsilon_{y}
+	\\ \gamma_{x y}\end{array}\right]
+\end{equation}
+
+\begin{equation}
+	\begin{array}{l}\bar{Q}_{11}=Q_{11} c^{4}+Q_{22} s^{4}+2\left(Q_{12}+2 Q_{66}\right) s^{2} c^{2}
+		\\ \bar{Q}_{12}=\left(Q_{11}+Q_{22}-4 Q_{66}\right) s^{2}
+		c^{2}+Q_{12}\left(c^{4}+s^{2}\right) \\ \bar{Q}_{22}=Q_{11} s^{4}+Q_{22}
+	c^{4}+2\left(Q_{12}+2 Q_{66}\right) s^{2} c^{2}\end{array}
+\end{equation}
+
+\begin{equation}
+	\begin{array}{l}\bar{Q}_{16}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c^{3} s-\left(Q_{22}-Q_{12}-2
+			Q_{66}\right) s^{3} c \\ \bar{Q}_{26}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c
+			s^{3}-\left(Q_{22}-Q_{12}-2 Q_{66}\right) c^{3} s \\ \bar{Q}_{66}=\left(Q_{11}+Q_{22}-2
+		Q_{12}-2 Q_{66}\right) s^{2} c^{2}+Q_{66}\left(s^{4}+c^{4}\right)\end{array}
+\end{equation}
+
 
 \section{Stress-Strain Relationship for a Laminate}
 \begin{equation}
@@ -210,16 +265,36 @@ The $[A]$, $[B]$, and $[D]$ matrices are called the extensional, coupling, and b
 matrices.
 
 \begin{equation}
-    \begin{split}
-    &F_{1}=\frac{1}{X_t}-\frac{1}{X_c},\quad  F_{11}=\frac{1}{X_tX_c} \\
-    &F_{2}=\frac{1}{Y_t}-\frac{1}{Y_c},\quad  F_{22}=\frac{1}{Y_tY_c} \\
-    &F_{66}=\frac{1}{S^2}
-   \end{split}
+	H_{1}=\frac{1}{\left(\sigma_{1}^{T}\right)_{u l t}}-\frac{1}{\left(\sigma_{1}^{C}\right)_{u l
+	t}}
 \end{equation}
 
-\begin{equation*}\label{strength-ratio}
-    R=\frac{\sigma_{i(\alpha)}}{\sigma_i}
-\end{equation*}
+\begin{equation}
+	H_{11}=\frac{1}{\left(\sigma_{1}^{T}\right)_{u l t}\left(\sigma_{1}^{C}\right)_{u l t}}
+\end{equation}
+
+\begin{equation}
+	H_{2}=\frac{1}{\left(\sigma_{2}^{T}\right)_{u l t}}-\frac{1}{\left(\sigma_{2}^{C}\right)_{u l
+	t}}
+\end{equation}
+
+\begin{equation}
+	H_{22}=\frac{1}{\left(\sigma_{2}^{T}\right)_{u l t}\left(\sigma_{2}^{C}\right)_{u l t}}
+\end{equation}
+\begin{equation}
+	H_{66}=\frac{1}{\left(\tau_{12}\right)_{u l t}^{2}}
+\end{equation}
+
+\begin{equation}
+	H_{12}=-\frac{1}{2} \sqrt{\frac{1}{\left(\sigma_{1}^{T}\right)_{u l
+				t}\left(\sigma_{1}^{C}\right)_{u l t}\left(\sigma_{2}^{T}\right)_{u l
+	t}\left(\sigma_{2}^{C}\right)_{u l t}}}
+\end{equation}
+
+
+
+
+
 where $R$ is the strength ratio,$\sigma_{i{a}}$ is allowable stress,$\sigma_i$ is the stress under loading
 
 substituting Eq.  \ref{strength-ratio} for $\sigma$ into Eq. \ref{Tsai-wu}, we obtain
@@ -269,29 +344,48 @@ and subsection a unique label).
 
 \captionof{table}{Comparative study of different composite materials for a defined strenght ratio}
 
-\begin{tabular}{cccccc}
+\begin{tabular}{ccccccc}
 	\toprule
-	Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
+	Load         &Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
 	\midrule
-	Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
-	Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
-	Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082           & 0.545 &  22.0  & 1.650 \\
-	\bottomrule
-\end{tabular}
-
-\begin{tabular}{cccccc}
-	\toprule
-	Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
-	\midrule
-	Glass/Epoxy       & $[90/-90]$           & 2.103           & 0.707 &  12.0  & 1.980  \\
-	Graphite/Epoxy    & $[90/-90]$           & 2.227           & 0.481 &  22.5  & 1.485 \\
-	Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082           & 0.545 &  22.0  & 1.650 \\
+	           &Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
+	$N_x=1e6$ N &Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
+	            &Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
 	\bottomrule
 \end{tabular}
 
 
+\begin{tabular}{ccccccc}
+	\toprule
+	Load         &Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
+	\midrule
+	           &Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
+	$N_y=1e6$ N  &Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
+	            &Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
+	\bottomrule
+\end{tabular}
 
 
+\begin{tabular}{ccccccc}
+	\toprule
+	Load         &Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
+	\midrule
+	           &Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
+	$N_{xy}=1e6$ N  &Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
+	            &Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
+	\bottomrule
+\end{tabular}
+
+
+\begin{tabular}{ccccccc}
+	\toprule
+	Load         &Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
+	\midrule
+	           &Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
+	\makecell{$N_x=N_y=$ \\ $N_{xy}=1e6$ N}  &Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
+	            &Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
+	\bottomrule
+\end{tabular}
 
 \captionof{table}{GA-parameters}
 \begin{tabular}{cc}
@@ -371,69 +465,43 @@ The objective function to be maximized is the strenght of the laminate.
 \end{equation}
 where $i$ is the layer number
 
+\begin{center}
+\begin{tikzpicture}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=1.0cm,minimum height=0.6cm, 
+                        text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, 
+                 minimum height=0.6cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=3.1cm, minimum height=0.6cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond,minimum width=3cm, minimum height=1.2cm, draw=black]
+\node (population) [process] {Initialize Population};
+\node (fitness) [process, below of=population] {Fitness};
+\node (decision) [decision] at ($(fitness.south)+(0,-1.0cm)$) {} node at (decision.base) {Converge};
+\node (share-fitness) at ($(decision.south)+(0,-0.8cm)$) [process] {Selection};
+\node (selection) [process,below of=share-fitness] {Crossover};
+\node (crossover) [process,below of=selection]  {Mutation};
+\node (end) [startstop] at ($(decision.east)+(1.1cm,0)$)  {End};
+\draw [->] (population) -- (fitness);
+\draw [->] (fitness) -- (decision);
+\draw [->] (decision) -- (share-fitness) node[auto=left,pos=0.5]{N};
+\draw [->] (share-fitness.south) -- (selection.north) ;
+\draw [->] (selection.south) -- (crossover.north);
+\draw [->] (decision.east) -- (end.west) node[auto=left,pos=0.5]{Y};
 
-% 流程图
-\tikzstyle{startstop} = [rectangle,rounded corners, minimum width=3cm,minimum height=1cm,text centered, draw=black,fill=white!30]
-\tikzstyle{io} = [trapezium, trapezium left angle = 70,trapezium right angle=110,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=white!30]
-\tikzstyle{process} = [rectangle,minimum width=6cm,minimum height=8mm,text centered,text width =6cm,draw=black,fill=white!30]
-\tikzstyle{bp} = [rectangle,minimum width=6cm,minimum height=8mm,text centered,text width =4cm,draw=black,fill=white!30]
-\tikzstyle{decision} = [diamond,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=white!30]
-\tikzstyle{arrow} = [thick,->,>=stealth]
-
-\begin{figure}
-\centering
-\begin{tikzpicture}[node distance=1.5cm]
-\node (start) [startstop] {START};
-\node (input1) [io,below of=start] {Create the initial population};
-\node (process1) [process,below of=input1] {Evaluate the fitness of each individual};
-% BP Neural Network
-\node (bp) [bp,rotate=90, right of=process1, xshift=-6cm,yshift=-4cm] {Artificial Neural Network};
-\node (process2) [process,below of=process1] {Select parents using roulette wheel};
-\node (process3) [process,below of=process2] {Reproduce the children through crossover};
-\node (process4) [process,below of=process3] {Check the children whether satisify requirement};
-\node (process5) [process,below of=process4] {mutation};
-\node (process6) [process,below of=process5] {Check the children whether satisify requirement};
-\node (process7) [process,below of=process6] {Seek the individual of better fitness};
-\node (process8) [process,below of=process7] {Produce new generation};
-\node (process9) [process,below of=process8] {Check the number of generation};
-
-%\node (decision1) [decision,below of=process1,yshift=-0.5cm] {Decession 1};
-%\node (process2b) [process,right of =decision1,xshift=2cm] {Process 2b};
-%\node (out1) [io,below of=process2a] {Output};
-\node (stop) [startstop,below of=process9] {Stop};
-
-%辅助框
-%\draw[help lines,step=1cm,gray!20] (-5,-22) grid (5,5);
-
-% 辅助点a
-%\node (a) at (0,0) {a};
-%\node (b) at (2,10) {b};
-%\node (c) at (-2,3) {-b};
-\draw [arrow] (start) -- (input1);
-\draw [arrow] (input1) -- (process1);
-\draw [arrow] (process1) -- (process2);
-\draw [arrow] (process2) -- (process3);
-\draw [arrow] (process3) -- (process4);
-\draw [arrow] (process4) -- (process5);
-\draw [arrow] (process5) -- (process6);
-\draw [arrow] (process6) -- (process7);
-\draw [arrow] (process7) -- (process8);
-\draw [arrow] (process8) -- (process9);
-%\draw [arrow] (process2decision1) -- node[anchor=east] {yes} (process2a);
-%\draw [arrow] (decision1) -- node[anchor=south] {no} (process2b);
-\draw [arrow] (process7) -| (bp);
-\draw [arrow] (process1) -| (bp);
-\draw [arrow] (process9) -- (stop);
-
-% define a coordinate
-\coordinate (below-start) at ($(input1.south)+(0,-0.25cm)$);
-\draw [arrow] (process9.west) --  ++ (-1.0cm,0) |-  (below-start);
-
+% draw intersection
+\draw [white] (fitness.west) -- ++(-0.5cm,0) coordinate (A);
+\draw [white] (crossover.west) -- ++(-0.3cm,0) coordinate (B)-- ++(0,6cm) coordinate (C) ; 
+\draw (crossover.west) -- ++(-0.3cm,0) -- (intersection cs: first line={(fitness.west)--(A)}, 
+      second line={(B)--(C)}) coordinate (D);
+\draw (B) -- (D) node[auto=left,pos=0.8,rotate=90,xshift=-0.2cm,yshift=0.2cm] {Next Generation} ;
+\draw [<-] (fitness.west) -- (D);
 \end{tikzpicture}
-\caption{the flowchart of Genetic Algorithm} \label{flowchart}
-\end{figure}
+\captionof{figure}{GA Procedure with Share Function}
+\label{plot:GA}
+\end{center}
 
-% draw neural network
+
+
+
 
 A\cite{reddy1987first}
 \cite{ochoa1987analysis}
