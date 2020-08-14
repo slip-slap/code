@@ -8,6 +8,7 @@ import copy
 # input argu2 elasCons: elastic constants
 GLASS_EPOXY= 'glass_epoxy'
 GRAPHITE_EPOXY = "graphite_epoxy"
+BORON_EPOXY = "boron_epoxy"
 
 
 
@@ -30,6 +31,8 @@ def calc_lamina_stiffness_matrix_Q(material):
         material_property = GLASS_EPOXY_PROPERTIES
     if(material == GRAPHITE_EPOXY):
         material_property = GRAPHITE_EPOXY_PROPERTIES
+    if(material == BORON_EPOXY):
+        material_property = BORON_EPOXY_PROPERTIES
 
     E1 = material_property['E1']
     E2 = material_property['E2']
@@ -321,6 +324,8 @@ def get_strength_ratio_and_weight(angle, height, material, load):
     sr_and_pos = get_failure_lamina_SR_and_pos(stress_and_strain_of_every_lamina,material)
     min_strength_ratio = sr_and_pos['min_strenght_ratio']
     mass = lmac.get_laminate_mass(height,material)
+    cost = lmac.get_laminate_cost(material)
+    #print("cost is: " + str(cost))
 
     return {'SR':min_strength_ratio,'mass':mass}
 
@@ -330,27 +335,29 @@ def get_symmetry_list(half_list):
     return upper_half + half_list
 
 if __name__=='__main__':
-    #Q = calc_lamina_stiffness_matrix_Q()
-    #angle_Q = calc_lamina_stiffness_matriceQ_with_angle_theta(Q,theta = -np.pi/4)
-    #get_FPF_and_LPF()
-    #angle = get_possible_combination([0,np.pi/2,np.pi/2],1)
-    #angle = get_possible_combination([np.pi/3, -np.pi/3],4)
-    #angle = get_possible_combination([np.pi/3, -np.pi/3],5)
-    #angle = get_possible_combination([np.pi/4, -np.pi/4,np.pi/4, -np.pi/4, \
-    #    np.pi/3, -np.pi/3, np.pi/3, -np.pi/3,  np.pi/3, -np.pi/3, ],1)
-    #angle = [np.pi/2, -np.pi/2, -np.pi/2, np.pi/2] 
-    #angle = [np.pi/4,np.pi/4,np.pi/4,np.pi/4]
-    #angle = [0, np.pi/2,np.pi/2,np.pi/2,np.pi/2,0]
-    angle = [np.pi/2] * 9 + [0] * 17 + [np.pi/2] * 9 
-    angle =[0,np.pi/4,np.pi/-4,np.pi/4,np.pi/-4]
-    angle = get_symmetry_list(angel)
-    # unit is meter
-    height=[0.000125] * 10 
-    #load=[0,0,0,0.02891343,0,0]
-    #load=[0.02343858,0.02343858*2,0,0,0,0]
+    """
+    angle =[0] * 9
+    height=[0.000165] * 9 
     material = [GRAPHITE_EPOXY] * 9
-    #material = [GRAPHITE_EPOXY, GLASS_EPOXY, GLASS_EPOXY, GRAPHITE_EPOXY]
     load=[1,0,0,0,0,0]
+    """
+
+    """
+    cross ply
+    angle = [0] * 34 + [np.pi/2] * 72 + [0] * 34
+    height=[0.000165] * 140 
+    material = [GLASS_EPOXY] * 140
+    load=[1,0,0,0,0,0]
+    """
+
+    #angle ply
+    angle = [np.pi/4, -np.pi/4] * 35
+    angle = get_symmetry_list(angle) 
+    height=[0.000165] * 140
+    material = [GLASS_EPOXY] * 5 + [GRAPHITE_EPOXY] * 30
+    material = get_symmetry_list(material)
+    load=[0,0,1,0,0,0]
+
     result = get_strength_ratio_and_weight(angle,height,material,load)
     print(result)
 

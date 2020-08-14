@@ -2,6 +2,7 @@ import numpy as np
 
 GLASS_EPOXY= 'glass_epoxy'
 GRAPHITE_EPOXY = "graphite_epoxy"
+BORON_EPOXY = "boron_epoxy"
 
 
 # SI System of Units
@@ -133,6 +134,8 @@ def tsai_wu_failure_theory(component,material):
         properties = glass_properties
     if(material == GRAPHITE_EPOXY):
         properties = graphite_properties
+    if(material == BORON_EPOXY):
+        properties = boron_properties
 
     h1 = np.divide(1, properties['sigma_1_tensile']) - \
          np.divide(1, properties['sigma_1_compressive'])

@@ -35,7 +35,6 @@ class Genetic_Algorithm(object):
             p1_material_list = parents[p1_pos].material_list
             p2_material_list = parents[p2_pos].material_list
 
-
             child = copy.deepcopy(parents[0])
             child.angle_list  = get_combine_offspring_list(p1_angle_list, p2_angle_list)
             child.height_list = get_combine_offspring_list(p1_height_list,p2_height_list)

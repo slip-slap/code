@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex laminate_design"] 1597273633 "laminate_design.aux" "laminate_design.bbl" "laminate_design" 1597277435
+["bibtex laminate_design"] 1597381651 "laminate_design.aux" "laminate_design.bbl" "laminate_design" 1597381668
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "citation-database.bib" 1597200726 392 87a4dde13be118c170e6d3ca0357b20f ""
-  "laminate_design.aux" 1597273957 1637 2e19a9fb63b93f162530bdbb9f9cfae1 ""
+  "laminate_design.aux" 1597381655 2508 6d6feed3a282f201a987b7c299cba0ed ""
+  "laminate_design.bib" 1597315772 3067 13397c0ed77f443d5bc7c0d2e1a2eab9 ""
   (generated)
-  "laminate_design.blg"
   "laminate_design.bbl"
-["pdflatex"] 1597273955 "laminate_design.tex" "laminate_design.pdf" "laminate_design" 1597277435
-  "/dev/null" 1597277413 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "laminate_design.blg"
+["pdflatex"] 1597381652 "laminate_design.tex" "laminate_design.pdf" "laminate_design" 1597381668
+  "/dev/null" 1597381666 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1480098689 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -37,6 +37,7 @@
   "/usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb" 1480098746 45458 a3faba884469519614ca56ba5f6b1de1 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf" 1480098758 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf" 1480098758 1380 0ea3a3370054be6da6acd929ec569f06 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf" 1480098758 1384 a9d8adaf491ce34e5fba99dc7bbe5f39 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf" 1480098758 1132 27520247d3fe18d4266a226b461885c2 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/zptmcm7t.vf" 1480098758 1108 d271d6f9de4122c3f8d3b65666167fac ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/zptmcm7v.vf" 1480098758 1012 046369ac6a83af997c3aa05a43256ad5 ""
@@ -211,12 +212,12 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1589787211 3236106 bef0cf154a3167603a4917a99a2c80c5 ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1589792795 4227023 287652bbbca0ab5bc2f398b14c497dd0 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "laminate_design.aux" 1597273957 1637 2e19a9fb63b93f162530bdbb9f9cfae1 ""
-  "laminate_design.bbl" 1597273633 49 0eba253fc001332e731e8aba3f23127b "bibtex laminate_design"
-  "laminate_design.tex" 1597277432 13889 b2d798b5ea475f21524bc558071b89e0 ""
+  "laminate_design.aux" 1597381655 2508 6d6feed3a282f201a987b7c299cba0ed ""
+  "laminate_design.bbl" 1597381652 2451 8bada2c00b00369524450a46f8c21220 "bibtex laminate_design"
+  "laminate_design.tex" 1597381644 15210 70286ca8e99ad95334127e3e4a95b60e ""
   "svglov3.clo" 1597200726 3809 f8e29af71acd1bd1b2a58b6166058c66 ""
   "svjour3.cls" 1597200726 47679 993de5be39389e8a2c40c32e48f0687c ""
   (generated)
-  "laminate_design.pdf"
-  "laminate_design.aux"
   "laminate_design.log"
+  "laminate_design.aux"
+  "laminate_design.pdf"

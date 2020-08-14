@@ -1,3 +1,68 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{akbulut2011design}
+Mustafa Akbulut and Fazil~O Sonmez.
+\newblock Design optimization of laminated composites using a new variant of
+  simulated annealing.
+\newblock {\em Computers \& structures}, 89(17-18):1712--1724, 2011.
+
+\bibitem{chen2014simulating}
+Jing-Fen Chen, Evgeny~V Morozov, and Krishnakumar Shankar.
+\newblock Simulating progressive failure of composite laminates including
+  in-ply and delamination damage effects.
+\newblock {\em Composites Part A: Applied Science and Manufacturing},
+  61:185--200, 2014.
+
+\bibitem{daniel1994engineering}
+Isaac~M Daniel, Ori Ishai, Issac~M Daniel, and Ishai Daniel.
+\newblock {\em Engineering mechanics of composite materials}, volume~3.
+\newblock Oxford university press New York, 1994.
+
+\bibitem{genlin2004survey}
+Ji~Genlin.
+\newblock Survey on genetic algorithm [j].
+\newblock {\em Computer Applications and Software}, 2(1):69--73, 2004.
+
+\bibitem{goldberg1991comparative}
+David~E Goldberg and Kalyanmoy Deb.
+\newblock A comparative analysis of selection schemes used in genetic
+  algorithms.
+\newblock In {\em Foundations of genetic algorithms}, volume~1, pages 69--93.
+  Elsevier, 1991.
+
+\bibitem{goldberg1988genetic}
+David~E Goldberg and John~Henry Holland.
+\newblock Genetic algorithms and machine learning.
+\newblock 1988.
+
+\bibitem{mirjalili2019genetic}
+Seyedali Mirjalili.
+\newblock Genetic algorithm.
+\newblock In {\em Evolutionary algorithms and neural networks}, pages 43--55.
+  Springer, 2019.
+
+\bibitem{ochoa1987analysis}
+Ozden~O Ochoa and John~J Engblom.
+\newblock Analysis of progressive failure in composites.
+\newblock {\em Composites Science and Technology}, 28(2):87--102, 1987.
+
+\bibitem{reddy1987first}
+JN~Reddy and AK~Pandey.
+\newblock A first-ply failure analysis of composite laminates.
+\newblock {\em Computers \& Structures}, 25(3):371--393, 1987.
+
+\bibitem{semenkin2012self}
+Eugene Semenkin and Maria Semenkina.
+\newblock Self-configuring genetic algorithm with modified uniform crossover
+  operator.
+\newblock In {\em International Conference in Swarm Intelligence}, pages
+  414--421. Springer, 2012.
+
+\bibitem{taetragool2017stacking}
+U~Taetragool, PH~Shah, VA~Halls, JQ~Zheng, and RC~Batra.
+\newblock Stacking sequence optimization for maximizing the first failure
+  initiation load followed by progressive failure analysis until the ultimate
+  load.
+\newblock {\em Composite Structures}, 180:1007--1021, 2017.
 
 \end{thebibliography}

@@ -5,6 +5,7 @@ FIBER_VOLUME_FRACTION_BORON_EPOXY = 0.50
 FIBER_VOLUME_FRACTION_GRAPHITE_EPOXY = 0.70
 FIBER_SPECIFIC_GRAVITY_GRAPHITE = 1.8
 FIBER_SPECIFIC_GRAVITY_GLASS    = 2.5
+FIBER_SPECIFIC_GRAVITY_BORON    = 2.34
 MATRIC_SPECIFIC_GRAVITY_EPOXY = 1.2
 #### mm
 LAMINATE_LENGTH = 100
@@ -25,6 +26,7 @@ def get_lamina_mass(volume,material):
         fiber_specific_gravity = FIBER_SPECIFIC_GRAVITY_GRAPHITE
     if(fiber == "boron"):
         fiber_volume_fraction = FIBER_VOLUME_FRACTION_BORON_EPOXY
+        fiber_specific_gravity = FIBER_SPECIFIC_GRAVITY_BORON
 
     if(matrice == 'epoxy'):
         matric_specific_gravity = MATRIC_SPECIFIC_GRAVITY_EPOXY
@@ -43,8 +45,15 @@ def get_laminate_mass(height,material):
     return mass
 
 
-def get_lamina_cost(volume,material):
-    pass
+def get_laminate_cost(material):
+    cost = 0
+    for i in range(len(material)):
+        if(material[i] == 'glass_epoxy'):
+            cost = cost + 1
+        if(material[i] == 'graphite_epoxy'):
+            cost = cost + 2.5
+    return cost
+
 
 
 
@@ -57,3 +66,4 @@ if __name__ == "__main__":
     print(mass)
     mass = get_laminate_mass([0.005]*4,["glass_epoxy"]*4)
     print(mass)
+    print(get_laminate_cost(['graphite_epoxy']*9))
