@@ -74,27 +74,11 @@ $$C_{n} = N_{g}P/R$$
 where P is population size, R is Apparent reliability.
 
 
-\section{Failure Theores}
-
-For orthoropic materials with three planes of symmetry, 
-\begin{equation}\label{Tsai-wu}
-	\begin{split}
-		F_1\sigma_1+F_2\sigma_2+F_{11}\sigma_1^2+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_2F_2=1
-    \end{split}
-\end{equation}
-
 \section{Objective Function}
 
 Given the safety factor, The objective function is minimum the weight of the laminate.
 \begin{equation*}\label{strength-ratio}
 	obj=min(weight) 
-\end{equation*}
-Substituting Eq. \ref{strength-ratio} for $R$ into Eq. \ref{Tsai-wu},we obtain
-\begin{equation*}
-	\begin{split}
-		(F_{11}\sigma_1^2&+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_{12}\sigma_1\sigma_2)R^2 \\
-						 &+(F_1\sigma_1+F_2\sigma_2)R-1=0
-	\end{split}
 \end{equation*}
 
 
@@ -105,6 +89,35 @@ Substituting Eq. \ref{strength-ratio} for $R$ into Eq. \ref{Tsai-wu},we obtain
   \captionof{figure}{Lamina}
   \label{fig:lamina}
 \end{center}
+
+\begin{equation}
+    \begin{bmatrix}
+        \sigma_1\\
+        \sigma_2\\
+        \tau_{12}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        Q_{11} & Q_{12} & 0\\
+        Q_{12} & Q_{22} & 0\\
+        0 & 0 & Q_{66}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \varepsilon_1\\
+        \varepsilon_2\\
+        \gamma
+    \end{bmatrix}
+\end{equation}
+Where $Q_{ij}$ are the stiffnesses of the lamina that are related to the compliance matrix
+compnents and elastic constants by
+\begin{equation}
+    \begin{split}
+    &Q_{11}=\frac{E_1}{1-\mu_{12}\mu_{21}}\\
+    &Q_{22}=\frac{E_2}{1-\mu_{12}\mu_{21}}\\
+    &Q_{66}=G_{12}\\
+    &Q_{12}=\frac{\mu_{21}E_2}{1-\mu_{12}\mu_{21}}\\
+    \end{split}
+\end{equation}
 
 The local and global stresses in an angle lamina are related to each other through the angle of
 lamina $\theta$
@@ -141,36 +154,86 @@ lamina $\theta$
 		Q_{12}-2 Q_{66}\right) s^{2} c^{2}+Q_{66}\left(s^{4}+c^{4}\right)\end{array}
 \end{equation}
 
+\section{Failure Theories of an Angle Lamina}
+Many different theories about the failure of an angle lamina have been developed for a
+unidirectional lamina, such as maximum stress failure theory, maximum strain failure theory,
+Tsai-Hill failure theory, and Tsai-Wu failure theory. The failure theories of a lamina are based on
+the stresses in local axes in the material. There are four normal strength parameters and one shear
+stress for a unidirectional lamina. The five strength parameters are
+
+\vspace{3mm}
+
+$(\sigma_1^T)_{ult}=$ Ultimate longitudinal tensile strength(in direction 1),
+
+$(\sigma_1^C)_{ult}=$ Ultimate longitudinal compressive strength(in direction 1),
+
+$(\sigma_2^T)_{ult}=$ Ultimate transverse tensile strength(in direction 2),
+
+$(\sigma_2^C)_{ult}=$ Ultimate transverse compressive strength(in direction 2), and
+
+$(\tau_{12})_{ult}=$ Ultimate in-plane shear strength
+
+\vspace{3mm}
+
+In this paper, Tsai-wu failure theory is taken to decide whether a lamina is failed or not, the
+reason is chosen because this theory is  more general than Tsai-Hill failure theory which consider
+two different situation, compressive and tensile strength of a lamina. A lamina is considered to be
+failed if
+
+
+\begin{equation} \label{eq:tsai_wu}
+H_1 \sigma_1 + H_2 \sigma_2 + H_6 \tau_{12} + H_{11}\sigma_1^2 + H_{22} \sigma_2^2 + H_{66}
+\tau_{12}^2 + 2H_{12}\sigma_1\sigma_2 < 1
+\end{equation}
+ 
+is violated. where
+
+\begin{equation} 
+	H_{1}=\frac{1}{\left(\sigma_{1}^{T}\right)_{u l t}}-\frac{1}{\left(\sigma_{1}^{C}\right)_{u l
+	t}}
+\end{equation}
+
+\begin{equation}
+	H_{11}=\frac{1}{\left(\sigma_{1}^{T}\right)_{u l t}\left(\sigma_{1}^{C}\right)_{u l t}}
+\end{equation}
+
+\begin{equation}
+	H_{2}=\frac{1}{\left(\sigma_{2}^{T}\right)_{u l t}}-\frac{1}{\left(\sigma_{2}^{C}\right)_{u l
+	t}}
+\end{equation}
+
+\begin{equation}
+	H_{22}=\frac{1}{\left(\sigma_{2}^{T}\right)_{u l t}\left(\sigma_{2}^{C}\right)_{u l t}}
+\end{equation}
+\begin{equation}
+	H_{66}=\frac{1}{\left(\tau_{12}\right)_{u l t}^{2}}
+\end{equation}
+
+\begin{equation}
+	H_{12}=-\frac{1}{2} \sqrt{\frac{1}{\left(\sigma_{1}^{T}\right)_{u l
+				t}\left(\sigma_{1}^{C}\right)_{u l t}\left(\sigma_{2}^{T}\right)_{u l
+	t}\left(\sigma_{2}^{C}\right)_{u l t}}}
+\end{equation}
+
+The Equation \ref{eq:tsai_wu} can determin whether a lamina failed or not, but it failed to give the
+information about how much load can be increased or decreased to keep the lamina safe. The strength
+ratio(SR) is to used to solve this problem, and defined as
+
+\begin{equation} \label{eq:sr}
+	S R=\frac{\text {Maximum Load Which Can Be Applied}}{\text {Load Applied}}
+\end{equation}
+
+
+Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obtain
+\begin{equation}
+		(F_{11}\sigma_1^2+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_{12}\sigma_1\sigma_2)SR^2 
+						 +(F_1\sigma_1+F_2\sigma_2)SR-1=0
+\end{equation}
+
+
+
 
 \section{Stress-Strain Relationship for a Laminate}
-\begin{equation}
-    \begin{bmatrix}
-        \sigma_1\\
-        \sigma_2\\
-        \tau_{12}
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        Q_{11} & Q_{12} & 0\\
-        Q_{12} & Q_{22} & 0\\
-        0 & 0 & Q_{66}
-    \end{bmatrix}
-    \begin{bmatrix}
-        \varepsilon_1\\
-        \varepsilon_2\\
-        \gamma
-    \end{bmatrix}
-\end{equation}
-Where $Q_{ij}$ are the stiffnesses of the lamina that are related to the compliance matrix
-compnents and elastic constants by
-\begin{equation}
-    \begin{split}
-    &Q_{11}=\frac{E_1}{1-\mu_{12}\mu_{21}}\\
-    &Q_{22}=\frac{E_2}{1-\mu_{12}\mu_{21}}\\
-    &Q_{66}=G_{12}\\
-    &Q_{12}=\frac{\mu_{21}E_2}{1-\mu_{12}\mu_{21}}\\
-    \end{split}
-\end{equation}
 The transformation of the equation*sof the off-axis coordinates to the principal axis of the material stress tensor as
 \begin{equation}
     [T]=
@@ -264,32 +327,6 @@ where
 The $[A]$, $[B]$, and $[D]$ matrices are called the extensional, coupling, and bending stiffness
 matrices.
 
-\begin{equation}
-	H_{1}=\frac{1}{\left(\sigma_{1}^{T}\right)_{u l t}}-\frac{1}{\left(\sigma_{1}^{C}\right)_{u l
-	t}}
-\end{equation}
-
-\begin{equation}
-	H_{11}=\frac{1}{\left(\sigma_{1}^{T}\right)_{u l t}\left(\sigma_{1}^{C}\right)_{u l t}}
-\end{equation}
-
-\begin{equation}
-	H_{2}=\frac{1}{\left(\sigma_{2}^{T}\right)_{u l t}}-\frac{1}{\left(\sigma_{2}^{C}\right)_{u l
-	t}}
-\end{equation}
-
-\begin{equation}
-	H_{22}=\frac{1}{\left(\sigma_{2}^{T}\right)_{u l t}\left(\sigma_{2}^{C}\right)_{u l t}}
-\end{equation}
-\begin{equation}
-	H_{66}=\frac{1}{\left(\tau_{12}\right)_{u l t}^{2}}
-\end{equation}
-
-\begin{equation}
-	H_{12}=-\frac{1}{2} \sqrt{\frac{1}{\left(\sigma_{1}^{T}\right)_{u l
-				t}\left(\sigma_{1}^{C}\right)_{u l t}\left(\sigma_{2}^{T}\right)_{u l
-	t}\left(\sigma_{2}^{C}\right)_{u l t}}}
-\end{equation}
 
 
 
@@ -407,63 +444,10 @@ and subsection a unique label).
 This is work was supported by 
 
 
-
-
-
 %\end{multicols}
 %\end{multicols}
 
-The target function is 
 
-
-\begin{equation}
-p=\left\{
-    \begin{array}{c}{1}  
-        \text{      }   E\left(x_{n e w}\right)<E\left(x_{o l d}\right)
-        \\ 
-{\exp \left(-\frac{E\left(x_{new}\right)-E\left(x_{old}\right)}{T}\right)}
-                        E\left(x_{n e w}\right)>E\left(x_{o l d}\right)
-\end{array}\right.
-\end{equation}
-
-
-\begin{equation*}
-    \begin{split}
-        &f(r)=\sin(r)/r + 1  \\
-             &\text{ where  } r=\sqrt{(x-50)^2+(y-50)^2}+2.71828
-    \end{split}
-\end{equation*}
-
-
-
-
-we define $R$ is the strength ratio,
-\begin{equation}\label{strength-ratio}
-    R=\frac{\sigma_{i(\alpha)}}{\sigma_i}
-\end{equation}
-where $\sigma_{i{\sigma}}$ is allowable stress and $\sigma_i$ is the stress under loading,$R$ is
-the ratio of the component of allowable stress and the stress component under stress.
-substituting $\sigma_{i(\alpha)}$ for $\sigma_i$ into Eq. \ref{Tsai-wu}, we obtain
-\begin{equation}
-	\begin{split}
-		F_1\sigma_{1(\alpha)}&+F_2\sigma_{2(\alpha)}+F_{11}\sigma_{1(\alpha)}^2+F_{22}\sigma_{2(\alpha)}^2 \\
-						&+F_{66}\sigma_{6(\alpha)}^2+2F_{12}\sigma_{1(\alpha)}\sigma_{2(\alpha)}=1
-    \end{split}
-\end{equation}
-
-Substituting $\sigma_{i(\sigma)}=R\sigma_i$  into Eq. \ref{Tsai-wu},we obtain
-\begin{equation}
-	\begin{split}
-		(F_{11}\sigma_1^2&+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_{12}\sigma_1\sigma_2)R^2 \\
-						 &+(F_1\sigma_1+F_2\sigma_2)R-1=0
-	\end{split}
-\end{equation}
-This is a quadric equation about $R$, the value of $(R-1)$ is the multiples that the stress can be increased              \\
-The objective function to be maximized is the strenght of the laminate.
-\begin{equation}
-	F=max(\frac{1}{R(i)-1})
-\end{equation}
-where $i$ is the layer number
 
 \begin{center}
 \begin{tikzpicture}
