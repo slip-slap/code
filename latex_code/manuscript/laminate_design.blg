@@ -4,46 +4,45 @@ The top-level auxiliary file: laminate_design.aux
 The style file: plain.bst
 Database file #1: laminate_design.bib
 Warning--I didn't find a database entry for "back1994selective"
-Warning--empty journal in goldberg1988genetic
-You've used 11 entries,
+You've used 13 entries,
             2118 wiz_defined-function locations,
-            568 strings with 5918 characters,
-and the built_in function-call counts, 3970 in all, are:
-= -- 409
-> -- 161
-< -- 5
-+ -- 65
-- -- 52
-* -- 273
-:= -- 644
-add.period$ -- 36
-call.type$ -- 11
-change.case$ -- 58
+            588 strings with 6436 characters,
+and the built_in function-call counts, 4634 in all, are:
+= -- 474
+> -- 208
+< -- 0
++ -- 83
+- -- 68
+* -- 381
+:= -- 778
+add.period$ -- 39
+call.type$ -- 13
+change.case$ -- 73
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 155
-empty$ -- 318
-format.name$ -- 52
-if$ -- 842
+cite$ -- 13
+duplicate$ -- 143
+empty$ -- 356
+format.name$ -- 68
+if$ -- 931
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 12
-newline$ -- 58
-num.names$ -- 22
-pop$ -- 60
+int.to.str$ -- 13
+missing$ -- 13
+newline$ -- 68
+num.names$ -- 26
+pop$ -- 47
 preamble$ -- 1
-purify$ -- 48
+purify$ -- 60
 quote$ -- 0
-skip$ -- 110
+skip$ -- 97
 stack$ -- 0
-substring$ -- 290
-swap$ -- 36
-text.length$ -- 5
+substring$ -- 404
+swap$ -- 13
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
-warning$ -- 1
-while$ -- 43
-width$ -- 13
-write$ -- 125
-(There were 2 warnings)
+type$ -- 52
+warning$ -- 0
+while$ -- 52
+width$ -- 15
+write$ -- 145
+(There was 1 warning)

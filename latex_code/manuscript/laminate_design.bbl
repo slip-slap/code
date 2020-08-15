@@ -1,68 +1,80 @@
 \begin{thebibliography}{10}
 
-\bibitem{akbulut2011design}
-Mustafa Akbulut and Fazil~O Sonmez.
-\newblock Design optimization of laminated composites using a new variant of
-  simulated annealing.
-\newblock {\em Computers \& structures}, 89(17-18):1712--1724, 2011.
+\bibitem{abu1998optimum}
+Akram~Y Abu-Odeh and Harry~L Jones.
+\newblock Optimum design of composite plates using response surface method.
+\newblock {\em Composite structures}, 43(3):233--242, 1998.
 
-\bibitem{chen2014simulating}
-Jing-Fen Chen, Evgeny~V Morozov, and Krishnakumar Shankar.
-\newblock Simulating progressive failure of composite laminates including
-  in-ply and delamination damage effects.
-\newblock {\em Composites Part A: Applied Science and Manufacturing},
-  61:185--200, 2014.
+\bibitem{deka2005multiobjective}
+Dhyan~Jyoti Deka, G~Sandeep, D~Chakraborty, and A~Dutta.
+\newblock Multiobjective optimization of laminated composites using finite
+  element method and genetic algorithm.
+\newblock {\em Journal of reinforced plastics and composites}, 24(3):273--285,
+  2005.
 
-\bibitem{daniel1994engineering}
-Isaac~M Daniel, Ori Ishai, Issac~M Daniel, and Ishai Daniel.
-\newblock {\em Engineering mechanics of composite materials}, volume~3.
-\newblock Oxford university press New York, 1994.
+\bibitem{fang1993design}
+Chin Fang and George~S Springer.
+\newblock Design of composite laminates by a monte carlo method.
+\newblock {\em Journal of composite materials}, 27(7):721--753, 1993.
 
-\bibitem{genlin2004survey}
-Ji~Genlin.
-\newblock Survey on genetic algorithm [j].
-\newblock {\em Computer Applications and Software}, 2(1):69--73, 2004.
+\bibitem{jadhav2007parametric}
+Prakash Jadhav and P~Raju Mantena.
+\newblock Parametric optimization of grid-stiffened composite panels for
+  maximizing their performance under transverse loading.
+\newblock {\em Composite structures}, 77(3):353--363, 2007.
 
-\bibitem{goldberg1991comparative}
-David~E Goldberg and Kalyanmoy Deb.
-\newblock A comparative analysis of selection schemes used in genetic
-  algorithms.
-\newblock In {\em Foundations of genetic algorithms}, volume~1, pages 69--93.
-  Elsevier, 1991.
+\bibitem{massard1984computer}
+Thierry~N Massard.
+\newblock Computer sizing of composite laminates for strength.
+\newblock {\em Journal of reinforced plastics and composites}, 3(4):300--345,
+  1984.
 
-\bibitem{goldberg1988genetic}
-David~E Goldberg and John~Henry Holland.
-\newblock Genetic algorithms and machine learning.
-\newblock 1988.
+\bibitem{omkar2008artificial}
+SN~Omkar, Rahul Khandelwal, Santhosh Yathindra, G~Narayana Naik, and
+  S~Gopalakrishnan.
+\newblock Artificial immune system for multi-objective design optimization of
+  composite structures.
+\newblock {\em Engineering Applications of Artificial Intelligence},
+  21(8):1416--1429, 2008.
 
-\bibitem{mirjalili2019genetic}
-Seyedali Mirjalili.
-\newblock Genetic algorithm.
-\newblock In {\em Evolutionary algorithms and neural networks}, pages 43--55.
-  Springer, 2019.
+\bibitem{park2008improved}
+Chung~Hae Park, Woo~Il Lee, Woo~Suck Han, and Alain Vautrin.
+\newblock Improved genetic algorithm for multidisciplinary optimization of
+  composite laminates.
+\newblock {\em Computers \& structures}, 86(19-20):1894--1903, 2008.
 
-\bibitem{ochoa1987analysis}
-Ozden~O Ochoa and John~J Engblom.
-\newblock Analysis of progressive failure in composites.
-\newblock {\em Composites Science and Technology}, 28(2):87--102, 1987.
+\bibitem{pelletier2006multi}
+Jacob~L Pelletier and Senthil~S Vel.
+\newblock Multi-objective optimization of fiber reinforced composite laminates
+  for strength, stiffness and minimal mass.
+\newblock {\em Computers \& structures}, 84(29-30):2065--2080, 2006.
 
 \bibitem{reddy1987first}
 JN~Reddy and AK~Pandey.
 \newblock A first-ply failure analysis of composite laminates.
 \newblock {\em Computers \& Structures}, 25(3):371--393, 1987.
 
-\bibitem{semenkin2012self}
-Eugene Semenkin and Maria Semenkina.
-\newblock Self-configuring genetic algorithm with modified uniform crossover
-  operator.
-\newblock In {\em International Conference in Swarm Intelligence}, pages
-  414--421. Springer, 2012.
+\bibitem{sadagopan1998application}
+D~Sadagopan and R~Pitchumani.
+\newblock Application of genetic algorithms to optimal tailoring of composite
+  materials.
+\newblock {\em Composites Science and Technology}, 58(3-4):571--589, 1998.
 
-\bibitem{taetragool2017stacking}
-U~Taetragool, PH~Shah, VA~Halls, JQ~Zheng, and RC~Batra.
-\newblock Stacking sequence optimization for maximizing the first failure
-  initiation load followed by progressive failure analysis until the ultimate
-  load.
-\newblock {\em Composite Structures}, 180:1007--1021, 2017.
+\bibitem{sivakumar1998optimum}
+K~Sivakumar, NGR Iyengar, and Kalyanmoy Deb.
+\newblock Optimum design of laminated composite plates with cutouts using a
+  genetic algorithm.
+\newblock {\em Composite Structures}, 42(3):265--279, 1998.
+
+\bibitem{soeiro1994multilevel}
+AV~Soeiro, CA~Concei{\c{c}}{\~a}o Ant{\'o}nio, and A~Torres Marques.
+\newblock Multilevel optimization of laminated composite structures.
+\newblock {\em Structural optimization}, 7(1-2):55--60, 1994.
+
+\bibitem{walker2003technique}
+Mark Walker and Ryan~E Smith.
+\newblock A technique for the multiobjective optimisation of laminated
+  composite structures using genetic algorithms and finite element analysis.
+\newblock {\em Composite structures}, 62(1):123--128, 2003.
 
 \end{thebibliography}
