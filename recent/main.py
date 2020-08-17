@@ -14,14 +14,15 @@ CROSSOVER_PROBABLITY=0.8
 ELITIST_PERCENT=0.10
 BEST_OUTPUS=[]
 # Material
-ANGLE = [0] #np.pi/4, -np.pi/4, np.pi/2] #, np.pi/2, np.pi/3, np.pi/4, np.pi/6, -np.pi/2, -np.pi/3, -np.pi/4, -np.pi/6]
-MATERIAL = ['graphite_epoxy', 'glass_epoxy'] 
+ANGLE = [0, np.pi/4, -np.pi/4, np.pi/2] #, np.pi/2, np.pi/3, np.pi/4, np.pi/6, -np.pi/2, -np.pi/3, -np.pi/4, -np.pi/6]
+MATERIAL = ['graphite_epoxy']#, 'glass_epoxy'] 
 LAYER_HEIGHT = 0.000165
 
 
 def get_fitness(ind):
-    #fitness = np.divide(ind.mass,MASS_MIN) + np.divide(ind.cost,COST_MIN)
+    #fitness = np.divide(ind.mass,0.472) + np.divide(ind.cost,12)
     fitness = ind.mass
+    #fitness = ind.cost
     return fitness
 
 def get_angle_height_material_list(length):
@@ -70,9 +71,9 @@ def get_laminate_individual(length):
 
 def get_initial_population():
     initial_population = []
-    while(len(initial_population)<50):
+    while(len(initial_population)<100):
 
-        length = int(np.random.randint(low=8, high=20,size=1))
+        length = int(np.random.randint(low=20, high=100,size=1))
         temp_ind = get_laminate_individual(length)
 
         if(temp_ind.strength_raito > cv.SAFETY_FACTOR):
@@ -89,11 +90,11 @@ if __name__ == "__main__":
     current_fitness = population[0].fitness
     previous_fitness = -1
 
-    print(current_fitness)
+    print("fitness: " + str(current_fitness))
     ga = my_ga.Genetic_Algorithm()
     while(np.abs(current_fitness - previous_fitness) > 0.0001):
-        parents = ga.select_parents(population,10)
-        offspring = ga.crossover(parents, 40)
+        parents = ga.select_parents(population,20)
+        offspring = ga.crossover(parents, 80)
         ga.mutation(offspring)
         for i in range(len(offspring)):
             material_list = offspring[i].material_list
@@ -102,15 +103,18 @@ if __name__ == "__main__":
                 lmac.get_laminate_mass(tool.get_symmetry_list(height_list),tool.get_symmetry_list(material_list))
             offspring[i].cost = lmac.get_laminate_cost(tool.get_symmetry_list(material_list))
             offspring[i].fitness = get_fitness(offspring[i])
-        population[0:10] = parents
-        population[10:] = offspring
+        population[0:20] = parents
+        population[20:] = offspring
         population.sort(key = lambda c: c.fitness)
 
         previous_fitness = current_fitness
         current_fitness = population[0].fitness
         print("curent fitness: " + str(current_fitness))
         print("current material "+ str(population[0].material_list))
+        print("current angel: "+ str(population[0].angle_list))
         print("strength ratio: "+ str(population[0].strength_raito))
+        print("mass: "+ str(population[0].mass))
+        print("cost: "+ str(population[0].cost))
         print("length: " + str(len(population[0].material_list)))
 
 

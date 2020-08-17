@@ -347,6 +347,16 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 \end{enumerate}
 
 \section {Genetic Algorithm Procedure}
+Objective Function: ${\theta_k,n,\text{material}}$
+
+Minimize: Weight
+
+Minimize: Cost 
+
+Minimize: Cost/Mini Cost + Weight/Mini Weight 
+
+Subject to: Safety Factor
+
 \begin{center}
 \begin{tikzpicture}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=1.0cm,minimum height=0.6cm, 
@@ -407,22 +417,28 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 
 \begin{tabular}{ccccccc}
 	\toprule
-	Load         &Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
+	Load         &Objective Function& Stacking sequence    & Strength ratio  & Mass &  Cost   &
+	Layer\\
 	\midrule
-	           &Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
-	$N_x=1e6$ N &Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
-	            &Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
+				 & $\text{min\{cost\}}$       & $[0_{gl}]_{6s}$           & 2.103           & 0.780
+				 &  12.0  & 12  \\
+	$N_x=1e6$ N  &\text{min\{mass\}}&  $[0_{gr}]_9$             & 2.227           & 0.472 &  22.5  &
+	9\\
+				 &\text{min\{cost+mass\}}& $[0_{gr5}/0_{gl}]_s$  & 2.082  & 0.550 &  22.0  & 10 \\
 	\bottomrule
 \end{tabular}
 
 
 \begin{tabular}{ccccccc}
 	\toprule
-	Load         &Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
+	Load         &Objective Function& Stacking sequence    & Strength ratio  & Mass &  Cost   &
+	Layer\\
 	\midrule
-	           &Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
-	$N_y=1e6$ N  &Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
-	            &Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
+				 & $\text{min\{cost\}}$       & $[0_{gl}]_{6s}$           & 2.103           & 0.780
+				 &  12.0  & 12  \\
+	\makecell{$N_x=1e6$ N\\ $N_y=0.5\time e6$ N}   &\text{min\{mass\}}&  $[0_{gr}]_9$             & 2.227           & 0.472 &  22.5  &
+	9\\
+				 &\text{min\{cost+mass\}}& $[0_{gr5}/0_{gl}]_s$  & 2.082  & 0.550 &  22.0  & 10 \\
 	\bottomrule
 \end{tabular}
 
@@ -440,11 +456,11 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 
 \begin{tabular}{ccccccc}
 	\toprule
-	Load         &Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
+	Load         & Objective & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
 	\midrule
-	           &Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
-	\makecell{$N_x=N_y=$ \\ $N_{xy}=1e6$ N}  &Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
-	            &Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
+	           & min mass& $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
+	\makecell{$N_x=N_y=$ \\ $N_{xy}=1e6$ N}  &min cost&  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
+	            &min cost + weight&  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
 	\bottomrule
 \end{tabular}
 
