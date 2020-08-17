@@ -3,6 +3,7 @@ import numpy as np
 GLASS_EPOXY= 'glass_epoxy'
 GRAPHITE_EPOXY = "graphite_epoxy"
 BORON_EPOXY = "boron_epoxy"
+KEVLAR_EPOXY = "kevlar_epoxy"
 
 
 # SI System of Units
@@ -21,6 +22,7 @@ boron_properties = {
                 'sigma_2_compressive':202,
                 'tau_12':67
              }
+
 graphite_properties = {
                 'sigma_1_tensile':np.float64(1500),
                 'sigma_1_compressive': np.float64(1500),
@@ -114,12 +116,30 @@ def maximum_stress_failure_theory(component, material):
 
 
 
-def tsai_hill_failure_theory():
-    G1 = 0.5 * ( (np.divide(2,np.power(properties['sigma_2_tensile'],2))) - \
-              (np.divide(1,np.power(properties['sigma_1_tensile'],2))) )
-    G2 = 0.5 * np.divide(1,np.power(properties['sigma_1_tensile'],2))
-    G3 = 0.5 * np.divide(1,np.power(properties['sigma_1_tensile'],2))
-    G6 = 0.5 * np.divide(1, np.power(properties['tau_12'], 2))
+def tsai_hill_failure_theory(component, material):
+
+    if(material == GLASS_EPOXY):
+        properties = glass_properties
+    if(material == GRAPHITE_EPOXY):
+        properties = graphite_properties
+    if(material == BORON_EPOXY):
+        properties = boron_properties
+    if(material == KEVLAR_EPOXY):
+        properties = kevlar_properties
+
+    sigma_1_tensile = properties['sigma_1_tensile']
+    sigma_2_tensile = properties['sigma_2_tensile']
+    tau_12          = properties['tau_12']
+    a0 = component[0];
+    b0 = component[1];
+    c0 = component[2];
+    denominator = np.divide(a0*a0 - a0*b0, sigma_1_tensile*sigma_1_tensile) + \
+                  np.divide(b0*b0, sigma_2_tensile*sigma_2_tensile) + \
+                  np.divide(c0*c0, tau_12*tau_12)
+
+    sr = np.sqrt(1/denominator)
+    return sr
+    
 
 
 
@@ -170,10 +190,8 @@ if __name__ == "__main__":
     #tsai_wu_failure_theory([1.714, -2.714, -4.165],GRAPHITE_EPOXY)
     sr = maximum_stress_failure_theory([1.714, -2.714, -4.165],GRAPHITE_EPOXY)
     sr = maximum_strain_failure_theory([0.1369,-2.662,-5.809], GRAPHITE_EPOXY)
+    sr = tsai_hill_failure_theory([1.714, -2.714, -4.165],GRAPHITE_EPOXY)
     print(sr)
-
-
-
 
 
 
@@ -203,4 +221,20 @@ graphite_properties = {
                 'sigma_2_compressive':35.68,
                 'tau_12':9.863 
              }
+
+graphite_properties = {
+                'sigma_1_tensile':np.float64(1515),
+                'sigma_1_compressive': np.float64(1515),
+                'sigma_2_tensile':40,
+                'sigma_2_compressive':246,
+                'tau_12':68
+             }
+
+kevlar_properties = {
+                'sigma_1_tensile':np.float64(1517),
+                'sigma_1_compressive':"ddd",
+                'sigma_2_tensile':28,
+                'sigma_2_compressive':"ddd",
+                'tau_12':41
+               }
 """
