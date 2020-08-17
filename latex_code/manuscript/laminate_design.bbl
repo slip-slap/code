@@ -5,6 +5,11 @@ Akram~Y Abu-Odeh and Harry~L Jones.
 \newblock Optimum design of composite plates using response surface method.
 \newblock {\em Composite structures}, 43(3):233--242, 1998.
 
+\bibitem{akbulut2008optimum}
+Mustafa Akbulut and Fazil~O Sonmez.
+\newblock Optimum design of composite laminates for minimum thickness.
+\newblock {\em Computers \& Structures}, 86(21-22):1974--1982, 2008.
+
 \bibitem{deka2005multiobjective}
 Dhyan~Jyoti Deka, G~Sandeep, D~Chakraborty, and A~Dutta.
 \newblock Multiobjective optimization of laminated composites using finite
@@ -23,11 +28,44 @@ Prakash Jadhav and P~Raju Mantena.
   maximizing their performance under transverse loading.
 \newblock {\em Composite structures}, 77(3):353--363, 2007.
 
+\bibitem{kang2005minimum}
+Ji-Ho Kang and Chun-Gon Kim.
+\newblock Minimum-weight design of compressively loaded composite plates and
+  stiffened panels for postbuckling strength by genetic algorithm.
+\newblock {\em Composite structures}, 69(2):239--246, 2005.
+
+\bibitem{lin2004stacking}
+Ching-Chieh Lin and Ya-Jung Lee.
+\newblock Stacking sequence optimization of laminated composite structures
+  using genetic algorithm with local improvement.
+\newblock {\em Composite structures}, 63(3-4):339--345, 2004.
+
+\bibitem{liu2000permutation}
+Boyang Liu, Raphael~T Haftka, Mehmet~A Akg{\"u}n, and Akira Todoroki.
+\newblock Permutation genetic algorithm for stacking sequence design of
+  composite laminates.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  186(2-4):357--372, 2000.
+
 \bibitem{massard1984computer}
 Thierry~N Massard.
 \newblock Computer sizing of composite laminates for strength.
 \newblock {\em Journal of reinforced plastics and composites}, 3(4):300--345,
   1984.
+
+\bibitem{murugan2007target}
+MS~Murugan, S~Suresh, R~Ganguli, and V~Mani.
+\newblock Target vector optimization of composite box beam using real-coded
+  genetic algorithm: a decomposition approach.
+\newblock {\em Structural and Multidisciplinary Optimization}, 33(2):131--146,
+  2007.
+
+\bibitem{nagendra1996improved}
+Somanath Nagendra, D~Jestin, Zafer G{\"u}rdal, Raphael~T Haftka, and Layne~T
+  Watson.
+\newblock Improved genetic algorithm for the design of stiffened composite
+  panels.
+\newblock {\em Computers \& Structures}, 58(3):543--555, 1996.
 
 \bibitem{omkar2008artificial}
 SN~Omkar, Rahul Khandelwal, Santhosh Yathindra, G~Narayana Naik, and
@@ -54,6 +92,12 @@ JN~Reddy and AK~Pandey.
 \newblock A first-ply failure analysis of composite laminates.
 \newblock {\em Computers \& Structures}, 25(3):371--393, 1987.
 
+\bibitem{riche1993optimization}
+Rodolphe~Le Riche and Raphael~T Haftka.
+\newblock Optimization of laminate stacking sequence for buckling load
+  maximization by genetic algorithm.
+\newblock {\em AIAA journal}, 31(5):951--956, 1993.
+
 \bibitem{sadagopan1998application}
 D~Sadagopan and R~Pitchumani.
 \newblock Application of genetic algorithms to optimal tailoring of composite
@@ -70,6 +114,12 @@ K~Sivakumar, NGR Iyengar, and Kalyanmoy Deb.
 AV~Soeiro, CA~Concei{\c{c}}{\~a}o Ant{\'o}nio, and A~Torres Marques.
 \newblock Multilevel optimization of laminated composite structures.
 \newblock {\em Structural optimization}, 7(1-2):55--60, 1994.
+
+\bibitem{todoroki1998stacking}
+Akira Todoroki and Raphael~T Haftka.
+\newblock Stacking sequence optimization by a genetic algorithm with a new
+  recessive gene like repair strategy.
+\newblock {\em Composites Part B: Engineering}, 29(3):277--285, 1998.
 
 \bibitem{walker2003technique}
 Mark Walker and Ryan~E Smith.

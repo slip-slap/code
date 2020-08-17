@@ -4,45 +4,45 @@ The top-level auxiliary file: laminate_design.aux
 The style file: plain.bst
 Database file #1: laminate_design.bib
 Warning--I didn't find a database entry for "back1994selective"
-You've used 13 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            588 strings with 6436 characters,
-and the built_in function-call counts, 4634 in all, are:
-= -- 474
-> -- 208
+            636 strings with 7975 characters,
+and the built_in function-call counts, 7533 in all, are:
+= -- 770
+> -- 347
 < -- 0
-+ -- 83
-- -- 68
-* -- 381
-:= -- 778
-add.period$ -- 39
-call.type$ -- 13
-change.case$ -- 73
++ -- 137
+- -- 114
+* -- 622
+:= -- 1262
+add.period$ -- 63
+call.type$ -- 21
+change.case$ -- 120
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 143
-empty$ -- 356
-format.name$ -- 68
-if$ -- 931
+cite$ -- 21
+duplicate$ -- 231
+empty$ -- 574
+format.name$ -- 114
+if$ -- 1514
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 13
-newline$ -- 68
-num.names$ -- 26
-pop$ -- 47
+int.to.str$ -- 21
+missing$ -- 21
+newline$ -- 108
+num.names$ -- 42
+pop$ -- 78
 preamble$ -- 1
-purify$ -- 60
+purify$ -- 99
 quote$ -- 0
-skip$ -- 97
+skip$ -- 158
 stack$ -- 0
-substring$ -- 404
-swap$ -- 13
+substring$ -- 650
+swap$ -- 21
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 52
+type$ -- 84
 warning$ -- 0
-while$ -- 52
-width$ -- 15
-write$ -- 145
+while$ -- 84
+width$ -- 23
+write$ -- 233
 (There was 1 warning)
