@@ -1,5 +1,6 @@
 import individual as ind
 import tool
+import copy
 import numpy as np
 import laminate_multiple_component as lmc
 import genetic_algorithm as my_ga
@@ -110,8 +111,11 @@ if __name__ == "__main__":
         previous_fitness = current_fitness
         current_fitness = population[0].fitness
         print("curent fitness: " + str(current_fitness))
-        print("current material "+ str(population[0].material_list))
-        print("current angel: "+ str(population[0].angle_list))
+        #print("current material "+ str(population[0].material_list))
+        angle_list_copy = copy.deepcopy(population[0].angle_list)
+        for i in range(len(angle_list_copy)):
+            angle_list_copy[i] = str(angle_list_copy[i])[0:4]
+        print("current angel: "+ str(angle_list_copy))
         print("strength ratio: "+ str(population[0].strength_raito))
         print("mass: "+ str(population[0].mass))
         print("cost: "+ str(population[0].cost))
