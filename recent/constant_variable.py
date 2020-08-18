@@ -3,7 +3,7 @@ Maitain constant variable will be used in this program
 """
 
 
-LOAD = [1, 0, 0 ,0 , 0 ,0]
+LOAD = [1, 1, 0, 0 , 0 ,0]
 
 GLASS_EPOXY= 'glass_epoxy'
 GRAPHITE_EPOXY = "graphite_epoxy"

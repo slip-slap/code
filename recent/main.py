@@ -15,15 +15,23 @@ CROSSOVER_PROBABLITY=0.8
 ELITIST_PERCENT=0.10
 BEST_OUTPUS=[]
 # Material
-ANGLE = [0]#np.pi/4, -np.pi/4, np.pi/2] #, np.pi/2, np.pi/3, np.pi/4, np.pi/6, -np.pi/2, -np.pi/3, -np.pi/4, -np.pi/6]
-MATERIAL = [cv.CARBON_EPOXY,cv.GLASS_EPOXY,cv.GRAPHITE_EPOXY] 
+#ANGLE = [0]
+ANGLE = [np.pi/4,  -np.pi/4]
+#ANGLE = [np.pi/4, -np.pi/4]# np.pi/2] #, np.pi/2, np.pi/3, np.pi/4, np.pi/6, -np.pi/2, -np.pi/3, -np.pi/4, -np.pi/6]
+#MATERIAL = [cv.CARBON_EPOXY,cv.GRAPHITE_EPOXY] #cv.GLASS_EPOXY,
+#MATERIAL = [cv.CARBON_EPOXY] #cv.GLASS_EPOXY,
+#MATERIAL = [cv.GRAPHITE_EPOXY]
+#MATERIAL = [cv.GLASS_EPOXY]
+MATERIAL = [cv.CARBON_EPOXY,cv.GRAPHITE_EPOXY] #cv.GLASS_EPOXY,
+#MATERIAL = [cv.GRAPHITE_EPOXY,cv.GLASS_EPOXY] #cv.GLASS_EPOXY,
 LAYER_HEIGHT = 0.000165
 
 
+
 def get_fitness(ind):
-    #fitness = ind.mass
+    fitness = ind.mass
     #fitness = ind.cost
-    fitness = np.divide(ind.mass,0.31778) + np.divide(ind.cost,12)
+    #fitness = np.divide(ind.mass,0.31) + np.divide(ind.cost, 12)
     return fitness
 
 def get_angle_height_material_list(length):
@@ -74,16 +82,28 @@ def get_initial_population():
     initial_population = []
     while(len(initial_population)<100):
 
-        length = int(np.random.randint(low=5, high=13,size=1))
+        length = int(np.random.randint(low=30, high=90, size=1))
         temp_ind = get_laminate_individual(length)
 
         if(temp_ind.strength_raito > cv.SAFETY_FACTOR):
             initial_population.append(temp_ind)
     return initial_population
 
+def get_concerter_angle(angle):
+    if(angle < 0 and np.abs(angle + np.pi/2) < 0.1):
+        return -90
+    if(angle < 0 and np.abs(angle + np.pi/4) < 0.1):
+        return -45
+    if(np.abs(angle - 0) < 0.001):
+        return 0
+    if(angle > 0 and np.abs(angle - np.pi/2) < 0.1):
+        return 90
+    if(angle > 0 and np.abs(angle - np.pi/4) < 0.1):
+        return 45
+
 
 if __name__ == "__main__":
-    print("#######################")
+    print("###load: "+str(cv.LOAD))
     population = get_initial_population()
     population.sort(key = lambda c:c.fitness)
     for i in range(len(population)):
@@ -114,14 +134,32 @@ if __name__ == "__main__":
         #print("current material "+ str(population[0].material_list))
         angle_list_copy = copy.deepcopy(population[0].angle_list)
         for i in range(len(angle_list_copy)):
-            angle_list_copy[i] = str(angle_list_copy[i])[0:4]
+            angle_list_copy[i] = get_concerter_angle(angle_list_copy[i])
         print("current angel: "+ str(angle_list_copy))
         print("strength ratio: "+ str(population[0].strength_raito))
         print("mass: "+ str(population[0].mass))
         print("cost: "+ str(population[0].cost))
         print("length: " + str(len(population[0].material_list)))
-        print("material: " + str(population[0].material_list))
 
+        stacking_sequence = []
+        for i in range(len(angle_list_copy)):
+            stacking_sequence.append(angle_list_copy[i])
+            stacking_sequence.append(population[0].material_list[i])
+        print("sequence: " + str(stacking_sequence))
+
+    with open("laminate_result.txt","a") as result_handler:
+        result_handler.write("mass: " + str(population[0].mass))
+        result_handler.write("\n")
+        result_handler.write("cost: " + str(population[0].cost))
+        result_handler.write("\n")
+        result_handler.write("strength raito: "+ str(population[0].strength_raito))
+        result_handler.write("\n")
+        result_handler.write("length: " + str(len(population[0].material_list)))
+        result_handler.write("\n")
+        result_handler.write("stacking sequence: " + str(stacking_sequence))
+        result_handler.write("\n")
+        result_handler.write("##########################################")
+        result_handler.write("\n")
 
 
 """
