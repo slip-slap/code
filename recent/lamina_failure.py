@@ -1,9 +1,5 @@
 import numpy as np
-
-GLASS_EPOXY= 'glass_epoxy'
-GRAPHITE_EPOXY = "graphite_epoxy"
-BORON_EPOXY = "boron_epoxy"
-KEVLAR_EPOXY = "kevlar_epoxy"
+import constant_variable as cv
 
 
 # SI System of Units
@@ -15,12 +11,12 @@ glass_properties = {
                 'tau_12':72
              }
 
-boron_properties = {
-                'sigma_1_tensile':np.float64(1260),
-                'sigma_1_compressive':np.float64(2500),
-                'sigma_2_tensile':61,
-                'sigma_2_compressive':202,
-                'tau_12':67
+carbon_properties = {
+                'sigma_1_tensile':np.float64(2062),
+                'sigma_1_compressive':np.float64(1701),
+                'sigma_2_tensile':70,
+                'sigma_2_compressive':240,
+                'tau_12':105
              }
 
 graphite_properties = {
@@ -31,22 +27,18 @@ graphite_properties = {
                 'tau_12':68
              }
 
-# SI System of Units
-GLASS_EPOXY_PROPERTIES     = {"E1":38.6,  "E2":8.27, "v12":0.26,  "G12":4.14 }
-BORON_EPOXY_PROPERTIES     = {"E1":204,  "E2":18.5, "v12":0.23,  "G12":5.59 }
-GRAPHITE_EPOXY_PROPERTIES  = {"E1":181,  "E2":10.3, "v12":0.28,  "G12":7.17 }
 
-#properties = graphite_properties
 
 def maximum_strain_failure_theory(component, material):
-    if(material == GLASS_EPOXY):
-        #global properties
-        #global four_elastic_property
+    if(material == cv.GLASS_EPOXY):
         properties = glass_properties
-        four_elastic_property = GLASS_EPOXY_PROPERTIES
-    if(material == GRAPHITE_EPOXY):
+        four_elastic_property = cv.GLASS_EPOXY_PROPERTIES
+    if(material == cv.GRAPHITE_EPOXY):
         properties = graphite_properties
-        four_elastic_property = GRAPHITE_EPOXY_PROPERTIES
+        four_elastic_property = cv.GRAPHITE_EPOXY_PROPERTIES
+    if(material == cv.CARBON_EPOXY):
+        properties = carbon_properties 
+        four_elastic_property = cv.CARBON_EPOXY_PROPERTIES
 
     sigma_1_ten = np.divide(properties['sigma_1_tensile'], \
                             four_elastic_property['E1'])
@@ -122,10 +114,6 @@ def tsai_hill_failure_theory(component, material):
         properties = glass_properties
     if(material == GRAPHITE_EPOXY):
         properties = graphite_properties
-    if(material == BORON_EPOXY):
-        properties = boron_properties
-    if(material == KEVLAR_EPOXY):
-        properties = kevlar_properties
 
     sigma_1_tensile = properties['sigma_1_tensile']
     sigma_2_tensile = properties['sigma_2_tensile']
@@ -150,12 +138,12 @@ component=[1.714, -2.714, -4.165]
 def tsai_wu_failure_theory(component,material):
 
     #global properties
-    if(material == GLASS_EPOXY):
+    if(material == cv.GLASS_EPOXY):
         properties = glass_properties
-    if(material == GRAPHITE_EPOXY):
+    if(material == cv.GRAPHITE_EPOXY):
         properties = graphite_properties
-    if(material == BORON_EPOXY):
-        properties = boron_properties
+    if(material == cv.CARBON_EPOXY):
+        properties = carbon_properties 
 
     h1 = np.divide(1, properties['sigma_1_tensile']) - \
          np.divide(1, properties['sigma_1_compressive'])
@@ -196,45 +184,3 @@ if __name__ == "__main__":
 
 
 
-
-# USCS System of Units
-"""
-glass_properties = {
-                'sigma_1_tensile':np.float64(154.03),
-                'sigma_1_compressive':np.float64(88.47),
-                'sigma_2_tensile':4.496,
-                'sigma_2_compressive':17.12,
-                'tau_12':10.44
-             }
-
-boron_properties = {
-                'sigma_1_tensile':np.float64(182.75),
-                'sigma_1_compressive':np.float64(362.6),
-                'sigma_2_tensile':8.847,
-                'sigma_2_compressive':29.30,
-                'tau_12':9.718
-             }
-graphite_properties = {
-                'sigma_1_tensile':np.float64(217.56),
-                'sigma_1_compressive': np.float64(217.56),
-                'sigma_2_tensile':5.802,
-                'sigma_2_compressive':35.68,
-                'tau_12':9.863 
-             }
-
-graphite_properties = {
-                'sigma_1_tensile':np.float64(1515),
-                'sigma_1_compressive': np.float64(1515),
-                'sigma_2_tensile':40,
-                'sigma_2_compressive':246,
-                'tau_12':68
-             }
-
-kevlar_properties = {
-                'sigma_1_tensile':np.float64(1517),
-                'sigma_1_compressive':"ddd",
-                'sigma_2_tensile':28,
-                'sigma_2_compressive':"ddd",
-                'tau_12':41
-               }
-"""

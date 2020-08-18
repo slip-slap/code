@@ -3,15 +3,24 @@ Maitain constant variable will be used in this program
 """
 
 
-LOAD = [1, 0.25, 0 ,0 , 0 ,0]
+LOAD = [1, 0, 0 ,0 , 0 ,0]
 
 GLASS_EPOXY= 'glass_epoxy'
 GRAPHITE_EPOXY = "graphite_epoxy"
-BORON_EPOXY = "boron_epoxy"
-KEVLAR_EPOXY = "kevlar_epoxy"
+CARBON_EPOXY = "carbon_epoxy"
+
 
 GLASS_EPOXY_PROPERTIES     = {"E1":38.6,  "E2":8.27, "v12":0.26,  "G12":4.14 }
-BORON_EPOXY_PROPERTIES     = {"E1":204,  "E2":18.5, "v12":0.23,  "G12":5.59 }
+CARBON_EPOXY_PROPERTIES    = {"E1":116.6,  "E2":7.673, "v12":0.27,  "G12":4.173 }
 GRAPHITE_EPOXY_PROPERTIES  = {"E1":181,  "E2":10.3, "v12":0.28,  "G12":7.17 }
+
+CARBON_EPOXY_DENSITY = 1.605
+GRAPHITE_EPOXY_DENSITY = 1.59
+GLASS_EPOXY_DENSITY = 1.903
+
+GLASS_EPOXY_COST = 1
+GRAPHITE_EPOXY_COST = 2.5
+CARBON_EPOXY_COST = 8
+
 SAFETY_FACTOR = 2
 

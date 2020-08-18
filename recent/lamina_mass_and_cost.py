@@ -1,27 +1,20 @@
 import numpy as np
+import constant_variable as cv
 
-FIBER_VOLUME_FRACTION_GLASS_EPOXY = 0.45
-FIBER_VOLUME_FRACTION_BORON_EPOXY = 0.50
-FIBER_VOLUME_FRACTION_GRAPHITE_EPOXY = 0.70
-FIBER_SPECIFIC_GRAVITY_GRAPHITE = 1.8
-FIBER_SPECIFIC_GRAVITY_GLASS    = 2.5
-FIBER_SPECIFIC_GRAVITY_BORON    = 2.34
-MATRIC_SPECIFIC_GRAVITY_EPOXY = 1.2
-#### mm
 LAMINATE_LENGTH = 100
 LAMINATE_WIDTH = 20
 
 
-density_of_water = 3.6127*0.01
 def get_lamina_mass(volume,material):
     fiber = material.split('_')[0]
     matrice = material.split('_')[1]
     if(fiber == "glass"):
-        density = 1.97
+        density = cv.GLASS_EPOXY_DENSITY
     if(fiber == "graphite"):
-        density = 1.59
-    if(fiber == "kevlar"):
-        density = 1.384
+
+        density = cv.GRAPHITE_EPOXY_DENSITY
+    if(fiber == "carbon"):
+        density = cv.CARBON_EPOXY_DENSITY
 
     return volume*density/1000
 
@@ -40,12 +33,11 @@ def get_laminate_cost(material):
     cost = 0
     for i in range(len(material)):
         if(material[i] == 'glass_epoxy'):
-            cost = cost + 1
+            cost = cost + cv.GLASS_EPOXY_COST
         if(material[i] == 'graphite_epoxy'):
-            cost = cost + 2.5
-        if(material[i] == 'kevlar_epoxy'):
-            cost = cost + 2.205
-            print("kev")
+            cost = cost + cv.GRAPHITE_EPOXY_COST
+        if(material[i] == 'carbon_epoxy'):
+            cost = cost + cv.CARBON_EPOXY_COST
     return cost
 
 

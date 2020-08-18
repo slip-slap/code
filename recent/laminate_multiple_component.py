@@ -14,10 +14,8 @@ def calc_lamina_stiffness_matrix_Q(material):
         material_property = cv.GLASS_EPOXY_PROPERTIES
     if(material == cv.GRAPHITE_EPOXY):
         material_property = cv.GRAPHITE_EPOXY_PROPERTIES
-    if(material == cv.BORON_EPOXY):
-        material_property = cv.BORON_EPOXY_PROPERTIES
-    if(material == cv.KEVLAR_EPOXY):
-        material_property = cv.KEVLAR_EPOXY_PROPERTIES
+    if(material == cv.CARBON_EPOXY):
+        material_property = cv.CARBON_EPOXY_PROPERTIES
 
     E1 = material_property['E1']
     E2 = material_property['E2']
@@ -354,9 +352,9 @@ if __name__=='__main__':
     material = [GLASS_EPOXY] * 140
     load=[1,0,0,0,0,0]
     """
-    angle =[0] * 8
-    height=[0.000165] * 8 
-    material = [GRAPHITE_EPOXY] * 8 
+    angle =[0] *12 
+    height=[0.000165] * 12 
+    material = [cv.GLASS_EPOXY] * 12
     load=[1,0,0,0,0,0]
 
     sr  = get_strength_ratio(angle,height,material,load)

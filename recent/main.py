@@ -15,15 +15,15 @@ CROSSOVER_PROBABLITY=0.8
 ELITIST_PERCENT=0.10
 BEST_OUTPUS=[]
 # Material
-ANGLE = [0, np.pi/4, -np.pi/4, np.pi/2] #, np.pi/2, np.pi/3, np.pi/4, np.pi/6, -np.pi/2, -np.pi/3, -np.pi/4, -np.pi/6]
-MATERIAL = ['graphite_epoxy']#, 'glass_epoxy'] 
+ANGLE = [0]#np.pi/4, -np.pi/4, np.pi/2] #, np.pi/2, np.pi/3, np.pi/4, np.pi/6, -np.pi/2, -np.pi/3, -np.pi/4, -np.pi/6]
+MATERIAL = [cv.CARBON_EPOXY,cv.GLASS_EPOXY,cv.GRAPHITE_EPOXY] 
 LAYER_HEIGHT = 0.000165
 
 
 def get_fitness(ind):
-    #fitness = np.divide(ind.mass,0.472) + np.divide(ind.cost,12)
-    fitness = ind.mass
+    #fitness = ind.mass
     #fitness = ind.cost
+    fitness = np.divide(ind.mass,0.31778) + np.divide(ind.cost,12)
     return fitness
 
 def get_angle_height_material_list(length):
@@ -74,7 +74,7 @@ def get_initial_population():
     initial_population = []
     while(len(initial_population)<100):
 
-        length = int(np.random.randint(low=20, high=100,size=1))
+        length = int(np.random.randint(low=5, high=13,size=1))
         temp_ind = get_laminate_individual(length)
 
         if(temp_ind.strength_raito > cv.SAFETY_FACTOR):
@@ -120,6 +120,7 @@ if __name__ == "__main__":
         print("mass: "+ str(population[0].mass))
         print("cost: "+ str(population[0].cost))
         print("length: " + str(len(population[0].material_list)))
+        print("material: " + str(population[0].material_list))
 
 
 
