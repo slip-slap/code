@@ -399,7 +399,6 @@ Subject to: Safety Factor
 	\toprule
 	Property								  & Symbol	   & Unit &  Glass/Epoxy &  Graphite/Epoxy  \\
 	\midrule
-	Fiber volume fraction					  & $V_f$		      &      &  0.45        &  0.70   \\
 	Longitudinal elastic modulus			  & $E_1$		      & GPa  &  38.6        &  181  \\
 	Traverse elastic modulus				  & $E_2$		      & GPa  &  8.27        &  10.3  \\
 	Major Poisson's ratio					  & $v_{12}$	      &      &  0.26        &  0.28  \\
@@ -417,52 +416,44 @@ Subject to: Safety Factor
 
 \begin{tabular}{ccccccc}
 	\toprule
-	Load         &Objective Function& Stacking sequence    & Strength ratio  & Mass &  Cost   &
-	Layer\\
+	Load         &Objective Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-				 & $\text{min\{cost\}}$       & $[0_{gl}]_{6s}$           & 2.103           & 0.780
-				 &  12.0  & 12  \\
-	$N_x=1e6$ N  &\text{min\{mass\}}&  $[0_{gr}]_9$             & 2.227           & 0.472 &  22.5  &
-	9\\
-				 &\text{min\{cost+mass\}}& $[0_{gr5}/0_{gl}]_s$  & 2.082  & 0.550 &  22.0  & 10 \\
+	                 &          &  $[0_{cr3}]_s$                             & 2.041           & 0.318 &  48.0  & 6  \\
+					 &          &  $[0_{gr4}/0_{gr}]_s$                      & 2.227           & 0.472 &  22.5  & 9  \\
+		$N_x=1e6$ N	 &          &  $[0_{gl6}]_s$                             & 2.103           & 0.753 &  12.0  & 12  \\
+				     &          &  $[0_{gr4}/0_{gl}]_s$                      & 2.031           & 0.482 &  21.0  & 9 \\
+	\bottomrule
+\end{tabular}
+
+\begin{comment}
+$[0_2/-45_2/0/45/0_2/45_2/-45/0]_s$
+\makecell{$N_x=1e6$ N\\ $N_y=0.25\time e6$ N}
+\end{comment}
+
+\begin{tabular}{ccccccc}
+	\toprule
+	Load         &Objective Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
+	\midrule
+	                 &          &  $[90_{cr3}]_s$                             & 2.041           & 0.318 &  48.0  & 6  \\
+					 &          &  $[90_{gr4}/90_{gr}]_s$                      & 2.227           & 0.472 &  22.5  & 9  \\
+		$N_y=1e6$ N	 &          &  $[90_{gl6}]_s$                             & 2.103           & 0.753 &  12.0  & 12  \\
+				     &          &  $[90_{gr4}/90_{gl}]_s$                      & 2.031           & 0.482 &  21.0  & 9 \\
 	\bottomrule
 \end{tabular}
 
 
 \begin{tabular}{ccccccc}
 	\toprule
-	Load         &Objective Function& Stacking sequence    & Strength ratio  & Mass &  Cost   &
-	Layer\\
+	Load         &Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-				 & $\text{min\{cost\}}$       & $[0_{gl}]_{6s}$           & 2.103           & 0.780
-				 &  12.0  & 12  \\
-	\makecell{$N_x=1e6$ N\\ $N_y=0.5\time e6$ N}   &\text{min\{mass\}}&  $[0_{gr}]_9$             & 2.227           & 0.472 &  22.5  &
-	9\\
-				 &\text{min\{cost+mass\}}& $[0_{gr5}/0_{gl}]_s$  & 2.082  & 0.550 &  22.0  & 10 \\
+				     &          &  $[-45_{cr6}+45_{cr7}]_s$                  & 2.013           & 1.377 &  208.0  & 26  \\
+					 &          &  $[-45_{gr5}/+45_{gr23}]_s$                & 2.105           & 1.732 &  82.5   & 33  \\
+	$N_{xy}=1e6$ N	 &          &  $[-45_{gl17}+45_{gl_38}]_s$               & 2.011           & 6.908 &  110.0  & 110  \\
+					 &          &  $[-45_{ca3}/+45_{ca4}/+45_{gr6}/+45_{ca}]_s$     & 2.351    & 1.424 &  150    & 27 \\
 	\bottomrule
 \end{tabular}
 
 
-\begin{tabular}{ccccccc}
-	\toprule
-	Load         &Type of composite & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
-	\midrule
-	           &Glass/Epoxy       & $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
-	$N_{xy}=1e6$ N  &Graphite/Epoxy    &  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
-	            &Hybrid composite  &  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
-	\bottomrule
-\end{tabular}
-
-
-\begin{tabular}{ccccccc}
-	\toprule
-	Load         & Objective & Stacking sequence    & Strength ratio  & Mass &  Cost   & Height\\
-	\midrule
-	           & min mass& $[0]_{6s}$           & 2.103           & 0.707 &  12.0  & 1.980  \\
-	\makecell{$N_x=N_y=$ \\ $N_{xy}=1e6$ N}  &min cost&  $[0]_9$             & 2.227           & 0.481 &  22.5  & 1.485 \\
-	            &min cost + weight&  $[Gl${\text -}$E/Gr${\text -}$E_{5}]_s$ & 2.082  & 0.545 &  22.0  & 1.650 \\
-	\bottomrule
-\end{tabular}
 
 \captionof{table}{GA-parameters}
 \begin{tabular}{cc}
