@@ -10,6 +10,13 @@ Mustafa Akbulut and Fazil~O Sonmez.
 \newblock Optimum design of composite laminates for minimum thickness.
 \newblock {\em Computers \& Structures}, 86(21-22):1974--1982, 2008.
 
+\bibitem{choudhury2019failure}
+A~Choudhury, SC~Mondal, and S~Sarkar.
+\newblock Failure analysis of laminated composite plate under hygro-thermo
+  mechanical load and optimisation.
+\newblock {\em International Journal of Applied Mechanics and Engineering},
+  24(3):509--526, 2019.
+
 \bibitem{deka2005multiobjective}
 Dhyan~Jyoti Deka, G~Sandeep, D~Chakraborty, and A~Dutta.
 \newblock Multiobjective optimization of laminated composites using finite
@@ -34,6 +41,12 @@ Ji-Ho Kang and Chun-Gon Kim.
   stiffened panels for postbuckling strength by genetic algorithm.
 \newblock {\em Composite structures}, 69(2):239--246, 2005.
 
+\bibitem{kim2007development}
+Jung-Seok Kim.
+\newblock Development of a user-friendly expert system for composite laminate
+  design.
+\newblock {\em Composite Structures}, 79(1):76--83, 2007.
+
 \bibitem{lin2004stacking}
 Ching-Chieh Lin and Ya-Jung Lee.
 \newblock Stacking sequence optimization of laminated composite structures
@@ -46,6 +59,11 @@ Boyang Liu, Raphael~T Haftka, Mehmet~A Akg{\"u}n, and Akira Todoroki.
   composite laminates.
 \newblock {\em Computer methods in applied mechanics and engineering},
   186(2-4):357--372, 2000.
+
+\bibitem{martin1987optimum}
+PMJW Martin.
+\newblock Optimum design of anisotropic sandwich panels with thin faces.
+\newblock {\em Engineering optimization}, 11(1-2):3--12, 1987.
 
 \bibitem{massard1984computer}
 Thierry~N Massard.
@@ -104,11 +122,22 @@ D~Sadagopan and R~Pitchumani.
   materials.
 \newblock {\em Composites Science and Technology}, 58(3-4):571--589, 1998.
 
+\bibitem{seresta2007optimal}
+Omprakash Seresta, Zafer G{\"u}rdal, David~B Adams, and Layne~T Watson.
+\newblock Optimal design of composite wing structures with blended laminates.
+\newblock {\em Composites Part B: Engineering}, 38(4):469--480, 2007.
+
 \bibitem{sivakumar1998optimum}
 K~Sivakumar, NGR Iyengar, and Kalyanmoy Deb.
 \newblock Optimum design of laminated composite plates with cutouts using a
   genetic algorithm.
 \newblock {\em Composite Structures}, 42(3):265--279, 1998.
+
+\bibitem{soares1995discrete}
+CM~Mota Soares, V~Franco Correia, H~Mateus, and J~Herskovits.
+\newblock A discrete model for the optimal design of thin composite plate-shell
+  type structures using a two-level approach.
+\newblock {\em Composite structures}, 30(2):147--157, 1995.
 
 \bibitem{soeiro1994multilevel}
 AV~Soeiro, CA~Concei{\c{c}}{\~a}o Ant{\'o}nio, and A~Torres Marques.
@@ -126,5 +155,12 @@ Mark Walker and Ryan~E Smith.
 \newblock A technique for the multiobjective optimisation of laminated
   composite structures using genetic algorithms and finite element analysis.
 \newblock {\em Composite structures}, 62(1):123--128, 2003.
+
+\bibitem{watkins1987multicriteria}
+RI~Watkins and AJ~Morris.
+\newblock A multicriteria objective function optimization scheme for laminated
+  composites for use in multilevel structural optimization schemes.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  60(2):233--251, 1987.
 
 \end{thebibliography}

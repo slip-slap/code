@@ -3,6 +3,7 @@
 \smartqed  % flush right qed marks, e.g. at end of proof
 \usepackage{graphicx,multicol,lipsum,caption,authblk}
 \usepackage{amsmath,booktabs,verbatim,tikz}
+\usepackage[numbers,sort]{natbib}
 \usepackage{geometry,pgf,pgfplots,}
 \usepackage{mathptmx}
 \usetikzlibrary{shapes.geometric, matrix,arrows,positioning,calc,intersections}
@@ -46,34 +47,65 @@ makes a compromise between weight and cost through genetic algorithm.
 \section{Introduction}
 % 第一段
 % 第一句话，FRP复合材料在众多领域都有着广泛的应用，因为它具有很高的强度比等性质.
-Composites material offer improved strength, stiffness, fatigue, and corrosion resistance, etc over
-conventional materials, which is widely used in automotive, aerospace, and ship building industry.
-However, the high cost of fabrication of composites is a critical drawback for its application, for
-example, the graphite/epoxy composite part may cost as much as \$650 to \$900 per kilogram.
-The mechanical performance of a composite is affected by a wide range of factors, fiber length,
-fiber orientation, fiber shape, and the matrix etc.
+Composites material offer improved strength, stiffness, fatigue, and corrosion
+resistance, etc over conventional materials, which is widely used in
+automotive, aerospace, and ship building industry.  However, the high cost of
+fabrication of composites is a critical drawback for its application, for
+example, the graphite/epoxy composite part may cost as much as \$650 to \$900
+per kilogram, while the price of glass/epoxy is about 2.5 times less.  The
+mechanical performance of a composite is affected by a wide range of factors,
+thickness, material,number and orientation of a lamina.
+
+In typical engineering applications, composite materials are under very
+complicate loading conditions, not only in-plane loads but also out-of-plane
+loads. Most of the studies on the optimization of laminated composite materials
+was to mimimize the thickness \cite{abu1998optimum,walker2003technique},
+weight\cite{fang1993design,deka2005multiobjective,park2008improved}, cost and
+weight\cite{deka2005multiobjective,omkar2008artificial}, or maximize the static
+strength of composite laminates for a targeted
+thickness\cite{walker2003technique,lin2004stacking,kim2007development}. In the
+present study, laminate cost and weight are minimized by modifying the objective function.
+
+To tailor a laminate composite, genetic algorithm(GA) has been successfully
+applied to solve laminate design
+problem\cite{riche1993optimization,nagendra1996improved,sadagopan1998application,todoroki1998stacking,liu2000permutation,sivakumar1998optimum,walker2003technique,lin2004stacking,kang2005minimum,murugan2007target,akbulut2008optimum}.
+GA simulates the process of natural evolutionary includes selection, crossover, 
+and mutation according to Darwin's principal of "survival of the fittest".
+Selection is the most important operator  of GA which decides the diversity of
+the population.  In this step, if the selection pressure increases, the
+converge speed of the population increases, however, the diversity of the
+population decrease.  To improve the search ability and reduce the search cost,
+various selection methods has been invented, and the selection schemes can be
+divided into four classes which are proportionate reproduction, ranking,
+tournament, and genitor(or ”steady state”) selection. In the optimization of
+laminated composite structure, roulette wheel\cite{riche1993optimization,seresta2007optimal} and
+tournament\cite{lin2004stacking} have been applied.
+The pros of GA as the following: (i): GAs are not easily trapped in local
+optima, and be able to obtain the global optimal. (ii): GA doesn't need
+gradient information and can be applied to discrete optimization problem.
+(iii): GA not only be able to find the optimal value in the domain, but also
+can maintain a set of optimal solutions
 
 
-
-
-% 第三句话，各种关于这种材料的优化都使用遗传算法
-
-% 第二段
-% 第一句介绍遗传算法
-Genetic algorithms(GAs) simulate the process of natural evolutionary includes selection, crossover ,and mutation  according to Darwin's principal of "survival of the fittest".
-% 第二句 列出最近几个遗传算法的应用
-
-According to T Back \cite{back1994selective},the selection mechanism is one of the primary means of controlling the GA's convergence rate and its
-likelihood of finding global optima.
-
+In order to check the feasibility of a composite laminate by imposing a
+strength constraint, failure analysis of a laminate is taken by applying
+suitable failure criteria. The previous researchers adopted the
+first-ply-failure approach using the Tsai-wu failure theory
+\cite{massard1984computer,reddy1987first,fang1993design,soeiro1994multilevel,pelletier2006multi,jadhav2007parametric,omkar2008artificial,choudhury2019failure},
+Tsai-Hill\cite{martin1987optimum,soares1995discrete}, the maximum
+stress\cite{jadhav2007parametric,omkar2008artificial}, or the maximum
+strain\cite{watkins1987multicriteria} static failure criteria. In the present
+study, Tsai-wu static failure criteria is used to investigated the feasibility
+of a composite laminate.
 
 
 
 \section{Stress and Strain in a Laminate}
-A laminated structure is consisting of multiple laminas bonded together through their thickness.
-Consider a laminated composite plate which is symmetric to its middle plane and subjected to in-plane
-loads of extension, shear, bending and torsion,  the classical lamination theory(CLT) is taken to
-calculate the stresses and strains in the local and global axes of each ply. as shown in
+A laminated structure is consisting of multiple laminas bonded together through
+their thickness.  Consider a laminated composite plate which is symmetric to
+its middle plane and subjected to in-plane loads of extension, shear, bending
+and torsion,  the classical lamination theory(CLT) is taken to calculate the
+stresses and strains in the local and global axes of each ply. as shown in
 Fig.\ref{fig:lamina}.
 
 \begin{center}
@@ -281,7 +313,7 @@ $(\tau_{12})_{ult}=$ Ultimate in-plane shear strength
 
 \vspace{3mm}
 
-In this paper, Tsai-wu failure theory is taken to decide whether a lamina is failed or not, the
+In the present study, Tsai-wu failure theory is taken to decide whether a lamina is failed or not, the
 reason is chosen because this theory is  more general than Tsai-Hill failure theory which consider
 two different situation, compressive and tensile strength of a lamina. A lamina is considered to be
 failed if
@@ -342,20 +374,31 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 		\ref{eq:force_and_moments}, calculate the middle plane strain $[\sigma^0]_{xy}$ and
 		cruvature $[k]_{xy}$.
 	\item Find out the local strain and stress of each layer under the applied load.
-	\item Use the ply-by-ply stresses and strains in Tsai-wu failure theory to find out the strenght
+	\item Use the ply-by-ply stresses and strains in Tsai-wu failure theory to find out the strength
 		ratio.
 \end{enumerate}
 
 \section {Genetic Algorithm Procedure}
-Objective Function: ${\theta_k,n,\text{material}}$
+Find: $\{\theta_k,\text{mat}_k, n\}$ $\theta_k \in \{ 0,\text{+}45,\text{-}45,90\}$ $\text{mat}_k \in \{CA, GR, GL \}$
 
-Minimize: Weight
+Minimize: weight
 
-Minimize: Cost 
+Subject to: safety factor and first ply failure constraint
 
-Minimize: Cost/Mini Cost + Weight/Mini Weight 
+Each CA, GR and GL layer is assumed to cost 8, 2.5 and 1 monetary units, respectively.
 
-Subject to: Safety Factor
+\captionof{table}{GA-parameters}
+\begin{tabular}{cc}
+	\toprule
+	parameter & value \\
+	\midrule
+	population size      & 20               \\
+    encoding method      & float encoding  \\
+	selection strategy   & roulette wheel  \\
+	crossover strategy   & one-point \\
+	mutation strategy    & mass mutation   \\
+	\bottomrule
+\end{tabular}
 
 \begin{center}
 \begin{tikzpicture}
@@ -395,48 +438,46 @@ Subject to: Safety Factor
 \section{Results and Discussion}
 
 \captionof{table}{Typical Properties of a Unidirectional Lamina(SI System of Units)}
-\begin{tabular}{ccccc}
+\begin{tabular}{cccccc}
 	\toprule
-	Property								  & Symbol	   & Unit &  Glass/Epoxy &  Graphite/Epoxy  \\
-	\midrule
-	Longitudinal elastic modulus			  & $E_1$		      & GPa  &  38.6        &  181  \\
-	Traverse elastic modulus				  & $E_2$		      & GPa  &  8.27        &  10.3  \\
-	Major Poisson's ratio					  & $v_{12}$	      &      &  0.26        &  0.28  \\
-	Shear modulus							  & $G_{12}$	      & GPa  &  4.14        &  7.17  \\
-	Ultimate longitudinal tensile strength    &  $(\sigma_1^T)_{ult}$ & MPa  &  1062        &  1500  \\
-	Ultimate longitudinal compressive strength & $(\sigma_1^C)_{ult}$ & MPa  &  610        &  1500  \\
-	Ultimate transverse tensile strength    &  $(\sigma_2^T)_{ult}$ & MPa  &  31        &  40 \\
-	Ultimate transverse compressive strength & $(\sigma_2^C)_{ult}$ & MPa  &  118        &  246\\
-	Ultimate in-plane shear strength          & $(\tau_{12})_{ult}$ & MPa  &  72&  68\\
+	Property								   & Symbol				  & Unit  &  Carbon/Epoxy&  Graphite/Epoxy  &  Glass/Epoxy   \\
+	\midrule																								  
+	Longitudinal elastic modulus			   & $E_1$				  & GPa   &  116.6       &  181             &  38.6           \\
+	Traverse elastic modulus				   & $E_2$				  & GPa   &  7.67        &  10.3            &  8.27           \\
+	Major Poisson's ratio					   & $v_{12}$			  &       &  0.27        &  0.28            &  0.26           \\
+	Shear modulus							   & $G_{12}$			  & GPa   &  4.17        &  7.17            &  4.14           \\
+	Ultimate longitudinal tensile strength     & $(\sigma_1^T)_{ult}$ & MP    &  2062        &  1500            &  1062            \\
+	Ultimate longitudinal compressive strength & $(\sigma_1^C)_{ult}$ & MP    &  1701        &  1500            &  610             \\
+	Ultimate transverse tensile strength       & $(\sigma_2^T)_{ult}$ & MPa   &  70          &  40              &  31              \\
+	Ultimate transverse compressive strength   & $(\sigma_2^C)_{ult}$ & MPa   &  240         &  246             &  118              \\
+	Ultimate in-plane shear strength           & $(\tau_{12})_{ult}$  & MPa   &  105         &  68              &  72               \\
+	Density                                    & $\rho$               & $g/cm^3$ &  1.605    &  1.590           &  1.903               \\
+	Cost                                       &                      &       &  8           &  2.5             &  1               \\
 	\bottomrule
 \end{tabular}
 
 
-\captionof{table}{Comparative study of different composite materials for a defined strenght ratio}
+\captionof{table}{Comparative study of different composite materials for a defined strength ratio}
 
 \begin{tabular}{ccccccc}
 	\toprule
 	Load         &Objective Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-	                 &          &  $[0_{cr3}]_s$                             & 2.041           & 0.318 &  48.0  & 6  \\
+	  \multirow{4}{*}{$N_{x}=1e6$ N}               &          &  $[0_{cr3}]_s$                             & 2.041           & 0.318 &  48.0  & 6  \\
 					 &          &  $[0_{gr4}/0_{gr}]_s$                      & 2.227           & 0.472 &  22.5  & 9  \\
-		$N_x=1e6$ N	 &          &  $[0_{gl6}]_s$                             & 2.103           & 0.753 &  12.0  & 12  \\
+		         	 &          &  $[0_{gl6}]_s$                             & 2.103           & 0.753 &  12.0  & 12  \\
 				     &          &  $[0_{gr4}/0_{gl}]_s$                      & 2.031           & 0.482 &  21.0  & 9 \\
 	\bottomrule
 \end{tabular}
 
-\begin{comment}
-$[0_2/-45_2/0/45/0_2/45_2/-45/0]_s$
-\makecell{$N_x=1e6$ N\\ $N_y=0.25\time e6$ N}
-\end{comment}
 
 \begin{tabular}{ccccccc}
 	\toprule
 	Load         &Objective Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-	                 &          &  $[90_{cr3}]_s$                             & 2.041           & 0.318 &  48.0  & 6  \\
+	 \multirow{4}{*}{$N_{y}=1e6$ N}                &          &  $[90_{cr3}]_s$                             & 2.041           & 0.318 &  48.0  & 6  \\
 					 &          &  $[90_{gr4}/90_{gr}]_s$                      & 2.227           & 0.472 &  22.5  & 9  \\
-		$N_y=1e6$ N	 &          &  $[90_{gl6}]_s$                             & 2.103           & 0.753 &  12.0  & 12  \\
+           		 	 &          &  $[90_{gl6}]_s$                             & 2.103           & 0.753 &  12.0  & 12  \\
 				     &          &  $[90_{gr4}/90_{gl}]_s$                      & 2.031           & 0.482 &  21.0  & 9 \\
 	\bottomrule
 \end{tabular}
@@ -446,27 +487,34 @@ $[0_2/-45_2/0/45/0_2/45_2/-45/0]_s$
 	\toprule
 	Load         &Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-				     &          &  $[-45_{cr6}+45_{cr7}]_s$                  & 2.013           & 1.377 &  208.0  & 26  \\
+	\multirow{4}{*}{$N_{xy}=1e6$ N}				     &          &  $[-45_{cr6}+45_{cr7}]_s$                  & 2.013           & 1.377 &  208.0  & 26  \\
 					 &          &  $[-45_{gr5}/+45_{gr23}]_s$                & 2.105           & 1.732 &  82.5   & 33  \\
-	$N_{xy}=1e6$ N	 &          &  $[-45_{gl17}+45_{gl_38}]_s$               & 2.011           & 6.908 &  110.0  & 110  \\
-					 &          &  $[-45_{ca3}/+45_{ca4}/+45_{gr6}/+45_{ca}]_s$     & 2.351    & 1.424 &  150    & 27 \\
+		 &          &  $[-45_{gl17}+45_{gl_38}]_s$               & 2.011           & 6.908 &  110.0  & 110  \\
+					 &          &  $[-45_{ca3}/+45_{ca4}/+45_{gr6}/+45_{ca}]_s$    & 2.074    & 1.424 &  150    & 27 \\
 	\bottomrule
 \end{tabular}
 
-
-
-\captionof{table}{GA-parameters}
-\begin{tabular}{cc}
+\begin{tabular}{ccccccc}
 	\toprule
-	parameter & value \\
+	Load                                   &Function              & Stacking sequence                                & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-	population size      & 20               \\
-    encoding method      & float encoding  \\
-	selection strategy   & roulette wheel  \\
-	crossover strategy   & one-point \\
-	mutation strategy    & mass mutation   \\
+	\multirow{3}{*}{\makecell{$N_x=1e6$ N\\ $N_y=1e6$ N}}         &                      &  $[-45_{cr6}+45_{cr6}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
+										   &                      &  $[+45_{gr10}/-45_{gr21}/+45_{gr10}]$            & 2.024           & 2.151 &  102.5  & 41  \\
+	   &                      &  $[-45_{gl35}+45_{gl_73}/+45_{gl35}]$            & 2.001           & 8.980 &  143.0  & 143  \\
 	\bottomrule
 \end{tabular}
+
+\begin{tabular}{ccccccc}
+	\toprule
+	Load                                                    &Function              & Stacking sequence                          & Strength ratio  & Mass &  Cost   & Layer    \\
+	\midrule
+		\multirow{4}{*}{\makecell{$N_{x}=1e6 N$ \\ $N_y=1e6$ \\ $N_{xy}=1e6$}}   &                      &  $[+45_{cr12}]$                            & 2.041           & 0.636 &  96.0  & 12  \\
+	         &                      &  $[+45_{gr18}]$                            & 2.227           & 0.945 &  45.0  & 45  \\
+	                                                        &                      &  $[+45_{gl23}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
+										                    &                      &  $[+45_{gl}/+45_{gr16}/+45_{gr}]$          & 2.031           & 0.965 &  42.0  & 18 \\
+	\bottomrule
+\end{tabular}
+
 
 
 
@@ -477,21 +525,6 @@ This is work was supported by
 
 %\end{multicols}
 %\end{multicols}
-
-
-
-
-The previous researchers adopted the first-ply-failure approach using the Tsai-wu failure
-theory
-\cite{massard1984computer,reddy1987first,fang1993design,soeiro1994multilevel,pelletier2006multi,jadhav2007parametric,omkar2008artificial}
-
-minimize thickness
-\cite{abu1998optimum,walker2003technique},weight\cite{fang1993design,deka2005multiobjective,park2008improved},
-cost and weight\cite{deka2005multiobjective,omkar2008artificial}
-
-Genetic Algorithm has been successfully applied to composite design
-optimization\cite{riche1993optimization,nagendra1996improved,sadagopan1998application,todoroki1998stacking,liu2000permutation,sivakumar1998optimum,walker2003technique,lin2004stacking,kang2005minimum,murugan2007target,akbulut2008optimum}
-
 
 
 \bibliographystyle{plain}
