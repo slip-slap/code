@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.5.18)  20 AUG 2020 10:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.5.18)  20 AUG 2020 18:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1031,36 +1031,36 @@ Underfull \vbox (badness 1540) has occurred while \output is active []
  [2 <./A_laminate_design_images/lamina_local_global_axes.png>] [3] [4]
 
 Package caption Warning: \captionsetup{type*=...} or \captionof
-(caption)                outside box or environment on input line 390.
+(caption)                outside box or environment on input line 496.
 See the caption package documentation for explanation.
 
 
-Underfull \vbox (badness 7047) has occurred while \output is active []
-
- [5]
-Overfull \hbox (56.69241pt too wide) in paragraph at lines 441--458
-[] 
- []
-
-
-Overfull \hbox (18.36887pt too wide) in paragraph at lines 486--496
+Overfull \hbox (10.17253pt too wide) in paragraph at lines 497--504
 [][] 
  []
 
-[6] (./laminate_design.bbl [7]) [8] (./laminate_design.aux) ) 
+[5]
+Overfull \hbox (56.69241pt too wide) in paragraph at lines 554--572
+[][]
+ []
+
+
+Underfull \vbox (badness 7151) has occurred while \output is active []
+
+ [6] [7] (./laminate_design.bbl [8]) [9] (./laminate_design.aux) ) 
 Here is how much of TeX's memory you used:
- 36978 strings out of 492616
- 867636 string characters out of 6128982
- 1085158 words of memory out of 5000000
- 40355 multiletter control sequences out of 15000+600000
+ 36909 strings out of 492616
+ 866129 string characters out of 6128982
+ 1091158 words of memory out of 5000000
+ 40286 multiletter control sequences out of 15000+600000
  563432 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,17n,96p,798b,751s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,17n,96p,798b,693s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on laminate_design.pdf (8 pages, 250022 bytes).
+Output written on laminate_design.pdf (9 pages, 252470 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 77 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

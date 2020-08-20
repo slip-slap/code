@@ -378,28 +378,285 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 		ratio.
 \end{enumerate}
 
-\section {Genetic Algorithm Procedure}
-Find: $\{\theta_k,\text{mat}_k, n\}$ $\theta_k \in \{ 0,\text{+}45,\text{-}45,90\}$ $\text{mat}_k \in \{CA, GR, GL \}$
+\section {Optimum Design of laminated composites}
+\subsection{Genetic Algorithm}
+In the present study, the GA employs the selection schemes of roulette
+selections. The laminate chromosomes are represented by double-gene string
+which can be divided into two parts, one part represents the angles, the other
+part represent the materials(as shown in Figure \ref{fig:parent1}). To maintain
+the diversity of the population, single-point crossover is taken during the
+evolution process, the offspring of parent 1(as shown in Figure
+\ref{fig:parent1}) and parent 2(as shown in Figure \ref{fig:parent2}) is as
+shown in Figure \ref{fig:offspring} by single-point crossover operator. To prevent the
+search from getting stuck in a local optimum, mutation is used to random change
+the gene in the chromosome, the offspring after mutation operator is as shown
+in Figure \ref{fig:muation} 
+
+\begin{center}
+\begin{tikzpicture}
+\tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
+centered, draw=black]
+\node (gene1) [rec] {+45};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {-45};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {0};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
+\node (last) [rec] at ($(gene6.east)+(0.4cm,0)$)  {+45};
+\node (gene1) [rec] at ($(last.east)+(0.4cm,0)$){0};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {1};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {1};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {2};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {1};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
+\end{tikzpicture}
+\captionof{figure}{Parent 1 }
+\label{fig:parent1}
+\end{center}
+
+
+\begin{center}
+\begin{tikzpicture}
+\tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
+centered, draw=black]
+\node (gene1) [rec] {+45};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {+45};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {-45};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {+45};
+\node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {+45};
+\node (gene1) [rec] at ($(last.east)+(0.4cm,0)$){1};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {0};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {1};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {1};
+\end{tikzpicture}
+\captionof{figure}{Parent 2 }
+\label{fig:parent2}
+\end{center}
+
+
+\begin{center}
+\begin{tikzpicture}
+\tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
+centered, draw=black]
+\node (gene1) [rec] {+45};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {-45};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {-45};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {-45};
+\node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {+45};
+\node (gene1) [rec] at ($(last.east)+(0.4cm,0)$){1};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {0};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {1};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {1};
+\end{tikzpicture}
+\captionof{figure}{Offspring }
+\label{fig:offspring}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+\tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
+centered, draw=black]
+\node (gene1) [rec] {0};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {-45};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {-45};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {-45};
+\node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {0};
+\node (gene1) [rec] at ($(last.east)+(0.4cm,0)$){1};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {0};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {0};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {0};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {1};
+\end{tikzpicture}
+\captionof{figure}{Mutation}
+\label{fig:muation}
+\end{center}
+
+
+\captionof{table}{GA parameters}
+\begin{tabular}{cccccc}
+	\toprule
+	Parameter &  Population size & Encoding & Selection scheme& Crossover Strategy& Mutation strategy\\
+	\midrule
+	Value     & 20               & Integer  & Roulette wheel  & One-point &Mass mutation   \\
+	\bottomrule
+\end{tabular}
+
+\subsection{Design Problem I}
+
+
+The aim is to minimize the mass of a composite laminate for a targeted strength
+ratio by Tsai-wu failure theory. The design variable are the ply angles and the
+number of layers.
+
+Find: $\{\theta_k, n\}$ $\theta_k \in \{ 0,\text{+}45,\text{-}45,90\}$ 
 
 Minimize: weight
 
 Subject to: safety factor and first ply failure constraint
 
-Each CA, GR and GL layer is assumed to cost 8, 2.5 and 1 monetary units, respectively.
 
-\captionof{table}{GA-parameters}
-\begin{tabular}{cc}
+\subsection{Design Problem II}
+The aim is to mimimize the combined cost and weight of hybrid composite
+laminate under various loading cases, so the design variable not only include
+the ply angles and number of layers, but also the material of each lamina. 
+
+
+Find: $\{\theta_k,\text{mat}_k, n\}$ $\theta_k \in \{ 0,\text{+}45,\text{-}45,90\}$ $\text{mat}_k \in \{CA, GR, GL \}$
+
+Minimize: 
+\begin{equation}
+	F=\frac{\text { Cost }}{C_{\text {min }}}+\frac{\text { Weight }}{W_{\text {min }}}
+\end{equation}
+
+Subject to: safety factor and first ply failure constraint
+
+
+Here CA, GF, and GL represent carbon/epoxy, graphite/epoxy, and glass/epoxy,
+and each CA, GF, and GL layer is assumed to cost 8, 2.5 and 1 monetary units,
+respectively. $C_{\text{min}}$ and $W_{\text{min}}$ represent the cost and
+weight corresponding to the laminates with minimum cost and minimum weight
+obtained from previous problem.
+
+
+
+
+
+
+
+
+\section{Numberical results and Discussion}
+The numberical results were obtained for a carbon/epoxy, graphite/epoxy and
+glass/epoxy, respectively, the material properties as shown in Table
+\ref{tab:mat}. The thickness of the each lamina is 0.165mm.
+
+\captionof{table}{Comparsion of carbon/epoxy, graphite/epoxy, and glass/epoxy properties}
+\begin{tabular}{cccccc}
 	\toprule
-	parameter & value \\
+	Property								   & Symbol				  & Unit  &  Carbon/Epoxy&  Graphite/Epoxy  &  Glass/Epoxy   \\
+	\midrule																								  
+	Longitudinal elastic modulus			   & $E_1$				  & GPa   &  116.6       &  181             &  38.6           \\
+	Traverse elastic modulus				   & $E_2$				  & GPa   &  7.67        &  10.3            &  8.27           \\
+	Major Poisson's ratio					   & $v_{12}$			  &       &  0.27        &  0.28            &  0.26           \\
+	Shear modulus							   & $G_{12}$			  & GPa   &  4.17        &  7.17            &  4.14           \\
+	Ultimate longitudinal tensile strength     & $(\sigma_1^T)_{ult}$ & MP    &  2062        &  1500            &  1062            \\
+	Ultimate longitudinal compressive strength & $(\sigma_1^C)_{ult}$ & MP    &  1701        &  1500            &  610             \\
+	Ultimate transverse tensile strength       & $(\sigma_2^T)_{ult}$ & MPa   &  70          &  40              &  31              \\
+	Ultimate transverse compressive strength   & $(\sigma_2^C)_{ult}$ & MPa   &  240         &  246             &  118              \\
+	Ultimate in-plane shear strength           & $(\tau_{12})_{ult}$  & MPa   &  105         &  68              &  72               \\
+	Density                                    & $\rho$               & $g/cm^3$ &  1.605    &  1.590           &  1.903               \\
+	Cost                                       &                      &       &  8           &  2.5             &  1               \\
+	\bottomrule
+\end{tabular}
+\label{tab:mat}
+
+
+\captionof{table}{Comparative study of different composite materials for a defined strength ratio}
+
+\begin{tabular}{ccccccc}
+	\toprule
+	Load         &  Problem             & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-	population size      & 20               \\
-    encoding method      & float encoding  \\
-	selection strategy   & roulette wheel  \\
-	crossover strategy   & one-point \\
-	mutation strategy    & mass mutation   \\
+	  \multirow{4}{*}{$N_{x}=1e6$ N}  &    I      &  $[0_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
+									  &     I     &  $[0_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
+		         	                  &     I     &  $[0_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
+									  &     II    &  $[0_{gr4}/0_{gl}/0_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
 	\bottomrule
 \end{tabular}
 
+
+\begin{tabular}{ccccccc}
+	\toprule
+	Load                             &Problem & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
+	\midrule
+	 \multirow{4}{*}{$N_{y}=1e6$ N}  &  I        &  $[90_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
+					                 &  I        &  $[90_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
+           		 	                 &  I        &  $[90_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
+									 &  II       &  $[90_{gr4}/90_{gl}/90_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
+	\bottomrule
+\end{tabular}
+
+
+\begin{tabular}{ccccccc}
+	\toprule
+	Load                               &Problem   & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
+	\midrule
+	\multirow{4}{*}{$N_{xy}=1e6$ N}	   &    I      &  $[\text{-}45_{cr6}/\text{+}45_{cr14}/\text{-}45_{cr6}]$                  & 2.013           & 1.377 &  208.0  & 26  \\
+									   &    I      &  $[\text{-}45_{gr5}/\text{+}45_{gr23}/\text{-}45_{gr5}]$                & 2.105           & 1.732 &  82.5   & 33  \\
+									   &    I      &  $[\text{-}45_{gl17}/\text{+}45_{gl76}/\text{-}45_{gl17}]$               & 2.011           & 6.908 &  110.0  & 110  \\
+									   &    II     &  $[\text{-}45_{ca3}/\text{+}45_{ca4}/\text{+}45_{gr6}/\text{+}45_{ca}]_s$    & 2.074    & 1.424 &  150    & 27 \\
+	\bottomrule
+\end{tabular}
+
+\begin{tabular}{ccccccc}
+	\toprule
+	Load                                                        &Problem& Stacking sequence                                & Strength ratio  & Mass &  Cost   & Layer    \\
+	\midrule
+	\multirow{3}{*}{\makecell{$N_x=1e6$ N\\ $N_y=1e6$ N}}       &       I                &  $[\text{-}45_{cr6}/\text{+}45_{cr6}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
+																&       I                &  $[\text{+}45_{gr10}/\text{-}45_{gr21}/\text{+}45_{gr10}]$            & 2.024           & 2.151 &  102.5  & 41  \\
+																&       I                &  $[\text{-}45_{gl35}/\text{+}45_{gl_73}/\text{+}45_{gl35}]$            & 2.001           & 8.980 &  143.0  & 143  \\
+	\bottomrule
+\end{tabular}
+
+\begin{tabular}{ccccccc}
+	\toprule
+	Load                                                    &   Problem          & Stacking sequence                          & Strength ratio  & Mass &  Cost   & Layer    \\
+	\midrule
+	\multirow{4}{*}{\makecell{$N_{x}=1e6$ N \\ $N_{y}=1e6$ N  \\ $N_{xy}=1e6$} }  &      I   &  $[\text{+}45_{cr12}]$                            & 2.041           & 0.636 &  96.0  & 12  \\
+													    						  &      I   &  $[\text{+}45_{gr18}]$                            & 2.227           & 0.945 &  45.0  & 45  \\
+			 &  I                  &  $[\text{+}45_{gl23}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
+			 &  II                 &  $[\text{+}45_{gl}/\text{+}45_{gr16}/\text{+}45_{gr}]$          & 2.031           & 0.965 &  42.0  & 18 \\
+	\bottomrule
+\end{tabular}
+
+
+
+
+\section{Conclusions}
+In this paper, a combination of CLT and GA is employed to minimize the weight
+and cost of a single-material and hybrid composite laminate, respectively,
+under various in-plane loading cases. GA is proposed to obtain the global
+optimum design, results are presented in two sections, stacking sequence
+optimization for a single material laminate, and combined weight and cost
+optimization of a carbon/epoxy, graphite/epoxy, and glass/epoxy hybrid
+laminate.
+
+\section{Acknowledgements}
+This is work was supported by 
+
+
+%\end{multicols}
+%\end{multicols}
+
+
+\bibliographystyle{plain}
+\bibliography{laminate_design}
+
+
+\end{document}
+
+
+\begin{comment}
 \begin{center}
 \begin{tikzpicture}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=1.0cm,minimum height=0.6cm, 
@@ -433,104 +690,5 @@ Each CA, GR and GL layer is assumed to cost 8, 2.5 and 1 monetary units, respect
 \captionof{figure}{GA Procedure with Share Function}
 \label{plot:GA}
 \end{center}
-
-
-\section{Results and Discussion}
-
-\captionof{table}{Typical Properties of a Unidirectional Lamina(SI System of Units)}
-\begin{tabular}{cccccc}
-	\toprule
-	Property								   & Symbol				  & Unit  &  Carbon/Epoxy&  Graphite/Epoxy  &  Glass/Epoxy   \\
-	\midrule																								  
-	Longitudinal elastic modulus			   & $E_1$				  & GPa   &  116.6       &  181             &  38.6           \\
-	Traverse elastic modulus				   & $E_2$				  & GPa   &  7.67        &  10.3            &  8.27           \\
-	Major Poisson's ratio					   & $v_{12}$			  &       &  0.27        &  0.28            &  0.26           \\
-	Shear modulus							   & $G_{12}$			  & GPa   &  4.17        &  7.17            &  4.14           \\
-	Ultimate longitudinal tensile strength     & $(\sigma_1^T)_{ult}$ & MP    &  2062        &  1500            &  1062            \\
-	Ultimate longitudinal compressive strength & $(\sigma_1^C)_{ult}$ & MP    &  1701        &  1500            &  610             \\
-	Ultimate transverse tensile strength       & $(\sigma_2^T)_{ult}$ & MPa   &  70          &  40              &  31              \\
-	Ultimate transverse compressive strength   & $(\sigma_2^C)_{ult}$ & MPa   &  240         &  246             &  118              \\
-	Ultimate in-plane shear strength           & $(\tau_{12})_{ult}$  & MPa   &  105         &  68              &  72               \\
-	Density                                    & $\rho$               & $g/cm^3$ &  1.605    &  1.590           &  1.903               \\
-	Cost                                       &                      &       &  8           &  2.5             &  1               \\
-	\bottomrule
-\end{tabular}
-
-
-\captionof{table}{Comparative study of different composite materials for a defined strength ratio}
-
-\begin{tabular}{ccccccc}
-	\toprule
-	Load         &Objective Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
-	\midrule
-	  \multirow{4}{*}{$N_{x}=1e6$ N}               &          &  $[0_{cr3}]_s$                             & 2.041           & 0.318 &  48.0  & 6  \\
-					 &          &  $[0_{gr4}/0_{gr}]_s$                      & 2.227           & 0.472 &  22.5  & 9  \\
-		         	 &          &  $[0_{gl6}]_s$                             & 2.103           & 0.753 &  12.0  & 12  \\
-				     &          &  $[0_{gr4}/0_{gl}]_s$                      & 2.031           & 0.482 &  21.0  & 9 \\
-	\bottomrule
-\end{tabular}
-
-
-\begin{tabular}{ccccccc}
-	\toprule
-	Load         &Objective Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
-	\midrule
-	 \multirow{4}{*}{$N_{y}=1e6$ N}                &          &  $[90_{cr3}]_s$                             & 2.041           & 0.318 &  48.0  & 6  \\
-					 &          &  $[90_{gr4}/90_{gr}]_s$                      & 2.227           & 0.472 &  22.5  & 9  \\
-           		 	 &          &  $[90_{gl6}]_s$                             & 2.103           & 0.753 &  12.0  & 12  \\
-				     &          &  $[90_{gr4}/90_{gl}]_s$                      & 2.031           & 0.482 &  21.0  & 9 \\
-	\bottomrule
-\end{tabular}
-
-
-\begin{tabular}{ccccccc}
-	\toprule
-	Load         &Function              & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
-	\midrule
-	\multirow{4}{*}{$N_{xy}=1e6$ N}				     &          &  $[-45_{cr6}+45_{cr7}]_s$                  & 2.013           & 1.377 &  208.0  & 26  \\
-					 &          &  $[-45_{gr5}/+45_{gr23}]_s$                & 2.105           & 1.732 &  82.5   & 33  \\
-		 &          &  $[-45_{gl17}+45_{gl_38}]_s$               & 2.011           & 6.908 &  110.0  & 110  \\
-					 &          &  $[-45_{ca3}/+45_{ca4}/+45_{gr6}/+45_{ca}]_s$    & 2.074    & 1.424 &  150    & 27 \\
-	\bottomrule
-\end{tabular}
-
-\begin{tabular}{ccccccc}
-	\toprule
-	Load                                   &Function              & Stacking sequence                                & Strength ratio  & Mass &  Cost   & Layer    \\
-	\midrule
-	\multirow{3}{*}{\makecell{$N_x=1e6$ N\\ $N_y=1e6$ N}}         &                      &  $[-45_{cr6}+45_{cr6}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
-										   &                      &  $[+45_{gr10}/-45_{gr21}/+45_{gr10}]$            & 2.024           & 2.151 &  102.5  & 41  \\
-	   &                      &  $[-45_{gl35}+45_{gl_73}/+45_{gl35}]$            & 2.001           & 8.980 &  143.0  & 143  \\
-	\bottomrule
-\end{tabular}
-
-\begin{tabular}{ccccccc}
-	\toprule
-	Load                                                    &Function              & Stacking sequence                          & Strength ratio  & Mass &  Cost   & Layer    \\
-	\midrule
-		\multirow{4}{*}{\makecell{$N_{x}=1e6 N$ \\ $N_y=1e6$ \\ $N_{xy}=1e6$}}   &                      &  $[+45_{cr12}]$                            & 2.041           & 0.636 &  96.0  & 12  \\
-	         &                      &  $[+45_{gr18}]$                            & 2.227           & 0.945 &  45.0  & 45  \\
-	                                                        &                      &  $[+45_{gl23}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
-										                    &                      &  $[+45_{gl}/+45_{gr16}/+45_{gr}]$          & 2.031           & 0.965 &  42.0  & 18 \\
-	\bottomrule
-\end{tabular}
-
-
-
-
-\section{Concluding Remarks}
-\section{Acknowledgements}
-This is work was supported by 
-
-
-%\end{multicols}
-%\end{multicols}
-
-
-\bibliographystyle{plain}
-\bibliography{laminate_design}
-
-
-\end{document}
-
+\end{comment}
 
