@@ -3,6 +3,9 @@ import copy
 import lamina_failure as lf
 import lamina_mass_and_cost as lmac
 import constant_variable  as cv
+import tool
+
+
 
 
 """
@@ -345,17 +348,12 @@ if __name__=='__main__':
     mass = lmac.get_laminate_mass(height,material)
     cost = lmac.get_laminate_cost(material)
     """
-    #cross ply
-    """
-    angle = [0] * 34 + [np.pi/2] * 72 + [0] * 34
-    height=[0.000165] * 140 
-    material = [GLASS_EPOXY] * 140
-    load=[1,0,0,0,0,0]
-    """
-    angle =[0] *12 
-    height=[0.000165] * 12 
-    material = [cv.GLASS_EPOXY] * 12
-    load=[1,0,0,0,0,0]
+
+    angle =[np.pi/4] *12 
+    height=[0.000165] * 12
+    material = [cv.CARBON_EPOXY] *12
+    load=[1,1,1,0,0,0]
+
 
     sr  = get_strength_ratio(angle,height,material,load)
     mass = lmac.get_laminate_mass(height,material)

@@ -29,9 +29,9 @@ LAYER_HEIGHT = 0.000165
 
 
 def get_fitness(ind):
-    fitness = ind.mass
+    #fitness = ind.mass
     #fitness = ind.cost
-    #fitness = np.divide(ind.mass,0.31) + np.divide(ind.cost, 12)
+    fitness = np.divide(ind.mass, 1.27) + np.divide(ind.cost, 102)
     return fitness
 
 def get_angle_height_material_list(length):
@@ -82,7 +82,7 @@ def get_initial_population():
     initial_population = []
     while(len(initial_population)<100):
 
-        length = int(np.random.randint(low=30, high=90, size=1))
+        length = int(np.random.randint(low=20, high=50, size=1))
         temp_ind = get_laminate_individual(length)
 
         if(temp_ind.strength_raito > cv.SAFETY_FACTOR):
