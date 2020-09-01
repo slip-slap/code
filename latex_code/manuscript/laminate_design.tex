@@ -558,8 +558,8 @@ centered, draw=black]
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
 centered, draw=black]
-\node (gene1) [rec] {+45};
-\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {-45};
+\node (gene11) [rec] {+45};
+\node (gene2) [rec] at ($(gene11.east)+(0.4cm,0)$)  {-45};
 \node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
 \node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {-45};
 \node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
@@ -567,38 +567,33 @@ centered, draw=black]
 \node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {-45};
 \node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {+45};
 \node (gene1) [rec] at ($(last.east)+(0.4cm,0)$){0};
-\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {1};
-\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
+\node (gene2u) [rec] at ($(gene1.east)+(0.4cm,0)$)  {1};
+\node (gene3) [rec] at ($(gene2u.east)+(0.4cm,0)$)  {0};
 \node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {1};
 \node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
 \node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
 \node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {1};
 \node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {0};
-\end{tikzpicture}
-\captionof{figure}{Offspring }
-\label{fig:offspring}
-\end{center}
 
-\begin{center}
-\begin{tikzpicture}
-\tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
-centered, draw=black]
-\node (gene1) [rec] {0};
-\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {-45};
+\node (gene12) [rec] at ($(gene11.west)+(0.4cm,-1.5cm)$) {0};
+\node (gene2) [rec] at ($(gene12.east)+(0.4cm,0)$)  {-45};
 \node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
 \node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {-45};
 \node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
 \node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
 \node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {-45};
 \node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {0};
-\node (gene1) [rec] at ($(last.east)+(0.4cm,0)$){1};
-\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {0};
-\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
-\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {0};
-\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {0};
+\node (gene1) [rec] at ($(last.east)+(0.4cm,0)$)  {0};
+\node (gene2d) [rec] at ($(gene1.east)+(0.4cm,0)$)  {0};
+\node (gene3) [rec] at ($(gene2d.east)+(0.4cm,0)$)  {0};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {1};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
 \node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
 \node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
-\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {1};
+\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {0};
+
+\draw[->] (gene11) -- (gene12) node[pos=0.5,auto=left] {Orientation Mutation};
+\draw[->] (gene2u) -- (gene2d) node[pos=0.5,auto=left] {Material Mutation};
 \end{tikzpicture}
 \captionof{figure}{Mutation}
 \label{fig:muation}

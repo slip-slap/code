@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex laminate_design"] 1598961819 "laminate_design.aux" "laminate_design.bbl" "laminate_design" 1598961939
+["bibtex laminate_design"] 1598962878 "laminate_design.aux" "laminate_design.bbl" "laminate_design" 1598962881
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "laminate_design.aux" 1598961938 5191 6e14a571d6acfb3c8d359e1af4ec0b4f ""
+  "laminate_design.aux" 1598962881 5047 b845ad6554323ea576a759a31f553768 ""
   "laminate_design.bib" 1597884526 11618 2edbe6229a16d4f64d3bb96d34032172 ""
   (generated)
-  "laminate_design.blg"
   "laminate_design.bbl"
-["pdflatex"] 1598961936 "laminate_design.tex" "laminate_design.pdf" "laminate_design" 1598961939
-  "/dev/null" 1598961938 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "laminate_design.blg"
+["pdflatex"] 1598962878 "laminate_design.tex" "laminate_design.pdf" "laminate_design" 1598962881
+  "/dev/null" 1598962880 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1480098689 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -230,12 +230,12 @@
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1589792795 4227023 287652bbbca0ab5bc2f398b14c497dd0 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "A_laminate_design_images/lamina_local_global_axes.png" 1597399022 133854 1883105abfd54615fa4457cb7ff4985d ""
-  "laminate_design.aux" 1598961938 5191 6e14a571d6acfb3c8d359e1af4ec0b4f ""
-  "laminate_design.bbl" 1598961819 6692 32aa946c75dfc1d59948cc9f1ea358f5 "bibtex laminate_design"
-  "laminate_design.tex" 1598961935 35061 cee2179fc52e01026318d7566a47bb83 ""
+  "laminate_design.aux" 1598962881 5047 b845ad6554323ea576a759a31f553768 ""
+  "laminate_design.bbl" 1598962878 6692 32aa946c75dfc1d59948cc9f1ea358f5 "bibtex laminate_design"
+  "laminate_design.tex" 1598962874 35040 fe76c21c23e745e468e58b678adda5e8 ""
   "svglov3.clo" 1597200726 3809 f8e29af71acd1bd1b2a58b6166058c66 ""
   "svjour3.cls" 1597200726 47679 993de5be39389e8a2c40c32e48f0687c ""
   (generated)
-  "laminate_design.log"
-  "laminate_design.pdf"
   "laminate_design.aux"
+  "laminate_design.pdf"
+  "laminate_design.log"
