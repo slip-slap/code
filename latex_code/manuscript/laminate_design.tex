@@ -2,13 +2,14 @@
 \documentclass[smallextended]{svjour3}       % onecolumn (second format)
 \smartqed  % flush right qed marks, e.g. at end of proof
 \usepackage{graphicx,multicol,lipsum,caption,authblk}
-\usepackage{amsmath,booktabs,verbatim,tikz}
+\usepackage{amsmath,booktabs,verbatimbox,tikz}
 \usepackage[numbers,sort]{natbib}
 \usepackage{geometry,pgf,pgfplots,}
 \usepackage{mathptmx}
 \usetikzlibrary{shapes.geometric, matrix,arrows,positioning,calc,intersections}
 \usepackage{booktabs, makecell, multirow, threeparttable}
 \usepackage{tablefootnote}
+\usepackage{stackengine}
 \begin{document}
 
 
@@ -381,23 +382,37 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 \section {Optimum Design of laminated composites}
 \subsection{Genetic Algorithm}
 In the present study, the GA employs the selection schemes of roulette
-selections. The laminate chromosomes are represented by double-gene string
+selections.  
+
+\begin{center}
+\captionof{table}{GA parameters}
+\begin{tabular}{cccccc}
+	\toprule
+	Parameter &  Population size & Encoding & Selection scheme& Crossover Strategy& Mutation strategy\\
+	\midrule
+	Value     & 20               & Integer  & Roulette wheel  & One-point &Mass mutation   \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+
+The laminate chromosomes are represented by double-gene string
 which can be divided into two parts, one part represents the angles, the other
-part represent the materials(as shown in Figure \ref{fig:parent1}). To maintain
+part represents the materials(as shown in Figure \ref{fig:parent1}). To maintain
 the diversity of the population, single-point crossover is taken during the
 evolution process, the offspring of parent 1(as shown in Figure
 \ref{fig:parent1}) and parent 2(as shown in Figure \ref{fig:parent2}) is as
 shown in Figure \ref{fig:offspring} by single-point crossover operator. To prevent the
 search from getting stuck in a local optimum, mutation is used to random change
 the gene in the chromosome, the offspring after mutation operator is as shown
-in Figure \ref{fig:muation} 
+in Figure \ref{fig:muation}
 
 \begin{center}
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
 centered, draw=black]
-\node (gene1) [rec] {+45};
-\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {-45};
+\node (gene11) [rec] {+45};
+\node (gene2) [rec] at ($(gene11.east)+(0.4cm,0)$)  {-45};
 \node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
 \node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {0};
 \node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
@@ -410,6 +425,13 @@ centered, draw=black]
 \node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
 \node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {1};
 \node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
+
+\draw[-] ($(gene11.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(last.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[-] ($(gene7.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (C);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {Orientation Gene};
+\draw[<->] ($(B) + (0, 0.2cm)$) -- ($(C) + (0,0.2cm)$) node[pos=0.5,auto=right] {Material Gene};
+
 \end{tikzpicture}
 \captionof{figure}{Parent 1 }
 \label{fig:parent1}
@@ -441,6 +463,96 @@ centered, draw=black]
 \label{fig:parent2}
 \end{center}
 
+\begin{center}
+\begin{tikzpicture}
+\tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
+centered, draw=black]
+\node (gene11) [rec] {+45};
+\node (gene2) [rec] at ($(gene11.east)+(0.4cm,0)$)  {-45};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {0};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
+\node (last) [rec] at ($(gene6.east)+(0.4cm,0)$)  {+45};
+
+\draw[-] ($(gene11.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(gene2.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{1o}$};
+\node (gene1) [rec] at ($(last.east)+(1.6cm,0)$){0};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {1};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {1};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {2};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {1};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
+\draw[-] ($(gene1.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(gene2.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{1m}$};
+
+% parent2 
+
+\node (genep2) [rec] at ($(gene11.west)+(0.4cm,-1.5cm)$) {+45};
+\node (gene2) [rec] at ($(genep2.east)+(0.4cm,0)$)  {+45};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {-45};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {+45};
+\node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {+45};
+\draw[-] ($(gene3.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{2o}$};
+\node (gene1) [rec] at ($(last.east)+(0.8cm,0)$){1};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {0};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {1};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {1};
+\draw[-] ($(gene3.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{2m}$};
+
+% offspring
+
+\node (gene1) [rec] at ($(genep2.west)+(0.4cm,-1.5cm)$) {+45};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {-45};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {-45};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {-45};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {-45};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {-45};
+\node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {+45};
+
+\draw[-] ($(gene1.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(gene2.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{1o}$};
+
+\draw[-] ($(gene3.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{2o}$};
+
+\node (gene1) [rec] at ($(last.east)+(0.8cm,0)$){0};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {1};
+\node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
+\node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {1};
+\node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
+\node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {1};
+\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {0};
+
+\draw[-] ($(gene1.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(gene2.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{1m}$};
+\draw[-] ($(gene3.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
+\draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{2m}$};
+
+\end{tikzpicture}
+\captionof{figure}{Crossover Operation}
+\label{fig:parent1}
+\end{center}
 
 \begin{center}
 \begin{tikzpicture}
@@ -454,14 +566,14 @@ centered, draw=black]
 \node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {-45};
 \node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {-45};
 \node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {+45};
-\node (gene1) [rec] at ($(last.east)+(0.4cm,0)$){1};
-\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {0};
+\node (gene1) [rec] at ($(last.east)+(0.4cm,0)$){0};
+\node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {1};
 \node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
 \node (gene4) [rec] at ($(gene3.east)+(0.4cm,0)$)  {1};
 \node (gene5) [rec] at ($(gene4.east)+(0.4cm,0)$)  {1};
 \node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
-\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
-\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {1};
+\node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {1};
+\node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {0};
 \end{tikzpicture}
 \captionof{figure}{Offspring }
 \label{fig:offspring}
@@ -493,14 +605,6 @@ centered, draw=black]
 \end{center}
 
 
-\captionof{table}{GA parameters}
-\begin{tabular}{cccccc}
-	\toprule
-	Parameter &  Population size & Encoding & Selection scheme& Crossover Strategy& Mutation strategy\\
-	\midrule
-	Value     & 20               & Integer  & Roulette wheel  & One-point &Mass mutation   \\
-	\bottomrule
-\end{tabular}
 
 \subsection{Design Problem I}
 
