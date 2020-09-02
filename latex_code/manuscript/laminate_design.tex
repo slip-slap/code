@@ -344,7 +344,7 @@ is violated. where
 \end{equation}
 
 
-The Equation \ref{eq:tsai_wu} can determin whether a lamina failed or not, but it failed to give the
+The Equation \ref{eq:tsai_wu} can determine whether a lamina failed or not, but it fails to give the
 information about how much load can be increased or decreased to keep the lamina safe. The strength
 ratio(SR) is to used to solve this problem, and defined as
 
@@ -381,8 +381,12 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 
 \section {Optimum Design of laminated composites}
 \subsection{Genetic Algorithm}
-In the present study, the GA employs the selection schemes of roulette
-selections.  
+In the present study,  the GA employs the selection schemes of roulette
+selections to diversity the population and prevent the population from premature, and the initial
+population size is 20. The other relevant parameters of GA are as shown in Table \ref{tab:ga}. The design
+variables are the materials, number of layers, and ply orientation restricted to a discrete set of
+angles ($0,\pm 45 \text{ and } 90 \text{ degrees} $). The possible materials are graphite/epoxy, caron/epoxy, and
+glass/epoxy and are represented by the codes 0, 1 and 2, respectively.
 
 \begin{center}
 \captionof{table}{GA parameters}
@@ -392,6 +396,7 @@ selections.
 	\midrule
 	Value     & 20               & Integer  & Roulette wheel  & One-point &Mass mutation   \\
 	\bottomrule
+	\label{tab:ga}
 \end{tabular}
 \end{center}
 
@@ -400,13 +405,11 @@ The laminate chromosomes are represented by double-gene string
 which can be divided into two parts, one part represents the angles, the other
 part represents the materials(as shown in Figure \ref{fig:parent1}). To maintain
 the diversity of the population, single-point crossover is taken during the
-evolution process, the offspring of parent 1(as shown in Figure
-\ref{fig:parent1}) and parent 2(as shown in Figure \ref{fig:parent2}) is as
-shown in Figure \ref{fig:offspring} by single-point crossover operator. To prevent the
-search from getting stuck in a local optimum, mutation is used to random change
-the gene in the chromosome, the offspring after mutation operator is as shown
-in Figure \ref{fig:muation}
-
+evolution process. The break point in the string are chosen randomly, and one of the offspring of parent 1(as shown in Figure
+\ref{fig:parent1}) and parent 2(as shown in Figure \ref{fig:parent2}) is obtained by combining the
+gene segments $P1_o$ and $P2_o$, $P1_m$ and $P2_m$, respectively. The gene code of the offspring
+laminate is
+$[\text{+}45,\text{-}45,\text{-}45,\text{-}45,\text{-}45,\text{-}45,\text{-}45,0,1,0,1,1,0,1,0]$.
 \begin{center}
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
@@ -501,7 +504,7 @@ centered, draw=black]
 \node (last) [rec] at ($(gene7.east)+(0.4cm,0)$)  {+45};
 \draw[-] ($(gene3.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
 \draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
-\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{2o}$};
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P2_o$};
 \node (gene1) [rec] at ($(last.east)+(0.8cm,0)$){1};
 \node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {0};
 \node (gene3) [rec] at ($(gene2.east)+(0.4cm,0)$)  {0};
@@ -512,7 +515,7 @@ centered, draw=black]
 \node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {1};
 \draw[-] ($(gene3.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
 \draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
-\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{2m}$};
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P2_m$};
 
 % offspring
 
@@ -527,11 +530,11 @@ centered, draw=black]
 
 \draw[-] ($(gene1.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
 \draw[-] ($(gene2.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
-\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{1o}$};
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P1_o$};
 
 \draw[-] ($(gene3.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
 \draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
-\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{2o}$};
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P2_o$};
 
 \node (gene1) [rec] at ($(last.east)+(0.8cm,0)$){0};
 \node (gene2) [rec] at ($(gene1.east)+(0.4cm,0)$)  {1};
@@ -544,15 +547,21 @@ centered, draw=black]
 
 \draw[-] ($(gene1.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
 \draw[-] ($(gene2.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
-\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{1m}$};
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P1_m$};
 \draw[-] ($(gene3.north)+(-0.4cm,0)$) -- ++(0, -1cm) coordinate (A);
 \draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
-\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P_{2m}$};
+\draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P2_m$};
 
 \end{tikzpicture}
 \captionof{figure}{Crossover Operation}
 \label{fig:parent1}
 \end{center}
+
+To prevent the
+search from getting stuck in a local optimum, mutation is used to random change
+the gene in the chromosome, the offspring after mutation operator is as shown
+in Figure \ref{fig:muation}
+
 
 \begin{center}
 \begin{tikzpicture}
@@ -632,23 +641,18 @@ Subject to: safety factor and first ply failure constraint
 
 
 Here CA, GF, and GL represent carbon/epoxy, graphite/epoxy, and glass/epoxy,
-and each CA, GF, and GL layer is assumed to cost 8, 2.5 and 1 monetary units,
-respectively. $C_{\text{min}}$ and $W_{\text{min}}$ represent the cost and
+ $C_{\text{min}}$ and $W_{\text{min}}$ represent the cost and
 weight corresponding to the laminates with minimum cost and minimum weight
 obtained from previous problem.
 
 
+\section{Numberical results and discussion}
+A composite laminate with dimensions $25 \times 25 \times 0.165 mm^3$ of each lamina is under various
+loading cases, and each CA, GF, and GL layer is assumed to cost 8, 2.5 and 1 monetary units,
+respectively.  The other used material properties are as shown in Table
+\ref{tab:mat}.  
 
-
-
-
-
-
-\section{Numberical results and Discussion}
-The numberical results were obtained for a carbon/epoxy, graphite/epoxy and
-glass/epoxy, respectively, the material properties as shown in Table
-\ref{tab:mat}. The thickness of the each lamina is 0.165mm.
-
+\begin{center}
 \captionof{table}{Comparsion of carbon/epoxy, graphite/epoxy, and glass/epoxy properties}
 \begin{tabular}{cccccc}
 	\toprule
@@ -668,10 +672,14 @@ glass/epoxy, respectively, the material properties as shown in Table
 	\bottomrule
 \end{tabular}
 \label{tab:mat}
-
-
 \captionof{table}{Comparative study of different composite materials for a defined strength ratio}
+\end{center}
 
+
+In the present experiment, the investigation composite laminate are under various in-plane loading, and the safety factor
+taken here is 2.
+
+\begin{center}
 \begin{tabular}{ccccccc}
 	\toprule
 	Load         &  Problem             & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
@@ -683,7 +691,9 @@ glass/epoxy, respectively, the material properties as shown in Table
 	\bottomrule
 \end{tabular}
 
+\end{center}
 
+\begin{center}
 \begin{tabular}{ccccccc}
 	\toprule
 	Load                             &Problem & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
@@ -694,8 +704,9 @@ glass/epoxy, respectively, the material properties as shown in Table
 									 &  II       &  $[90_{gr4}/90_{gl}/90_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
 	\bottomrule
 \end{tabular}
+\end{center}
 
-
+\begin{center}
 \begin{tabular}{ccccccc}
 	\toprule
 	Load                               &Problem   & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
@@ -706,7 +717,9 @@ glass/epoxy, respectively, the material properties as shown in Table
 									   &    II     &  $[\text{-}45_{ca3}/\text{+}45_{ca4}/\text{+}45_{gr6}/\text{+}45_{ca}]_s$    & 2.074    & 1.424 &  150    & 27 \\
 	\bottomrule
 \end{tabular}
+\end{center}
 
+\begin{center}
 \begin{tabular}{ccccccc}
 	\toprule
 	Load                                                        &Problem& Stacking sequence                                & Strength ratio  & Mass &  Cost   & Layer    \\
@@ -719,7 +732,9 @@ glass/epoxy, respectively, the material properties as shown in Table
 																		  154& 44  \\
 	\bottomrule
 \end{tabular}
+\end{center}
 
+\begin{center}
 \begin{tabular}{ccccccc}
 	\toprule
 	Load                                                    &   Problem          & Stacking sequence                          & Strength ratio  & Mass &  Cost   & Layer    \\
@@ -730,6 +745,7 @@ glass/epoxy, respectively, the material properties as shown in Table
 			 &  II                 &  $[\text{+}45_{gl}/\text{+}45_{gr16}/\text{+}45_{gr}]$          & 2.031           & 0.965 &  42.0  & 18 \\
 	\bottomrule
 \end{tabular}
+\end{center}
 
 
 
