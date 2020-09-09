@@ -23,7 +23,9 @@ def get_positive(a_list):
 
 if __name__ == '__main__':
 
-    angle = [-45,  -45,  -45,  45,  45,  45,  -45,  45,  -45,  -45,  -45,  45,  -45,  45,  -45,  -45,  -45,  45,  45,  45,  -45,  -45,  45,  -45,  -45,  -45,  45,  -45,  45,  -45,  -45,  45,  45,  45,  -45,  -45,  45,  45,  45,  -45,  45,  -45,  45,  45,  -45,  -45,  -45,  -45,  45,  45,  -45,  45,  45,  -45,  45,  -45,  -45,  -45,  45,  -45,  -45,  45,  45,  45,  -45,  45,  45,  45,  45,  45,  45,  45,  45,  45,  45,  45,  45,  45,  -45,  45,  45,  45,  -45,  -45,  45,  -45,  -45,  -45,  45,  -45,  45,  45,  -45,  45,  45,  -45,  -45,  -45,  -45,  45,  45,  -45,  45,  -45,  45,  45,  45,  -45,  -45,  45,  45,  45,  -45,  -45,  45,  -45,  45,  -45,  -45,  -45,  45,  -45,  -45,  45,  45,  45,  -45,  -45,  -45,  45,  -45,  45,  -45,  -45,  -45,  45,  -45,  45,  45,  45,  -45,  -45,  -45]
+    #ma=[-45{gr_9} 45{gr_9}     -45 {ca_2}    45 {ca_2}
+                 
+    angle=[-45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'carbon_epoxy', -45, 'carbon_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'carbon_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'carbon_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', -45, 'carbon_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'carbon_epoxy', -45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'carbon_epoxy', 45, 'carbon_epoxy', -45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy']
     get_positive(angle)
 
 

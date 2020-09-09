@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex neural-network-design"] 1597225228 "neural-network-design.aux" "neural-network-design.bbl" "neural-network-design" 1597225263
+["bibtex neural-network-design"] 1597225228 "neural-network-design.aux" "neural-network-design.bbl" "neural-network-design" 1599017594
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1480098435 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "neural-network-design-database.bib" 1594623472 2105 080a5ed15dc4a8a63b1330e58402c6fa ""
   "neural-network-design.aux" 1597225231 3534 3d45b7e055426daf499eb2b5b9c0d71a ""
   (generated)
-  "neural-network-design.blg"
   "neural-network-design.bbl"
-["pdflatex"] 1597225228 "neural-network-design.tex" "neural-network-design.pdf" "neural-network-design" 1597225263
-  "/dev/null" 1597225256 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "neural-network-design.blg"
+["pdflatex"] 1597225228 "neural-network-design.tex" "neural-network-design.pdf" "neural-network-design" 1599017594
+  "/dev/null" 1599017588 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1480098689 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -227,7 +227,7 @@
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "neural-network-design.aux" 1597225231 3534 3d45b7e055426daf499eb2b5b9c0d71a ""
   "neural-network-design.bbl" 1597225228 2127 5356d67c404929806ed4fb48085ee40c "bibtex neural-network-design"
-  "neural-network-design.tex" 1597225261 27011 66bf173852683fdbf4f9a9a014d40a57 ""
+  "neural-network-design.tex" 1599017590 27011 66bf173852683fdbf4f9a9a014d40a57 ""
   "neural_network_design_images/neuron1.png" 1593933521 39849 93c49d38ab7202177aa69ba93f412080 ""
   "svglov3.clo" 1597200726 3809 f8e29af71acd1bd1b2a58b6166058c66 ""
   "svjour3.cls" 1597200726 47679 993de5be39389e8a2c40c32e48f0687c ""

@@ -348,11 +348,14 @@ if __name__=='__main__':
     mass = lmac.get_laminate_mass(height,material)
     cost = lmac.get_laminate_cost(material)
     """
+    #ma=[-45{gr_9} 45{gr_9}     -45 {ca_2}    45 {ca_2}
 
-    angle =[np.pi/4] *12 
-    height=[0.000165] * 12
-    material = [cv.CARBON_EPOXY] *12
-    load=[1,1,1,0,0,0]
+    angle =[-np.pi/4] * 9 + [np.pi/4] * 9 + [-np.pi/4] * 2 + [np.pi/4] * 2 
+    angle = tool.get_symmetry_list(angle)
+    height=[0.000165] * 44
+    material =[cv.GRAPHITE_EPOXY] * 18  + [cv.CARBON_EPOXY] * 4  
+    material = tool.get_symmetry_list(material)
+    load=[1,1,0,0,0,0]
 
 
     sr  = get_strength_ratio(angle,height,material,load)

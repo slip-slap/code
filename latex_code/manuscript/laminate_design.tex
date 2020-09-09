@@ -34,7 +34,7 @@
 \begin{abstract}
 Failure analysis of laminated composite plates under different mechanical loads for different
 stacking sequences, fiber orientation, and composite material system is studied in this paper.
-An optimum composite material and laminate layup is studied for a targeted strength ratio which
+An optimum composite material and laminate layup is well investigated for a targeted strength ratio which
 makes a compromise between weight and cost through genetic algorithm.
 
 
@@ -53,9 +53,9 @@ resistance, etc over conventional materials, which is widely used in
 automotive, aerospace, and ship building industry.  However, the high cost of
 fabrication of composites is a critical drawback for its application, for
 example, the graphite/epoxy composite part may cost as much as \$650 to \$900
-per kilogram, while the price of glass/epoxy is about 2.5 times less.  The
-mechanical performance of a composite is affected by a wide range of factors,
-thickness, material,number and orientation of a lamina.
+per kilogram, while the price of glass/epoxy is about 2.5 times less, however, the
+mechanical performance of a composite material is affected by a wide range of factors,
+thickness, material ,and orientation of each lamina.
 
 In typical engineering applications, composite materials are under very
 complicate loading conditions, not only in-plane loads but also out-of-plane
@@ -76,7 +76,7 @@ Selection is the most important operator  of GA which decides the diversity of
 the population.  In this step, if the selection pressure increases, the
 converge speed of the population increases, however, the diversity of the
 population decrease.  To improve the search ability and reduce the search cost,
-various selection methods has been invented, and the selection schemes can be
+various selection methods have been invented, and the selection schemes can be
 divided into four classes which are proportionate reproduction, ranking,
 tournament, and genitor(or ”steady state”) selection. In the optimization of
 laminated composite structure, roulette wheel\cite{riche1993optimization,seresta2007optimal} and
@@ -85,7 +85,7 @@ The pros of GA as the following: (i): GAs are not easily trapped in local
 optima, and be able to obtain the global optimal. (ii): GA doesn't need
 gradient information and can be applied to discrete optimization problem.
 (iii): GA not only be able to find the optimal value in the domain, but also
-can maintain a set of optimal solutions
+can maintain a set of optimal solutions.
 
 
 In order to check the feasibility of a composite laminate by imposing a
@@ -621,7 +621,7 @@ Find: $\{\theta_k, n\}$ $\theta_k \in \{ 0,\text{+}45,\text{-}45,90\}$
 
 Minimize: weight
 
-Subject to: safety factor and first ply failure constraint
+Subject to: strength ratio and first ply failure constraint
 
 
 \subsection{Design Problem II}
@@ -637,7 +637,7 @@ Minimize:
 	F=\frac{\text { Cost }}{C_{\text {min }}}+\frac{\text { Weight }}{W_{\text {min }}}
 \end{equation}
 
-Subject to: safety factor and first ply failure constraint
+Subject to: strength ratio and first ply failure constraint
 
 
 Here CA, GF, and GL represent carbon/epoxy, graphite/epoxy, and glass/epoxy,
@@ -647,7 +647,7 @@ obtained from previous problem.
 
 
 \section{Numberical results and discussion}
-A composite laminate with dimensions $25 \times 25 \times 0.165 mm^3$ of each lamina is under various
+A composite laminate with dimensions $1000 \times 1000 \times 0.165 mm^3$ of each lamina is under various
 loading cases, and each CA, GF, and GL layer is assumed to cost 8, 2.5 and 1 monetary units,
 respectively.  The other used material properties are as shown in Table
 \ref{tab:mat}.  
@@ -672,82 +672,52 @@ respectively.  The other used material properties are as shown in Table
 	\bottomrule
 \end{tabular}
 \label{tab:mat}
-\captionof{table}{Comparative study of different composite materials for a defined strength ratio}
 \end{center}
 
-
-In the present experiment, the investigation composite laminate are under various in-plane loading, and the safety factor
-taken here is 2.
+In the present experiment,  the optimum composite system, layup, thickness, and number of
+layers for a targeted strength ratio(2 in this paper) under various in-plane loading is
+investigated.
 
 \begin{center}
+\captionof{table}{Optimization results}
 \begin{tabular}{ccccccc}
 	\toprule
-	Load         &  Problem             & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
+	Load(N)         &  Problem             & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\ 
 	\midrule
-	  \multirow{4}{*}{$N_{x}=1e6$ N}  &    I      &  $[0_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
+	  \multirow{4}{*}{$N_{x}=1e6$ }  &    I      &  $[0_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
 									  &     I     &  $[0_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
 		         	                  &     I     &  $[0_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
 									  &     II    &  $[0_{gr4}/0_{gl}/0_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
-	\bottomrule
-\end{tabular}
-
-\end{center}
-
-\begin{center}
-\begin{tabular}{ccccccc}
-	\toprule
-	Load                             &Problem & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-	 \multirow{4}{*}{$N_{y}=1e6$ N}  &  I        &  $[90_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
+	 \multirow{4}{*}{$N_{y}=1e6$ }  &  I        &  $[90_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
 					                 &  I        &  $[90_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
            		 	                 &  I        &  $[90_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
 									 &  II       &  $[90_{gr4}/90_{gl}/90_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
-	\bottomrule
-\end{tabular}
-\end{center}
-
-\begin{center}
-\begin{tabular}{ccccccc}
-	\toprule
-	Load                               &Problem   & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-	\multirow{4}{*}{$N_{xy}=1e6$ N}	   &    I      &  $[\text{-}45_{cr6}/\text{+}45_{cr14}/\text{-}45_{cr6}]$                  & 2.013           & 1.377 &  208.0  & 26  \\
+	\multirow{4}{*}{$N_{xy}=1e6$ }	   &    I      &  $[\text{-}45_{cr6}/\text{+}45_{cr14}/\text{-}45_{cr6}]$                  & 2.013           & 1.377 &  208.0  & 26  \\
 									   &    I      &  $[\text{-}45_{gr5}/\text{+}45_{gr23}/\text{-}45_{gr5}]$                & 2.105           & 1.732 &  82.5   & 33  \\
 									   &    I      &  $[\text{-}45_{gl17}/\text{+}45_{gl76}/\text{-}45_{gl17}]$               & 2.011           & 6.908 &  110.0  & 110  \\
 									   &    II     &  $[\text{-}45_{ca3}/\text{+}45_{ca4}/\text{+}45_{gr6}/\text{+}45_{ca}]_s$    & 2.074    & 1.424 &  150    & 27 \\
-	\bottomrule
-\end{tabular}
-\end{center}
 
-\begin{center}
-\begin{tabular}{ccccccc}
-	\toprule
-	Load                                                        &Problem& Stacking sequence                                & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-	\multirow{3}{*}{\makecell{$N_x=1e6$ N\\ $N_y=1e6$ N}}       &       I                &  $[\text{-}45_{cr6}/\text{+}45_{cr6}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
+	\multirow{3}{*}{\makecell{$N_x=1e6$ \\ $N_y=1e6$ }}       &       I                &  $[\text{-}45_{cr6}/\text{+}45_{cr6}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
 																&       I                &  $[\text{+}45_{gr10}/\text{-}45_{gr21}/\text{+}45_{gr10}]$            & 2.024           & 2.151 &  102.5  & 41  \\
 																&       I                &  $[\text{-}45_{gl35}/\text{+}45_{gl_73}/\text{+}45_{gl35}]$            & 2.001           & 8.980 &  143.0  & 143  \\
 																&       II                &
 	$[\text{-}45_{gr9}/\text{+}45_{gr_9}/\text{-}45_{ca2}/\text{+}45_{ca2}]_s$            & 2.054         & 2.313 &
 																		  154& 44  \\
-	\bottomrule
-\end{tabular}
-\end{center}
-
-\begin{center}
-\begin{tabular}{ccccccc}
-	\toprule
-	Load                                                    &   Problem          & Stacking sequence                          & Strength ratio  & Mass &  Cost   & Layer    \\
 	\midrule
-	\multirow{4}{*}{\makecell{$N_{x}=1e6$ N \\ $N_{y}=1e6$ N  \\ $N_{xy}=1e6$} }  &      I   &  $[\text{+}45_{cr12}]$                            & 2.041           & 0.636 &  96.0  & 12  \\
+	\multirow{4}{*}{\makecell{$N_{x}=1e6$  \\ $N_{y}=1e6$   \\ $N_{xy}=1e6$ } }  &      I   &  $[\text{+}45_{cr12}]$                            & 2.041           & 0.636 &  96.0  & 12  \\
 													    						  &      I   &  $[\text{+}45_{gr18}]$                            & 2.227           & 0.945 &  45.0  & 45  \\
 			 &  I                  &  $[\text{+}45_{gl23}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
 			 &  II                 &  $[\text{+}45_{gl}/\text{+}45_{gr16}/\text{+}45_{gr}]$          & 2.031           & 0.965 &  42.0  & 18 \\
 	\bottomrule
 \end{tabular}
+\begin{tablenotes}\footnotesize
+     Subscript "cr" denotes a carbon/epoxy ply, "gr" denotes graphite/epoxy ply, "gl" denotes a
+	glass/epoxy ply
+\end{tablenotes}
 \end{center}
-
-
 
 
 \section{Conclusions}

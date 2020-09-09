@@ -2,29 +2,12 @@
 #include<vector>
 #include<list>
 
-class Entry
-{
-	int age;
-	
-	public:
-	 Entry(int age)
-	{
-		this->age = age;
-	}
-	bool operator<(int age)
-	{
-		return this->age<age;
-
-	}
-};
-
+//void my_tool();
 
 int main()
 {
-	Entry john_entry(3);
-	Entry Joana_entry(5);
-	std::list<Entry> entry_list;
-
+	my_tool();
+	std::cout<<"hello world!";
 }
 
 
