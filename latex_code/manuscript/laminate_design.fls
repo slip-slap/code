@@ -401,6 +401,12 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT A_laminate_design_images/NxNy.png
+INPUT ./A_laminate_design_images/NxNy.png
+INPUT ./A_laminate_design_images/NxNy.png
+INPUT A_laminate_design_images/NxNyNz.png
+INPUT ./A_laminate_design_images/NxNyNz.png
+INPUT ./A_laminate_design_images/NxNyNz.png
 INPUT laminate_design.bbl
 INPUT laminate_design.bbl
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf

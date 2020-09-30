@@ -381,24 +381,21 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 
 \section {Optimum Design of laminated composites}
 \subsection{Genetic Algorithm}
-In the present study,  the GA employs the selection schemes of roulette
-selections to diversity the population and prevent the population from premature, and the initial
-population size is 20. The other relevant parameters of GA are as shown in Table \ref{tab:ga}. The design
+In the present study, the relevant parameters of GA are as shown in Table \ref{tab:ga}. The design
 variables are the materials, number of layers, and ply orientation restricted to a discrete set of
-angles ($0,\pm 45 \text{ and } 90 \text{ degrees} $). The possible materials are graphite/epoxy, caron/epoxy, and
-glass/epoxy and are represented by the codes 0, 1 and 2, respectively.
+angles ($0,\pm 45 \text{ and } 90 \text{ degrees} $). The possible materials are graphite/epoxy,
+caron/epoxy, and glass/epoxy and are represented by the codes 0, 1 and 2, respectively.
 
-\begin{center}
-\captionof{table}{GA parameters}
-\begin{tabular}{cccccc}
-	\toprule
-	Parameter &  Population size & Encoding & Selection scheme& Crossover Strategy& Mutation strategy\\
-	\midrule
-	Value     & 20               & Integer  & Roulette wheel  & One-point &Mass mutation   \\
-	\bottomrule
-	\label{tab:ga}
-\end{tabular}
-\end{center}
+GA employs various selection strategies to diversity the population and prevent the population from
+premature .  Parents are selected by three various approaches, the first method is according to
+individual's fitness, individuals with higher fitness are more inclined to be chosen, the second way
+is  sort the population according to the absolute difference of individual's strength ratio and
+specified safety factor in an incresing order, individual with smaller difference are more likely to
+be selected; the third method is select individuals which satisfy the safty factor constraint,
+individual with best fitness are more likely be selected.  Individuals seleced from these three
+approaches form the parents of next generation.
+
+
 
 
 The laminate chromosomes are represented by double-gene string
@@ -653,6 +650,18 @@ respectively.  The other used material properties are as shown in Table
 \ref{tab:mat}.  
 
 \begin{center}
+\captionof{table}{GA parameters}
+\begin{tabular}{ccccc}
+	\toprule
+	Parameter &  Population size & Encoding &  Crossover Strategy& Mutation strategy\\
+	\midrule
+	Value     & 10               & Integer  &  One-point &Mass mutation   \\
+	\bottomrule
+	\label{tab:ga}
+\end{tabular}
+\end{center}
+
+\begin{center}
 \captionof{table}{Comparsion of carbon/epoxy, graphite/epoxy, and glass/epoxy properties}
 \begin{tabular}{cccccc}
 	\toprule
@@ -674,43 +683,52 @@ respectively.  The other used material properties are as shown in Table
 \label{tab:mat}
 \end{center}
 
+
+\begin{center}
+  \includegraphics[width=\linewidth]{A_laminate_design_images/NxNy.png}
+  \captionof{figure}{GA process for $N_x=N_y$ = 1e6 N}
+  \label{fig:lamina}
+\end{center}
+
+
+\begin{center}
+  \includegraphics[width=\linewidth]{A_laminate_design_images/NxNyNz.png}
+  \captionof{figure}{GA process for $N_x =N_y = N_{xy} = 1e6$ N}
+  \label{fig:lamina}
+\end{center}
+
 In the present experiment,  the optimum composite system, layup, thickness, and number of
 layers for a targeted strength ratio(2 in this paper) under various in-plane loading is
 investigated.
 
 \begin{center}
 \captionof{table}{Optimization results}
-\begin{tabular}{ccccccc}
+\begin{tabular}{cccccccc}
 	\toprule
-	Load(N)         &  Problem             & Stacking sequence        & Strength ratio  & Mass &  Cost   & Layer    \\ 
+	Load(N)                                                 &  Problem  &   Algorithm      & Stacking sequence                                    & Strength ratio  & Mass  &  Cost   & Layer    \\ 
+	\multirow{6}{*}{\makecell{$N_x=1e6$ \\ $N_y=1e6$ }}     &       I   &  GA   &  $[\text{-}45_{6}^{cr}/\text{+}45_{6}^{cr}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
+	                                                        &       I   &  IGA   &  $[\text{-}45_{6}^{cr}/\text{+}45_{6}^{cr}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
+															&       I   &  GA    &  $[0_6^{gr}/\text{-}45_{4}^{gr}/\text{+}45_{4}^{gr}/90_{7}^{gr}/\bar{90}^{gr}]_s$     & 2.051           & 2.256 &  107.5  & 43  \\
+															&       I   &  IGA    &  $[\text{+}45_{10}^{gr}/\text{-}45_{21}^{gr}/\text{+}45_{10}^{gr}]$    & 2.024           & 2.151 &  102.5  & 41  \\
+															&       I   &  GA    &  $[\text{-}45_{35}^{gl}/\text{+}45_{73}^{gl}/\text{+}45_{35}^{gl}]$    & 2.001           & 8.980 &  143.0  & 143  \\
+															&       I   &  IGA    &  $[\text{-}45_{35}^{gl}/\text{+}45_{73}^{gl}/\text{+}45_{35}^{gl}]$    & 2.001           & 8.980 &  143.0  & 143  \\
+															&       II  &  GA    &
+	$[\text{-}45_{12}^{gr}/\text{+}45_{5}^{cr}/\text{+}45_{7}^{gr}]_s$         & 2.141
+										  & 2.523 & 175& 48  \\
+															&       II  &  IGA    &
+	$[\text{-}45_{9}^{gr}/\text{+}45_{9}^{gr}/\text{-}45_{2}^{cr}/\text{+}45_{2}^{cr}]_s$         & 2.054
+										  & 2.313 & 154& 44  \\
 	\midrule
-	  \multirow{4}{*}{$N_{x}=1e6$ }  &    I      &  $[0_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
-									  &     I     &  $[0_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
-		         	                  &     I     &  $[0_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
-									  &     II    &  $[0_{gr4}/0_{gl}/0_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
-	\midrule
-	 \multirow{4}{*}{$N_{y}=1e6$ }  &  I        &  $[90_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
-					                 &  I        &  $[90_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
-           		 	                 &  I        &  $[90_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
-									 &  II       &  $[90_{gr4}/90_{gl}/90_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
-	\midrule
-	\multirow{4}{*}{$N_{xy}=1e6$ }	   &    I      &  $[\text{-}45_{cr6}/\text{+}45_{cr14}/\text{-}45_{cr6}]$                  & 2.013           & 1.377 &  208.0  & 26  \\
-									   &    I      &  $[\text{-}45_{gr5}/\text{+}45_{gr23}/\text{-}45_{gr5}]$                & 2.105           & 1.732 &  82.5   & 33  \\
-									   &    I      &  $[\text{-}45_{gl17}/\text{+}45_{gl76}/\text{-}45_{gl17}]$               & 2.011           & 6.908 &  110.0  & 110  \\
-									   &    II     &  $[\text{-}45_{ca3}/\text{+}45_{ca4}/\text{+}45_{gr6}/\text{+}45_{ca}]_s$    & 2.074    & 1.424 &  150    & 27 \\
+	\multirow{6}{*}{\makecell{$N_{x}=1e6$  \\ $N_{y}=1e6$   \\ $N_{xy}=1e6$ } }  &  I  & GA   &  $[\text{+}45_{11}^{cr}/\text{-}45^{cr}/\bar{\text{+}45}^{cr}]_s$                            & 2.018           & 1.324 &  200.0  & 25  \\
+	                                                                             &  I  & IGA  &  $[\text{+}45_{12}^{cr}]$                            & 2.041           & 0.636 &  96.0  & 12  \\
 
-	\midrule
-	\multirow{3}{*}{\makecell{$N_x=1e6$ \\ $N_y=1e6$ }}       &       I                &  $[\text{-}45_{cr6}/\text{+}45_{cr6}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
-																&       I                &  $[\text{+}45_{gr10}/\text{-}45_{gr21}/\text{+}45_{gr10}]$            & 2.024           & 2.151 &  102.5  & 41  \\
-																&       I                &  $[\text{-}45_{gl35}/\text{+}45_{gl_73}/\text{+}45_{gl35}]$            & 2.001           & 8.980 &  143.0  & 143  \\
-																&       II                &
-	$[\text{-}45_{gr9}/\text{+}45_{gr_9}/\text{-}45_{ca2}/\text{+}45_{ca2}]_s$            & 2.054         & 2.313 &
-																		  154& 44  \\
-	\midrule
-	\multirow{4}{*}{\makecell{$N_{x}=1e6$  \\ $N_{y}=1e6$   \\ $N_{xy}=1e6$ } }  &      I   &  $[\text{+}45_{cr12}]$                            & 2.041           & 0.636 &  96.0  & 12  \\
-													    						  &      I   &  $[\text{+}45_{gr18}]$                            & 2.227           & 0.945 &  45.0  & 45  \\
-			 &  I                  &  $[\text{+}45_{gl23}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
-			 &  II                 &  $[\text{+}45_{gl}/\text{+}45_{gr16}/\text{+}45_{gr}]$          & 2.031           & 0.965 &  42.0  & 18 \\
+
+																				 &  I  & GA   &  $[0_4^{gr}/\text{+}45_{12}^{gr}/90_3^{gr}/\bar{\text{+}45}]_s$                            & 2.001           & 2.046 &  97.5  & 39  \\
+																				 &  I  & IGA  &  $[\text{+}45_{18}^{gr}]$                            & 2.227           & 0.945 &  45.0  & 18  \\
+																				 &  I  & GA   &  $[\text{+}45_{23}^{gl}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
+																				 &  I  & IGA  &  $[\text{+}45_{23}^{gl}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
+																				 &  II &  GA  &  $[\text{+}45^{gl}/\text{+}45_{16}^{gr}/\text{+}45^{gl}]$          & 2.031           & 0.965 &  42.0  & 18 \\
+																				 &  II & IGA  &  $[\text{+}45_8^{gr}/\bar{\text{+}45}^{gl}]_s$          & 2.005           & 0.902 &  41.0  & 17 \\
 	\bottomrule
 \end{tabular}
 \begin{tablenotes}\footnotesize
@@ -778,5 +796,33 @@ This is work was supported by
 \captionof{figure}{GA Procedure with Share Function}
 \label{plot:GA}
 \end{center}
+
+
+
 \end{comment}
+
+
+\begin{comment}
+	\midrule
+	  \multirow{4}{*}{$N_{x}=1e6$ }  &    I      &  $[0_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
+									  &     I     &  $[0_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
+		         	                  &     I     &  $[0_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
+									  &     II    &  $[0_{gr4}/0_{gl}/0_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
+	\midrule
+	 \multirow{4}{*}{$N_{y}=1e6$ }  &  I        &  $[90_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
+					                 &  I        &  $[90_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
+           		 	                 &  I        &  $[90_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
+									 &  II       &  $[90_{gr4}/90_{gl}/90_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
+	\midrule
+	\multirow{4}{*}{$N_{xy}=1e6$ }	   &    I      &  $[\text{-}45_{cr6}/\text{+}45_{cr14}/\text{-}45_{cr6}]$                  & 2.013           & 1.377 &  208.0  & 26  \\
+									   &    I      &  $[\text{-}45_{gr5}/\text{+}45_{gr23}/\text{-}45_{gr5}]$                & 2.105           & 1.732 &  82.5   & 33  \\
+									   &    I      &  $[\text{-}45_{gl17}/\text{+}45_{gl76}/\text{-}45_{gl17}]$               & 2.011           & 6.908 &  110.0  & 110  \\
+									   &    II     &  $[\text{-}45_{ca3}/\text{+}45_{ca4}/\text{+}45_{gr6}/\text{+}45_{ca}]_s$    & 2.074    & 1.424 &  150    & 27 \\
+
+	\midrule
+\end{comment}
+
+
+
+
 
