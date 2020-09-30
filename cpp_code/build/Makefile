@@ -68,10 +68,10 @@ RM = /opt/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/kismet/Documents/code/cpp_code
+CMAKE_SOURCE_DIR = /Users/kismet/Documents/github/code/cpp_code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/kismet/Documents/code/cpp_code/build
+CMAKE_BINARY_DIR = /Users/kismet/Documents/github/code/cpp_code/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kismet/Documents/code/cpp_code/build/CMakeFiles /Users/kismet/Documents/code/cpp_code/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kismet/Documents/github/code/cpp_code/build/CMakeFiles /Users/kismet/Documents/github/code/cpp_code/build/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kismet/Documents/code/cpp_code/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kismet/Documents/github/code/cpp_code/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -143,32 +143,32 @@ demo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
 .PHONY : demo/fast
 
-work.o: work.cpp.o
+main.o: main.cpp.o
 
-.PHONY : work.o
+.PHONY : main.o
 
 # target to build an object file
-work.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/work.cpp.o
-.PHONY : work.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-work.i: work.cpp.i
+main.i: main.cpp.i
 
-.PHONY : work.i
+.PHONY : main.i
 
 # target to preprocess a source file
-work.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/work.cpp.i
-.PHONY : work.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-work.s: work.cpp.s
+main.s: main.cpp.s
 
-.PHONY : work.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-work.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/work.cpp.s
-.PHONY : work.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... demo"
-	@echo "... work.o"
-	@echo "... work.i"
-	@echo "... work.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

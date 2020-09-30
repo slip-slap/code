@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/kismet/Documents/github/code/opengl_code/binary",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -I\"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework\\$$\" -isystem /usr/local/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++11 -o CMakeFiles/opengl.dir/main.cpp.o -c /Users/kismet/Documents/github/code/opengl_code/main.cpp",
+  "file": "/Users/kismet/Documents/github/code/opengl_code/main.cpp"
+}
+]

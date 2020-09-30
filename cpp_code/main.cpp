@@ -1,17 +1,14 @@
-#include<iostream>
-#include<vector>
-#include<list>
-
-//void my_tool();
-
+#include <iostream>
 int main()
 {
-	my_tool();
-	std::cout<<"hello world!";
+	int* test_arry ;
+	test_arry= new int[20];
+	std::cout<<"the 25th element: "<<test_arry[25000000]<<std::endl;
 }
 
 
 /*
+
 #include<iostream>
 #include <vector>
 #include <queue>
