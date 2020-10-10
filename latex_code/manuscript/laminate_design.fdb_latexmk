@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex laminate_design"] 1601450299 "laminate_design.aux" "laminate_design.bbl" "laminate_design" 1601454379
+["bibtex laminate_design"] 1602300208 "laminate_design.aux" "laminate_design.bbl" "laminate_design" 1602301129
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "laminate_design.aux" 1601454378 5352 72ca33774748ed64a5c3fea04fae0350 ""
+  "laminate_design.aux" 1602301128 5545 2c8e7d929018a1febb0d2859fc8ce042 ""
   "laminate_design.bib" 1597884526 11618 2edbe6229a16d4f64d3bb96d34032172 ""
   (generated)
   "laminate_design.bbl"
   "laminate_design.blg"
-["pdflatex"] 1601454375 "laminate_design.tex" "laminate_design.pdf" "laminate_design" 1601454379
-  "/dev/null" 1601454379 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1602301125 "laminate_design.tex" "laminate_design.pdf" "laminate_design" 1602301129
+  "/dev/null" 1602301129 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1480098689 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -229,12 +229,12 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1589787211 3236106 bef0cf154a3167603a4917a99a2c80c5 ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1589792795 4227023 287652bbbca0ab5bc2f398b14c497dd0 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "A_laminate_design_images/NxNy.png" 1601427931 112460 b58c9cf3c4ede922aceb762005525e9a ""
-  "A_laminate_design_images/NxNyNz.png" 1601442160 104958 b6b6eaaa3a93a90a7c3bc3e4231903d4 ""
+  "A_laminate_design_images/NxNy.png" 1601464619 111759 98e2b697205fe77b9f0cd75fa72ecde5 ""
+  "A_laminate_design_images/NxNyNz.png" 1601464821 105032 21fef4bc7fde754dc22f4a41c3415af1 ""
   "A_laminate_design_images/lamina_local_global_axes.png" 1597399022 133854 1883105abfd54615fa4457cb7ff4985d ""
-  "laminate_design.aux" 1601454378 5352 72ca33774748ed64a5c3fea04fae0350 ""
-  "laminate_design.bbl" 1601450300 6692 32aa946c75dfc1d59948cc9f1ea358f5 "bibtex laminate_design"
-  "laminate_design.tex" 1601454375 37659 f033835b5426dad3d879e6050979eb5a ""
+  "laminate_design.aux" 1602301128 5545 2c8e7d929018a1febb0d2859fc8ce042 ""
+  "laminate_design.bbl" 1602300208 6692 32aa946c75dfc1d59948cc9f1ea358f5 "bibtex laminate_design"
+  "laminate_design.tex" 1602301125 40921 b34b825d279a29b11be8fd223beb78d0 ""
   "svglov3.clo" 1597200726 3809 f8e29af71acd1bd1b2a58b6166058c66 ""
   "svjour3.cls" 1597200726 47679 993de5be39389e8a2c40c32e48f0687c ""
   (generated)
