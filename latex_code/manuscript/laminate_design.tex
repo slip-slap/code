@@ -48,12 +48,12 @@ makes a compromise between weight and cost through improved genetic algorithm.
 \section{Introduction}
 % 第一段
 % 第一句话，FRP复合材料在众多领域都有着广泛的应用，因为它具有很高的强度比等性质.
-Composites material offer improved strength, stiffness, fatigue, and corrosion
+Composite materials offer improved strength, stiffness, fatigue, and corrosion
 resistance, etc over conventional materials, which is widely used in
 automotive, aerospace, and ship building industry.  However, the high cost of
 fabrication of composites is a critical drawback for its application, for
 example, the graphite/epoxy composite part may cost as much as \$650 to \$900
-per kilogram, while the price of glass/epoxy is about 2.5 times less, however, the
+per kilogram, while the price of glass/epoxy is about 2.5 times less, and  the
 mechanical performance of a composite material is affected by a wide range of factors,
 thickness, material ,and orientation of each lamina.
 
@@ -75,7 +75,7 @@ and mutation according to Darwin's principal of "survival of the fittest".
 Selection is the most important operator  of GA which decides the diversity of
 the population.  In this step, if the selection pressure increases, the
 converge speed of the population increases, however, the diversity of the
-population decrease.  To improve the search ability and reduce the search cost,
+population decreases.  To improve the search ability and reduce the search cost,
 various selection methods have been invented, and the selection schemes can be
 divided into four classes which are proportionate reproduction, ranking,
 tournament, and genitor(or ”steady state”) selection. In the optimization of
@@ -184,7 +184,8 @@ where
 		\bar{Q}_{26}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c s^{3}-\left(Q_{22}-Q_{12}-2 Q_{66}\right)
 		c^{3} s \\ 
 		\bar{Q}_{66}=\left(Q_{11}+Q_{22}-2 Q_{12}-2 Q_{66}\right) s^{2}
-		c^{2}+Q_{66}\left(s^{4}+c^{4}\right)
+		c^{2}+Q_{66}\left(s^{4}+c^{4}\right)\\
+	c=cos\theta \text{   }s=sin\theta
 	\end{array}
 \end{equation}
 
@@ -201,7 +202,7 @@ where
 
 \begin{equation}
 	[T]=\left[\begin{array}{ccc}c^{2} & s^{2} & 2 s c \\ s^{2} & c^{2} & -2 s c \\ -s c & s c &
-	c^{2}-s^{2}\end{array}\right]
+	c^{2}-s^{2}\end{array}\right] 
 \end{equation}
 
 \subsection{Stress and Strain in a Laminate}
@@ -386,23 +387,14 @@ variables are the materials, number of layers, and ply orientation restricted to
 angles ($0,\pm 45 \text{ and } 90 \text{ degrees} $). The possible materials are graphite/epoxy,
 caron/epoxy, and glass/epoxy and are represented by the codes 0, 1 and 2, respectively.
 
-Basic GA employs various selection strategies to diversity the population and
-prevent the population from premature;  the first selection method is  sort the
-population according to the absolute difference of individual's strength ratio
-and specified safety factor in an incresing order, individual with smaller
-difference are more likely to be selected; the other selection strategy is
-select individuals which satisfy the safty factor constraint, individual with
-best fitness are more likely be selected. However, because of premature and
-weaker local search ability, basic GA are more likely to get stuck in local
-optimum. Therefore, to prevent the GA from early convergence and improve the
-local search performance, an improved GA is proposed by chosing individual
-according to fitness,  ignoring whether the individual satify the constraint
-requirement. by combing basic GA existing selection methods with this new
-selection way, Individuals are selected from these three approaches forming the
-parents of next generation.
-
-
-
+The selection method of the basic GA is sorting the population according to the absolute difference
+of individual's strength ratio and specified safety factor in an incresing order, individuals with
+smaller difference are more likely to be selected; However, because of premature and weak local
+search ability, basic GA are more likely to get stuck in local optimum. Therefore, to prevent the GA
+from early convergence and improve the local search performance, an improved GA is proposed by
+chosing individual according to fitness,  ignoring whether the individual satisfy the constraint
+requirement. by combing basic GA existing selection strategy with this new selection approach,
+Individuals are selected from the two approaches forming the parents of next generation.
 
 
 The laminate chromosomes are represented by double-gene string
@@ -731,7 +723,8 @@ in-plane loading is investigated.
 	glass/epoxy ply
 \end{tablenotes}
 \end{center}
-The GA process can be divided into two phases by whether there are any individuals which are appropriate,
+The GA process can be divided into two phases by whether there are individuals which are
+appropriate or not,
 an appropriate individual means it can satisfy the constraint. During the initial phase, no individual's
 strength ratio is over the specified threshold, so individuals with bigger fitness are more likely to be
 chosen as parents, that's why the strength ratio curves go all the way up to the specified
