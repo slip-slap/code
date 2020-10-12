@@ -1,0 +1,164 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Abu-Odeh and Jones(1998)}]{abu1998optimum}
+Abu-Odeh AY and Jones HL (1998) Optimum design of composite plates using
+  response surface method.
+\newblock \emph{Composite structures} 43(3): 233--242.
+
+\bibitem[{Akbulut and Sonmez(2008)}]{akbulut2008optimum}
+Akbulut M and Sonmez FO (2008) Optimum design of composite laminates for
+  minimum thickness.
+\newblock \emph{Computers \& Structures} 86(21-22): 1974--1982.
+
+\bibitem[{Choudhury et~al.(2019)Choudhury, Mondal and
+  Sarkar}]{choudhury2019failure}
+Choudhury A, Mondal S and Sarkar S (2019) Failure analysis of laminated
+  composite plate under hygro-thermo mechanical load and optimisation.
+\newblock \emph{International Journal of Applied Mechanics and Engineering}
+  24(3): 509--526.
+
+\bibitem[{Deka et~al.(2005)Deka, Sandeep, Chakraborty and
+  Dutta}]{deka2005multiobjective}
+Deka DJ, Sandeep G, Chakraborty D and Dutta A (2005) Multiobjective
+  optimization of laminated composites using finite element method and genetic
+  algorithm.
+\newblock \emph{Journal of reinforced plastics and composites} 24(3): 273--285.
+
+\bibitem[{Fang and Springer(1993)}]{fang1993design}
+Fang C and Springer GS (1993) Design of composite laminates by a monte carlo
+  method.
+\newblock \emph{Journal of composite materials} 27(7): 721--753.
+
+\bibitem[{Jadhav and Mantena(2007)}]{jadhav2007parametric}
+Jadhav P and Mantena PR (2007) Parametric optimization of grid-stiffened
+  composite panels for maximizing their performance under transverse loading.
+\newblock \emph{Composite structures} 77(3): 353--363.
+
+\bibitem[{Kang and Kim(2005)}]{kang2005minimum}
+Kang JH and Kim CG (2005) Minimum-weight design of compressively loaded
+  composite plates and stiffened panels for postbuckling strength by genetic
+  algorithm.
+\newblock \emph{Composite structures} 69(2): 239--246.
+
+\bibitem[{Kim(2007)}]{kim2007development}
+Kim JS (2007) Development of a user-friendly expert system for composite
+  laminate design.
+\newblock \emph{Composite Structures} 79(1): 76--83.
+
+\bibitem[{Lin and Lee(2004)}]{lin2004stacking}
+Lin CC and Lee YJ (2004) Stacking sequence optimization of laminated composite
+  structures using genetic algorithm with local improvement.
+\newblock \emph{Composite structures} 63(3-4): 339--345.
+
+\bibitem[{Liu et~al.(2000)Liu, Haftka, Akg{\"u}n and
+  Todoroki}]{liu2000permutation}
+Liu B, Haftka RT, Akg{\"u}n MA and Todoroki A (2000) Permutation genetic
+  algorithm for stacking sequence design of composite laminates.
+\newblock \emph{Computer methods in applied mechanics and engineering}
+  186(2-4): 357--372.
+
+\bibitem[{Martin(1987)}]{martin1987optimum}
+Martin P (1987) Optimum design of anisotropic sandwich panels with thin faces.
+\newblock \emph{Engineering optimization} 11(1-2): 3--12.
+
+\bibitem[{Massard(1984)}]{massard1984computer}
+Massard TN (1984) Computer sizing of composite laminates for strength.
+\newblock \emph{Journal of reinforced plastics and composites} 3(4): 300--345.
+
+\bibitem[{Murugan et~al.(2007)Murugan, Suresh, Ganguli and
+  Mani}]{murugan2007target}
+Murugan M, Suresh S, Ganguli R and Mani V (2007) Target vector optimization of
+  composite box beam using real-coded genetic algorithm: a decomposition
+  approach.
+\newblock \emph{Structural and Multidisciplinary Optimization} 33(2): 131--146.
+
+\bibitem[{Nagendra et~al.(1996)Nagendra, Jestin, G{\"u}rdal, Haftka and
+  Watson}]{nagendra1996improved}
+Nagendra S, Jestin D, G{\"u}rdal Z, Haftka RT and Watson LT (1996) Improved
+  genetic algorithm for the design of stiffened composite panels.
+\newblock \emph{Computers \& Structures} 58(3): 543--555.
+
+\bibitem[{Omkar et~al.(2008)Omkar, Khandelwal, Yathindra, Naik and
+  Gopalakrishnan}]{omkar2008artificial}
+Omkar S, Khandelwal R, Yathindra S, Naik GN and Gopalakrishnan S (2008)
+  Artificial immune system for multi-objective design optimization of composite
+  structures.
+\newblock \emph{Engineering Applications of Artificial Intelligence} 21(8):
+  1416--1429.
+
+\bibitem[{Park et~al.(2008)Park, Lee, Han and Vautrin}]{park2008improved}
+Park CH, Lee WI, Han WS and Vautrin A (2008) Improved genetic algorithm for
+  multidisciplinary optimization of composite laminates.
+\newblock \emph{Computers \& structures} 86(19-20): 1894--1903.
+
+\bibitem[{Pelletier and Vel(2006)}]{pelletier2006multi}
+Pelletier JL and Vel SS (2006) Multi-objective optimization of fiber reinforced
+  composite laminates for strength, stiffness and minimal mass.
+\newblock \emph{Computers \& structures} 84(29-30): 2065--2080.
+
+\bibitem[{Reddy and Pandey(1987)}]{reddy1987first}
+Reddy J and Pandey A (1987) A first-ply failure analysis of composite
+  laminates.
+\newblock \emph{Computers \& Structures} 25(3): 371--393.
+
+\bibitem[{Riche and Haftka(1993)}]{riche1993optimization}
+Riche RL and Haftka RT (1993) Optimization of laminate stacking sequence for
+  buckling load maximization by genetic algorithm.
+\newblock \emph{AIAA journal} 31(5): 951--956.
+
+\bibitem[{Sadagopan and Pitchumani(1998)}]{sadagopan1998application}
+Sadagopan D and Pitchumani R (1998) Application of genetic algorithms to
+  optimal tailoring of composite materials.
+\newblock \emph{Composites Science and Technology} 58(3-4): 571--589.
+
+\bibitem[{Seresta et~al.(2007)Seresta, G{\"u}rdal, Adams and
+  Watson}]{seresta2007optimal}
+Seresta O, G{\"u}rdal Z, Adams DB and Watson LT (2007) Optimal design of
+  composite wing structures with blended laminates.
+\newblock \emph{Composites Part B: Engineering} 38(4): 469--480.
+
+\bibitem[{Sivakumar et~al.(1998)Sivakumar, Iyengar and
+  Deb}]{sivakumar1998optimum}
+Sivakumar K, Iyengar N and Deb K (1998) Optimum design of laminated composite
+  plates with cutouts using a genetic algorithm.
+\newblock \emph{Composite Structures} 42(3): 265--279.
+
+\bibitem[{Soares et~al.(1995)Soares, Correia, Mateus and
+  Herskovits}]{soares1995discrete}
+Soares CM, Correia VF, Mateus H and Herskovits J (1995) A discrete model for
+  the optimal design of thin composite plate-shell type structures using a
+  two-level approach.
+\newblock \emph{Composite structures} 30(2): 147--157.
+
+\bibitem[{Soeiro et~al.(1994)Soeiro, Ant{\'o}nio and
+  Marques}]{soeiro1994multilevel}
+Soeiro A, Ant{\'o}nio CC and Marques AT (1994) Multilevel optimization of
+  laminated composite structures.
+\newblock \emph{Structural optimization} 7(1-2): 55--60.
+
+\bibitem[{Todoroki and Haftka(1998)}]{todoroki1998stacking}
+Todoroki A and Haftka RT (1998) Stacking sequence optimization by a genetic
+  algorithm with a new recessive gene like repair strategy.
+\newblock \emph{Composites Part B: Engineering} 29(3): 277--285.
+
+\bibitem[{Walker and Smith(2003)}]{walker2003technique}
+Walker M and Smith RE (2003) A technique for the multiobjective optimisation of
+  laminated composite structures using genetic algorithms and finite element
+  analysis.
+\newblock \emph{Composite structures} 62(1): 123--128.
+
+\bibitem[{Watkins and Morris(1987)}]{watkins1987multicriteria}
+Watkins R and Morris A (1987) A multicriteria objective function optimization
+  scheme for laminated composites for use in multilevel structural optimization
+  schemes.
+\newblock \emph{Computer Methods in Applied Mechanics and Engineering} 60(2):
+  233--251.
+
+\end{thebibliography}

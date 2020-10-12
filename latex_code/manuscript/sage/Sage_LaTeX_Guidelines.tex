@@ -1,53 +1,53 @@
-\RequirePackage{fix-cm}
-\documentclass[smallextended]{svjour3}       % onecolumn (second format)
-\smartqed  % flush right qed marks, e.g. at end of proof
-\usepackage{graphicx,multicol,lipsum,caption,authblk}
-\usepackage{amsmath,booktabs,verbatimbox,tikz}
-\usepackage[numbers,sort]{natbib}
-\usepackage{geometry,pgf,pgfplots,}
-\usepackage{mathptmx}
+% sage_latex_guidelines.tex V1.20, 14 January 2017
+
+\documentclass[Afour,sageh,times]{sagej}
+\usepackage{moreverb,url}
+
+\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
+\usepackage{tikz,makecell,multirow,tablefootnote,threeparttable}
 \usetikzlibrary{shapes.geometric, matrix,arrows,positioning,calc,intersections}
-\usepackage{booktabs, makecell, multirow, threeparttable}
-\usepackage{tablefootnote}
-\usepackage{stackengine}
+
+
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\def\volumeyear{2016}
+
+
 \begin{document}
 
-
+\runninghead{Smith and Wittkopf}
 
 \title{Laminated Composite Plate Optimization by Improved Genetic Algorithm}
-\titlerunning{Stacking Sequence Optimization}        % if too long for running head
-\author{Zhang Huiyao$^1$  \and
-	Atsushi Yokoyama $^{1,*}$
+
+\author{Zhang Huiyao\affilnum{1} and
+	Atsushi Yokoyama\affilnum{2*} 
 }
-\authorrunning{Zhang Huiyao} % if too long for running head
-\institute{Zhang Huiyao \at
-              Room 203,Bulding 3,Kyoto Institue of Technology\\
-			  Matsugasaki,Sakyo-ku,Kyoto,606-8585,JAPAN\\
-              \email{zhanghy1012@gmail.com}           %  \\
-           \and
-           S. Author \at
-              second address
-}
-\date{Received: date / Accepted: date}
-\maketitle
+
+\affiliation{\affilnum{1}Sunrise Setting Ltd, UK\\
+\affilnum{2}SAGE Publications Ltd, UK}
+
+\corrauth{Alistair Smith, Sunrise Setting Ltd
+Brixham Laboratory,
+Freshwater Quarry,
+Brixham, Devon,
+TQ5~8BA, UK.}
+
+\email{alistair.smith@sunrise-setting.co.uk}
 
 \begin{abstract}
 Failure analysis of laminated composite plates under different mechanical loads for different
 stacking sequences, fiber orientation, and composite material system is studied in this paper.
 An optimum composite material and laminate layup is well investigated for a targeted strength ratio which
 makes a compromise between weight and cost through improved genetic algorithm.
-
-
-\keywords{Genetic Algorithm \and Laminates \and Stacking Sequence \and Hybrid Composites}
 \end{abstract}
 
-%\begin{multicols}{2}
-%\begin{multicols}
+\keywords{Genetic Algorithm, Laminates, Stacking Sequence, Hybrid Composites}
 
+\maketitle
 
 \section{Introduction}
-% 第一段
-% 第一句话，FRP复合材料在众多领域都有着广泛的应用，因为它具有很高的强度比等性质.
+
 Composite materials offer improved strength, stiffness, fatigue, and corrosion
 resistance, etc over conventional materials, which is widely used in
 automotive, aerospace, and ship building industry.  However, the high cost of
@@ -56,6 +56,7 @@ example, the graphite/epoxy composite part may cost as much as \$650 to \$900
 per kilogram, while the price of glass/epoxy is about 2.5 times less, and  the
 mechanical performance of a composite material is affected by a wide range of factors,
 thickness, material ,and orientation of each lamina.
+
 
 In typical engineering applications, composite materials are under very
 complicate loading conditions, not only in-plane loads but also out-of-plane
@@ -99,8 +100,6 @@ strain\cite{watkins1987multicriteria} static failure criteria. In the present
 study, Tsai-wu static failure criteria is used to investigated the feasibility
 of a composite laminate.
 
-
-
 \section{Stress and Strain in a Laminate}
 A laminated structure is consisting of multiple laminas bonded together through
 their thickness.  Consider a laminated composite plate which is symmetric to
@@ -109,11 +108,13 @@ and torsion,  the classical lamination theory(CLT) is taken to calculate the
 stresses and strains in the local and global axes of each ply. as shown in
 Fig.\ref{fig:lamina}.
 
-\begin{center}
-  \includegraphics[width=\linewidth]{A_laminate_design_images/lamina_local_global_axes.png}
-  \captionof{figure}{Lamina}
-  \label{fig:lamina}
-\end{center}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{A_laminate_design_images/lamina_local_global_axes.png}
+	\caption{Lamina}
+  	\label{fig:lamina}
+\end{figure}
+
 
 \subsection{Stress and Strian in a Lamina}
 For a single lamina, the stress strain relation in the local axis.
@@ -148,19 +149,12 @@ engineering elastic constants by
 
 Where, $E_1, E_2, v_{12}, G_{12}$ are four independent engineering elastic constants, they are
 defined as 
-\vspace{3mm}
 
-$E_1$ = longitudinal Young's modulus(in direction 1)
-
-$E_2$ = transverse  Young's modulus(in direction 1)
-
+$E_1$ = longitudinal Young's modulus
+$E_2$ = transverse  Young's modulus
 $v_{12}$ = major Poisson's ratio
-
-$G_{12}$ = in-plane shear modulus (in plane 1-2)
-\vspace{3mm}
-
+$G_{12}$ = in-plane shear modulus 
 Stress strain relation in global axis are
-
 \begin{equation}
 	\left[\begin{array}{l}\sigma_{x} \\ \sigma_{y} \\ \tau_{x
 			y}\end{array}\right]=\left[\begin{array}{lll}\bar{Q}_{11} & \bar{Q}_{12} & \bar{Q}_{16}
@@ -185,9 +179,9 @@ where
 		c^{3} s \\ 
 		\bar{Q}_{66}=\left(Q_{11}+Q_{22}-2 Q_{12}-2 Q_{66}\right) s^{2}
 		c^{2}+Q_{66}\left(s^{4}+c^{4}\right)\\
-	c=cos\theta \text{   }s=sin\theta
 	\end{array}
 \end{equation}
+The c and s denotes $cos\theta$, and $sin\theta$. 
 
 
 The local and global stresses in an angle lamina are related to each other through the angle of
@@ -207,10 +201,8 @@ where
 
 \subsection{Stress and Strain in a Laminate}
 
-
 \begin{equation} \label{eq:force_and_moments}
 	\begin{array}{l}
-
 	\begin{bmatrix}
 		N_x \\
 		N_y \\
@@ -226,8 +218,8 @@ where
 		\varepsilon_x^0 \\
         \varepsilon_y^0 \\
 		\gamma_{xy}^0
-    \end{bmatrix} 
-	+
+    \end{bmatrix}  
+	+ \\ \text{             }
 	\begin{bmatrix}
 		B_{11} & B_{12} & B_{16} \\
 		B_{11} & B_{12} & B_{16} \\
@@ -256,7 +248,7 @@ where
         \varepsilon_y^0 \\
 		\gamma_{xy}^0
     \end{bmatrix} 
-	+
+	+ \\
 	\begin{bmatrix}
 		D_{11} & D_{12} & D_{16} \\
 		D_{11} & D_{12} & D_{16} \\
@@ -269,7 +261,6 @@ where
 	\end{bmatrix}
 	\end{array}
 \end{equation}
-
 
 
 where
@@ -292,7 +283,6 @@ The $[A]$, $[B]$, and $[D]$ matrices are called the extensional, coupling, and b
 matrices.
 
 
-
 \section{Failure Theories of an Angle Lamina}
 \subsection{Failure Theories of an Angle Lamina}
 Many different theories about the failure of an angle lamina have been developed for a
@@ -301,19 +291,15 @@ Tsai-Hill failure theory, and Tsai-Wu failure theory. The failure theories of a 
 the stresses in local axes in the material. There are four normal strength parameters and one shear
 stress for a unidirectional lamina. The five strength parameters are
 
-\vspace{3mm}
+$(\sigma_1^T)_{ult}=$ Ultimate longitudinal tensile strength,
 
-$(\sigma_1^T)_{ult}=$ Ultimate longitudinal tensile strength(in direction 1),
+$(\sigma_1^C)_{ult}=$ Ultimate longitudinal compressive strength,
 
-$(\sigma_1^C)_{ult}=$ Ultimate longitudinal compressive strength(in direction 1),
+$(\sigma_2^T)_{ult}=$ Ultimate transverse tensile strength,
 
-$(\sigma_2^T)_{ult}=$ Ultimate transverse tensile strength(in direction 2),
-
-$(\sigma_2^C)_{ult}=$ Ultimate transverse compressive strength(in direction 2), and
+$(\sigma_2^C)_{ult}=$ Ultimate transverse compressive strength, and
 
 $(\tau_{12})_{ult}=$ Ultimate in-plane shear strength
-
-\vspace{3mm}
 
 In the present study, Tsai-wu failure theory is taken to decide whether a lamina is failed or not, the
 reason is chosen because this theory is  more general than Tsai-Hill failure theory which consider
@@ -322,8 +308,10 @@ failed if
 
 
 \begin{equation} \label{eq:tsai_wu}
-H_1 \sigma_1 + H_2 \sigma_2 + H_6 \tau_{12} + H_{11}\sigma_1^2 + H_{22} \sigma_2^2 + H_{66}
-\tau_{12}^2 + 2H_{12}\sigma_1\sigma_2 < 1
+\begin{split}
+	H_1 \sigma_1 & + H_2 \sigma_2 + H_6 \tau_{12} + H_{11}\sigma_1^2 + H_{22} \sigma_2^2 \\
+                 & + H_{66}  \tau_{12}^2 + 2H_{12}\sigma_1\sigma_2 < 1
+\end{split}
 \end{equation}
  
 is violated. where
@@ -356,11 +344,11 @@ ratio(SR) is to used to solve this problem, and defined as
 
 Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obtain
 \begin{equation}
-		(F_{11}\sigma_1^2+F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_{12}\sigma_1\sigma_2)SR^2 
-						 +(F_1\sigma_1+F_2\sigma_2)SR-1=0
+	\begin{split}
+    	(F_{11}\sigma_1^2 & +F_{22}\sigma_2^2+F_{66}\sigma_6^2+2F_{12}\sigma_1\sigma_2)SR^2 \\ 
+						  & +(F_1\sigma_1+F_2\sigma_2)SR-1=0
+	 \end{split}
 \end{equation}
-
-
 
 
 \subsection{Failure Theories of a Laminate}
@@ -406,6 +394,10 @@ evolution process. The break point in the string are chosen randomly, and one of
 gene segments $P1_o$ and $P2_o$, $P1_m$ and $P2_m$, respectively. The gene code of the offspring
 laminate is
 $[\text{+}45,\text{-}45,\text{-}45,\text{-}45,\text{-}45,\text{-}45,\text{-}45,0,1,0,1,1,0,1,0]$.
+
+\begin{figure*}
+\setlength{\fboxsep}{0pt}%
+\setlength{\fboxrule}{0pt}%
 \begin{center}
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
@@ -434,10 +426,8 @@ centered, draw=black]
 \end{tikzpicture}
 \captionof{figure}{Parent 1 }
 \label{fig:parent1}
-\end{center}
 
 
-\begin{center}
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
 centered, draw=black]
@@ -460,9 +450,7 @@ centered, draw=black]
 \end{tikzpicture}
 \captionof{figure}{Parent 2 }
 \label{fig:parent2}
-\end{center}
 
-\begin{center}
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
 centered, draw=black]
@@ -551,15 +539,7 @@ centered, draw=black]
 \end{tikzpicture}
 \captionof{figure}{Crossover Operation}
 \label{fig:parent1}
-\end{center}
 
-To prevent the
-search from getting stuck in a local optimum, mutation is used to random change
-the gene in the chromosome, the offspring after mutation operator is as shown
-in Figure \ref{fig:muation}
-
-
-\begin{center}
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
 centered, draw=black]
@@ -602,12 +582,17 @@ centered, draw=black]
 \end{tikzpicture}
 \captionof{figure}{Mutation}
 \label{fig:muation}
+
 \end{center}
+\caption{Example header text.\label{F1}}
+\end{figure*}
 
-
+To prevent the
+search from getting stuck in a local optimum, mutation is used to random change
+the gene in the chromosome, the offspring after mutation operator is as shown
+in Figure \ref{fig:muation}
 
 \subsection{Design Problem I}
-
 
 The aim is to minimize the mass of a composite laminate for a targeted strength
 ratio by Tsai-wu failure theory. The design variable are the ply angles and the
@@ -640,23 +625,8 @@ Here CA, GF, and GL represent carbon/epoxy, graphite/epoxy, and glass/epoxy,
  $C_{\text{min}}$ and $W_{\text{min}}$ represent the cost and
 weight corresponding to the laminates with minimum cost and minimum weight
 obtained from previous problem.
-\begin{center}
-\captionof{table}{GA parameters}
-\begin{tabular}{cccccc}
-	\toprule
-	Parameter &  Population size & LRIC & Encoding &  Crossover Strategy& Mutation strategy\\
-	\midrule
-	Value     & 10               & [3-15]& Integer  &  One-point &Mass mutation   \\
-	\bottomrule
-	\label{tab:ga}
-\end{tabular}
-\begin{tablenotes}\footnotesize
-     "ICLR" denotes the length range of initial chromosome.
-\end{tablenotes}
-\end{center}
 
-
-\section{Numberical results and discussion}
+\section{numberical results and discussion}
 A composite laminate with dimensions $1000 \times 1000 \times 0.165 mm^3$ of
 each lamina is under various loading cases, and each CA, GF, and GL layer is
 assumed to cost 8, 2.5 and 1 monetary units, respectively.  The other used
@@ -665,9 +635,7 @@ experiment,  the optimum composite system, layup, thickness, and number of
 layers for a targeted strength ratio(2 in this paper) under two different
 in-plane loading is investigated.
 
-
-
-
+\begin{figure*}
 \begin{center}
 \captionof{table}{Comparsion of carbon/epoxy, graphite/epoxy, and glass/epoxy properties}
 \begin{tabular}{cccccc}
@@ -690,14 +658,15 @@ in-plane loading is investigated.
 \label{tab:mat}
 \end{center}
 
-
 \begin{center}
   \includegraphics[width=\linewidth]{A_laminate_design_images/NxNy.png}
   \captionof{figure}{GA process under load  $N_x=N_y$ = 1e6 N}
   \label{fig:NxNy}
 \end{center}
+\end{figure*}
 
 
+\begin{figure*}
 \begin{center}
 \captionof{table}{Optimization results}
 \begin{tabular}{cccccccc}
@@ -723,6 +692,9 @@ in-plane loading is investigated.
 	glass/epoxy ply
 \end{tablenotes}
 \end{center}
+\end{figure*}
+
+
 The GA process can be divided into two phases by whether there are individuals which are
 appropriate or not,
 an appropriate individual means it can satisfy the constraint. During the initial phase, no individual's
@@ -742,6 +714,8 @@ Table \ref{tab:NxNy}, a $[\text{-}45_{6}/\text{+}45_{6}]_s$ carbon/epoxy
 laminate has the least weight, and a
 $[\text{-}45_{35}/\text{+}45_{73}/\text{+}45_{35}]$ graphite/epoxy laminate
 has the lowest cost.
+
+\begin{figure*}
 
 \begin{center}
   \includegraphics[width=\linewidth]{A_laminate_design_images/NxNyNz.png}
@@ -770,6 +744,8 @@ has the lowest cost.
 	glass/epoxy ply
 \end{tablenotes}
 \end{center}
+\end{figure*}
+
 In the second experiment, the applied stress are $N_x=N_y=N_z = 1e6$ N, and the
 safety factor is 2.  As shown in the upper right sub-figure of
 Fig.\ref{fig:NxNyNz}, both of the two GA approaches reached to certain mature
@@ -780,15 +756,6 @@ of the local optimum and obtained global optimum value. As it shown in Table
 weight of a $[\text{+}45_8^{gr}/\bar{\text{+}45}^{gl}]_s$ laminate increases
 $41.8\%$, however, the cost decreases $56\%$.
 
-
-\begin{comment}
-The payoff of the improved GA  can be seen by the obtained experiment
-result in Fig.\ref{fig:NxNy} and Fig.\ref{fig:NxNyNz}, the search cost of
-improved GA is higher than basic GA.
-\end{comment}
-
-
-
 \section{Conclusions}
 In this paper, a combination of CLT and improved GA are employed to minimize
 the weight and cost of a single-material and hybrid composite laminate,
@@ -796,81 +763,61 @@ respectively, under various in-plane loading cases. Improved GA is proposed to
 obtain the global optimum design, results are presented in two sections,
 stacking sequence optimization for a single material laminate, and combined
 weight and cost optimization of a carbon/epoxy, graphite/epoxy, and glass/epoxy
-hybrid laminate. The improved GA significantly improve the search performance,
+hybrid laminate. The improved GA significantly improves the search performance,
 and is not easily trapped in local optima.
 
-\section{Acknowledgements}
-This is work was supported by 
 
 
-%\end{multicols}
-%\end{multicols}
+\subsection{Figures and tables} \textsf{\journalclass} includes the
+\textsf{graphicx} package for handling figures.
 
 
-\bibliographystyle{plain}
+%\newpage
+
+
+\subsection{Endnotes}
+Most \textit{SAGE} journals use endnotes rather than footnotes, so any notes should be coded as \verb+\endnote{<Text>}+.
+Place the command \verb+\theendnotes+ just above the Reference section to typeset the endnotes.
+
+To avoid any confusion for papers that use Vancouver style references,  footnotes/endnotes should be edited into the text.
+
+
+\section{Copyright statement}
+Please  be  aware that the use of  this \LaTeXe\ class file is
+governed by the following conditions.
+
+\subsection{Copyright}
+Copyright \copyright\ \volumeyear\ SAGE Publications Ltd,
+1 Oliver's Yard, 55 City Road, London, EC1Y~1SP, UK. All
+rights reserved.
+
+
+\begin{acks}
+This class file was developed by Sunrise Setting Ltd,
+Brixham, Devon, UK.\\
+Website: \url{http://www.sunrise-setting.co.uk}
+\end{acks}
+
+
+\bibliographystyle{SageH}
 \bibliography{laminate_design}
-
 
 \end{document}
 
 
-\begin{comment}
-\begin{center}
-\begin{tikzpicture}
-\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=1.0cm,minimum height=0.6cm, 
-                        text centered, draw=black]
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, 
-                 minimum height=0.6cm, text centered, draw=black]
-\tikzstyle{process} = [rectangle, minimum width=3.1cm, minimum height=0.6cm, text centered, draw=black]
-\tikzstyle{decision} = [diamond,minimum width=3cm, minimum height=1.2cm, draw=black]
-\node (population) [process] {Initialize Population};
-\node (fitness) [process, below of=population] {Fitness};
-\node (decision) [decision] at ($(fitness.south)+(0,-1.0cm)$) {} node at (decision.base) {Converge};
-\node (share-fitness) at ($(decision.south)+(0,-0.8cm)$) [process] {Selection};
-\node (selection) [process,below of=share-fitness] {Crossover};
-\node (crossover) [process,below of=selection]  {Mutation};
-\node (end) [startstop] at ($(decision.east)+(1.1cm,0)$)  {End};
-\draw [->] (population) -- (fitness);
-\draw [->] (fitness) -- (decision);
-\draw [->] (decision) -- (share-fitness) node[auto=left,pos=0.5]{N};
-\draw [->] (share-fitness.south) -- (selection.north) ;
-\draw [->] (selection.south) -- (crossover.north);
-\draw [->] (decision.east) -- (end.west) node[auto=left,pos=0.5]{Y};
-
-% draw intersection
-\draw [white] (fitness.west) -- ++(-0.5cm,0) coordinate (A);
-\draw [white] (crossover.west) -- ++(-0.3cm,0) coordinate (B)-- ++(0,6cm) coordinate (C) ; 
-\draw (crossover.west) -- ++(-0.3cm,0) -- (intersection cs: first line={(fitness.west)--(A)}, 
-      second line={(B)--(C)}) coordinate (D);
-\draw (B) -- (D) node[auto=left,pos=0.8,rotate=90,xshift=-0.2cm,yshift=0.2cm] {Next Generation} ;
-\draw [<-] (fitness.west) -- (D);
-\end{tikzpicture}
-\captionof{figure}{GA Procedure with Share Function}
-\label{plot:GA}
-\end{center}
-
-
-
-\end{comment}
-
 
 \begin{comment}
-	\midrule
-	  \multirow{4}{*}{$N_{x}=1e6$ }  &    I      &  $[0_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
-									  &     I     &  $[0_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
-		         	                  &     I     &  $[0_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
-									  &     II    &  $[0_{gr4}/0_{gl}/0_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
-	\midrule
-	 \multirow{4}{*}{$N_{y}=1e6$ }  &  I        &  $[90_{cr6}]$                             & 2.041           & 0.318 &  48.0  & 6  \\
-					                 &  I        &  $[90_{gr9}]$                      & 2.227           & 0.472 &  22.5  & 9  \\
-           		 	                 &  I        &  $[90_{gl12}]$                             & 2.103           & 0.753 &  12.0  & 12  \\
-									 &  II       &  $[90_{gr4}/90_{gl}/90_{gr4}]$                      & 2.031           & 0.482 &  21.0  & 9 \\
-	\midrule
-	\multirow{4}{*}{$N_{xy}=1e6$ }	   &    I      &  $[\text{-}45_{cr6}/\text{+}45_{cr14}/\text{-}45_{cr6}]$                  & 2.013           & 1.377 &  208.0  & 26  \\
-									   &    I      &  $[\text{-}45_{gr5}/\text{+}45_{gr23}/\text{-}45_{gr5}]$                & 2.105           & 1.732 &  82.5   & 33  \\
-									   &    I      &  $[\text{-}45_{gl17}/\text{+}45_{gl76}/\text{-}45_{gl17}]$               & 2.011           & 6.908 &  110.0  & 110  \\
-									   &    II     &  $[\text{-}45_{ca3}/\text{+}45_{ca4}/\text{+}45_{gr6}/\text{+}45_{ca}]_s$    & 2.074    & 1.424 &  150    & 27 \\
+\begin{thebibliography}{99}
+\bibitem[Kopka and Daly(2003)]{R1}
+Kopka~H and Daly~PW (2003) \textit{A Guide to \LaTeX}, 4th~edn.
+Addison-Wesley.
 
-	\midrule
+\bibitem[Lamport(1994)]{R2}
+Lamport~L (1994) \textit{\LaTeX: a Document Preparation System},
+2nd~edn. Addison-Wesley.
+
+\bibitem[Mittelbach and Goossens(2004)]{R3}
+Mittelbach~F and Goossens~M (2004) \textit{The \LaTeX\ Companion},
+2nd~edn. Addison-Wesley.
+\end{thebibliography}
 \end{comment}
-
