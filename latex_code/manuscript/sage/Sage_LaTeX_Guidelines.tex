@@ -1,6 +1,5 @@
 % sage_latex_guidelines.tex V1.20, 14 January 2017
-
-\documentclass[Afour,sageh,times]{sagej}
+\documentclass[Afour,sagev,times]{sagej}
 \usepackage{moreverb,url}
 
 \usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
@@ -13,49 +12,94 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 \def\volumeyear{2016}
 
-
 \begin{document}
 
 \runninghead{Smith and Wittkopf}
-
 \title{Laminated Composite Plate Optimization by Improved Genetic Algorithm}
-
 \author{Zhang Huiyao\affilnum{1} and
 	Atsushi Yokoyama\affilnum{2*} 
 }
 
-\affiliation{\affilnum{1}Sunrise Setting Ltd, UK\\
-\affilnum{2}SAGE Publications Ltd, UK}
 
-\corrauth{Alistair Smith, Sunrise Setting Ltd
-Brixham Laboratory,
-Freshwater Quarry,
-Brixham, Devon,
-TQ5~8BA, UK.}
+\corrauth{Department of Fiber Science and Engineering Kyoto Institute of Techonology, Matsugasaki,
+	Sakyo-ku, Kyoto, 606-8585, JAPAN 
+}
 
-\email{alistair.smith@sunrise-setting.co.uk}
+\email{yokoyama@kit.ac.jp}
 
 \begin{abstract}
-Failure analysis of laminated composite plates under different mechanical loads for different
-stacking sequences, fiber orientation, and composite material system is studied in this paper.
-An optimum composite material and laminate layup is well investigated for a targeted strength ratio which
-makes a compromise between weight and cost through improved genetic algorithm.
+The main challenge presented by the design of laminate composite is the laminate layup, involving a
+set of fiber orientation, compoiste material system, and stacking sequence. In nature, it is a
+combinatorial optimization problem which can be solved by the genetic algorithm(GA), and the
+problem with the basic GA is weaker local search performance, and faster convergence speed.
+In this study, a mix selection strategy is suggested to introduce to the basic GA to prevent
+from premature and improve local search ability. To check the feasibility of a laminate under in
+plane load, the effect of fiber orientation angles and materials component on the first ply failure
+is also studied. A comparative study of basic GA and improved GA in composite laminate designing for
+a targeted safety factor is also studied.  An optimum composite material and laminate layup is well
+developed for a targeted strength ratio which makes a compromise between weight and cost through
+improved genetic algorithm.
 \end{abstract}
 
 \keywords{Genetic Algorithm, Laminates, Stacking Sequence, Hybrid Composites}
 
 \maketitle
 
-\section{Introduction}
+\section{1. Introduction}
 
-Composite materials offer improved strength, stiffness, fatigue, and corrosion
-resistance, etc over conventional materials, which is widely used in
-automotive, aerospace, and ship building industry.  However, the high cost of
-fabrication of composites is a critical drawback for its application, for
-example, the graphite/epoxy composite part may cost as much as \$650 to \$900
-per kilogram, while the price of glass/epoxy is about 2.5 times less, and  the
-mechanical performance of a composite material is affected by a wide range of factors,
-thickness, material ,and orientation of each lamina.
+Composite materials offer improved strength, stiffness, fatigue, and corrosion resistance, etc over
+conventional materials, which are widely used as materials ranging from automotive to ship building
+industry, electronic packaging to golf clubs, medical equipment to home building.  However, the high
+cost of fabrication of composites is a critical drawback for its application, for example, the
+graphite/epoxy composite part may cost as much as \$650 to \$900 per kilogram, while the price of
+glass/epoxy is about 2.5 times less. Although manufacturing techniques such as sheet moldin compound
+and structural reinforcement injection molding are taken to lower the cost in manufacturing
+automobile parts, however, in this study an alternative approach is provided by using of hybrid
+compoiste materials.
+
+The mechanical performance of a composite laminate is affected by a wide range of factors,
+thickness, material, and orientation of each lamina. Beause of manufacturing limitation, all these
+variables are usually limited to a small set of discrete values. For example, ply thickness are
+fixed and ply orientation angles are limited to a set of angles such as 0,45,90 degrees. So the search process for the
+optimal design is a discrete optimization problem which can be solved by genetic algorithm(GA).
+To tailor a laminate composite, GA has been successfully
+applied to solve laminate design
+problem \cite{riche1993optimization,nagendra1996improved,sadagopan1998application,todoroki1998stacking,liu2000permutation,sivakumar1998optimum,walker2003technique,lin2004stacking,kang2005minimum,murugan2007target,akbulut2008optimum}.
+GA simulates the process of natural evolutionary includes selection, crossover, 
+and mutation according to Darwin's principal of "survival of the fittest".
+The known advantage of GA as the following: (i): GAs are not easily trapped in local
+optima, and be able to obtain the global optimal. (ii): GA doesn't need
+gradient information and can be applied to discrete optimization problem.
+(iii): GA not only be able to find the optimal value in the domain, but also
+can maintain a set of optimal solutions. On the other hand, GA also has some disadvantages, 
+for example,  the GA needs to evaluate the target functions a lot of times to achieve the
+optimization, the cost of the search process is high. The GA consists of some basic parts, the
+coding of the design variable, selection strategy, crossover operator, mutation operator, and how to
+deal with  constraints.  For the variable design part,  there are two methods to deal with the
+representation of design variables, binary strings and real value
+representations\cite{riche1993optimization,todoroki1998stacking}.
+Michalewicz\cite{zbigniew1996genetic} claimed the performance of floating point representation  was
+better than binary representation in numerical optimization problem. Selection strategy plays a
+critical role in GA which decides the convergence speed and the diversity of the population.  To
+improve search ability and reduce search cost, various selection methods have been invented,
+and it can be divided into four classes which are proportionate reproduction,
+ranking, tournament, and genitor(or ”steady state”) selection. In the optimization of laminated
+composite structure, roulette wheel\cite{riche1993optimization,seresta2007optimal}, where the
+possibility of an individual to be chosen for the next generation is proportional to the it's
+fitness.  Soremekun \cite{soremekun2001composite} showed generalized elitist strategy outperformed a
+single individual elitism in some special cases.
+
+Data structure, repair strategies and penalty functions\cite{le1995improved} are most common used
+approaches to resolve constraint problems in the optimization of composite structure. Symmetric
+laminates are widely used in practical scenario, data structure can be used to fulfil the symmetry
+constraint which consists of coding a half of the laminate and considering the rest with the
+opposite orientation.  Todoroki\cite{todoroki1998stacking} introduced a repair strategy which can
+scan the chromosome and repair the gene on the chromosome if it does satify the contiguity
+constraint. The comparsion of repair strategies in a permutation GA with the same orientation was
+presented by Liu\cite{liu2000permutation}, and it showed the Baldwinian repair strategy can
+significantly reduce the cost of constrained optimization. Haftka\cite{riche1993optimization} used
+GA to solve laminate stacking sequence problem using a penalty function subject to buckling and
+strength constraints.
 
 
 In typical engineering applications, composite materials are under very
@@ -68,39 +112,25 @@ strength of composite laminates for a targeted
 thickness\cite{walker2003technique,lin2004stacking,kim2007development}. In the
 present study, laminate cost and weight are minimized by modifying the objective function.
 
-To tailor a laminate composite, genetic algorithm(GA) has been successfully
-applied to solve laminate design
-problem\cite{riche1993optimization,nagendra1996improved,sadagopan1998application,todoroki1998stacking,liu2000permutation,sivakumar1998optimum,walker2003technique,lin2004stacking,kang2005minimum,murugan2007target,akbulut2008optimum}.
-GA simulates the process of natural evolutionary includes selection, crossover, 
-and mutation according to Darwin's principal of "survival of the fittest".
-Selection is the most important operator  of GA which decides the diversity of
-the population.  In this step, if the selection pressure increases, the
-converge speed of the population increases, however, the diversity of the
-population decreases.  To improve the search ability and reduce the search cost,
-various selection methods have been invented, and the selection schemes can be
-divided into four classes which are proportionate reproduction, ranking,
-tournament, and genitor(or ”steady state”) selection. In the optimization of
-laminated composite structure, roulette wheel\cite{riche1993optimization,seresta2007optimal} and
-tournament\cite{lin2004stacking} have been applied.
-The pros of GA as the following: (i): GAs are not easily trapped in local
-optima, and be able to obtain the global optimal. (ii): GA doesn't need
-gradient information and can be applied to discrete optimization problem.
-(iii): GA not only be able to find the optimal value in the domain, but also
-can maintain a set of optimal solutions.
 
 
 In order to check the feasibility of a composite laminate by imposing a
 strength constraint, failure analysis of a laminate is taken by applying
-suitable failure criteria. The previous researchers adopted the
+suitable failure criteria. The failure criteria of laminated composites can be classified in three
+classes: non-interactive theories(e.g., Maximum strain), interactive theores(e.g., Tsai-wu), and
+parially interactive theories(e.g., Puck failure criterion). The previous researchers adopted the
 first-ply-failure approach using the Tsai-wu failure theory
 \cite{massard1984computer,reddy1987first,fang1993design,soeiro1994multilevel,pelletier2006multi,jadhav2007parametric,omkar2008artificial,choudhury2019failure},
 Tsai-Hill\cite{martin1987optimum,soares1995discrete}, the maximum
 stress\cite{jadhav2007parametric,omkar2008artificial}, or the maximum
-strain\cite{watkins1987multicriteria} static failure criteria. In the present
-study, Tsai-wu static failure criteria is used to investigated the feasibility
-of a composite laminate.
+strain\cite{watkins1987multicriteria} static failure criteria. Akbulut\cite{akbulut2008optimum} used
+GA to minimize the thickness of composite laminates with Tsai-Hill and maximum stress failure
+criterias, and the advantage of this method is to avoid spurious optima.  Naik\cite{naik2008design}
+minimized the weight of laminated composites under restrictions with a failure-mechanism-based
+criterion based on Maximum Strian and Tsai-wu.  In the present study, Tsai-wu static failure
+criteria is used to investigated the feasibility of a composite laminate.
 
-\section{Stress and Strain in a Laminate}
+\section{2. Stress and Strain in a Laminate}
 A laminated structure is consisting of multiple laminas bonded together through
 their thickness.  Consider a laminated composite plate which is symmetric to
 its middle plane and subjected to in-plane loads of extension, shear, bending
@@ -116,8 +146,8 @@ Fig.\ref{fig:lamina}.
 \end{figure}
 
 
-\subsection{Stress and Strian in a Lamina}
-For a single lamina, the stress strain relation in the local axis.
+\subsection{2.1 Stress and Strian in a Lamina}
+For a single lamina, the stress strain relation in the local axis: 1-2
 \begin{equation}
     \begin{bmatrix}
         \sigma_1\\
@@ -151,10 +181,14 @@ Where, $E_1, E_2, v_{12}, G_{12}$ are four independent engineering elastic const
 defined as 
 
 $E_1$ = longitudinal Young's modulus
+
 $E_2$ = transverse  Young's modulus
+
 $v_{12}$ = major Poisson's ratio
+
 $G_{12}$ = in-plane shear modulus 
-Stress strain relation in global axis are
+
+Stress strain relation in global axis: x-y 
 \begin{equation}
 	\left[\begin{array}{l}\sigma_{x} \\ \sigma_{y} \\ \tau_{x
 			y}\end{array}\right]=\left[\begin{array}{lll}\bar{Q}_{11} & \bar{Q}_{12} & \bar{Q}_{16}
@@ -199,7 +233,7 @@ where
 	c^{2}-s^{2}\end{array}\right] 
 \end{equation}
 
-\subsection{Stress and Strain in a Laminate}
+\subsection{2.2 Stress and Strain in a Laminate}
 
 \begin{equation} \label{eq:force_and_moments}
 	\begin{array}{l}
@@ -262,6 +296,26 @@ where
 	\end{array}
 \end{equation}
 
+$N_x,N_y$ - normal force per unit length
+
+$N_{xy}$ - shear force per unit length
+
+$M_x,M_y$ - bending moment per unit length
+
+$M_{xy}$ - twisgint moments per unit length
+
+$\varepsilon^0, k$ - mid plane strains, and curvature  of laminate in x-y coordinate
+
+The mid plane strain and curvature is given by
+
+$
+\left[\begin{array}{l}\varepsilon^{0} \\ k\end{array}\right]=\left(\begin{array}{ll}A & B \\ B & D\end{array}\right)^{-1}\left\{\begin{array}{l}N \\ M\end{array}\right\}
+$
+
+
+
+
+
 
 where
 
@@ -269,22 +323,22 @@ where
     \begin{split}
     &A_{ij}
 	=
-	\sum_{k=1}^n(\overline{Q_{ij}})_k(h_k-h_{k-1}) \\
+	\sum_{k=1}^n(\overline{Q_{ij}})_k(h_k-h_{k-1})  i=1,2,6, j=1,2,6\\
     &B_{ij}
 	=
-	\frac{1}{2}\sum_{k=1}^n(\overline{Q_{ij}})_k(h_k-h_{k-1}) \\
+	\frac{1}{2}\sum_{k=1}^n(\overline{Q_{ij}})_k(h_k-h_{k-1})  i=1,2,6, j=1,2,6\\
     &D_{ij}
 	=
-	\frac{1}{3}\sum_{k=1}^n(\overline{Q_{ij}})_k(h_k-h_{k-1}) \\
+	\frac{1}{3}\sum_{k=1}^n(\overline{Q_{ij}})_k(h_k-h_{k-1}) i=1,2,6, j=1,2,6\\
     \end{split}
 \end{equation}
 
 The $[A]$, $[B]$, and $[D]$ matrices are called the extensional, coupling, and bending stiffness
-matrices.
+matrices. 
 
 
-\section{Failure Theories of an Angle Lamina}
-\subsection{Failure Theories of an Angle Lamina}
+\section{3. Failure Theories}
+\subsection{3.1 Failure Theories of an Angle Lamina}
 Many different theories about the failure of an angle lamina have been developed for a
 unidirectional lamina, such as maximum stress failure theory, maximum strain failure theory,
 Tsai-Hill failure theory, and Tsai-Wu failure theory. The failure theories of a lamina are based on
@@ -351,8 +405,12 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 \end{equation}
 
 
-\subsection{Failure Theories of a Laminate}
-
+\subsection{3.2 Failure Theories of a Laminate}
+A laminate will fail under increasing mechanical, however, the procedure of laminate failure may not
+be catastrophic. In some cases, some layer fail first and the rest is be able to continue to take
+more loads until all the plies fail. a ply is fully discount when a ply fails, then the ply is
+replaced by near zero stiffness and strength. The procedure for finding the first ply failure in the
+present study follows the fully discounted method\cite{daniel1994engineering}:
 \begin{enumerate}
 	\item Compute the reduced stiffness matrix $[Q]$ referred to local axis for each ply using its
 		four engineering elastic constants $E_1$, $E_2$, $v_{12}$, and $G_{12}$.
@@ -368,12 +426,50 @@ Substituting Equation \ref{eq:sr} for $SR$ into Equation \ref{eq:tsai_wu},we obt
 		ratio.
 \end{enumerate}
 
-\section {Optimum Design of laminated composites}
-\subsection{Improved Genetic Algorithm}
+\section {4. Optimum Design of Laminate Composite}
+\subsection{4.1  Genetic Algorithm}
+The GA starts off with a bunch of individuals with limited chromosome length, in which maybe none
+of these individuals fulfil the safety factor constraint. The GA are supposed to derive appropriate
+offspring based on initial population as the GA goes on. The classic way to handle constraint
+search of GA are either introducing repair strategies or using a penaly function, here a new
+approach is come up with to deal with constraint GA search problem by modifying the selection
+strategy. 
+
+Because of the existence of constraint, it means that the population not only can be sorted by
+fitness, but also can sorted by the constraint value obtained by the constraint function, so the
+parents of next generation can be chosen by these two approaches. First, sort out the population by
+the absolute difference between the individual's constraint value and the constraint threshold in an
+ascending order, and individual with smaller difference is more like to be chosen. Individuals
+obtained by this methods are called potential individuals. Second, sort out the population by
+fitness from low to high after remove the unproper individuals, and an individual is proper which
+means it fulfils the constraint, and individuals obtained by this way are called proper individuals.
+So the final parents consists of two parts, potential individuals and proper individuals.
+
+The GA can be divided into two stages according to whether proper individual are
+generated during the search process  
+
 In the present study, the relevant parameters of GA are as shown in Table \ref{tab:ga}. The design
 variables are the materials, number of layers, and ply orientation restricted to a discrete set of
 angles ($0,\pm 45 \text{ and } 90 \text{ degrees} $). The possible materials are graphite/epoxy,
 caron/epoxy, and glass/epoxy and are represented by the codes 0, 1 and 2, respectively.
+
+\begin{table*}
+\small\sf\centering
+\caption{GA parameters}
+\begin{tabular}{ccccccc}
+	\toprule
+	Parameter &  Seed &Population size & LRIC & Encoding &  Crossover Strategy& Mutation strategy\\
+	\midrule
+	Value     & 1     &10               & [3-15]& Integer  &  One-point &Mass mutation   \\
+	\bottomrule
+	\label{tab:ga}
+\end{tabular}
+\end{table*}
+\begin{comment}
+\begin{tablenotes}\footnotesize
+     "ICLR" denotes the length range of initial chromosome.
+\end{tablenotes}
+\end{comment}
 
 The selection method of the basic GA is sorting the population according to the absolute difference
 of individual's strength ratio and specified safety factor in an incresing order, individuals with
@@ -422,11 +518,9 @@ centered, draw=black]
 \draw[-] ($(gene7.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (C);
 \draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {Orientation Gene};
 \draw[<->] ($(B) + (0, 0.2cm)$) -- ($(C) + (0,0.2cm)$) node[pos=0.5,auto=right] {Material Gene};
-
+\node[text width=1cm] at ($(gene11.west)+(-2.0cm,0)$) {$P_1$:};
+\draw[-] ($(gene11.north)+(0,-1.5cm)$);
 \end{tikzpicture}
-\captionof{figure}{Parent 1 }
-\label{fig:parent1}
-
 
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
@@ -447,9 +541,10 @@ centered, draw=black]
 \node (gene6) [rec] at ($(gene5.east)+(0.4cm,0)$)  {0};
 \node (gene7) [rec] at ($(gene6.east)+(0.4cm,0)$)  {0};
 \node (gene7) [rec] at ($(gene7.east)+(0.4cm,0)$)  {1};
+
+\node[text width=1cm] at ($(gene1.west)+(-6.7cm,0)$) {$P_2$:};
+\draw[-] ($(gene11.north)+(0,-1.5cm)$);
 \end{tikzpicture}
-\captionof{figure}{Parent 2 }
-\label{fig:parent2}
 
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
@@ -536,9 +631,9 @@ centered, draw=black]
 \draw[-] ($(gene4.north)+(0.4cm,0)$) -- ++(0, -1cm) coordinate (B);
 \draw[<->] ($(A) + (0, 0.2cm)$) -- ($(B) + (0,0.2cm)$) node[pos=0.5,auto=right] {$P2_m$};
 
+\node[text width=3cm] at ($(gene1.east)+(-1.0cm,-1.5cm)$)  {Crossover Operator};
+\draw[-,white] ($(gene1.north)$)-- ++(0,-2.5cm);
 \end{tikzpicture}
-\captionof{figure}{Crossover Operation}
-\label{fig:parent1}
 
 \begin{tikzpicture}
 \tikzstyle{rec} = [rectangle, minimum width=0.8cm,minimum height=0.6cm, text
@@ -579,12 +674,10 @@ centered, draw=black]
 
 \draw[->] (gene11) -- (gene12) node[pos=0.5,auto=left] {Orientation Mutation};
 \draw[->] (gene2u) -- (gene2d) node[pos=0.5,auto=left] {Material Mutation};
+\node[text width=3cm] at ($(gene1.east)+(-1.0cm,-1cm)$)  {Mutation Operator};
 \end{tikzpicture}
-\captionof{figure}{Mutation}
-\label{fig:muation}
-
 \end{center}
-\caption{Example header text.\label{F1}}
+\caption{GA Operators\label{F1}}
 \end{figure*}
 
 To prevent the
@@ -592,7 +685,12 @@ search from getting stuck in a local optimum, mutation is used to random change
 the gene in the chromosome, the offspring after mutation operator is as shown
 in Figure \ref{fig:muation}
 
-\subsection{Design Problem I}
+The GA is a stochastic procedure which heavily depends on the generator of pseudo random numbers. In
+the present study, the standard Wichmann-Hill generator is used in the algorithm, which combines
+three pure multiplicative congruential generators of modulus 30269, 30307 and 30323. 
+
+
+\subsection{4.2 Design Problem I}
 
 The aim is to minimize the mass of a composite laminate for a targeted strength
 ratio by Tsai-wu failure theory. The design variable are the ply angles and the
@@ -605,7 +703,7 @@ Minimize: weight
 Subject to: strength ratio and first ply failure constraint
 
 
-\subsection{Design Problem II}
+\subsection{4.3 Design Problem II}
 The aim is to mimimize the combined cost and weight of hybrid composite
 laminate under various loading cases, so the design variable not only include
 the ply angles and number of layers, but also the material of each lamina. 
@@ -626,7 +724,7 @@ Here CA, GF, and GL represent carbon/epoxy, graphite/epoxy, and glass/epoxy,
 weight corresponding to the laminates with minimum cost and minimum weight
 obtained from previous problem.
 
-\section{numberical results and discussion}
+\section{5. Numberical Results and Discussion}
 A composite laminate with dimensions $1000 \times 1000 \times 0.165 mm^3$ of
 each lamina is under various loading cases, and each CA, GF, and GL layer is
 assumed to cost 8, 2.5 and 1 monetary units, respectively.  The other used
@@ -635,9 +733,9 @@ experiment,  the optimum composite system, layup, thickness, and number of
 layers for a targeted strength ratio(2 in this paper) under two different
 in-plane loading is investigated.
 
-\begin{figure*}
-\begin{center}
-\captionof{table}{Comparsion of carbon/epoxy, graphite/epoxy, and glass/epoxy properties}
+\begin{table*}
+\small\sf\centering
+\caption{Comparsion of carbon/epoxy, graphite/epoxy, and glass/epoxy properties}
 \begin{tabular}{cccccc}
 	\toprule
 	Property								   & Symbol				  & Unit  &  Carbon/Epoxy&  Graphite/Epoxy  &  Glass/Epoxy   \\
@@ -656,28 +754,28 @@ in-plane loading is investigated.
 	\bottomrule
 \end{tabular}
 \label{tab:mat}
-\end{center}
+\end{table*}
 
-\begin{center}
+\begin{figure*}
   \includegraphics[width=\linewidth]{A_laminate_design_images/NxNy.png}
   \captionof{figure}{GA process under load  $N_x=N_y$ = 1e6 N}
   \label{fig:NxNy}
-\end{center}
 \end{figure*}
 
 
-\begin{figure*}
-\begin{center}
-\captionof{table}{Optimization results}
+\begin{table*}
+\small\sf\centering
+\caption{Optimization results}
 \begin{tabular}{cccccccc}
 	\toprule
 	Load(N)                                                 &  Problem  &   Algorithm      & Stacking sequence                                    & Strength ratio  & Mass  &  Cost   & Layer    \\ 
+	\midrule																								  
 	\multirow{8}{*}{\makecell{$N_x=1e6$ \\ $N_y=1e6$ }}     &       I   &  GA   &  $[\text{-}45_{6}^{cr}/\text{+}45_{6}^{cr}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
 	                                                        &       I   &  IGA   &  $[\text{-}45_{6}^{cr}/\text{+}45_{6}^{cr}]_s$                        & 2.026           & 1.271 &  192.0  & 24  \\
 															&       I   &  GA    &  $[0_6^{gr}/\text{-}45_{4}^{gr}/\text{+}45_{4}^{gr}/90_{7}^{gr}/\bar{90}^{gr}]_s$     & 2.051           & 2.256 &  107.5  & 43  \\
-															&       I   &  IGA    &  $[\text{+}45_{10}^{gr}/\text{-}45_{21}^{gr}/\text{+}45_{10}^{gr}]$    & 2.024           & 2.151 &  102.5  & 41  \\
-															&       I   &  GA    &  $[\text{-}45_{35}^{gl}/\text{+}45_{73}^{gl}/\text{+}45_{35}^{gl}]$    & 2.001           & 8.980 &  143.0  & 143  \\
-															&       I   &  IGA    &  $[\text{-}45_{35}^{gl}/\text{+}45_{73}^{gl}/\text{+}45_{35}^{gl}]$    & 2.001           & 8.980 &  143.0  & 143  \\
+															&       I   &  IGA    &  $[\text{+}45_{10}^{gr}/\text{-}45_{10}^{gr}/\bar{\text{-}45}^{gr}]_s$    & 2.024           & 2.151 &  102.5  & 41  \\
+															&       I   &  GA    &  $[\text{-}45_{35}^{gl}/\text{+}45_{36}^{gl}/\bar{\text{+}45}^{gl}]_s$    & 2.001           & 8.980 &  143.0  & 143  \\
+															&       I   &  IGA    &  $[\text{-}45_{35}^{gl}/\text{+}45_{36}^{gl}/\bar{\text{+}45}^{gl}]_s$    & 2.001           & 8.980 &  143.0  & 143  \\
 															&       II  &  GA    &
 	$[\text{-}45_{12}^{gr}/\text{+}45_{5}^{cr}/\text{+}45_{7}^{gr}]_s$         & 2.141
 										  & 2.523 & 175& 48  \\
@@ -687,117 +785,120 @@ in-plane loading is investigated.
 	\bottomrule
 \end{tabular}
 \label{tab:NxNy}
+\end{table*}
+
+\begin{comment}
 \begin{tablenotes}\footnotesize
      Subscript "cr" denotes a carbon/epoxy ply, "gr" denotes graphite/epoxy ply, "gl" denotes a
 	glass/epoxy ply
 \end{tablenotes}
-\end{center}
-\end{figure*}
+\end{comment}
 
 
-The GA process can be divided into two phases by whether there are individuals which are
-appropriate or not,
-an appropriate individual means it can satisfy the constraint. During the initial phase, no individual's
-strength ratio is over the specified threshold, so individuals with bigger fitness are more likely to be
-chosen as parents, that's why the strength ratio curves go all the way up to the specified
-threshold during the first stage; After the initial phase, the GA produces a bunch of appropriate
-individuals, and then the target function comes to play, as you can see from Fig.\ref{fig:NxNy}, the
-fitness curves are trending to go down, but the strength ratio curves are keep to greater the
-specified threshold.
+The GA process can be divided into two phases by whether there are individuals which are appropriate
+or not, an appropriate individual means it can satisfy the constraint. During the initial phase, no
+individual's strength ratio is over the specified threshold, so individuals with bigger fitness are
+more likely to be chosen as parents, that's why the strength ratio curves go all the way up to the
+specified threshold during the first stage; After the initial phase, the GA produces a bunch of
+appropriate individuals, and then the target function comes to play, as you can see from
+Fig.\ref{fig:NxNy}, the fitness curves are trending to go down, but the strength ratio curves are
+keep to greater the specified threshold.
 
 
-In the first experiment, the applied stress are $N_x=N_y=1e6$ N, and the safety
-factor is 2.  As shown in the lower left sub-figure of Fig.\ref{fig:NxNy}, both
-of the basic GA and improved GA methods obtained the optimal value, but the
-improved GA converged more slowly than the basic GA. As it can be seen from
-Table \ref{tab:NxNy}, a $[\text{-}45_{6}/\text{+}45_{6}]_s$ carbon/epoxy
-laminate has the least weight, and a
-$[\text{-}45_{35}/\text{+}45_{73}/\text{+}45_{35}]$ graphite/epoxy laminate
-has the lowest cost.
+In the first experiment, the applied stress are $N_x=N_y=1e6$ N.  As shown in the
+Figure\ref{fig:NxNy}, the Figure \ref{fig:NxNy}(a), (b), and (c) were the experiment results for single material,
+Figure \ref{fig:NxNy}(d) is for hybrid composite material. For the single materials, both of the basic GA and improved
+GA method obtained the optimal value, but the improved GA converged more slowly than the basic GA.
+As it can be seen from Table \ref{tab:NxNy}, a $[\text{-}45_{6}/\text{+}45_{6}]_s$ carbon/epoxy
+laminate has the least weight, denoted by $W_{min}$, and a
+$[\text{-}45_{35}/\text{+}45_{73}/\text{+}45_{35}]$ graphite/epoxy laminate has the lowest cost,
+denoted by $C_{min}$. The $W_{min}$ and $C_{min}$ were used to evaluate the fitness of the second
+problem, which is the layup design of hybrid composite material , as shown in sub-figure d,the
+improved GA obtained a more appropriate system layup, whose strenght ratio is greater than the
+specified safety factor, and weight and cost is less than the result obtained by basic GA method, as
+shown in Table \ref{tab:NxNy}. Compared with basic GA, the improved GA method showed more powerful
+global search ability in the initial phase.
 
 \begin{figure*}
-
-\begin{center}
   \includegraphics[width=\linewidth]{A_laminate_design_images/NxNyNz.png}
   \captionof{figure}{GA process under load  $N_x=N_y=N_z$ = 1e6 N}
   \label{fig:NxNyNz}
-\end{center}
+\end{figure*}
 
-\begin{center} \captionof{table}{Optimization results} 
+
+\begin{table*}
+	\small\sf\centering
+	\caption{Optimization results} 
 	\begin{tabular}{cccccccc}
 	\toprule
 	Load(N)                                                 &  Problem  &   Algorithm      & Stacking sequence                                    & Strength ratio  & Mass  &  Cost   & Layer    \\ 
+	\midrule																								  
 	\multirow{8}{*}{\makecell{$N_{x}=1e6$  \\ $N_{y}=1e6$   \\ $N_{xy}=1e6$ } }  &  I  & GA   &  $[\text{+}45_{11}^{cr}/\text{-}45^{cr}/\bar{\text{+}45}^{cr}]_s$                            & 2.018           & 1.324 &  200.0  & 25  \\
-	                                                                             &  I  & IGA  &  $[\text{+}45_{12}^{cr}]$                            & 2.041           & 0.636 &  96.0  & 12  \\
+	                                                                             &  I  & IGA  &  $[\text{+}45_{6}^{cr}]_s$                            & 2.041           & 0.636 &  96.0  & 12  \\
 
 																				 &  I  & GA   &  $[0_4^{gr}/\text{+}45_{12}^{gr}/90_3^{gr}/\bar{\text{+}45}]_s$                            & 2.001           & 2.046 &  97.5  & 39  \\
-																				 &  I  & IGA  &  $[\text{+}45_{18}^{gr}]$                            & 2.227           & 0.945 &  45.0  & 18  \\
-																				 &  I  & GA   &  $[\text{+}45_{23}^{gl}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
-																				 &  I  & IGA  &  $[\text{+}45_{23}^{gl}]$                            & 2.015           & 1.444 &  23.0  & 23  \\
-																				 &  II &  GA  &  $[\text{+}45^{gl}/\text{+}45_{16}^{gr}/\text{+}45^{gl}]$          & 2.031           & 0.965 &  42.0  & 18 \\
+																				 &  I  & IGA  &  $[\text{+}45_{9}^{gr}]_s$                            & 2.227           & 0.945 &  45.0  & 18  \\
+																				 &  I  & GA   &  $[\text{+}45_{11}^{gl}/\bar{\text{+}45}^{gl}]_s$                            & 2.015           & 1.444 &  23.0  & 23  \\
+																				 &  I  & IGA  &   $[\text{+}45_{11}^{gl}/\bar{\text{+}45}^{gl}]_s$                           & 2.015           & 1.444 &  23.0  & 23  \\
+																				 &  II &  GA  &  $[\text{+}45^{gl}/\text{+}45_{8}^{gr}]_s$          & 2.031           & 0.965 &  42.0  & 18 \\
 																				 &  II & IGA  &  $[\text{+}45_8^{gr}/\bar{\text{+}45}^{gl}]_s$          & 2.005           & 0.902 &  41.0  & 17 \\
 	\bottomrule
 \end{tabular}
 \label{tab:NxNyNz}
+\end{table*}
+
+\begin{comment}
 \begin{tablenotes}\footnotesize
      Subscript "cr" denotes a carbon/epoxy ply, "gr" denotes graphite/epoxy ply, "gl" denotes a
 	glass/epoxy ply
 \end{tablenotes}
-\end{center}
-\end{figure*}
+\end{comment}
 
-In the second experiment, the applied stress are $N_x=N_y=N_z = 1e6$ N, and the
-safety factor is 2.  As shown in the upper right sub-figure of
-Fig.\ref{fig:NxNyNz}, both of the two GA approaches reached to certain mature
-states, however, the improved GA offers more powerful local search ability, in
-which basic GA got stuck in local optimum, and improved GA was able to get out
-of the local optimum and obtained global optimum value. As it shown in Table
-\ref{tab:NxNyNz}, Compared with the $[\text{+}45_{12}^{cr}]$ laminate, the
-weight of a $[\text{+}45_8^{gr}/\bar{\text{+}45}^{gl}]_s$ laminate increases
-$41.8\%$, however, the cost decreases $56\%$.
+In the second case, the applied stress were $N_x=N_y=N_z=1e6$ N, the experiment results were as
+shown in the Figure \ref{fig:NxNyNz}. In the first experiment, as can be seen from Figure \ref{fig:NxNyNz}(a), the improved GA got a
+better system layup then result obtained by basic GA; In the second experiment, as shown in the Figure\ref{fig:NxNyNz}(b), during
+the initial phase, the fitness curves of basic GA and improved GA went all the way up to the
+previous specified threshold, however, the improved GA converged more slowly then the basic GA which
+means the search cost of improved GA is greater then basic GA. After the initial phase, the fitness
+curve of basic didn't change anymore, it got trapped in local.  However, the fitness curve of
+improved GA was gradually going down, at the same time,  the strength ratio curve of improved GA
+were keep to be greater then the threshold. It means the improved GA was able to get out of optimum
+and obtained a much better system layup.  The improved GA offered more powerful local search
+ability. In the third experiment, as shown in Figure \ref{fig:NxNyNz}, both of basic GA and improved
+GA obtained the same result, but the improved GA converged more slowly than the basic GA. From these
+three experiment for single material, we knew a $[\text{+}45_{6}^{cr}]_s$ carbon/epoxy laminate has
+the least mass, and a $[\text{+}45_{11}^{gl}/\bar{\text{+}45}^{gl}]_s$ glass laminate has the least
+cost. In the last experiment, the improved GA obtained a little bit better result than the basic GA,
+as it shown in Table \ref{tab:NxNyNz}, Compared with the $[\text{+}45_{12}^{cr}]$ laminate, the
+weight of a $[\text{+}45_8^{gr}/\bar{\text{+}45}^{gl}]_s$ laminate increases $41.8\%$, however, the
+cost decreases $56\%$.
 
-\section{Conclusions}
+\section{6. Conclusions}
 In this paper, a combination of CLT and improved GA are employed to minimize
 the weight and cost of a single-material and hybrid composite laminate,
 respectively, under various in-plane loading cases. Improved GA is proposed to
 obtain the global optimum design, results are presented in two sections,
 stacking sequence optimization for a single material laminate, and combined
 weight and cost optimization of a carbon/epoxy, graphite/epoxy, and glass/epoxy
-hybrid laminate. The improved GA significantly improves the search performance,
+hybrid laminate.  The advantage and disadvantage of improved GA are as following:
+
+1. During the initial phase of GA, the improved GA slows the convergence speed which increases the
+search cost.
+
+2. In the second phase of GA process, the improved GA offers much more powerful local search
+ability, which is able to get out of local optimum.
+
+3. Compared with the single material, the hybrid composite laminate is able to make a compromise
+better the weight and cost of a composite laminate.
+
+The improved GA significantly improves the search performance,
 and is not easily trapped in local optima.
 
 
 
-\subsection{Figures and tables} \textsf{\journalclass} includes the
-\textsf{graphicx} package for handling figures.
-
-
-%\newpage
-
-
-\subsection{Endnotes}
-Most \textit{SAGE} journals use endnotes rather than footnotes, so any notes should be coded as \verb+\endnote{<Text>}+.
-Place the command \verb+\theendnotes+ just above the Reference section to typeset the endnotes.
-
-To avoid any confusion for papers that use Vancouver style references,  footnotes/endnotes should be edited into the text.
-
-
-\section{Copyright statement}
-Please  be  aware that the use of  this \LaTeXe\ class file is
-governed by the following conditions.
-
-\subsection{Copyright}
-Copyright \copyright\ \volumeyear\ SAGE Publications Ltd,
-1 Oliver's Yard, 55 City Road, London, EC1Y~1SP, UK. All
-rights reserved.
-
-
 \begin{acks}
-This class file was developed by Sunrise Setting Ltd,
-Brixham, Devon, UK.\\
-Website: \url{http://www.sunrise-setting.co.uk}
+	This work is supported by
 \end{acks}
-
 
 \bibliographystyle{SageH}
 \bibliography{laminate_design}
@@ -806,18 +907,3 @@ Website: \url{http://www.sunrise-setting.co.uk}
 
 
 
-\begin{comment}
-\begin{thebibliography}{99}
-\bibitem[Kopka and Daly(2003)]{R1}
-Kopka~H and Daly~PW (2003) \textit{A Guide to \LaTeX}, 4th~edn.
-Addison-Wesley.
-
-\bibitem[Lamport(1994)]{R2}
-Lamport~L (1994) \textit{\LaTeX: a Document Preparation System},
-2nd~edn. Addison-Wesley.
-
-\bibitem[Mittelbach and Goossens(2004)]{R3}
-Mittelbach~F and Goossens~M (2004) \textit{The \LaTeX\ Companion},
-2nd~edn. Addison-Wesley.
-\end{thebibliography}
-\end{comment}

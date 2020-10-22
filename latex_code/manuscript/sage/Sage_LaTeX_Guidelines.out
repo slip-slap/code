@@ -1,17 +1,13 @@
-\BOOKMARK [1][]{section*.2}{Introduction}{}% 1
-\BOOKMARK [1][]{section*.3}{Stress and Strain in a Laminate}{}% 2
-\BOOKMARK [2][]{section*.5}{Stress and Strian in a Lamina}{section*.3}% 3
-\BOOKMARK [2][]{section*.6}{Stress and Strain in a Laminate}{section*.3}% 4
-\BOOKMARK [1][]{section*.7}{Failure Theories of an Angle Lamina}{}% 5
-\BOOKMARK [2][]{section*.8}{Failure Theories of an Angle Lamina}{section*.7}% 6
-\BOOKMARK [2][]{section*.9}{Failure Theories of a Laminate}{section*.7}% 7
-\BOOKMARK [1][]{section*.10}{Optimum Design of laminated composites}{}% 8
-\BOOKMARK [2][]{section*.11}{Improved Genetic Algorithm}{section*.10}% 9
-\BOOKMARK [2][]{section*.13}{Design Problem I}{section*.10}% 10
-\BOOKMARK [2][]{section*.14}{Design Problem II}{section*.10}% 11
-\BOOKMARK [1][]{section*.15}{numberical results and discussion}{}% 12
-\BOOKMARK [1][]{section*.19}{Conclusions}{}% 13
-\BOOKMARK [2][]{section*.20}{Figures and tables}{section*.19}% 14
-\BOOKMARK [2][]{section*.21}{Endnotes}{section*.19}% 15
-\BOOKMARK [1][]{section*.22}{Copyright statement}{}% 16
-\BOOKMARK [2][]{section*.23}{Copyright}{section*.22}% 17
+\BOOKMARK [1][]{section*.2}{1. Introduction}{}% 1
+\BOOKMARK [1][]{section*.3}{2. Stress and Strain in a Laminate}{}% 2
+\BOOKMARK [2][]{section*.5}{2.1 Stress and Strian in a Lamina}{section*.3}% 3
+\BOOKMARK [2][]{section*.6}{2.2 Stress and Strain in a Laminate}{section*.3}% 4
+\BOOKMARK [1][]{section*.7}{3. Failure Theories}{}% 5
+\BOOKMARK [2][]{section*.8}{3.1 Failure Theories of an Angle Lamina}{section*.7}% 6
+\BOOKMARK [2][]{section*.9}{3.2 Failure Theories of a Laminate}{section*.7}% 7
+\BOOKMARK [1][]{section*.10}{4. Optimum Design of Laminate Composite}{}% 8
+\BOOKMARK [2][]{section*.11}{4.1 Genetic Algorithm}{section*.10}% 9
+\BOOKMARK [2][]{section*.14}{4.2 Design Problem I}{section*.10}% 10
+\BOOKMARK [2][]{section*.15}{4.3 Design Problem II}{section*.10}% 11
+\BOOKMARK [1][]{section*.16}{5. Numberical Results and Discussion}{}% 12
+\BOOKMARK [1][]{section*.22}{6. Conclusions}{}% 13

@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Sage_LaTeX_Guidelines.aux
 The style file: SageH.bst
 Database file #1: laminate_design.bib
-You've used 27 entries,
+You've used 32 entries,
             2921 wiz_defined-function locations,
-            773 strings with 9924 characters,
-and the built_in function-call counts, 26445 in all, are:
-= -- 2749
-> -- 630
-< -- 16
-+ -- 251
-- -- 217
-* -- 1985
-:= -- 3342
-add.period$ -- 54
-call.type$ -- 27
-change.case$ -- 207
-chr.to.int$ -- 28
-cite$ -- 27
-duplicate$ -- 2552
-empty$ -- 2055
-format.name$ -- 317
-if$ -- 5360
+            797 strings with 10734 characters,
+and the built_in function-call counts, 31433 in all, are:
+= -- 3265
+> -- 752
+< -- 19
++ -- 298
+- -- 259
+* -- 2354
+:= -- 3963
+add.period$ -- 64
+call.type$ -- 32
+change.case$ -- 245
+chr.to.int$ -- 33
+cite$ -- 32
+duplicate$ -- 3046
+empty$ -- 2442
+format.name$ -- 374
+if$ -- 6373
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 261
-newline$ -- 117
-num.names$ -- 108
-pop$ -- 1156
+missing$ -- 311
+newline$ -- 137
+num.names$ -- 128
+pop$ -- 1396
 preamble$ -- 1
-purify$ -- 180
+purify$ -- 214
 quote$ -- 0
-skip$ -- 400
+skip$ -- 479
 stack$ -- 0
-substring$ -- 2903
-swap$ -- 718
-text.length$ -- 0
+substring$ -- 3454
+swap$ -- 839
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 243
+type$ -- 285
 warning$ -- 0
-while$ -- 207
+while$ -- 244
 width$ -- 0
-write$ -- 332
+write$ -- 391

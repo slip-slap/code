@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -23,6 +23,12 @@ Choudhury A, Mondal S and Sarkar S (2019) Failure analysis of laminated
   composite plate under hygro-thermo mechanical load and optimisation.
 \newblock \emph{International Journal of Applied Mechanics and Engineering}
   24(3): 509--526.
+
+\bibitem[{Daniel et~al.(1994)Daniel, Ishai, Daniel and
+  Daniel}]{daniel1994engineering}
+Daniel IM, Ishai O, Daniel IM and Daniel I (1994) \emph{Engineering mechanics
+  of composite materials}, volume~3.
+\newblock Oxford university press New York.
 
 \bibitem[{Deka et~al.(2005)Deka, Sandeep, Chakraborty and
   Dutta}]{deka2005multiobjective}
@@ -51,6 +57,11 @@ Kang JH and Kim CG (2005) Minimum-weight design of compressively loaded
 Kim JS (2007) Development of a user-friendly expert system for composite
   laminate design.
 \newblock \emph{Composite Structures} 79(1): 76--83.
+
+\bibitem[{Le~Riche and Haftka(1995)}]{le1995improved}
+Le~Riche R and Haftka R (1995) Improved genetic algorithm for minimum thickness
+  composite laminate design.
+\newblock \emph{Composites Engineering} 5(2): 143--161.
 
 \bibitem[{Lin and Lee(2004)}]{lin2004stacking}
 Lin CC and Lee YJ (2004) Stacking sequence optimization of laminated composite
@@ -84,6 +95,12 @@ Murugan M, Suresh S, Ganguli R and Mani V (2007) Target vector optimization of
 Nagendra S, Jestin D, G{\"u}rdal Z, Haftka RT and Watson LT (1996) Improved
   genetic algorithm for the design of stiffened composite panels.
 \newblock \emph{Computers \& Structures} 58(3): 543--555.
+
+\bibitem[{Naik et~al.(2008)Naik, Gopalakrishnan and Ganguli}]{naik2008design}
+Naik GN, Gopalakrishnan S and Ganguli R (2008) Design optimization of
+  composites using genetic algorithms and failure mechanism based failure
+  criterion.
+\newblock \emph{Composite Structures} 83(4): 354--367.
 
 \bibitem[{Omkar et~al.(2008)Omkar, Khandelwal, Yathindra, Naik and
   Gopalakrishnan}]{omkar2008artificial}
@@ -143,6 +160,12 @@ Soeiro A, Ant{\'o}nio CC and Marques AT (1994) Multilevel optimization of
   laminated composite structures.
 \newblock \emph{Structural optimization} 7(1-2): 55--60.
 
+\bibitem[{Soremekun et~al.(2001)Soremekun, G{\"u}rdal, Haftka and
+  Watson}]{soremekun2001composite}
+Soremekun G, G{\"u}rdal Z, Haftka R and Watson L (2001) Composite laminate
+  design optimization by genetic algorithm with generalized elitist selection.
+\newblock \emph{Computers \& structures} 79(2): 131--143.
+
 \bibitem[{Todoroki and Haftka(1998)}]{todoroki1998stacking}
 Todoroki A and Haftka RT (1998) Stacking sequence optimization by a genetic
   algorithm with a new recessive gene like repair strategy.
@@ -160,5 +183,9 @@ Watkins R and Morris A (1987) A multicriteria objective function optimization
   schemes.
 \newblock \emph{Computer Methods in Applied Mechanics and Engineering} 60(2):
   233--251.
+
+\bibitem[{Zbigniew(1996)}]{zbigniew1996genetic}
+Zbigniew M (1996) Genetic algorithms+ data structures= evolution programs.
+\newblock \emph{Computational Statistics} : 372--373.
 
 \end{thebibliography}
