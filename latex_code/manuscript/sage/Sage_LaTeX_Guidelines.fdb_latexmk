@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex Sage_LaTeX_Guidelines"] 1603366922 "Sage_LaTeX_Guidelines.aux" "Sage_LaTeX_Guidelines.bbl" "Sage_LaTeX_Guidelines" 1603366926
+["bibtex Sage_LaTeX_Guidelines"] 1603672908 "Sage_LaTeX_Guidelines.aux" "Sage_LaTeX_Guidelines.bbl" "Sage_LaTeX_Guidelines" 1603679552
   "./SageH.bst" 1376110382 30846 01d0c4e084498df630f0d3adc8d9e106 ""
-  "Sage_LaTeX_Guidelines.aux" 1603366925 8164 d01bebd6527bb31c400d0a40f152a4fb ""
+  "Sage_LaTeX_Guidelines.aux" 1603679552 8164 97a280578a3d8dea8e9806275d6fbef8 ""
   "laminate_design.bib" 1603350401 12917 967ccb451fa73410addcfc034090dbe3 ""
   (generated)
   "Sage_LaTeX_Guidelines.blg"
   "Sage_LaTeX_Guidelines.bbl"
-["pdflatex"] 1603366923 "Sage_LaTeX_Guidelines.tex" "Sage_LaTeX_Guidelines.pdf" "Sage_LaTeX_Guidelines" 1603366926
+["pdflatex"] 1603679550 "Sage_LaTeX_Guidelines.tex" "Sage_LaTeX_Guidelines.pdf" "Sage_LaTeX_Guidelines" 1603679552
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1480098688 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -223,13 +223,13 @@
   "A_laminate_design_images/NxNy.png" 1602660033 73821 35ca36630e81c7fb27e2b440da80cdb4 ""
   "A_laminate_design_images/NxNyNz.png" 1602660146 72474 dd7c33423e87eee54c4e10461d03c44f ""
   "A_laminate_design_images/lamina_local_global_axes.png" 1602483964 133854 1883105abfd54615fa4457cb7ff4985d ""
-  "Sage_LaTeX_Guidelines.aux" 1603366925 8164 d01bebd6527bb31c400d0a40f152a4fb ""
-  "Sage_LaTeX_Guidelines.bbl" 1603366923 8769 e9cdcea6938e985b9154850febf7d781 "bibtex Sage_LaTeX_Guidelines"
-  "Sage_LaTeX_Guidelines.out" 1603366925 898 5b2ca5d2e4ecaf1ac7a0b354ebb124f3 ""
-  "Sage_LaTeX_Guidelines.tex" 1603366918 45670 d4a173ebfd1d28cc368f60cec5ee2513 ""
+  "Sage_LaTeX_Guidelines.aux" 1603679552 8164 97a280578a3d8dea8e9806275d6fbef8 ""
+  "Sage_LaTeX_Guidelines.bbl" 1603672909 8769 e9cdcea6938e985b9154850febf7d781 "bibtex Sage_LaTeX_Guidelines"
+  "Sage_LaTeX_Guidelines.out" 1603679552 898 5b2ca5d2e4ecaf1ac7a0b354ebb124f3 ""
+  "Sage_LaTeX_Guidelines.tex" 1603679545 46434 ef101789bc6e623a8e44d065566b6278 ""
   "sagej.cls" 1484374522 15958 5fa98adc3dbacfa813e0251e7c0042fe ""
   (generated)
-  "Sage_LaTeX_Guidelines.log"
-  "Sage_LaTeX_Guidelines.out"
-  "Sage_LaTeX_Guidelines.aux"
   "Sage_LaTeX_Guidelines.pdf"
+  "Sage_LaTeX_Guidelines.aux"
+  "Sage_LaTeX_Guidelines.out"
+  "Sage_LaTeX_Guidelines.log"

@@ -15,11 +15,11 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
 \runninghead{Smith and Wittkopf}
-\title{Laminated Composite Plate Optimization by Improved Genetic Algorithm}
+\title{A technique for constraint optimisation of symmetric laminate using a new
+varient of genetic algorithm}
 \author{Zhang Huiyao\affilnum{1} and
 	Atsushi Yokoyama\affilnum{2*} 
 }
-
 
 \corrauth{Department of Fiber Science and Engineering Kyoto Institute of Techonology, Matsugasaki,
 	Sakyo-ku, Kyoto, 606-8585, JAPAN 
@@ -130,6 +130,12 @@ minimized the weight of laminated composites under restrictions with a failure-m
 criterion based on Maximum Strian and Tsai-wu.  In the present study, Tsai-wu static failure
 criteria is used to investigated the feasibility of a composite laminate.
 
+The programming language Python3 is employed to implement the genetic algorithm, which is a
+high-level object-oriented language, and provide whose grammar is very concise and easy to pick up.
+
+
+
+
 \section{2. Stress and Strain in a Laminate}
 A laminated structure is consisting of multiple laminas bonded together through
 their thickness.  Consider a laminated composite plate which is symmetric to
@@ -138,12 +144,12 @@ and torsion,  the classical lamination theory(CLT) is taken to calculate the
 stresses and strains in the local and global axes of each ply. as shown in
 Fig.\ref{fig:lamina}.
 
-\begin{figure}
+\begin{figure*}
 	\centering
 	\includegraphics[width=\linewidth]{A_laminate_design_images/lamina_local_global_axes.png}
 	\caption{Lamina}
   	\label{fig:lamina}
-\end{figure}
+\end{figure*}
 
 
 \subsection{2.1 Stress and Strian in a Lamina}
@@ -443,10 +449,19 @@ ascending order, and individual with smaller difference is more like to be chose
 obtained by this methods are called potential individuals. Second, sort out the population by
 fitness from low to high after remove the unproper individuals, and an individual is proper which
 means it fulfils the constraint, and individuals obtained by this way are called proper individuals.
-So the final parents consists of two parts, potential individuals and proper individuals.
+So the final parents consists of two parts, potential individuals and proper individuals, and the
+number of potential individuals and proper individual are called, respectively, potential number and
+proper number. For example, assumming the parent population is 20, 60 percent of them is
+potential individuals, and the rest is proper individuals. So the potential number is 12, and the
+proper number is 8.
 
-The GA can be divided into two stages according to whether proper individual are
-generated during the search process  
+However, at the beginning of the GA, no individual in the population is appropriate, which means the
+number of proper individuals nearly zero.  So the GA can be divided into two stages according to
+whether proper individual are generated during the search process. During the initial stages, the
+number of potential individuals gradually decreases from the number of population to the potential
+number, while the number of proper individuals increases from zero to the proper number as the GA
+goes on. After the initial  
+
 
 In the present study, the relevant parameters of GA are as shown in Table \ref{tab:ga}. The design
 variables are the materials, number of layers, and ply orientation restricted to a discrete set of
