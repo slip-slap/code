@@ -15,7 +15,7 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
 \runninghead{Smith and Wittkopf}
-\title{A technique for constraint optimisation of symmetric laminate using a new
+\title{A technique for constrained optimisation of symmetric laminate using a new
 varient of genetic algorithm}
 \author{Zhang Huiyao\affilnum{1} and
 	Atsushi Yokoyama\affilnum{2*} 
@@ -86,15 +86,15 @@ and it can be divided into four classes which are proportionate reproduction,
 ranking, tournament, and genitor(or ”steady state”) selection. In the optimization of laminate
 composite design, roulette wheel\cite{riche1993optimization,seresta2007optimal}, where the
 possibility of an individual to be chosen for the next generation is proportional to it's
-fitness.  Soremekun \cite{soremekun2001composite} showed generalized elitist strategy outperformed a
+fitness.  Soremekun \cite{soremekun2001composite} showed that generalized elitist strategy outperformed a
 single individual elitism in some special cases.
 
 Data structure, repair strategies and penalty functions\cite{le1995improved} are most common used
-approaches to resolve constraint problems in the optimization of composite structure. Symmetric
+approaches to resolve constrained problems in the optimization of composite structure. Symmetric
 laminates are widely used in practical scenario, data structure can be used to fulfil the symmetry
 constraint which consists of coding a half of the laminate and considering the rest with the
 opposite orientation.  Todoroki\cite{todoroki1998stacking} introduced a repair strategy which can
-scan the chromosome and repair the gene on the chromosome if it does satify the contiguity
+scan the chromosome and repair the gene on the chromosome if it doesn't satisfy the contiguity
 constraint. The comparsion of repair strategies in a permutation GA with the same orientation was
 presented by Liu\cite{liu2000permutation}, and it showed the Baldwinian repair strategy can
 significantly reduce the cost of constrained optimization. Haftka\cite{riche1993optimization} used
@@ -103,8 +103,8 @@ strength constraints.
 
 
 In typical engineering applications, composite materials are under very
-complicate loading conditions, not only in-plane loads but also out-of-plane
-loads. Most of the studies on the optimization of laminated composite materials
+complicate loading conditions, not only in-plane loading but also out-of-plane
+loading. Most of the studies on the optimization of laminate composite material
 was to mimimize the thickness \cite{abu1998optimum,walker2003technique},
 weight\cite{fang1993design,deka2005multiobjective,park2008improved}, cost and
 weight\cite{deka2005multiobjective,omkar2008artificial}, or maximize the static
@@ -113,7 +113,7 @@ thickness\cite{walker2003technique,lin2004stacking,kim2007development}. In the
 present study, laminate cost and weight are minimized by modifying the objective function.
 
 
-In order to check the feasibility of a composite laminate by imposing a
+In order to check the feasibility of a laminate composite by imposing a
 strength constraint, failure analysis of a laminate is taken by applying
 suitable failure criteria. The failure criteria of laminated composites can be classified in three
 classes: non-interactive theories(e.g., Maximum strain), interactive theores(e.g., Tsai-wu), and
@@ -127,18 +127,16 @@ GA to minimize the thickness of composite laminates with Tsai-Hill and maximum s
 criterias, and the advantage of this method is to avoid spurious optima.  Naik\cite{naik2008design}
 minimized the weight of laminated composites under restrictions with a failure-mechanism-based
 criterion based on Maximum Strian and Tsai-wu.  In the present study, Tsai-wu static failure
-criteria is used to investigated the feasibility of a composite laminate.
-
-
+criteria is used to investigated the feasibility of a laminate composite.
 
 
 
 \section{2. Stress and Strain in a Laminate}
-A laminated structure consists of multiple laminas bonded together through
-their thickness.  Consider a laminated composite plate which is symmetric to
-its middle plane and subjected to in-plane loads of extension, shear, bending
+A laminate structure consists of multiple laminas bonded together through
+their thickness.  Considering a laminate composite plate which is symmetric to
+its middle plane subject to in-plane loading of extension, shear, bending
 and torsion,  the classical lamination theory(CLT) is taken to calculate the
-stresses and strains in the local and global axes of each ply. as shown in
+stress and strain in the local and global axes of each ply, as shown in
 Fig.\ref{fig:lamina}.
 
 \begin{figure*}
@@ -150,7 +148,7 @@ Fig.\ref{fig:lamina}.
 
 
 \subsection{2.1 Stress and Strian in a Lamina}
-For a single lamina, the stress strain relation in the local axis: 1-2
+For a single lamina, the stress strain relation in the local axis 1-2: 
 \begin{equation}
     \begin{bmatrix}
         \sigma_1\\
@@ -170,7 +168,7 @@ For a single lamina, the stress strain relation in the local axis: 1-2
     \end{bmatrix}
 \end{equation}
 Where $Q_{ij}$ are the stiffnesses of the lamina that are related to 
-engineering elastic constants by
+engineering elastic constants given by
 \begin{equation}
     \begin{split}
     &Q_{11}=\frac{E_1}{1-v_{12}v_{21}}\\
@@ -191,7 +189,7 @@ $v_{12}$ = major Poisson's ratio
 
 $G_{12}$ = in-plane shear modulus 
 
-Stress strain relation in global axis: x-y 
+Stress strain relation in global axis x-y:  
 \begin{equation}
 	\left[\begin{array}{l}\sigma_{x} \\ \sigma_{y} \\ \tau_{x
 			y}\end{array}\right]=\left[\begin{array}{lll}\bar{Q}_{11} & \bar{Q}_{12} & \bar{Q}_{16}
@@ -359,7 +357,7 @@ $(\sigma_2^C)_{ult}=$ Ultimate transverse compressive strength, and
 $(\tau_{12})_{ult}=$ Ultimate in-plane shear strength
 
 In the present study, Tsai-wu failure theory is taken to decide whether a lamina is failed or not, the
-reason is chosen because this theory is  more general than Tsai-Hill failure theory which consider
+reason is this theory is  more general than Tsai-Hill failure theory which considers
 two different situation, compressive and tensile strength of a lamina. A lamina is considered to be
 failed if
 
@@ -432,18 +430,18 @@ present study follows the fully discounted method\cite{daniel1994engineering}:
 \section {4. Optimum Design of Laminate Composite}
 \subsection{4.1  Genetic Algorithm}
 The GA starts off with a bunch of individuals with limited chromosome length, in which maybe none
-of these individuals fulfil the safety factor constraint. The GA are supposed to derive appropriate
-offspring based on initial population as the GA goes on. The classic way to handle constraint
+of these individuals fulfil the safety factor constraint. The GA is supposed to derive appropriate
+offspring based on initial population as the GA goes on. The classic way to handle constrained
 search of GA are either introducing repair strategies or using a penaly function, here a new
-approach is come up with to deal with constraint GA search problem by modifying the selection
+approach is come up with to deal with constrained GA search problem by modifying the selection
 strategy. 
 
 Because of the existence of constraint, it means that the population not only can be sorted by
-fitness, but also can sorted by the constraint value obtained by the constraint function(assuming
-constraint functions exists), so the
+fitness(which is obtained by objective function), but also can sorted by the constraint value obtained by the constraint function(assuming
+constraint function exists), so the
 parents of next generation can be chosen by the following two approaches. First, sort out the population by
-the absolute difference between the individual's constraint value and the constraint threshold in an
-ascending order, and individual with smaller difference is more like to be chosen. Individuals
+the absolute difference between the individual's constraint value and the threshold of constraint in an
+ascending order, and individual with smaller difference is more likely to be chosen. Individuals
 obtained by this method are called potential individuals. Second, sort out the population by
 fitness from low to high after remove the unproper individuals, and an individual is proper which
 means it fulfils the constraint, and individuals obtained by this way are called proper individuals.
@@ -458,19 +456,21 @@ number of proper individuals nearly zero.  So the GA can be divided into two sta
 whether proper individual are generated during the search process. During the initial stages, the
 number of potential individuals gradually decreases from maximum(which is parent population) to the potential
 number, while the number of proper individuals increases from zero to the proper number as the GA
-goes on. After the initial stage, both of the number of two groups converge to pre-assigned number.
+goes on. After the initial stage, both of the number of two groups, respectively, converge to
+potential number, and proper number.
 In order to differentiate the current selection methods from the following, the current GA is called
-basic GA. In the following experiment, 50 percent of the parent are constraint individuals, and 50
+basic GA. In the following experiment, 50 percent of the parent are potential individuals, and 50
 percent of the parent are proper individuals.
 
 The problem with this basic GA is premature and weak local search ability, basic GA are more likely to get stuck in local
 optimum. Therefore, to prevent the GA from early convergence and improve the local search
 performance, a new selection method is proposed, which is ignoring whether the individual satisfy
-the constraint requirement or not, and ranking individuals by their fitness. Individuals selected by
+the constraint or not, and ranking individuals by their fitness. Individuals selected by
 this method are called active individuals, because they are supposed to be always in the population.
-So in the improved GA, parents consists of three parts: active individuals, constraint
+GA with this active individuals are called improved GA.
+In the improved GA, parents consists of three parts: active individuals, potential 
 individuals, and proper individuals. In the following experiment, 20 percent of the parent
-population are active individuals, 30 percent of the parent are constraint individuals, and the rest
+population are active individuals, 30 percent of the parent are potential individuals, and the rest
 is proper individuals.
 
 
