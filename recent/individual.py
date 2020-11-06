@@ -4,6 +4,7 @@ class Individual(object):
         self.angle_list  = angle_list
         self.height_list = height_list
         self.material_list = material_list
+        self.length = len(angle_list)
         self.strength_raito = -1
         self.mass = -1
         self.cost = -1
@@ -27,7 +28,7 @@ class Individual(object):
 
 
 if __name__ == "__main__":
-    a = Individual(1,2,3)
+    a = Individual([1],[2],[3])
     print(a)
 
     

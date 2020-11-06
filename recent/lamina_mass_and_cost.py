@@ -1,8 +1,8 @@
 import numpy as np
 import constant_variable as cv
 
-LAMINATE_LENGTH = 100
-LAMINATE_WIDTH = 20
+LAMINATE_LENGTH = 1
+LAMINATE_WIDTH =  1
 
 
 def get_lamina_mass(volume,material):
@@ -11,10 +11,11 @@ def get_lamina_mass(volume,material):
     if(fiber == "glass"):
         density = cv.GLASS_EPOXY_DENSITY
     if(fiber == "graphite"):
-
         density = cv.GRAPHITE_EPOXY_DENSITY
     if(fiber == "carbon"):
         density = cv.CARBON_EPOXY_DENSITY
+    else:
+        density = 1
 
     return volume*density/1000
 

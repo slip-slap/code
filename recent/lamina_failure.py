@@ -27,6 +27,14 @@ graphite_properties = {
                 'tau_12':68
              }
 
+t300_5308_properties = {
+                'sigma_1_tensile':np.float64(779),
+                'sigma_1_compressive': np.float64(1134),
+                'sigma_2_tensile':19,
+                'sigma_2_compressive':131,
+                'tau_12':75
+             }
+
 
 
 def maximum_strain_failure_theory(component, material):
@@ -80,11 +88,15 @@ local stress sigma_1, sigma_2, tau_12
 """
 def maximum_stress_failure_theory(component, material):
 
-    if(material == GLASS_EPOXY):
+    if(material == cv.GLASS_EPOXY):
         #global properties
         properties = glass_properties
-    if(material == GRAPHITE_EPOXY):
+    if(material == cv.GRAPHITE_EPOXY):
         properties = graphite_properties
+    if(material == cv.T300_5308):
+        properties = t300_5308_properties 
+    if(material == cv.CARBON_EPOXY):
+        properties = carbon_properties
 
     # tensile
     sr_sigma_1_tensile = np.divide(properties['sigma_1_tensile'],component[0])
@@ -105,7 +117,6 @@ def maximum_stress_failure_theory(component, material):
             temp.append(sr_list[i])
 
     return min(temp)
-
 
 
 def tsai_hill_failure_theory(component, material):
@@ -144,6 +155,8 @@ def tsai_wu_failure_theory(component,material):
         properties = graphite_properties
     if(material == cv.CARBON_EPOXY):
         properties = carbon_properties 
+    if(material == cv.T300_5308):
+        properties = t300_5308_properties 
 
     h1 = np.divide(1, properties['sigma_1_tensile']) - \
          np.divide(1, properties['sigma_1_compressive'])

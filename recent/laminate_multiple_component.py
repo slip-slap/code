@@ -19,6 +19,8 @@ def calc_lamina_stiffness_matrix_Q(material):
         material_property = cv.GRAPHITE_EPOXY_PROPERTIES
     if(material == cv.CARBON_EPOXY):
         material_property = cv.CARBON_EPOXY_PROPERTIES
+    if(material == cv.T300_5308):
+        material_property = cv.T300_5308_PROPERTIES
 
     E1 = material_property['E1']
     E2 = material_property['E2']
@@ -246,9 +248,10 @@ def get_failure_lamina_SR_and_pos(lamina_stress_strain,material_list):
     local_stress = lamina_stress_strain['local_stress']
     for i in range(len(local_stress)):
         for j in range(len(local_stress[i])):
-            SR = lf.tsai_wu_failure_theory(local_stress[i][j],material_list[i])
-            #SR = lf.maximum_strain_failure_theory(local_stress[i][j],material_list[i])
-            #SR = lf.tsai_hill_failure_theory(local_stress[i][j], material_list[i])
+            if(cv.FAILURE_CRITERIA == "max_stress"):
+                SR = lf.maximum_stress_failure_theory(local_stress[i][j], material_list[i])
+            if(cv.FAILURE_CRITERIA == "tsai_wu"):
+                SR = lf.tsai_wu_failure_theory(local_stress[i][j],material_list[i])
             #print(SR)
             if(min_strenght_ratio > SR):
                 min_strenght_ratio = SR
@@ -303,6 +306,9 @@ def get_FPF_and_LPF():
     print("laminate efficiency" + str(laminate_efficiency))
 
 def get_strength_ratio(angle, height, material, load):
+    for i in range(len(angle)):
+        angle[i] = np.divide(angle[i]*np.pi, 180)
+
     laminate_stiffness = calc_laminate_stiffness_matrice(angle,height,material)
     midplane_strain_and_curvature = \
                  calc_midplane_strain_and_curvature(laminate_stiffness,load)
@@ -320,42 +326,15 @@ def get_symmetry_list(half_list):
     return upper_half + half_list
 
 if __name__=='__main__':
-    """
-    angle =[0] * 9
-    height=[0.000165] * 9 
-    material = [GRAPHITE_EPOXY] * 9
-    load=[1,0,0,0,0,0]
-    """
+    FAILURE_CRITERIA = "max_stress"
+    #FAILURE_CRITERIA = "tsai_wu"
 
-    """
-    #cross ply
-    angle = [0] * 34 + [np.pi/2] * 72 + [0] * 34
-    height=[0.000165] * 140 
-    material = [GLASS_EPOXY] * 140
-    load=[1,0,0,0,0,0]
-    """
-
-    #angle ply
-    """
-    angle = [np.pi/4, -np.pi/4] * 35
-    angle = get_symmetry_list(angle) 
-    height=[0.000165] * 140
-    material = [GLASS_EPOXY] * 140 
-    #material = get_symmetry_list(material)
-    load=[0,0,1,0,0,0]
-
-    sr = get_strength_ratio(angle,height,material,load)
-    mass = lmac.get_laminate_mass(height,material)
-    cost = lmac.get_laminate_cost(material)
-    """
-    #ma=[-45{gr_9} 45{gr_9}     -45 {ca_2}    45 {ca_2}
-
-    angle =[-np.pi/4] * 9 + [np.pi/4] * 9 + [-np.pi/4] * 2 + [np.pi/4] * 2 
+    angle =[37]*27 + [-37] * 27   
     angle = tool.get_symmetry_list(angle)
-    height=[0.000165] * 44
-    material =[cv.GRAPHITE_EPOXY] * 18  + [cv.CARBON_EPOXY] * 4  
+    height=[0.00127] * 54 * 2 
+    material =[cv.T300_5308] * 54 * 2   
     material = tool.get_symmetry_list(material)
-    load=[1,1,0,0,0,0]
+    load=[10,5,0,0,0,0]
 
 
     sr  = get_strength_ratio(angle,height,material,load)

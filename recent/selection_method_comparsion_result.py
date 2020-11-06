@@ -23,6 +23,7 @@ original_number_of_layer= 43
 #stacking sequence= [90, 'graphite_epoxy', 0, 'graphite_epoxy', -45, 'graphite_epoxy', 0, 'graphite_epoxy', 0, 'graphite_epoxy', 90, 'graphite_epoxy', 90, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 0, 'graphite_epoxy', 90, 'graphite_epoxy', 90, 'graphite_epoxy', -45, 'graphite_epoxy', 0, 'graphite_epoxy', -45, 'graphite_epoxy', 45, 'graphite_epoxy', 90, 'graphite_epoxy', 0, 'graphite_epoxy', -45, 'graphite_epoxy', 90, 'graphite_epoxy', 90, 'graphite_epoxy', 90, 'graphite_epoxy', -45, 'graphite_epoxy', 0, 'graphite_epoxy', 90, 'graphite_epoxy', 45, 'graphite_epoxy', -45, 'graphite_epoxy', 0, 'graphite_epoxy', -45, 'graphite_epoxy', 90, 'graphite_epoxy', 90, 'graphite_epoxy', 0, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 90, 'graphite_epoxy', 90, 'graphite_epoxy', 0, 'graphite_epoxy', 0, 'graphite_epoxy', -45, 'graphite_epoxy', 0, 'graphite_epoxy', 90, 'graphite_epoxy']
 ##################################
 ##################################
+"""
 original_load=  [1, 1, 0, 0, 0, 0]
 original_material=  ['carbon_epoxy']
 original_angle=  [0, 0.7853981633974483, -0.7853981633974483, 1.5707963267948966]
@@ -192,5 +193,6 @@ improved_cost= 41.0
 improved_mass= 0.9023190000000002
 improved_strength_raito= 2.005460365537823
 improved_number_of_layer= 17
+"""
 #stacking sequence= [45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'glass_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy', 45, 'graphite_epoxy']
 ##################################

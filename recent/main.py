@@ -69,6 +69,7 @@ def get_laminate_individual(length):
     return temp_ind
 
 def get_initial_population():
+    np.random.seed(0)
     initial_population = []
     while(len(initial_population)<cv.POPULATION_NUMBER):
         length = int(np.random.randint(low=cv.CHROMOSOME_LENGTH_LOWER_BOUND, \
@@ -90,7 +91,7 @@ def get_concerter_angle(angle):
         return 45
 
 def save_to_output(result_fitness, result_strength_ratio, my_best_individual):
-    with open("selection_method_comparsion_result.py","a") as result_handler:
+    with open("seed_test.py","a") as result_handler:
         result_handler.write("##################################")
         result_handler.write("\n")
         result_handler.write(cv.prefix + "load=  " + str(cv.LOAD))
