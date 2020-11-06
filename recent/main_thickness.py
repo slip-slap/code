@@ -82,7 +82,7 @@ if __name__ == "__main__":
                 str(population[best_individual].strength_raito))
         my_temp_angle = copy.deepcopy(population[best_individual].angle_list)
         for i in range(len(my_temp_angle)):
-            my_temp_angle[i] = my_temp_angle[i]*180/np.pi
+            my_temp_angle[i] = int(my_temp_angle[i]*180/np.pi)
         print(my_temp_angle)
 
     #save_to_output(result_fitness, result_strength_ratio, population[best_individual])
