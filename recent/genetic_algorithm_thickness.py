@@ -16,7 +16,8 @@ assuming all the angles are different in one angle type
 def get_child(p1_angle_type, p2_angle_type, half_child_length):
 
     if(len(p1_angle_type) != len(p2_angle_type)):
-        print("wrong happen")
+        print("the number of angle type of parent1 and parents2 are different")
+
 
     angle_list  = []
     length_list = []
@@ -27,7 +28,7 @@ def get_child(p1_angle_type, p2_angle_type, half_child_length):
             while(temp_angle in angle_list):
                 temp_angle = int(np.multiply((p1_angle_type[i] + p2_angle_type[i])/2, 180/np.pi)) + int(np.random.randint(-4,4,1)) 
             angle_list.append(temp_angle)
-            temp_length = int(np.random.randint(1,half_child_length + 1,size=1))
+            temp_length = int(np.random.randint(1,int(half_child_length/cv.ANGLE_TYPE) + 1,size=1))
             length_list.append(temp_length)
         if(sum(length_list) >= half_child_length):
             angle_list = []
@@ -79,7 +80,7 @@ class Genetic_Algorithm(object):
         while(len(offspring) < offspring_number):
         #for i in range(offspring_number):
             child_length = -1
-            while(child_length < 1):
+            while(child_length < cv.ANGLE_TYPE * 2):
                 p1_pos = int(np.random.randint(0, len(parents), 1))
                 p2_pos = int(np.random.randint(0, len(parents), 1))
                 p1_angle = list(set(parents[p1_pos].angle_list))
@@ -88,7 +89,7 @@ class Genetic_Algorithm(object):
                 p2_angle.sort()
                 child_length = int(np.divide(parents[p1_pos].length + parents[p2_pos].length,2))+\
                                          int(np.random.randint(-4,4,1))  
-                if(int(child_length/2) > 1):
+                if(int(child_length/2) > cv.ANGLE_TYPE):
                     child_angle_and_length = get_child(p1_angle, p2_angle, int(child_length/2))
                     child = tool.get_laminate_individual(child_length, child_angle_and_length[0], \
                          child_angle_and_length[1])
@@ -108,7 +109,9 @@ class Genetic_Algorithm(object):
             if(child_total_length % 2 == 0 and child_total_length != sum(length_list)*2):
                 remain = int(child_total_length/2) - sum(length_list)
                 length_list[0] = length_list[0] + remain
-
+            
+            if(child_total_length < sum(length_list) * 2):
+                length_list[0] = length_list[0] - 1 
             for i in range(len(child_angle)):
                 child_angle[i] = child_angle[i] * 180/np.pi
             offspring[i] = tool.get_laminate_individual(child_total_length, child_angle, length_list)
@@ -145,7 +148,7 @@ def get_chromosome_mutation(chromosome, values_set):
 
 
 if __name__ == "__main__":
-    a = get_child([-1,28], [-3,56], 9)
+    a = get_random_number_list(5, 4)
     print(a)
 
 

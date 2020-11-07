@@ -11,19 +11,21 @@ def get_angle_list(angle_type_length, half_chromosome_length):
     while(len(angle_type_list) == 0):
         for i in range(angle_type_length - 1):
             temp_angle = int(np.random.randint(-90,90,size=1))
-            if temp_angle not in angle_type_list:
-                angle_type_list.append(temp_angle)
-                temp_length =int(np.random.randint(1,half_chromosome_length,size=1)) 
-                length_type_list.append(temp_length)
-        if(sum(length_type_list) > half_chromosome_length):
+            while(temp_angle in angle_type_list):
+                temp_angle = int(np.random.randint(-90,90,size=1))
+            angle_type_list.append(temp_angle)
+            temp_length =int(np.random.randint(1,int(half_chromosome_length/angle_type_length) + 1 ,size=1)) 
+            length_type_list.append(temp_length)
+        if(sum(length_type_list) >= half_chromosome_length):
             angle_type_list= []
             length_type_list= []
-    while(len(angle_type_list) < angle_type_length):
+
+    last_angle = int(np.random.randint(-90,90,size=1))
+    while(last_angle in  angle_type_list):
         last_angle = int(np.random.randint(-90,90,size=1))
-        if last_angle not in angle_type_list:
-            angle_type_list.append(last_angle)
-            last_length = half_chromosome_length - sum(length_type_list)
-            length_type_list.append(last_length)
+    angle_type_list.append(last_angle)
+    last_length = half_chromosome_length - sum(length_type_list)
+    length_type_list.append(last_length)
 
     return [angle_type_list, length_type_list]
 
@@ -31,10 +33,10 @@ def get_initial_population():
     #np.random.seed(0)
     initial_population = []
     while(len(initial_population)<cv.POPULATION_NUMBER):
-        length = int(np.random.randint(low=cv.CHROMOSOME_LENGTH_LOWER_BOUND, \
+        length = int(np.random.randint(low=cv.CHROMOSOME_LENGTH_LOWER_BOUND , \
             high=cv.CHROMOSOME_LENGTH_UPPER_BOUND, size=1)) 
 
-        result = get_angle_list(2, int(length/2))
+        result = get_angle_list(cv.ANGLE_TYPE, int(length/2))
         temp_ind = tool.get_laminate_individual(length, result[0], result[1])
         print(set(temp_ind.angle_list))
         initial_population.append(temp_ind)
@@ -47,6 +49,7 @@ if __name__ == "__main__":
     result_strength_ratio = []
     print("###load: "+str(cv.LOAD))
     population = get_initial_population()
+    print("flag")
     population.sort(key = lambda c: c.fitness)
 
     best_individual_pos = tool.get_safety_factor_pos_flag(population)

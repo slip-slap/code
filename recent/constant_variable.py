@@ -4,7 +4,7 @@ Maitain constant variable will be used in this program
 import numpy as np
 
 
-LOAD = [10, 5, 0, 0, 0 ,0]
+LOAD = [10, -10, 0, 0, 0 ,0]
 
 
 #FAILURE_CRITERIA = "max_stress"
@@ -48,9 +48,10 @@ prefix = "improved_"
 #prefix = "original_" 
 #PARENTS_BY_FITNESS_PERCENT = 0.0
 
-CHROMOSOME_LENGTH_LOWER_BOUND = 5 
+CHROMOSOME_LENGTH_LOWER_BOUND = 10 
 CHROMOSOME_LENGTH_UPPER_BOUND = 15 
 GA_RUNTIMES = 2000
+ANGLE_TYPE = 4 
 # Material
 LAYER_HEIGHT = 0.00127
 ANGLE = [0,45,90]
