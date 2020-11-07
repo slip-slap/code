@@ -28,7 +28,7 @@ def get_child(p1_angle_type, p2_angle_type, half_child_length):
             while(temp_angle in angle_list):
                 temp_angle = int(np.multiply((p1_angle_type[i] + p2_angle_type[i])/2, 180/np.pi)) + int(np.random.randint(-4,4,1)) 
             angle_list.append(temp_angle)
-            temp_length = int(np.random.randint(1,int(half_child_length/cv.ANGLE_TYPE) + 1,size=1))
+            temp_length = int(np.random.randint(1,half_child_length,size=1))
             length_list.append(temp_length)
         if(sum(length_list) >= half_child_length):
             angle_list = []
@@ -106,6 +106,9 @@ class Genetic_Algorithm(object):
             for k in range(len(child_angle)):
                 length_list.append(int(offspring[i].angle_list.count(child_angle[k])/2) + \
                                                                               random_number_list[k])
+                child_angle[k] = child_angle[k] + \
+                                            np.random.randint(0,np.abs(10*evu_dir)+1)*np.pi/180
+
             if(child_total_length % 2 == 0 and child_total_length != sum(length_list)*2):
                 remain = int(child_total_length/2) - sum(length_list)
                 length_list[0] = length_list[0] + remain

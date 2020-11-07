@@ -42,29 +42,50 @@ def get_initial_population():
         initial_population.append(temp_ind)
     return initial_population
 
+def save_current_state_to_log(ind, result_times, result_fitness, result_strength_ratio, \
+                              result_angle1, result_angle2):
+    result_times.append(len(result_times) + 1)
+    result_fitness.append(ind.fitness)
+    result_strength_ratio.append(ind.strength_raito)
+    angle_list = list(set(ind.angle_list))
+    angle_list.sort()
+    result_angle1.append(angle_list[0])
+    result_angle2.append(angle_list[1])
+
+def save_ga(result_times, result_fitness, result_strength_ratio, result_angle1, result_angle2):
+
+    with open("thickness_result.py","a") as result_handler:
+        result_handler.write("result_times=" + str(result_times))
+        result_handler.write("\n")
+        result_handler.write("result_fitness=" + str(result_fitness))
+        result_handler.write("\n")
+        result_handler.write("result_strength_ratio=" + str(result_strength_ratio))
+        result_handler.write("\n")
+        result_handler.write("result_angle1=" + str(result_angle1))
+        result_handler.write("\n")
+        result_handler.write("result_angle2=" + str(result_angle2))
+        result_handler.write("\n")
 
 if __name__ == "__main__":
-    result_fitness  = []
     result_times = []
+    result_fitness  = []
     result_strength_ratio = []
+    result_angle1 = []
+    result_angle2 = []
     print("###load: "+str(cv.LOAD))
     population = get_initial_population()
-    print("flag")
     population.sort(key = lambda c: c.fitness)
 
     best_individual_pos = tool.get_safety_factor_pos_flag(population)
     current_fitness = population[best_individual_pos].fitness
+    save_current_state_to_log(population[best_individual_pos], result_times, \
+                              result_fitness, result_strength_ratio, result_angle1, result_angle2)
 
     print("initial fitness: " + str(current_fitness) + " strength_raito " + \
                 str(population[best_individual_pos].strength_raito))
-
-    result_fitness.append(current_fitness)
-    result_times.append(1)
-    result_strength_ratio.append(population[best_individual_pos].strength_raito)
-    
     ga = my_ga.Genetic_Algorithm()
     current_run_time = 0
-    while( current_run_time < cv.GA_RUNTIMES ):
+    while(current_run_time < cv.GA_RUNTIMES ):
         current_run_time = current_run_time + 1 
         parents = ga.select_parents(population,int(cv.POPULATION_NUMBER * cv.ELITIST_PERCENT))
         offspring = ga.crossover(parents, int(cv.POPULATION_NUMBER*(1 - cv.ELITIST_PERCENT)))
@@ -75,11 +96,10 @@ if __name__ == "__main__":
         population.sort(key = lambda c: c.fitness)
 
         best_individual = tool.get_safety_factor_pos_flag(population)
-        previous_fitness = current_fitness
         current_fitness = population[best_individual].fitness
+        save_current_state_to_log(population[best_individual], result_times, \
+                              result_fitness, result_strength_ratio, result_angle1, result_angle2)
 
-        result_fitness.append(current_fitness)
-        result_strength_ratio.append(population[best_individual].strength_raito)
 
         print("curent fitness: " + str(current_fitness) + " strength_raito " + \
                 str(population[best_individual].strength_raito))
@@ -89,4 +109,5 @@ if __name__ == "__main__":
         print(my_temp_angle)
 
     #save_to_output(result_fitness, result_strength_ratio, population[best_individual])
+    save_ga(result_times, result_fitness, result_strength_ratio, result_angle1, result_angle2)
 
