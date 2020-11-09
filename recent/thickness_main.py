@@ -49,8 +49,8 @@ def save_current_state_to_log(ind, result_times, result_fitness, result_strength
     result_strength_ratio.append(ind.strength_raito)
     angle_list = list(set(ind.angle_list))
     angle_list.sort()
-    result_angle1.append(angle_list[0])
-    result_angle2.append(angle_list[1])
+    result_angle1.append(int(angle_list[0] * 180 /np.pi))
+    result_angle2.append(int(angle_list[1] * 180 /np.pi))
 
 def save_ga(result_times, result_fitness, result_strength_ratio, result_angle1, result_angle2):
 

@@ -100,8 +100,8 @@ class Genetic_Algorithm(object):
         for i in range(len(offspring)):
             evu_dir= cv.SAFETY_FACTOR - offspring[i].strength_raito
             child_angle = list(set(offspring[i].angle_list))
-            child_total_length = offspring[i].length + int(evu_dir*20)
-            random_number_list = get_random_number_list(int(evu_dir*10), len(child_angle))
+            child_total_length = offspring[i].length + int(evu_dir*40)
+            random_number_list = get_random_number_list(int(evu_dir*20), len(child_angle))
             length_list = []
             for k in range(len(child_angle)):
                 length_list.append(int(offspring[i].angle_list.count(child_angle[k])/2) + \
