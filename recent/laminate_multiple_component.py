@@ -329,12 +329,12 @@ if __name__=='__main__':
     FAILURE_CRITERIA = "max_stress"
     #FAILURE_CRITERIA = "tsai_wu"
 
-    angle =[37]*27 + [-37] * 27   
+    angle =[13]*6 + [-27] * 4   
     angle = tool.get_symmetry_list(angle)
-    height=[0.00127] * 54 * 2 
-    material =[cv.T300_5308] * 54 * 2   
+    height=[0.00127] * 10 * 2 
+    material =[cv.T300_5308] * 10 * 2   
     material = tool.get_symmetry_list(material)
-    load=[10,5,0,0,0,0]
+    load=[10,10,0,0,0,0]
 
 
     sr  = get_strength_ratio(angle,height,material,load)

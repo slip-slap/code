@@ -43,35 +43,38 @@ def get_initial_population():
     return initial_population
 
 def save_current_state_to_log(ind, result_times, result_fitness, result_strength_ratio, \
-                              result_angle1, result_angle2):
+                              result_angle, result_number):
     result_times.append(len(result_times) + 1)
     result_fitness.append(ind.fitness)
     result_strength_ratio.append(ind.strength_raito)
     angle_list = list(set(ind.angle_list))
     angle_list.sort()
-    result_angle1.append(int(angle_list[0] * 180 /np.pi))
-    result_angle2.append(int(angle_list[1] * 180 /np.pi))
+    for i in range(len(result_angle)):
+        result_angle[i].append(int(angle_list[i] * 180 /np.pi))
+        result_number[i].append(ind.angle_list.count(angle_list[i]))
 
-def save_ga(result_times, result_fitness, result_strength_ratio, result_angle1, result_angle2):
+def save_ga(result_times, result_fitness, result_strength_ratio, result_angle, result_number):
 
-    with open("thickness_result.py","a") as result_handler:
+    with open("thickness_three_angleresult.py","a") as result_handler:
         result_handler.write("result_times=" + str(result_times))
         result_handler.write("\n")
         result_handler.write("result_fitness=" + str(result_fitness))
         result_handler.write("\n")
         result_handler.write("result_strength_ratio=" + str(result_strength_ratio))
         result_handler.write("\n")
-        result_handler.write("result_angle1=" + str(result_angle1))
-        result_handler.write("\n")
-        result_handler.write("result_angle2=" + str(result_angle2))
-        result_handler.write("\n")
+        for i in range(len(result_angle)):
+            result_handler.write("result_angle"+str(i)+"=" + str(result_angle[i]))
+            result_handler.write("\n")
+        for i in range(len(result_angle)):
+            result_handler.write("result_number"+str(i)+"=" + str(result_number[i]))
+            result_handler.write("\n")
 
 if __name__ == "__main__":
     result_times = []
     result_fitness  = []
     result_strength_ratio = []
-    result_angle1 = []
-    result_angle2 = []
+    result_angle = [[],[]]
+    result_number= [[],[]]
     print("###load: "+str(cv.LOAD))
     population = get_initial_population()
     population.sort(key = lambda c: c.fitness)
@@ -79,7 +82,8 @@ if __name__ == "__main__":
     best_individual_pos = tool.get_safety_factor_pos_flag(population)
     current_fitness = population[best_individual_pos].fitness
     save_current_state_to_log(population[best_individual_pos], result_times, \
-                              result_fitness, result_strength_ratio, result_angle1, result_angle2)
+                              result_fitness, result_strength_ratio, result_angle, \
+                              result_number)
 
     print("initial fitness: " + str(current_fitness) + " strength_raito " + \
                 str(population[best_individual_pos].strength_raito))
@@ -98,7 +102,8 @@ if __name__ == "__main__":
         best_individual = tool.get_safety_factor_pos_flag(population)
         current_fitness = population[best_individual].fitness
         save_current_state_to_log(population[best_individual], result_times, \
-                              result_fitness, result_strength_ratio, result_angle1, result_angle2)
+                              result_fitness, result_strength_ratio, result_angle, \
+                              result_number)
 
 
         print("curent fitness: " + str(current_fitness) + " strength_raito " + \
@@ -109,5 +114,5 @@ if __name__ == "__main__":
         print(my_temp_angle)
 
     #save_to_output(result_fitness, result_strength_ratio, population[best_individual])
-    save_ga(result_times, result_fitness, result_strength_ratio, result_angle1, result_angle2)
+    save_ga(result_times, result_fitness, result_strength_ratio, result_angle, result_number)
 
