@@ -55,7 +55,7 @@ def save_current_state_to_log(ind, result_times, result_fitness, result_strength
 
 def save_ga(result_times, result_fitness, result_strength_ratio, result_angle, result_number):
 
-    with open("thickness_three_angleresult.py","a") as result_handler:
+    with open("thickness_three_angle_result.py","a") as result_handler:
         result_handler.write("result_times=" + str(result_times))
         result_handler.write("\n")
         result_handler.write("result_fitness=" + str(result_fitness))
@@ -73,8 +73,8 @@ if __name__ == "__main__":
     result_times = []
     result_fitness  = []
     result_strength_ratio = []
-    result_angle = [[],[]]
-    result_number= [[],[]]
+    result_angle = [[],[],[]]
+    result_number= [[],[],[]]
     print("###load: "+str(cv.LOAD))
     population = get_initial_population()
     population.sort(key = lambda c: c.fitness)
