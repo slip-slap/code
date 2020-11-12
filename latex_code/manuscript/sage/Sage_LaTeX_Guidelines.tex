@@ -496,7 +496,7 @@ caron/epoxy, and glass/epoxy and are represented by the codes 0, 1 and 2, respec
 \end{tablenotes}
 
 
-The laminate chromosomes are represented by double-gene string
+The laminate chromosome is  represented by a double-gene string
 which can be divided into two parts, one part represents the angles, the other
 part represents the materials(as shown in Figure \ref{GA:operator}($P_1$)) . To maintain
 the diversity of the population, single-point crossover is taken during the
@@ -702,13 +702,14 @@ in Figure \ref{GA:operator}
 
 The GA is a stochastic procedure which heavily depends on the generator of pseudo random numbers. In
 the present study, the standard Wichmann-Hill generator is used in the algorithm, which combines
-three pure multiplicative congruential generators of modulus 30269, 30307 and 30323. 
+three pure multiplicative congruential generators of modulus 30269, 30307 and 30323.  The seed used
+in this paper is 1.
 
 
 \subsection{4.2 Design Problem I}
 
-The aim is to minimize the mass of a composite laminate for a targeted strength
-ratio by Tsai-wu failure theory. The design variable are the ply angles and the
+The aim is to minimize the mass of a laminate composite for a targeted strength
+ratio by Tsai-wu failure theory. The design variable are the ply angles, and the
 number of layers.
 
 Find: $\{\theta_k, n\}$ $\theta_k \in \{ 0,\text{+}45,\text{-}45,90\}$ 
@@ -719,7 +720,7 @@ Subject to: strength ratio and first ply failure constraint
 
 
 \subsection{4.3 Design Problem II}
-The aim is to mimimize the combined cost and weight of hybrid composite
+The aim is to mimimize the weighted cost and weight of hybrid composite
 laminate under various loading cases, so the design variable not only include
 the ply angles and number of layers, but also the material of each lamina. 
 
@@ -740,11 +741,11 @@ weight corresponding to the laminates with minimum cost and minimum weight
 obtained from previous problem.
 
 \section{5. Numberical Results and Discussion}
-A composite laminate with dimensions $1000 \times 1000 \times 0.165 mm^3$ of
+A laminate composite with dimensions $1000 \times 1000 \times 0.165 mm^3$ of
 each lamina is under various loading cases, and each CA, GF, and GL layer is
 assumed to cost 8, 2.5 and 1 monetary units, respectively.  The other used
 material properties are as shown in Table \ref{tab:mat}.  In the present
-experiment,  the optimum composite system, layup, thickness, and number of
+experiment,  the optimal composite system, layup, thickness, and number of
 layers for a targeted strength ratio(2 in this paper) under two different
 in-plane loading is investigated.
 
@@ -882,7 +883,7 @@ were keep to be greater then the threshold. It means the improved GA was able to
 and obtained a much better system layup.  The improved GA offered more powerful local search
 ability. In the third experiment, as shown in Figure \ref{fig:NxNyNz}, both of basic GA and improved
 GA obtained the same result, but the improved GA converged more slowly than the basic GA. From these
-three experiment for single material, we knew a $[\text{+}45_{6}^{cr}]_s$ carbon/epoxy laminate has
+three experiments for single material, we knew a $[\text{+}45_{6}^{cr}]_s$ carbon/epoxy laminate has
 the least mass, and a $[\text{+}45_{11}^{gl}/\bar{\text{+}45}^{gl}]_s$ glass laminate has the least
 cost. In the last experiment, the improved GA obtained a little bit better result than the basic GA,
 as it shown in Table \ref{tab:NxNyNz}, Compared with the $[\text{+}45_{12}^{cr}]$ laminate, the

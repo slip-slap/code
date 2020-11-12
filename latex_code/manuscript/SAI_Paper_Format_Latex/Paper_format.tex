@@ -578,16 +578,55 @@ $C_a$, $[0,C_a \sum_{i=1}^{N}{CT_i}]$
 % Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
 % option should be used if it is desired that the figures are to be
 % displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation Results}
-%\label{fig_sim}
-%\end{figure}
+
+
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png}
+\caption{Two distinct fiber angles}
+\label{fig:two_angle_fitness_and_sr}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{2020-11-10-pre-image/two_distinct_angle_angle_change.png}
+\caption{Simulation Results}
+\label{fig:two_angles_angle}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{2020-11-10-pre-image/two_distinct_angle_angle_change.png}
+\caption{Simulation Results}
+\label{fig:two_angles_number_of_angle}
+\end{figure}
+
+Figure \ref{fig:two_angle_fitness_and_sr} shows how the optimal individual's fitness and strength
+ratio vary during the GA process, Figure \ref{fig:two_angles_angle} shows how the two distinct fiber
+orientation changes at the same time, and Figure \ref{fig:two_angles_number_of_angle}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png}
+\caption{Three distinct angles}
+\label{fig:three_angle_fitness_sr}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{2020-11-10-pre-image/three_distinct_angles_angle_change.png}
+\caption{Results}
+\label{fig:three_angle_angle}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{2020-11-10-pre-image/three_distinct_angle_number_of_angle.png}
+\caption{Simulation Results}
+\label{fig:three_angle_number_of_angle}
+\end{figure}
 
 % Note that IEEE typically puts floats only at the top, even when this
 % results in a large percentage of a column being occupied by floats.
@@ -621,24 +660,33 @@ $C_a$, $[0,C_a \sum_{i=1}^{N}{CT_i}]$
 % \footnotesize as IEEE normally uses this smaller font for tables.
 % The \label must come after \caption as always.
 %
-%\begin{table}[!t]
+
+\begin{table}[!t]
 %% increase table row spacing, adjust to taste
 %\renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
+\caption{An Example of a Table}
+\label{T300/5308 material properties}
+\centering
 %% Some packages, such as MDW tools, offer better commands for making tables
 %% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
+\begin{tabular}{|c||c||c||c|}
+	Property								   & Symbol				  & Unit  &  Graphite/Epoxy     \\
+\hline
+	Longitudinal elastic modulus			   & $E_1$				  & GPa   &  181                 \\
+	Traverse elastic modulus				   & $E_2$				  & GPa   &  10.3                \\
+	Major Poisson's ratio					   & $v_{12}$			  &       &  0.28                \\
+	Shear modulus							   & $G_{12}$			  & GPa   &  7.17                \\
+	Ultimate longitudinal tensile strength     & $(\sigma_1^T)_{ult}$ & MP    &  1500                 \\
+	Ultimate longitudinal compressive strength & $(\sigma_1^C)_{ult}$ & MP    &  1500                 \\
+	Ultimate transverse tensile strength       & $(\sigma_2^T)_{ult}$ & MPa   &  40                   \\
+	Ultimate transverse compressive strength   & $(\sigma_2^C)_{ult}$ & MPa   &  246                   \\
+	Ultimate in-plane shear strength           & $(\tau_{12})_{ult}$  & MPa   &  68                    \\
+	Density                                    & $\rho$               & $g/cm^3$ &  1.590                    \\
+\hline
+\end{tabular}
+\end{table}
 
 
 % Note that IEEE does not put floats in the very first column - or typically
