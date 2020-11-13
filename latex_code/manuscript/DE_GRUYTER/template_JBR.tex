@@ -52,7 +52,7 @@ Composite materials offer improved strength, stiffness, fatigue, corrosion resis
 conventional materials, and are widely used as materials for applications ranging from the automotive to shipbuilding
 industry, electronic packaging to golf clubs, and medical equipment to homebuilding. However, the high
 cost of fabrication of composites is a critical drawback to its application. For example, the
-graphite/epoxy composite part may cost as much as $650 to $900 per kilogram. In contrast, the price
+graphite/epoxy composite part may cost as much as $650$ to $900$ per kilogram. In contrast, the price
 of glass/epoxy is about 2.5 times less. Manufacturing techniques such as sheet molding compounds and
 structural reinforcement injection molding is used to lower the  costs for manufacturing automobile parts.
 An alternative approach is using hybrid composite materials.
@@ -83,7 +83,7 @@ can be divided into four classes: proportionate reproduction, ranking, tournamen
 genitor(or ''steady state'') selection. In the optimization of laminate composite design, the roulette
 wheel\cite{riche1993optimization,seresta2007optimal}, where the possibility of an individual to be
 chosen for the next generation is proportional to the fitness.
-Soremekun\cite{soremekun2001composite} showed that the generalized elitist strategy outperformed a
+Soremekun et al.\cite{soremekun2001composite} showed that the generalized elitist strategy outperformed a
 single individual elitism in some special cases.
 
 Data structure, repair strategies and penalty functions\cite{le1995improved} are the most commonly used
@@ -92,9 +92,9 @@ laminates are widely used in practical scenarios, and data structures can be use
 constraints, which consists of coding half of the laminate and considering the rest with the
 opposite orientation. Todoroki\cite{todoroki1998stacking} introduced a repair strategy that can scan the chromosome and
 repair the gene on the chromosome if it does not satisfy the contiguity constraint. The comparison of
-repair strategies in a permutation GA with the same orientation was presented by Liu\cite{liu2000permutation}, and it
+repair strategies in a permutation GA with the same orientation was presented by Liu et al.\cite{liu2000permutation}, and it
 showed that the Baldwinian repair strategy can substantially reduce the cost of constrained optimization.
-Haftka\cite{riche1993optimization} used the GA to solve the laminate stacking sequence problem using a penalty function subject to
+Haftka and Todoroki\cite{riche1993optimization} used the GA to solve the laminate stacking sequence problem using a penalty function subject to
 buckling and strength constraints.
 
 In typical engineering applications, composite materials are under very complicated loading
@@ -104,7 +104,7 @@ thickness\cite{abu1998optimum,walker2003technique},
 weight\cite{fang1993design,deka2005multiobjective,park2008improved}, and cost and
 weight\cite{deka2005multiobjective,omkar2008artificial}, or maximized the static strength of
 the composite laminates for a targeted
-thickness\cite{walker2003technique,lin2004stacking,kim2007development}. %Editor: Please ensure that the intended meaning has been maintained in this edit.
+thickness\cite{walker2003technique,lin2004stacking,kim2007development,gholami2020multi}. 
 In the present study,
 the cost and weight of laminates are minimized by modifying the objective function.
 
@@ -118,7 +118,7 @@ theory\cite{massard1984computer,reddy1987first,fang1993design,soeiro1994multilev
 Tsai-Hill\cite{martin1987optimum,soares1995discrete}, the maximum stress\cite{watkins1987multicriteria}, or the maximum strain\cite{watkins1987multicriteria}
 static failure criteria. Akbulut\cite{akbulut2008optimum} used the GA to minimize the thickness of composite laminates with
 Tsai-Hill and maximum stress failure criteria, and the advantage of this method is it avoid spurious
-optima. Naik\cite{naik2008design}
+optima. Naik et al.\cite{naik2008design}
 minimized the weight of laminated composites under restrictions with a
 failure mechanism-based criterion based on the maximum strain and Tsai-wu. In the present study, Tsai-wu
 Static failure criteria are used to investigate the feasibility of a laminate composite.
@@ -176,8 +176,27 @@ Stress strain relation in the global x-y axis:
 \begin{equation}\left[\begin{array}{l}\sigma _{x} \\ \sigma _{y} \\ \tau_{xy}\end{array}\right]=\left[\begin{array}{lll}\bar{Q}_{11} & \bar{Q}_{12} & \bar{Q}_{16}\\ \bar{Q}_{12} & \bar{Q}_{22} & \bar{Q}_{26} \\ \bar{Q}_{16} & \bar{Q}_{26} &\bar{Q}_{66}\end{array}\right]\left[\begin{array}{l}\varepsilon_{x} \\ \varepsilon_{y}\\ \gamma_{x y}\end{array}\right]
 \end{equation}
 where
-\begin{equation}\begin{array}{l}\bar{Q}_{11}=Q_{11} c^{4}+Q_{22} s^{4}+2\left(Q_{12}+2 Q_{66}\right) s^{2} c^{2}\\ \bar{Q}_{12}=\left(Q_{11}+Q_{22}-4 Q_{66}\right) s^{2} c^{2}+Q_{12}\left(c^{4}+s^{2}\right)\\ \bar{Q}_{22}=Q_{11} s^{4}+Q_{22} c^{4}+2\left(Q_{12}+2 Q_{66}\right) s^{2} c^{2} \\\bar{Q}_{16}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c^{3} s-\left(Q_{22}-Q_{12}-2Q_{66}\right) s^{3} c \\ \bar{Q}_{26}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c s^{3}-\left(Q_{22}-Q_{12}-2 Q_{66}\right)c^{3} s \\ \bar{Q}_{66}=\left(Q_{11}+Q_{22}-2 Q_{12}-2 Q_{66}\right) s^{2}c^{2}+Q_{66}\left(s^{4}+c^{4}\right)\\\end{array}
+
+\begin{equation}
+	\begin{array}{l}
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{11}=Q_{11} c^{4}+Q_{22} s^{4}+2\left(Q_{12}+2
+		Q_{66}\right) s^{2} c^{2}$} \\
+
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{12}=\left(Q_{11}+Q_{22}-4 Q_{66}\right) s^{2}
+		c^{2}+Q_{12}\left(c^{4}+s^{2}\right)$} \\
+
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{22}=Q_{11} s^{4}+Q_{22} c^{4}+2\left(Q_{12}+2
+		Q_{66}\right) s^{2} c^{2}$} \\
+
+		\resizebox{.4\textwidth}{!}{$\bar{Q}_{16}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c^{3} s-\left(Q_{22}-Q_{12}-2Q_{66}\right) s^{3} c$}
+		 \\ 
+		\resizebox{.4\textwidth}{!}{$\bar{Q}_{26}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c s^{3}-\left(Q_{22}-Q_{12}-2 Q_{66}\right)c^{3} s$}
+		 \\ 
+	\resizebox{.4\textwidth}{!}	{$\bar{Q}_{66}=\left(Q_{11}+Q_{22}-2 Q_{12}-2 Q_{66}\right)
+	s^{2}c^{2}+Q_{66}\left(s^{4}+c^{4}\right)$}\\
+	\end{array}
 \end{equation}
+
 
 The c and s denotes $cos\theta $ and $sin\theta $.
 
@@ -194,15 +213,15 @@ where
 
 
 \subsection{Stress and Strain in a Laminate}
-
 \begin{equation} \label{eq:force_and_moments}
 	\begin{array}{l}
+		\begin{aligned}
 	\begin{bmatrix}
 		N_x \\
 		N_y \\
 		N_{xy}
 	\end{bmatrix}
-	=
+	&=
 	\begin{bmatrix}
 		A_{11} & A_{12} & A_{16} \\
 		A_{12} & A_{22} & A_{26} \\
@@ -212,8 +231,8 @@ where
 		\varepsilon_x^0 \\
         \varepsilon_y^0 \\
 		\gamma_{xy}^0
-    \end{bmatrix}  
-	+               \\
+    \end{bmatrix}   \\
+	&+               
 	\begin{bmatrix}
 		B_{11} & B_{12} & B_{16} \\
 		B_{11} & B_{12} & B_{16} \\
@@ -224,14 +243,14 @@ where
 		k_y \\
 		k_{xy} 
 	\end{bmatrix}  \\
-	\\
-
+\end{aligned} \\ \\
+\begin{aligned}
 	\begin{bmatrix}
 		M_x \\
 		M_y \\
 		M_{xy}
 	\end{bmatrix}
-	=
+	&=
 	\begin{bmatrix}
 		B_{11} & B_{12} & B_{16} \\
 		B_{12} & B_{22} & B_{26} \\
@@ -241,8 +260,8 @@ where
 		\varepsilon_x^0 \\
         \varepsilon_y^0 \\
 		\gamma_{xy}^0
-    \end{bmatrix} 
-	+  \\
+    \end{bmatrix} \\ 
+	&+  
 	\begin{bmatrix}
 		D_{11} & D_{12} & D_{16} \\
 		D_{11} & D_{12} & D_{16} \\
@@ -253,8 +272,10 @@ where
 		k_y \\
 		k_{xy} 
 	\end{bmatrix}
+\end{aligned}
 	\end{array}
 \end{equation}
+
 
 $N_x,N_y $  - normal force per unit length
 
@@ -313,10 +334,10 @@ is violated, where
 
 \subsection{Failure Theories of a Laminate}
 A laminate will fail under increasing mechanical loading; however, the procedure of laminate failure may not
-be catastrophic.%Editor: Please ensure that the intended meaning has been maintained in this edit.
+be catastrophic.
  In some cases, some layers fail first, and the rest are able to continue to take additional loading
  until all the plies fail. A ply is fully discounted when a ply fails; then, the ply is replaced
-by a near zero stiffness and strength. %Editor: Please ensure that the intended meaning has been maintained in this edit.
+by a near zero stiffness and strength. 
 The procedure for finding the first ply failure in the present
 study follows the fully discounted method:
 
@@ -542,7 +563,7 @@ strength ratio curves remain greater than the specified threshold.
 
 In the first experiment, the applied stress is $N_x=N_y=1e6$ N. As shown in
 Figure \ref{fig:NxNy}, Figures \ref{fig:NxNy}(a), (b), and (c) show the experimental results for a single material,
-Figure \ref{fig:NxNy}(d) shows the results for the hybrid composite material.%Editor: Please ensure that the intended meaning has been maintained in this edit.
+Figure \ref{fig:NxNy}(d) shows the results for the hybrid composite material.
  For the single materials, both the basic GA and improved
 GA method obtained the optimal value, but the improved GA converged more slowly than the basic GA.
 As seen from Table \ref{tab:NxNy}, a $[\text{-}45_{6}/\text{+}45_{6}]_s$ carbon/epoxy
@@ -552,7 +573,7 @@ denoted by $C_{min}$. $W_{min}$ and $C_{min}$ were used to evaluate the fitness 
 problem, which is the layup design of the hybrid composite material. As shown in subfigure d, the
 improved GA obtained a more appropriate system layup, whose strength ratio was greater than the
 specified safety factor, and the weight and cost are less than the result obtained by the basic GA method, as
-shown in Table \ref{tab:NxNy}.%Editor: Please ensure that the intended meaning has been maintained in this edit.
+shown in Table \ref{tab:NxNy}.
  Compared with the basic GA, the improved GA method showed more powerful
 global search ability in the initial phase.
 
@@ -590,7 +611,7 @@ better system layup than the result obtained by the basic GA. In the second expe
 the initial phase, the fitness curves of the basic GA and improved GA went all the way up to the
 previous specified threshold; however, the improved GA converged more slowly than the basic GA, which
 means that the search cost of the improved GA was greater than that of the basic GA. After the initial phase, the fitness
-curve of the basic GA did not change anymore, it got trapped in the local domain.%Editor: Please ensure that the intended meaning has been maintained in this edit.
+curve of the basic GA did not change anymore, it got trapped in the local domain.
  However, the fitness curve of the
 improved GA gradually decreased; at the same time, the strength ratio curve of the improved GA
 was maintained to be greater than the threshold. This means the improved GA was able to get out of the optimum
