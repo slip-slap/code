@@ -1,9 +1,262 @@
 \documentclass{article}
 \usepackage{amsmath, booktabs,comment, graphicx, subcaption}
+\usepackage[utf8]{inputenc}
 
 \begin{document}
 
-\title{self-adaptative genetic algorithm for minimum thickness composite laminate design}
+\title{self-adaptative genetic algorithm for minimum thickness laminated composite design}
+In this study, an self-adaptative genetic algorithm(SAGA) is proposed to minimize thickness(or weight) of
+laminated composite subject to in-plane loading. Fiber orientation angles and ply thickness are
+chosen as design variables. By imposing safety factor as the constraint, SAGA is used to search the optimal design of a laminated composite under
+virous loading cases. To check the feasibility of a laminated lay-up, Tsai-wu failure criterion is
+taken to calculate the safety factor.
+
+
+
+\section{Introduction}
+Composite materials offer improved strength, stiffness, corrosion resistance, etc. over conventional
+materials, and are widely used as alternative materials for applications in various industries
+ranging from electronic packaging to golf clubs, and medical equipment to homebuilding, making
+aircraft structure to space vechicles. One widely known advange of using composite material is can
+significantly reducing the weight of target structure.  
+
+
+thickness\cite { schmit1973optimum, schmit1977optimum, fukunaga1991strength, soares1995discrete,
+	le1995improved, jayatheertha1996application, wang1996optimum, adali1997minimum,
+	correia1997higher, scares1997optimization, abu1998optimum, lombardi1998anti, le1998design,
+	sivakumar1998optimum, barakat1999use, richard2000reliability, moita2000sensitivity,
+soremekun2001composite, walker2003technique, di2003multiconstrained, kere2003using}
+
+In practice, fiber orientations are restricted to a finite set of angles, and layer thickness is
+a specific numberic value. 
+
+\section{Analysis of }
+
+\subsection{Stress and Strain in a Lamina}
+For a single lamina has a small thickness under plane stress, and it's upper and lower surfaces of the lamina are
+free from external loads. According to the Hooke's Law, the three-dimensional stress-strain equations can be reduced to
+two-dimensional stress-strain equations. The stress-strain relation in local axis 1-2 is:
+\begin{equation}
+    \begin{bmatrix}
+        \sigma _1\\
+        \sigma _2\\
+        \tau_{12}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        Q_{11} & Q_{12} & 0\\
+        Q_{12} & Q_{22} & 0\\
+        0      &  0     & Q_{66}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \varepsilon_1\\
+        \varepsilon_2\\\gamma_{12}
+    \end{bmatrix}
+\end{equation}
+where $Q_{ij} $are the stiffnesses of the lamina that are related
+
+to engineering elastic constants given by
+\begin{equation}
+    \begin{split}
+    &Q_{11}=\frac{E_1}{1-v_{12}v_{21}}\\
+    &Q_{22}=\frac{E_2}{1-v_{12}v_{21}}\\
+    &Q_{66}=G_{12}\\
+    &Q_{12}=\frac{v_{21}E_2}{1-v_{12}v_{21}}\\
+    \end{split}
+\end{equation}
+
+where $E_1, E_2, v_{12}, G_{12} $ are four independent engineering elastic constants, which are defined as follows: $E_1 $ is the longitudinal Young's modulus, $E_2 $ is the transverse Young's modulus, $v_{12} $ is the major Poisson's ratio, and $G_{12} $ is the in-plane shear modulus.
+
+Stress strain relation in the global x-y axis:
+\begin{equation}\left[\begin{array}{l}\sigma _{x} \\ \sigma _{y} \\ \tau_{xy}\end{array}\right]=\left[\begin{array}{lll}\bar{Q}_{11} & \bar{Q}_{12} & \bar{Q}_{16}\\ \bar{Q}_{12} & \bar{Q}_{22} & \bar{Q}_{26} \\ \bar{Q}_{16} & \bar{Q}_{26} &\bar{Q}_{66}\end{array}\right]\left[\begin{array}{l}\varepsilon_{x} \\ \varepsilon_{y}\\ \gamma_{x y}\end{array}\right]
+\end{equation}
+where
+
+\begin{equation}
+	\begin{array}{l}
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{11}=Q_{11} c^{4}+Q_{22} s^{4}+2\left(Q_{12}+2
+		Q_{66}\right) s^{2} c^{2}$} \\
+
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{12}=\left(Q_{11}+Q_{22}-4 Q_{66}\right) s^{2}
+		c^{2}+Q_{12}\left(c^{4}+s^{2}\right)$} \\
+
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{22}=Q_{11} s^{4}+Q_{22} c^{4}+2\left(Q_{12}+2
+		Q_{66}\right) s^{2} c^{2}$} \\
+
+		\resizebox{.4\textwidth}{!}{$\bar{Q}_{16}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c^{3} s-\left(Q_{22}-Q_{12}-2Q_{66}\right) s^{3} c$}
+		 \\ 
+		\resizebox{.4\textwidth}{!}{$\bar{Q}_{26}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c s^{3}-\left(Q_{22}-Q_{12}-2 Q_{66}\right)c^{3} s$}
+		 \\ 
+	\resizebox{.4\textwidth}{!}	{$\bar{Q}_{66}=\left(Q_{11}+Q_{22}-2 Q_{12}-2 Q_{66}\right)
+	s^{2}c^{2}+Q_{66}\left(s^{4}+c^{4}\right)$}\\
+	\end{array}
+\end{equation}
+
+
+The c and s denotes $cos\theta $ and $sin\theta $.
+
+The local and global stresses in an angle lamina are related
+
+to each other through the angle of the lamina $\theta $
+\begin{equation}\left[\begin{array}{l}\sigma _{1} \\ \sigma _{2} \\ \tau_{12}\end{array}\right]=[T]\left[\begin{array}{l}\sigma _{x} \\ \sigma _{y} \\\tau_{xy}\end{array}\right]
+\end{equation}
+
+where
+\begin{equation}[T]=\left[\begin{array}{ccc}c^{2} & s^{2} & 2 s c \\ s^{2} & c^{2} & -2 s c \\ -s c & s c &c^{2}-s^{2}\end{array}\right] 
+\end{equation}
+
+
+
+\subsection{Stress and Strain in a Laminate}
+\begin{equation} \label{eq:force_and_moments}
+	\begin{array}{l}
+		\begin{aligned}
+	\begin{bmatrix}
+		N_x \\
+		N_y \\
+		N_{xy}
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+		A_{11} & A_{12} & A_{16} \\
+		A_{12} & A_{22} & A_{26} \\
+		A_{16} & A_{26} & A_{66} 
+	\end{bmatrix}
+    \begin{bmatrix}
+		\varepsilon_x^0 \\
+        \varepsilon_y^0 \\
+		\gamma_{xy}^0
+    \end{bmatrix}   \\
+	&+               
+	\begin{bmatrix}
+		B_{11} & B_{12} & B_{16} \\
+		B_{11} & B_{12} & B_{16} \\
+		B_{16} & B_{26} & B_{66} 
+	\end{bmatrix}
+	\begin{bmatrix}
+		k_x \\
+		k_y \\
+		k_{xy} 
+	\end{bmatrix}  \\
+\end{aligned} \\ \\
+\begin{aligned}
+	\begin{bmatrix}
+		M_x \\
+		M_y \\
+		M_{xy}
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+		B_{11} & B_{12} & B_{16} \\
+		B_{12} & B_{22} & B_{26} \\
+		B_{16} & B_{26} & B_{66} 
+	\end{bmatrix}
+    \begin{bmatrix}
+		\varepsilon_x^0 \\
+        \varepsilon_y^0 \\
+		\gamma_{xy}^0
+    \end{bmatrix} \\ 
+	&+  
+	\begin{bmatrix}
+		D_{11} & D_{12} & D_{16} \\
+		D_{11} & D_{12} & D_{16} \\
+		D_{16} & D_{26} & D_{66} 
+	\end{bmatrix}
+	\begin{bmatrix}
+		k_x \\
+		k_y \\
+		k_{xy} 
+	\end{bmatrix}
+\end{aligned}
+	\end{array}
+\end{equation}
+
+
+$N_x,N_y $  - normal force per unit length
+
+$N_{xy} $  - shear force per unit length
+
+$M_x, M_y $ - bending moment per unit length
+
+$M_{xy} $  - twisting moments per unit length
+
+$\varepsilon^{0}, k $- mid plane strains and curvature of a laminate in x-y coordinates
+
+The mid plane strain and curvature is given by
+\begin{equation}
+    \begin{split}
+    &A_{ij}=\sum_{k=1}^{n}(\overline{Q_{ij}})_k(h_k-h_{k-1})  i=1,2,6, j=1,2,6\\
+    &B_{ij}=\frac{1}{2}\sum_{k=1}^{n}(\overline{Q_{ij}})_k(h_k^2 - h_{k-1}^2)  i=1,2,6, j=1,2,6\\
+    &D_{ij}=\frac{1}{3}\sum_{k=1}^{n}(\overline{Q_{ij}})_k(h_k^3 - h_{k-1}^3) i=1,2,6, j=1,2,6\\
+    \end{split}
+\end{equation}
+
+The [A], [B], and [D] matrices are called the extensional, coupling, and bending stiffness matrices,
+respectively. The extensional stiffness matrix $[A]$ relates the resultant in-plane forces to the
+in-plain strains, and the bending stiffness matrix $[D]$ couples the resultant bending moments to
+the plane curvatures.  The coupling stiffness matrix $[B]$ relates the force and moment terms to the
+midplain strains and midplane curvatures.
+
+
+\section{Failure Theory for a lamina}
+Many different theories about the failure of an angle lamina have been developed for a
+unidirectional lamina, such as the maximum stress failure theory, maximum strain failure theory,
+Tsai-Hill failure theory, and Tsai-Wu failure theory. The failure theories of a lamina are based on
+the stresses in the local axes in the material. There are four normal strength parameters and one shear
+stress for a unidirectional lamina. The five strength parameters are:
+
+$(\sigma _1^{T})_{ult}= $ ultimate longitudinal tensile strength
+
+$(\sigma _1^{C})_{ult}= $ ultimate longitudinal compressive strength
+
+$(\sigma _2^{T})_{ult}= $ ultimate transverse tensile strength
+
+$(\sigma _2^{C})_{ult}= $ ultimate transverse compressive strength 
+
+$(\tau_{12})_{ult}= $ and ultimate in-plane shear strength
+
+In the present study, Tsai-wu failure theory is taken to decide whether a lamina fails,
+because this theory is more general than the Tsai-Hill failure theory, which considers two
+different situations, the compression and tensile strengths of a lamina. A lamina is considered to fail
+if \begin{equation} \label{eq:tsai_wu}
+\begin{split}
+	H_1 \sigma_1  & + H_2 \sigma_2 + H_6 \tau_{12} + H_{11}\sigma_1^2 + H_{22} \sigma_2^2 \\
+				  & + H_{66}  \tau_{12}^2 + 2H_{12}\sigma_1\sigma_2 < 1
+\end{split}
+\end{equation}
+
+is violated, where
+
+\begin{equation} \label{eq:sr}S R=\frac{\text {Maximum Load Which Can Be Applied}}{\text {Load Applied}}
+\end{equation}
+
+
+\subsection{Failure Theories for a Laminate}
+If keep increasing the loading applied to a laminate, the laminate will fails. The failure process
+of a laminate is more complicate than a lamina, because a laminate consists of multiple plies, and
+the fiber orientation, material, thickness of each ply maybe different from the others. In most
+situations, some layer fails first and the remains continue to take more loads until all the plies
+fail.  If one ply fails, it means this lamina does not contribute to the load carrying capacity of
+the laminate. The procedure for finding the first failure ply given follows the fully discounted
+method:
+
+\begin{enumerate}
+\item Compute the reduced stiffness matrix [Q] referred to as the local axis for each ply using its four engineering elastic constants $E_1 $, $E_2 $, $E_{12} $, and $G_{12} $.
+
+\item Calculate the transformed reduced stiffness $[\bar{Q}] $ referring to the global coordinate system (x, y) using the reduced stiffness matrix [Q] obtained in step 1 and the ply angle for each layer.
+
+\item  Given the thickness and location of each layer, the three laminate stiffness matrices [A], [B], and [D] are determined.
+
+\item  Apply the forces and moments, $[N]_{xy}, [M]_{xy} $ solve
+Equation \ref{eq:force_and_moments}, and calculate the middle plane strain $[\sigma ^{0}]_{xy} $ and curvature $[k]_{xy} $.
+
+\item Determine the local strain and stress of each layer under the applied load.
+
+\item  Use the ply-by-ply stresses and strains in the Tsai-wu failure theory to find the strength
+	ratio, and the layer with smallest strenght ratio is the first failed ply. 
+\end{enumerate}
+
+
 
 
 \section{Methodology}
@@ -77,17 +330,17 @@ angle mutation $C_a$, respectively, chosen here is 20 and 10.
 
 \begin{figure}[!t]
 	\centering
-		\begin{subfigure}[b]{1in}
-			\includegraphics[width=1in]{2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png}
+		\begin{subfigure}[b]{0.8\linewidth}
+			\includegraphics[width=\linewidth]{2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png}
 		\end{subfigure}
 
-		\begin{subfigure}[b]{1in}
-			\includegraphics[width=1in]{2020-11-10-pre-image/two_distinct_angle_angle_change.png}
+		\begin{subfigure}[b]{0.8\linewidth}
+			\includegraphics[width=\linewidth]{2020-11-10-pre-image/two_distinct_angle_angle_change.png}
 		\end{subfigure}
 
-		%\begin{subfigure}[b]{0.8\linewidth}
-		%	\includegraphics[width=\linewidth]{2020-11-10-pre-image/two_distinct_angle_angle_change.png}
-		%\end{subfigure}
+		\begin{subfigure}[b]{0.8\linewidth}
+			\includegraphics[width=\linewidth]{2020-11-10-pre-image/two_distinct_angler_number_change.png}
+		\end{subfigure}
 	\caption{Two distinct angles}
 	\label{fig:two_angles}
 \end{figure}
@@ -118,7 +371,7 @@ dramaticly change the optimal individual's fitness. That's why the fitness curve
 violently in this stage.  At the same time, the strength ratio curve kept growing smoothly. But the
 growing speed got more smaller.
 
-When GA comes to its last phase, GA found individuals that meet the constraint. The optimal
+When GA comes to its last phase, GA found individuals that meet the constraint. Now the optimal
 individual's fitness is greater than the safety factor. The range of mutation length is from 
 $C_l(CT_0 - CV_0)$ to 0. It means individuals need to decrease it's length and improve its internal
 structure to meet the constraint. That's why the fitness of optimal individual kept decreaing,
@@ -227,23 +480,22 @@ however, the strength ratio curve still is greater then safety factor.
 \end{table*}
 
 
-\begin{comment}
 \section{Conclusion}
-The conclusion goes here.
+In this paper, SAGA is proposed to search the optimal lay-up for laminated composite under different
+loading. Two situations are considered under the same loading, a set of two distinct angles, and
+three distinct angles, SAGA can adjust its convergence speed depending on the difference of
+individual's constraint value and constraint threshold.  
 
 
+\begin{comment}
 
 % use section* for acknowledgement
 \section*{Acknowledgment}
 The authors would like to thank...
 \end{comment}
 
-
-
-
-
-
-% that's all folks
+\bibliographystyle{unsrt}
+\bibliography{reference}
 \end{document}
 
 

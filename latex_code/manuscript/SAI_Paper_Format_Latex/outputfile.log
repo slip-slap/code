@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.5.18)  18 NOV 2020 17:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.5.18)  18 NOV 2020 16:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Paper_format.tex
-(./Paper_format.tex
+**outputfile.tex
+(./outputfile.tex
 LaTeX2e <2018-12-01>
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
@@ -135,29 +135,25 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 )
 \c@subfigure=\count106
 \c@subtable=\count107
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks20
-\inpenc@posthook=\toks21
-) (./Paper_format.aux
+) (./outputfile.aux
 
 LaTeX Warning: Label `T300/5308 material properties' multiply defined.
 
 )
-\openout1 = `Paper_format.aux'.
+\openout1 = `outputfile.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
  (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count108
@@ -165,12 +161,12 @@ LaTeX Font Info:    ... okay on input line 5.
 \scratchbox=\box29
 \nofMPsegments=\count109
 \nofMParguments=\count110
-\everyMPshowfont=\toks22
+\everyMPshowfont=\toks20
 \MPscratchCnt=\count111
 \MPscratchDim=\dimen135
 \MPnumerator=\count112
 \makeMPintoPDFobject=\count113
-\everyMPtoPDFconversion=\toks23
+\everyMPtoPDFconversion=\toks21
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
@@ -220,58 +216,58 @@ Package caption Info: End \AtBeginDocument code.
 <2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png, id=26, 462.528pt x 346.896pt>
 File: 2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png Graphic file (type png)
 <use 2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png>
-Package pdftex.def Info: 2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png  used on input line 334.
+Package pdftex.def Info: 2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png  used on input line 326.
 (pdftex.def)             Requested size: 276.00105pt x 207.01175pt.
 <2020-11-10-pre-image/two_distinct_angle_angle_change.png, id=28, 462.528pt x 346.896pt>
 File: 2020-11-10-pre-image/two_distinct_angle_angle_change.png Graphic file (type png)
 <use 2020-11-10-pre-image/two_distinct_angle_angle_change.png>
-Package pdftex.def Info: 2020-11-10-pre-image/two_distinct_angle_angle_change.png  used on input line 338.
+Package pdftex.def Info: 2020-11-10-pre-image/two_distinct_angle_angle_change.png  used on input line 330.
 (pdftex.def)             Requested size: 276.00105pt x 207.01175pt.
 <2020-11-10-pre-image/two_distinct_angler_number_change.png, id=29, 462.528pt x 346.896pt>
 File: 2020-11-10-pre-image/two_distinct_angler_number_change.png Graphic file (type png)
 <use 2020-11-10-pre-image/two_distinct_angler_number_change.png>
-Package pdftex.def Info: 2020-11-10-pre-image/two_distinct_angler_number_change.png  used on input line 342.
+Package pdftex.def Info: 2020-11-10-pre-image/two_distinct_angler_number_change.png  used on input line 334.
 (pdftex.def)             Requested size: 276.00105pt x 207.01175pt.
 
 
-LaTeX Warning: Float too large for page by 95.03525pt on input line 346.
+LaTeX Warning: Float too large for page by 95.03525pt on input line 338.
 
 <2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png, id=30, 462.528pt x 346.896pt>
 File: 2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png Graphic file (type png)
 <use 2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png>
-Package pdftex.def Info: 2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png  used on input line 383.
+Package pdftex.def Info: 2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png  used on input line 375.
 (pdftex.def)             Requested size: 276.00105pt x 207.01175pt.
 <2020-11-10-pre-image/three_distinct_angles_angle_change.png, id=31, 462.528pt x 346.896pt>
 File: 2020-11-10-pre-image/three_distinct_angles_angle_change.png Graphic file (type png)
 <use 2020-11-10-pre-image/three_distinct_angles_angle_change.png>
-Package pdftex.def Info: 2020-11-10-pre-image/three_distinct_angles_angle_change.png  used on input line 387.
+Package pdftex.def Info: 2020-11-10-pre-image/three_distinct_angles_angle_change.png  used on input line 379.
 (pdftex.def)             Requested size: 276.00105pt x 207.01175pt.
 <2020-11-10-pre-image/three_distinct_angle_number_of_angle.png, id=32, 462.528pt x 346.896pt>
 File: 2020-11-10-pre-image/three_distinct_angle_number_of_angle.png Graphic file (type png)
 <use 2020-11-10-pre-image/three_distinct_angle_number_of_angle.png>
-Package pdftex.def Info: 2020-11-10-pre-image/three_distinct_angle_number_of_angle.png  used on input line 391.
+Package pdftex.def Info: 2020-11-10-pre-image/three_distinct_angle_number_of_angle.png  used on input line 383.
 (pdftex.def)             Requested size: 276.00105pt x 207.01175pt.
 
-LaTeX Warning: Float too large for page by 95.03525pt on input line 395.
+LaTeX Warning: Float too large for page by 95.03525pt on input line 387.
 
 
-Overfull \hbox (23.9591pt too wide) in paragraph at lines 409--425
+Overfull \hbox (23.9591pt too wide) in paragraph at lines 401--417
  [][] 
  []
 
 
-Overfull \hbox (91.26003pt too wide) in paragraph at lines 446--457
+Overfull \hbox (91.26003pt too wide) in paragraph at lines 438--449
  [][] 
  []
 
 
-Overfull \hbox (91.26003pt too wide) in paragraph at lines 469--480
+Overfull \hbox (91.26003pt too wide) in paragraph at lines 461--472
  [][] 
  []
 
-[6] [7] Excluding 'comment' comment. (./Paper_format.bbl
+Excluding 'comment' comment. (./outputfile.bbl
 
-./Paper_format.bbl:4: Package inputenc Error: Unicode character ꎬ (U+A3AC)
+./outputfile.bbl:4: Package inputenc Error: Unicode character ꎬ (U+A3AC)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
@@ -283,21 +279,21 @@ l.4 L~Aꎬ
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[8]) [9] [10 <./2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png> <./2020-11-10-pre-image/two_distinct_angle_angle_change.png> <./2020-11-10-pre-image/two_distinct_angler_number_change.png>] [11 <./2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png> <./2020-11-10-pre-image/three_distinct_angles_angle_change.png> <./2020-11-10-pre-image/three_distinct_angle_number_of_angle.png>] (./Paper_format.aux)
+[6] [7] [8]) [9] [10 <./2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png> <./2020-11-10-pre-image/two_distinct_angle_angle_change.png> <./2020-11-10-pre-image/two_distinct_angler_number_change.png>] [11 <./2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png> <./2020-11-10-pre-image/three_distinct_angles_angle_change.png> <./2020-11-10-pre-image/three_distinct_angle_number_of_angle.png>] (./outputfile.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3370 strings out of 492616
- 52703 string characters out of 6128982
- 129802 words of memory out of 5000000
- 7252 multiletter control sequences out of 15000+600000
+ 3351 strings out of 492616
+ 52305 string characters out of 6128982
+ 129299 words of memory out of 5000000
+ 7236 multiletter control sequences out of 15000+600000
  5650 words of font info for 21 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,18n,40p,390b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,18n,40p,388b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Paper_format.pdf (11 pages, 303050 bytes).
+Output written on outputfile.pdf (11 pages, 302179 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream

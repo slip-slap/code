@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex Paper_format"] 1605688215 "Paper_format.aux" "Paper_format.bbl" "Paper_format" 1605688215
+["bibtex outputfile"] 1605686222 "outputfile.aux" "outputfile.bbl" "outputfile" 1605686241
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/base/unsrt.bst" 1480098433 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "Paper_format.aux" 1605688212 3871 32618e87485c45d86c67a181e01e8795 ""
+  "outputfile.aux" 1605686220 3775 8790c7174526e7598d0d980e5e752928 ""
   "reference.bib" 1605685914 7085 8ae018457305d768a7c938715988e064 ""
   (generated)
-  "Paper_format.blg"
-  "Paper_format.bbl"
-["pdflatex"] 1605688211 "Paper_format.tex" "Paper_format.pdf" "Paper_format" 1605688215
+  "outputfile.bbl"
+  "outputfile.blg"
+["pdflatex"] 1605686241 "outputfile.tex" "outputfile.pdf" "outputfile" 1605686241
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -36,7 +36,6 @@
   "/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty" 1523134290 4116 32e6abd27229755a83a8b7f18e583890 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty" 1523134290 2432 8ff93b1137020e8f21930562a874ae66 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls" 1544567569 19933 3097d1b31d3c45dc957096f554529032 ""
-  "/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty" 1544567569 5052 b64c57f4a38aae0d2745f8298fa50814 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo" 1544567569 8294 6d6e23d5169c0d89d173f6c7e08a005a ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty" 1480098823 5869 94335281ffcab47f341cf07ea8220e30 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty" 1539032178 68576 86bbc6bd5a409b3c353fccc1a815fa5b ""
@@ -63,10 +62,10 @@
   "2020-11-10-pre-image/two_distinct_angle_angle_change.png" 1604983954 28169 7fb91f11e7a12bdbcd9475a6ec806539 ""
   "2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png" 1604983954 37004 84c7c13db1fed410d3af99d784828a1c ""
   "2020-11-10-pre-image/two_distinct_angler_number_change.png" 1604983954 39190 d248d5ffa0578d3e54f4c5acefb031a4 ""
-  "Paper_format.aux" 1605688212 3871 32618e87485c45d86c67a181e01e8795 ""
-  "Paper_format.bbl" 1605688215 5157 6bac2c656dd402cc9cd57e420f09063e "bibtex Paper_format"
-  "Paper_format.tex" 1605688215 24204 6d03eee66f2410b37ab21aecc51416db ""
+  "outputfile.aux" 1605686220 3775 8790c7174526e7598d0d980e5e752928 ""
+  "outputfile.bbl" 1605686222 5157 6bac2c656dd402cc9cd57e420f09063e "bibtex outputfile"
+  "outputfile.tex" 1605686239 22904 b29cc2f4b4ce1069b263b76d41f92048 ""
   (generated)
-  "Paper_format.pdf"
-  "Paper_format.log"
-  "Paper_format.aux"
+  "outputfile.pdf"
+  "outputfile.log"
+  "outputfile.aux"
