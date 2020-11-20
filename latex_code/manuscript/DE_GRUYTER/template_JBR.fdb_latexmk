@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex template_JBR"] 1605172835 "template_JBR.aux" "template_JBR.bbl" "template_JBR" 1605232402
+["bibtex template_JBR"] 1605840899 "template_JBR.aux" "template_JBR.bbl" "template_JBR" 1605840901
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/base/unsrt.bst" 1480098433 18030 1376b4b231b50c66211e47e42eda2875 ""
   "laminate_design.bib" 1605172787 13252 dd2718ff10e4d6f1b67a8dd0ac07767a ""
-  "template_JBR.aux" 1605232393 8048 e7705b66c7975a9dfb6d899f62dc57e7 ""
+  "template_JBR.aux" 1605840901 8048 e7705b66c7975a9dfb6d899f62dc57e7 ""
   (generated)
   "template_JBR.blg"
   "template_JBR.bbl"
-["makeindex template_JBR.idx"] 1605085947 "template_JBR.idx" "template_JBR.ind" "template_JBR" 1605232402
-  "template_JBR.idx" 1605232391 0 d41d8cd98f00b204e9800998ecf8427e ""
+["makeindex template_JBR.idx"] 1605839089 "template_JBR.idx" "template_JBR.ind" "template_JBR" 1605840901
+  "template_JBR.idx" 1605840900 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "template_JBR.ind"
   "template_JBR.ilg"
-["pdflatex"] 1605232391 "template_JBR.tex" "template_JBR.pdf" "template_JBR" 1605232402
+  "template_JBR.ind"
+["pdflatex"] 1605840899 "template_JBR.tex" "template_JBR.pdf" "template_JBR" 1605840901
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1480098668 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1480098668 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1480098668 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -192,14 +192,16 @@
   "A_laminate_design_images/lamina_local_global_axes.png" 1605086691 133854 1883105abfd54615fa4457cb7ff4985d ""
   "dg-degruyter.pdf" 1506563688 20215 6bf72c8cbf165018effc689c96af8ba0 ""
   "dgruyter_author.sty" 1392194996 62319 fa0d93a6eb54e41f2b339e6d8cf4a03a ""
-  "template_JBR.aux" 1605232393 8048 e7705b66c7975a9dfb6d899f62dc57e7 ""
-  "template_JBR.bbl" 1605172835 7881 fc1a9cc60d7b79fff977495483078ef0 "bibtex template_JBR"
-  "template_JBR.ind" 1605085947 0 d41d8cd98f00b204e9800998ecf8427e "makeindex template_JBR.idx"
-  "template_JBR.out" 1605232393 1089 be143118b9d1e59042c5f23f08121111 ""
-  "template_JBR.tex" 1605232397 35486 f7863a572e9733a53a4974bdf974bca7 ""
+  "template_JBR.aux" 1605840901 8048 e7705b66c7975a9dfb6d899f62dc57e7 ""
+  "template_JBR.bbl" 1605840899 7881 fc1a9cc60d7b79fff977495483078ef0 "bibtex template_JBR"
+  "template_JBR.ind" 1605839089 0 d41d8cd98f00b204e9800998ecf8427e "makeindex template_JBR.idx"
+  "template_JBR.out" 1605840901 1089 be143118b9d1e59042c5f23f08121111 ""
+  "template_JBR.tex" 1605840894 35498 dc8b398e58f26366eea298cd8f2d4d2d ""
   (generated)
-  "template_JBR.idx"
-  "template_JBR.aux"
   "template_JBR.out"
-  "template_JBR.pdf"
   "template_JBR.log"
+  "template_JBR.run.xml"
+  "template_JBR.idx"
+  "template_JBR.bcf"
+  "template_JBR.aux"
+  "template_JBR.pdf"
