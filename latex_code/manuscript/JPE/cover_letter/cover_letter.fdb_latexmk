@@ -1,0 +1,15 @@
+# Fdb version 3
+["pdflatex"] 1605938991 "cover_letter.tex" "cover_letter.pdf" "cover_letter" 1605939041
+  "/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1480098733 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls" 1544567569 19933 3097d1b31d3c45dc957096f554529032 ""
+  "/usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo" 1544567569 8294 6d6e23d5169c0d89d173f6c7e08a005a ""
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1544742277 35176 ce7fee66be1fb01dfc6b702a7dbfa0ea ""
+  "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1589787211 3236106 bef0cf154a3167603a4917a99a2c80c5 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1589792795 4227023 287652bbbca0ab5bc2f398b14c497dd0 ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "cover_letter.aux" 1605938991 8 a94a2480d3289e625eea47cd1b285758 ""
+  "cover_letter.tex" 1605939037 1873 745addec813824ee33472767c35cbed1 ""
+  (generated)
+  "cover_letter.log"
+  "cover_letter.aux"
+  "cover_letter.pdf"

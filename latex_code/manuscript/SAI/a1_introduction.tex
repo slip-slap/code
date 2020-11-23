@@ -1,0 +1,307 @@
+\section{Introduction}
+Composite materials offer improved strength, stiffness, corrosion resistance, etc. over conventional
+materials, and are widely used as alternative materials for applications in various industries
+ranging from electronic packaging to golf clubs, and medical equipment to homebuilding, making
+aircraft structure to space vechicles. One widely known advange of using composite material is can
+significantly reducing the weight of target structure.  
+
+
+thickness\cite { schmit1973optimum, schmit1977optimum, fukunaga1991strength, soares1995discrete,
+	le1995improved, jayatheertha1996application, wang1996optimum, adali1997minimum,
+	correia1997higher, scares1997optimization, abu1998optimum, lombardi1998anti, le1998design,
+	sivakumar1998optimum, barakat1999use, richard2000reliability, moita2000sensitivity,
+soremekun2001composite, walker2003technique, di2003multiconstrained, kere2003using}
+
+
+
+Genetic
+algorithm(GA)\cite{callahan1992optimum,soremekun2001composite,park2001stacking,walker2003technique,deka2005multiobjective,pelletier2006multi,jadhav2007parametric,kim2007development,park2008improved,}
+
+Colony Optimization\cite{aymerich2006ant,}
+
+
+
+In practice, fiber orientations are restricted to a finite set of angles, and ply thickness is a
+specific numberic value.  Because the design variables are not continueous, a gradient based
+optimization procedure, such as gradient descent method, is not suitable to cope with such problems.
+Moreover, gradient based optimization approach is very eazily to get trapped in local minima, and
+many local optimum may exist in structural optimization problems. A stochastic optimization, such as
+genetic algorithm(GA) and simulated annealing(SA), is able to deal with optimization problem with
+discrete variables. Besides, stochastic method could escape from local optimum, and obtain global
+optimum.  GA is one of the most reliably stochastic algorithm, which has been widely used in solving
+constraint desgin for composite laminate. Although GA gains different advantages for solving
+discrete problems, many disadvantages exists within this approach. First, the optimization process
+of GA parameters, such as the population size, parent population,mutation percentage, etc., is very
+tedious; Second, the GA needs to evaluate the objective functions many times to acheive the
+optimization, and the compuation cost is very high; the last problem within GA is the premature
+convergence. GA consists of five basic parts: the variable coding, selection scheme, crossover
+operator, mutation operator and how the constraints are handled.
+
+The first issue when implementing a GA is 
+
+GA is originally proposed for unconstrained optimization. However, in order to deal with constrained
+design for composite laminate, some techiques were introduced into the GA. The first method is using
+of data structure, special data structure was developed to fulfils the symmetry constraint of the
+laminate, which consists of coding only half of the laminate and considering that each stack of the
+laminate is formed by two laminae with the same orientation but opposite
+signs\cite{le1995improved,kogiso1994design}. A penalty function is developed to convert a constrained
+problem into an unconstrained problem by adding penalty term to the objective funtion. Another
+method to solve constraint problem is introducing repair strategy by Todoroki and Haftka
+\cite{todoroki1998stacking}, which is aim to transform infeasible solutions to feasible solution. 
+
+
+To check the feasibility of a laminate composite by imposing a strength constraint, various failure
+criterion have been proposed to decide whether it fails or not. Rankine and Tresca invented maximum
+normal stress theory and maximum shearing stress theory, respectively. It is know as Maximum stress
+theory.  St. Venant and Tresca proposed maximum normal strain theory and maximum shear theory,
+respectively, also know as Maximum strain failure theory. Tsai-Hill Failure theory is came up based
+on the distortion energy failure theory of Von-Mises's distortional energy yield criterion for
+isotropic materials. 
+
+
+The rest of the paper is organized as follows. Section 2 explains the classical laminate theory and
+the failure criteria taken in the present study.  Section 3 explains the proposed method of
+selection strategy and self-adaptative parameters for mutation during the GA process. Section 4
+describes the result of the numerical experiments in different cases, and in the Conclusion section
+we dicuss the results.
+
+
+
+\section{Analysis of }
+
+\subsection{Stress and Strain in a Lamina}
+For a single lamina has a small thickness under plane stress, and it's upper and lower surfaces of the lamina are
+free from external loads. According to the Hooke's Law, the three-dimensional stress-strain equations can be reduced to
+two-dimensional stress-strain equations. The stress-strain relation in local axis 1-2 is:
+\begin{equation}
+    \begin{bmatrix}
+        \sigma _1\\
+        \sigma _2\\
+        \tau_{12}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        Q_{11} & Q_{12} & 0\\
+        Q_{12} & Q_{22} & 0\\
+        0      &  0     & Q_{66}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \varepsilon_1\\
+        \varepsilon_2\\\gamma_{12}
+    \end{bmatrix}
+\end{equation}
+where $Q_{ij} $are the stiffnesses of the lamina that are related
+
+to engineering elastic constants given by
+\begin{equation}
+    \begin{split}
+    &Q_{11}=\frac{E_1}{1-v_{12}v_{21}}\\
+    &Q_{22}=\frac{E_2}{1-v_{12}v_{21}}\\
+    &Q_{66}=G_{12}\\
+    &Q_{12}=\frac{v_{21}E_2}{1-v_{12}v_{21}}\\
+    \end{split}
+\end{equation}
+
+where $E_1, E_2, v_{12}, G_{12} $ are four independent engineering elastic constants, which are defined as follows: $E_1 $ is the longitudinal Young's modulus, $E_2 $ is the transverse Young's modulus, $v_{12} $ is the major Poisson's ratio, and $G_{12} $ is the in-plane shear modulus.
+
+Stress strain relation in the global x-y axis:
+\begin{equation}\left[\begin{array}{l}\sigma _{x} \\ \sigma _{y} \\ \tau_{xy}\end{array}\right]=\left[\begin{array}{lll}\bar{Q}_{11} & \bar{Q}_{12} & \bar{Q}_{16}\\ \bar{Q}_{12} & \bar{Q}_{22} & \bar{Q}_{26} \\ \bar{Q}_{16} & \bar{Q}_{26} &\bar{Q}_{66}\end{array}\right]\left[\begin{array}{l}\varepsilon_{x} \\ \varepsilon_{y}\\ \gamma_{x y}\end{array}\right]
+\end{equation}
+where
+
+\begin{equation}
+	\begin{array}{l}
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{11}=Q_{11} c^{4}+Q_{22} s^{4}+2\left(Q_{12}+2
+		Q_{66}\right) s^{2} c^{2}$} \\
+
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{12}=\left(Q_{11}+Q_{22}-4 Q_{66}\right) s^{2}
+		c^{2}+Q_{12}\left(c^{4}+s^{2}\right)$} \\
+
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{22}=Q_{11} s^{4}+Q_{22} c^{4}+2\left(Q_{12}+2
+		Q_{66}\right) s^{2} c^{2}$} \\
+
+		\resizebox{.4\textwidth}{!}{$\bar{Q}_{16}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c^{3} s-\left(Q_{22}-Q_{12}-2Q_{66}\right) s^{3} c$}
+		 \\ 
+		\resizebox{.4\textwidth}{!}{$\bar{Q}_{26}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c s^{3}-\left(Q_{22}-Q_{12}-2 Q_{66}\right)c^{3} s$}
+		 \\ 
+	\resizebox{.4\textwidth}{!}	{$\bar{Q}_{66}=\left(Q_{11}+Q_{22}-2 Q_{12}-2 Q_{66}\right)
+	s^{2}c^{2}+Q_{66}\left(s^{4}+c^{4}\right)$}\\
+	\end{array}
+\end{equation}
+
+
+The c and s denotes $cos\theta $ and $sin\theta $.
+
+The local and global stresses in an angle lamina are related
+
+to each other through the angle of the lamina $\theta $
+\begin{equation}\left[\begin{array}{l}\sigma _{1} \\ \sigma _{2} \\ \tau_{12}\end{array}\right]=[T]\left[\begin{array}{l}\sigma _{x} \\ \sigma _{y} \\\tau_{xy}\end{array}\right]
+\end{equation}
+
+where
+\begin{equation}[T]=\left[\begin{array}{ccc}c^{2} & s^{2} & 2 s c \\ s^{2} & c^{2} & -2 s c \\ -s c & s c &c^{2}-s^{2}\end{array}\right] 
+\end{equation}
+
+
+
+\subsection{Stress and Strain in a Laminate}
+\begin{equation} \label{eq:force_and_moments}
+	\begin{array}{l}
+		\begin{aligned}
+	\begin{bmatrix}
+		N_x \\
+		N_y \\
+		N_{xy}
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+		A_{11} & A_{12} & A_{16} \\
+		A_{12} & A_{22} & A_{26} \\
+		A_{16} & A_{26} & A_{66} 
+	\end{bmatrix}
+    \begin{bmatrix}
+		\varepsilon_x^0 \\
+        \varepsilon_y^0 \\
+		\gamma_{xy}^0
+    \end{bmatrix}   \\
+	&+               
+	\begin{bmatrix}
+		B_{11} & B_{12} & B_{16} \\
+		B_{11} & B_{12} & B_{16} \\
+		B_{16} & B_{26} & B_{66} 
+	\end{bmatrix}
+	\begin{bmatrix}
+		k_x \\
+		k_y \\
+		k_{xy} 
+	\end{bmatrix}  \\
+\end{aligned} \\ \\
+\begin{aligned}
+	\begin{bmatrix}
+		M_x \\
+		M_y \\
+		M_{xy}
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+		B_{11} & B_{12} & B_{16} \\
+		B_{12} & B_{22} & B_{26} \\
+		B_{16} & B_{26} & B_{66} 
+	\end{bmatrix}
+    \begin{bmatrix}
+		\varepsilon_x^0 \\
+        \varepsilon_y^0 \\
+		\gamma_{xy}^0
+    \end{bmatrix} \\ 
+	&+  
+	\begin{bmatrix}
+		D_{11} & D_{12} & D_{16} \\
+		D_{11} & D_{12} & D_{16} \\
+		D_{16} & D_{26} & D_{66} 
+	\end{bmatrix}
+	\begin{bmatrix}
+		k_x \\
+		k_y \\
+		k_{xy} 
+	\end{bmatrix}
+\end{aligned}
+	\end{array}
+\end{equation}
+
+
+$N_x,N_y $  - normal force per unit length
+
+$N_{xy} $  - shear force per unit length
+
+$M_x, M_y $ - bending moment per unit length
+
+$M_{xy} $  - twisting moments per unit length
+
+$\varepsilon^{0}, k $- mid plane strains and curvature of a laminate in x-y coordinates
+
+The mid plane strain and curvature is given by
+\begin{equation}
+    \begin{split}
+    &A_{ij}=\sum_{k=1}^{n}(\overline{Q_{ij}})_k(h_k-h_{k-1})  i=1,2,6, j=1,2,6\\
+    &B_{ij}=\frac{1}{2}\sum_{k=1}^{n}(\overline{Q_{ij}})_k(h_k^2 - h_{k-1}^2)  i=1,2,6, j=1,2,6\\
+    &D_{ij}=\frac{1}{3}\sum_{k=1}^{n}(\overline{Q_{ij}})_k(h_k^3 - h_{k-1}^3) i=1,2,6, j=1,2,6\\
+    \end{split}
+\end{equation}
+
+The [A], [B], and [D] matrices are called the extensional, coupling, and bending stiffness matrices,
+respectively. The extensional stiffness matrix $[A]$ relates the resultant in-plane forces to the
+in-plain strains, and the bending stiffness matrix $[D]$ couples the resultant bending moments to
+the plane curvatures.  The coupling stiffness matrix $[B]$ relates the force and moment terms to the
+midplain strains and midplane curvatures.
+
+
+\section{Failure criteria for a lamina}
+Many different criteria about the failure of an angle lamina have been proposed for a unidirectional
+lamina, such as the maximum stress failure theory, maximum strain failure theory, Tsai-Hill failure
+theory, and Tsai-Wu failure theory. The failure criterion of a lamina are based on the stresses in
+the local axes instead of principal normal stresses and maximum shear stresses. There are four
+normal strength parameters and one shear stress for a unidirectional lamina. The five strength
+parameters are
+
+$(\sigma _1^{T})_{ult}= $ ultimate longitudinal tensile strength(in direction 1),
+
+$(\sigma _1^{C})_{ult}= $ ultimate longitudinal compressive strength(in direction 1),
+
+$(\sigma _2^{T})_{ult}= $ ultimate transverse tensile strength(in direction 2),
+
+$(\sigma _2^{C})_{ult}= $ ultimate transverse compressive strength(in direction 2), and
+
+$(\tau_{12})_{ult}= $ and ultimate in-plane shear strength(in plane 12).
+
+In the present study, Tsai-wu failure theory is taken to decide whether a lamina fails,
+because this theory is more general than the Tsai-Hill failure theory, which considers two
+different situations, the compression and tensile strengths of a lamina. A lamina is considered to fail
+if \begin{equation} \label{eq:tsai_wu}
+\begin{split}
+	H_1 \sigma_1  & + H_2 \sigma_2 + H_6 \tau_{12} + H_{11}\sigma_1^2 + H_{22} \sigma_2^2 \\
+				  & + H_{66}  \tau_{12}^2 + 2H_{12}\sigma_1\sigma_2 < 1
+\end{split}
+\end{equation}
+
+is violated, where
+
+\begin{equation} \label{eq:sr}S R=\frac{\text {Maximum Load Which Can Be Applied}}{\text {Load Applied}}
+\end{equation}
+
+Maximum stress failure theory consists of maximum normal stress theory proposed by Rankine and maximum 
+shearing stress theory by Tresca. The stresses applied on a lamina can be resolved into the normal and shear stresses 
+in the local axes. If any of the normal or shear stresses in the local axes of a lamina is equal or exceeds the corresponding 
+ultimate strengths of the unidirectional lamina, the lamina is considered to be failed. 
+
+
+
+\subsection{Failure Theories for a Laminate}
+If keep increasing the loading applied to a laminate, the laminate will fails. The failure process
+of a laminate is more complicate than a lamina, because a laminate consists of multiple plies, and
+the fiber orientation, material, thickness of each ply maybe different from the others. In most
+situations, some layer fails first and the remains continue to take more loads until all the plies
+fail.  If one ply fails, it means this lamina does not contribute to the load carrying capacity of
+the laminate. The procedure for finding the first failure ply given follows the fully discounted
+method:
+
+\begin{enumerate}
+\item Compute the reduced stiffness matrix [Q] referred to as the local axis for each ply using its
+	four engineering elastic constants $E_1 $, $E_2 $, $E_{12} $, and $G_{12} $.
+
+\item Calculate the transformed reduced stiffness $[\bar{Q}] $ referring to the global coordinate
+	system (x, y) using the reduced stiffness matrix [Q] obtained in step 1 and the ply angle for
+	each layer.
+
+\item  Given the thickness and location of each layer, the three laminate stiffness matrices [A],
+	[B], and [D] are determined.
+
+\item  Apply the forces and moments, $[N]_{xy}, [M]_{xy} $ solve Equation
+	\ref{eq:force_and_moments}, and calculate the middle plane strain $[\sigma ^{0}]_{xy} $ and
+	curvature $[k]_{xy} $.
+
+\item Determine the local strain and stress of each layer under the applied load.
+
+\item  Use the ply-by-ply stresses and strains in the Tsai-wu failure theory to find the strength
+	ratio, and the layer with smallest strenght ratio is the first failed ply. 
+\end{enumerate}
+

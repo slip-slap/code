@@ -1,0 +1,17 @@
+PWD /Users/kismet/Desktop/JPE/cover_letter
+INPUT /usr/local/texlive/2018/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT cover_letter.tex
+OUTPUT cover_letter.log
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo
+INPUT cover_letter.aux
+INPUT cover_letter.aux
+OUTPUT cover_letter.aux
+OUTPUT cover_letter.pdf
+INPUT /usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT cover_letter.aux
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb

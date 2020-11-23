@@ -1,0 +1,63 @@
+
+\section{Methodology}
+\subsection{Objective function}
+There are two design variables here, the angles in the laminate, and the number of layers that each
+fiber orientation has. The objective function is as
+
+$F  = 2t_0 \sum_{k=1}^n n_k$ 
+
+The first term represent the total thickness of the composite laminates, $t_0$ is ply thickness;
+$n_k$ is the number of plies in the kth lamina, in which the fiber orientation is $\theta_k$.
+
+The only constraint is the safety factor of the material under certain loading, and it should
+greater than 1.
+
+\subsection{Selection}
+The purpose of the selection operator is how to chose parents to produce children of better
+fitness. Traditional methods of selecting strategies only take the fitness of the individual into
+acount, however, becasue of the existance of constraint, the selection strategies have to change a
+little bit. The parents of next generation consists of three groups: proper groups, active groups,
+and potential groups. 
+
+Proper parents mean individual fullfils the constraint, which are chosen by the individual's
+fitnees, individuals with better fitness are more likely to be chosen if they fit the constraint;
+active groups means that individual is supposed to be always exist in the parents during the GA,
+which are selected by fitness, ignoring the constraint; potential groups means that they are likely
+to turn into proper individual after a couple of generations, and potential individuals are chosen
+by constraint function, the more the individual fulfils the constraint, the more possiblity it will
+be selected.
+
+
+	
+\subsection{Crossover}
+The crossover operator happens among these three groups. the child of two proper groups are more
+likely to be a proper individual which can be used to obtain a better individual. the child of an
+active individual and a potential individual can significantly change the gene of active
+individual's chromsome, which lets the individual evolved toward a new direction.  The offspring of
+two active individuals are more likely to be an active individual, which can maitain the active
+group.
+\subsection{Mutation}
+A mutation direction is imposed on the mutation operator which to make sure the individual evolving
+toward the right direction. The mutation direction, denoted by $md$, is a n dimensional vector corresonding to
+number of constraints, it is decided by the constraint thresholds $CT_i$ and the current individual's
+constraint value, denoted as $CV_i$,  The mutation vector can be obtained by the following formula
+
+$\text{md} = [CT_1, \cdots, CT_{n-1}, CT_n] -  [CV_0, \cdots, CV_{n-1}, CV_n]$
+
+During the operator, the mutation consists of three parts, the length of the chromsome, the angle
+of the chromsome, and the number of each angle. Becasue the chromsome's length is positive correlated with the individual's
+fitness, the coefficient of length mutation denoted by $C_l$, if $\sum_{i=1}^{N}{CT_i}$ great than
+zero, the mutation length is restricted to the range $[0,C_l \sum_{i=1}^{N}{CT_i}]$; if the
+$\sum_{i=1}^{N}{CT_i}$ less than zero, the mutation length is restricted to the range
+$[0,\sum_{i=1}^{N}{CT_i}]$; Assuming a $[13_6/-27_4]_s$ carbon T300/5308 composite laminate under
+the loading $N_{xx} = N_{yy} = 10$ MPa m, the only constraint is the safety factor greater than 1.
+Accoring to the Tsai-Wu criterion, its safety factor is 0.0539. So the mutation vector is $[0.941]$,
+assuming the coefficient is 20, so the mutation range is from 0 to 18. A random number is generated
+from the range $[0, 18]$, supposing the outcome is 13, then a length generator is used to a list,
+the it's sum is 13, suppose the list is [5, 8], the laminate after mutation is $[13_{11}/-27_{12}]_s$.
+
+
+The relationship between the angles in the composite laminate and the chromsome's fitness is
+unclear, so the mutation direction of chromsome's angle is random. The coefficient angle mutation is
+$C_a$, $[0,C_a \sum_{i=1}^{N}{CT_i}]$
+
