@@ -37,7 +37,21 @@ optimization, and the compuation cost is very high; the last problem within GA i
 convergence. GA consists of five basic parts: the variable coding, selection scheme, crossover
 operator, mutation operator and how the constraints are handled.
 
-The first issue when implementing a GA is 
+The first issue when implementing a GA is the representation of design variables, because an
+appropriate design representation is crucial to enhance the efficiency of GA. Real value string has
+been widely employed in 
+
+Selection scheme plays a critical role in balancing the dilemma of exploration and exploitation
+inherented in GA, and various selection methods, for example, roulette wheel, elitist, and tournament
+etc., have been proposed to overcome this issue. Both of roulette selection and tournament selection
+are well-studied and widely employed in the optimization design of laminated composite due to their
+simplicity to code and efficiency for both nonparallel and parallel architectures.
+
+
+multiple types of crossover operator has been utilized in the optimization design of composite
+structures, such as: one-point, two-point, and uniform crossover.
+
+
 
 GA is originally proposed for unconstrained optimization. However, in order to deal with constrained
 design for composite laminate, some techiques were introduced into the GA. The first method is using
@@ -46,8 +60,9 @@ laminate, which consists of coding only half of the laminate and considering tha
 laminate is formed by two laminae with the same orientation but opposite
 signs\cite{le1995improved,kogiso1994design}. A penalty function is developed to convert a constrained
 problem into an unconstrained problem by adding penalty term to the objective funtion. Another
-method to solve constraint problem is introducing repair strategy by Todoroki and Haftka
-\cite{todoroki1998stacking}, which is aim to transform infeasible solutions to feasible solution. 
+method to solve constrained problem is introducing repair strategy by Todoroki and Haftka
+\cite{todoroki1998stacking}, which is aim to transform infeasible solutions to feasible solution by
+incorporating problem-specific knowledge.. 
 
 
 To check the feasibility of a laminate composite by imposing a strength constraint, various failure

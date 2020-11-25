@@ -70,8 +70,6 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
-INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
-INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
@@ -233,6 +231,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryplo
 INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/mathptmx.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/mathptmx.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/makecell/makecell.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/makecell/makecell.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/array.sty

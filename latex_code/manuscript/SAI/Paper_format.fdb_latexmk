@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex Paper_format"] 1606122672 "Paper_format.aux" "Paper_format.bbl" "Paper_format" 1606122691
+["bibtex Paper_format"] 1606294710 "Paper_format.aux" "Paper_format.bbl" "Paper_format" 1606294758
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/IEEEtran/IEEEtran.bst" 1480098433 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "Paper_format.aux" 1606122673 5277 ec49869c29114dd4e0593d507db31ef5 ""
+  "Paper_format.aux" 1606294712 5277 3946da06e860adf0c157c99ff42f8e03 ""
   "a5_reference.bib" 1606122622 10258 ea9efc1021afee551303444dca066aae ""
   (generated)
-  "Paper_format.bbl"
   "Paper_format.blg"
-["pdflatex"] 1606122672 "Paper_format.tex" "Paper_format.pdf" "Paper_format" 1606122691
+  "Paper_format.bbl"
+["pdflatex"] 1606294711 "Paper_format.tex" "Paper_format.pdf" "Paper_format" 1606294758
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1480098689 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -87,14 +87,14 @@
   "2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png" 1604983954 37004 84c7c13db1fed410d3af99d784828a1c ""
   "2020-11-10-pre-image/two_distinct_angler_number_change.png" 1604983954 39190 d248d5ffa0578d3e54f4c5acefb031a4 ""
   "IEEEtran.cls" 1353994332 207390 d653df0f34cc52792528fb4a3b56093b ""
-  "Paper_format.aux" 1606122673 5277 ec49869c29114dd4e0593d507db31ef5 ""
-  "Paper_format.bbl" 1606122672 8286 aa5f79436ab386bad776229149e8d650 "bibtex Paper_format"
-  "Paper_format.tex" 1606122686 19699 f68ff554aedb29f2726655111ddc1d05 ""
-  "a1_introduction.tex" 1606122640 14001 4475c48eda8c6d96a19cfe1162ff6eb4 ""
+  "Paper_format.aux" 1606294712 5277 3946da06e860adf0c157c99ff42f8e03 ""
+  "Paper_format.bbl" 1606294711 8286 aa5f79436ab386bad776229149e8d650 "bibtex Paper_format"
+  "Paper_format.tex" 1606284179 19699 f68ff554aedb29f2726655111ddc1d05 ""
+  "a1_introduction.tex" 1606294707 14872 17ba89017bdc70ad07655b165bd68879 ""
   "a2_methodology.tex" 1605785575 4002 30214c7efb2b836e629d610fbbe5eb03 ""
   "a3_result.tex" 1605785624 9214 2fe88c6402fea76c937d0d64b083599c ""
   "a4_conclusion.tex" 1605785694 380 7908b82424276fffa2ca5a4b86cd0589 ""
   (generated)
+  "Paper_format.log"
   "Paper_format.pdf"
   "Paper_format.aux"
-  "Paper_format.log"

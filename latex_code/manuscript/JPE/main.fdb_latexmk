@@ -1,16 +1,16 @@
 # Fdb version 3
-["biber main"] 1606101423 "main.bcf" "main.bbl" "main" 1606124414
-  "main.bcf" 1606124414 93534 1020f324d254884bfb4a6125837f4835 ""
+["biber main"] 1606181566 "main.bcf" "main.bbl" "main" 1606181574
+  "main.bcf" 1606181574 93534 1020f324d254884bfb4a6125837f4835 ""
   "reference.bib" 1605852929 13252 dd2718ff10e4d6f1b67a8dd0ac07767a ""
   (generated)
-  "main.bbl"
   "main.blg"
-["makeindex main.idx"] 1605941811 "main.idx" "main.ind" "main" 1606124414
-  "main.idx" 1606124411 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "main.bbl"
+["makeindex main.idx"] 1606181566 "main.idx" "main.ind" "main" 1606181574
+  "main.idx" 1606181572 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "main.ind"
   "main.ilg"
-["pdflatex"] 1606124411 "main.tex" "main.pdf" "main" 1606124414
+  "main.ind"
+["pdflatex"] 1606181572 "main.tex" "main.pdf" "main" 1606181574
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1480098668 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1480098668 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1480098668 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -212,17 +212,17 @@
   "dgruyter_author.sty" 1605868216 62330 f1f876d211914820929cd6e8b6fd5b26 ""
   "ga_operator.eps" 1605939731 1252482 9688554d3bf00d07673854d754e88ad4 ""
   "lamina_local_global_axes.eps" 1605939786 5655407 b899b3057b8a89b3f835910d10248445 ""
-  "main.aux" 1606124414 12486 59da6751037e1fd0c2d170d2e31d59e3 ""
-  "main.bbl" 1606124387 48917 d6ad5e06b18e029ec20b3851e6fff9ae "biber main"
-  "main.ind" 1605941812 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1606124414 1089 be143118b9d1e59042c5f23f08121111 ""
-  "main.run.xml" 1606124414 2474 81100e2effb6d2394a32ff9000be2855 ""
-  "main.tex" 1606124404 35645 c47476a6c5ccf065efd420aaf5ee2c01 ""
+  "main.aux" 1606181574 12486 59da6751037e1fd0c2d170d2e31d59e3 ""
+  "main.bbl" 1606181569 48917 d6ad5e06b18e029ec20b3851e6fff9ae "biber main"
+  "main.ind" 1606181566 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1606181574 1089 be143118b9d1e59042c5f23f08121111 ""
+  "main.run.xml" 1606181574 2474 81100e2effb6d2394a32ff9000be2855 ""
+  "main.tex" 1606124898 35645 c47476a6c5ccf065efd420aaf5ee2c01 ""
   (generated)
-  "main.bcf"
+  "main.out"
   "main.aux"
   "main.idx"
   "main.log"
-  "main.pdf"
-  "main.out"
   "main.run.xml"
+  "main.pdf"
+  "main.bcf"
