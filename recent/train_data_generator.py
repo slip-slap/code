@@ -51,37 +51,46 @@ graphite_properties = {
                 'tau_12':68
              }
 
-t300_5308_properties = {
-                'sigma_1_tensile':np.float64(779),
-                'sigma_1_compressive': np.float64(1134),
-                'sigma_2_tensile':19,
-                'sigma_2_compressive':131,
-                'tau_12':75
-             }
-
-material = cv.GRAPHITE_EPOXY
-material_property= cv.GRAPHITE_EPOXY_PROPERTIES
-failure_property = graphite_properties
-
-angle_list = [angle1, angle2] * int(layer/2)
-material_list = [material] * layer
-height_list = [height] * layer
+cv.GLASS_EPOXY_PROPERTIES     = {"E1":38.6,  "E2":8.27, "v12":0.26,  "G12":4.14 }
+cv.CARBON_EPOXY_PROPERTIES    = {"E1":116.6,  "E2":7.673, "v12":0.27,  "G12":4.173 }
+cv.GRAPHITE_EPOXY_PROPERTIES  = {"E1":181,  "E2":10.3, "v12":0.28,  "G12":7.17 }
 
 
-cv.FAILURE_CRITERIA = "max_stress"
-max_stress_sr  = lmc.get_strength_ratio(angle_list,height_list,material_list,cv.LOAD)
-cv.FAILURE_CRITERIA = "tsai_wu"
-tsai_wu_sr  = lmc.get_strength_ratio(angle_list,height_list,material_list,cv.LOAD)
-print(max_stress_sr)
-print(tsai_wu_sr)
+def save_to_data(angle_list,material_list, height_list):
+    cv.FAILURE_CRITERIA = "max_stress"
+    max_stress_sr  = lmc.get_strength_ratio(angle_list,height_list,material_list,cv.LOAD)
+    cv.FAILURE_CRITERIA = "tsai_wu"
+    tsai_wu_sr  = lmc.get_strength_ratio(angle_list,height_list,material_list,cv.LOAD)
+    print(max_stress_sr)
+    print(tsai_wu_sr)
 
-with open("train_data_composite_material.csv",'a') as basic_io:
-    csv_writer = csv.writer(basic_io)
-    csv_writer.writerow([cv.LOAD[0],cv.LOAD[1], str(cv.LOAD[2]),
-        '   ' + str(angle1), angle2, layer, str(height*1000), 
-        '   ' + str(material_property['E1']), str(material_property['E2']), str(material_property['v12']), str(material_property['G12']),
-        '   ' + str(failure_property['sigma_1_tensile']), str(failure_property['sigma_1_compressive']), 
-        str(failure_property['sigma_2_tensile']), str(failure_property['sigma_2_compressive']),
-        str(failure_property['tau_12']),
-        '    ' + str(tsai_wu_sr), max_stress_sr])
+    with open("train_data_composite_material.csv",'a') as basic_io:
+        csv_writer = csv.writer(basic_io)
+        csv_writer.writerow([cv.LOAD[0],cv.LOAD[1], str(cv.LOAD[2]),
+            '   ' + str(angle1), angle2, layer, str(height*1000), 
+            '   ' + str(material_property['E1']), str(material_property['E2']), str(material_property['v12']), str(material_property['G12']),
+            '   ' + str(failure_property['sigma_1_tensile']), str(failure_property['sigma_1_compressive']), 
+            str(failure_property['sigma_2_tensile']), str(failure_property['sigma_2_compressive']),
+            str(failure_property['tau_12']),
+            '    ' + str(tsai_wu_sr), max_stress_sr])
+
+for material in [ cv.GLASS_EPOXY, cv.GRAPHITE_EPOXY, cv.CARBON_EPOXY]:
+    if(material == cv.GLASS_EPOXY):
+        material_property = cv.GLASS_EPOXY_PROPERTIES
+        failure_property = glass_properties
+    if(material == cv.GRAPHITE_EPOXY):
+        material_property= cv.GRAPHITE_EPOXY_PROPERTIES
+        failure_property = graphite_properties
+    if(material == cv.CARBON_EPOXY):
+        material_property= cv.CARBON_EPOXY_PROPERTIES
+        failure_property = carbon_properties 
+
+    for angle in range(0,91,1):
+        
+        angle_list = [angle, -angle] * int(layer/2)
+        material_list = [material] * layer
+        height_list = [height] * layer
+        for layer in range(2,200,2):
+            save_to_data(angle_list, material_list, height_list)
+
 
