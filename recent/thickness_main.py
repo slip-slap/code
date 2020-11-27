@@ -73,8 +73,8 @@ if __name__ == "__main__":
     result_times = []
     result_fitness  = []
     result_strength_ratio = []
-    result_angle = [[],[],[]]
-    result_number= [[],[],[]]
+    result_angle = [[],[], []]
+    result_number= [[],[], []]
     print("###load: "+str(cv.LOAD))
     population = get_initial_population()
     population.sort(key = lambda c: c.fitness)
@@ -115,4 +115,9 @@ if __name__ == "__main__":
 
     #save_to_output(result_fitness, result_strength_ratio, population[best_individual])
     save_ga(result_times, result_fitness, result_strength_ratio, result_angle, result_number)
+    print("result fitness:" + str(result_fitness[-1]))
+    print("result strength ratio:" + str(result_strength_ratio[-1]))
+    print("result angle1: " + str(result_angle[0][-1]) + " result angle2: " + str(result_angle[1][-1])," result angle3: " + str(result_angle[2][-1]))
+    print("number of angle1: " + str(result_number[0][-1]) + " number of angle2: " + str(result_number[1][-1])," number of angle3: " + str(result_number[2][-1]))
+    print("###load: "+str(cv.LOAD))
 

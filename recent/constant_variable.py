@@ -7,8 +7,8 @@ import numpy as np
 LOAD = [10, 5, 0, 0, 0 ,0]
 
 
-#FAILURE_CRITERIA = "max_stress"
-FAILURE_CRITERIA = "tsai_wu"
+FAILURE_CRITERIA = "max_stress"
+#FAILURE_CRITERIA = "tsai_wu"
 
 GLASS_EPOXY= 'glass_epoxy'
 GRAPHITE_EPOXY = "graphite_epoxy"
@@ -50,7 +50,7 @@ prefix = "improved_"
 
 CHROMOSOME_LENGTH_LOWER_BOUND = 10 
 CHROMOSOME_LENGTH_UPPER_BOUND = 15 
-GA_RUNTIMES = 300 
+GA_RUNTIMES = 600 
 ANGLE_TYPE = 3 
 # Material
 LAYER_HEIGHT = 0.00127

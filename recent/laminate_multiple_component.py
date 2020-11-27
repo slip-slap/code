@@ -4,6 +4,7 @@ import lamina_failure as lf
 import lamina_mass_and_cost as lmac
 import constant_variable  as cv
 import tool
+import csv
 
 
 
@@ -326,18 +327,23 @@ def get_symmetry_list(half_list):
     return upper_half + half_list
 
 if __name__=='__main__':
-    FAILURE_CRITERIA = "max_stress"
-    #FAILURE_CRITERIA = "tsai_wu"
 
-    angle =[13]*6 + [-27] * 4   
-    angle = tool.get_symmetry_list(angle)
-    height=[0.00127] * 10 * 2 
-    material =[cv.T300_5308] * 10 * 2   
-    material = tool.get_symmetry_list(material)
-    load=[10,10,0,0,0,0]
+    #angle =[37] * 27 + [-37] * 27  
+    #angle = tool.get_symmetry_list(angle)
+    #material =[cv.T300_5308] * 54    
+    #material = tool.get_symmetry_list(material)
+
+    angle =[-18] * 34 + [17] * 72  + [-18] * 34 
+    height=[0.00127] * 140 
+    material =[cv.T300_5308] * 140    
+    load=[120,5,0,0,0,0]
 
 
     sr  = get_strength_ratio(angle,height,material,load)
+    with open("train_data_composite_material.csv",'a') as basic_io:
+        csv_writer = csv.writer(basic_io)
+        csv_writer.writerow([sr])
+
     mass = lmac.get_laminate_mass(height,material)
     cost = lmac.get_laminate_cost(material)
     print("strenght ratio: " + str(sr))
