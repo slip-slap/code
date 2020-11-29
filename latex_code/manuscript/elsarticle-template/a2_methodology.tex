@@ -1,2 +1,108 @@
+\begin{figure}
+\centering
+\begin{tikzpicture}
+    %\draw[help lines] (-3cm,-6cm) grid (6cm, 6cm);
+    \tikzstyle{block} = [rectangle, text centered, draw=black,
+    minimum width=1.1cm, minimum height=0.4cm]
+    % first level
+    \node (evaluation-parent) [block, minimum width=2.4cm, minimum
+        height=1.8cm,draw=white] {};
+    \node (evaluation) [block] at ($(evaluation-parent.north)$) {evaluation};
+    \node (reproduction) [block] at ($(evaluation-parent.south)$) {reproduction};
+    \node (tasks) [block, minimum width=1.1cm, minimum height=0.4cm] {tasks};
 
+    \draw[->] ($(evaluation.south)+(0.3cm,0cm)$) --
+        ($(tasks.north)+(0.3cm,0cm)$) node[auto=left, pos=0.5] {\small weights}; 
+    \draw[<-] ($(evaluation.south)+(-0.3cm,0cm)$) --
+        ($(tasks.north)+(-0.3cm,0cm)$) node[auto=right, pos=0.5] {\small fitness}; 
+
+    % get intersection
+    \draw[white] (evaluation.west) coordinate (A) -- ++(-1.5cm,0) coordinate (B);
+    \draw[white] (reproduction.west) -- ++(-0.3cm,0) coordinate (C) -- ++(0,4cm) coordinate
+        (D);
+    \draw[black] (reproduction.west) -- ++(-0.3cm,0) -- (intersection cs:
+        first line={(A)--(B)}, second line={(C)--(D)}) coordinate (E);
+    \draw[->] (E) -- (evaluation.west);
+
+    \draw[white] (evaluation.east) coordinate (E) -- ++(2cm,0) coordinate (F);
+    \draw[white] (reproduction.east) -- ++(0.3cm,0) coordinate (G) -- ++(0,4cm) coordinate
+        (H);
+    \draw[<-] (reproduction.east) -- ++(0.3cm,0) -- (intersection cs:
+        first line={(E)--(F)}, second line={(G)--(H)}) coordinate (I);
+    \draw (I) -- (evaluation.east);
+
+    % second level
+    \node (level2) [block,draw=black, minimum width=3.5cm, minimum height=3.0cm] at
+        (0cm,0.2cm) {};
+    \node [align=left] at ($(level2.north)+(0,-0.2cm)$) {\tiny THE EVOLUTION
+        OF};
+    \node [align=left] at ($(level2.north)+(0,-0.45cm)$) {\tiny CONNECTION
+            WEIGHTS 
+        };
+    % third level
+    \node (level3-assister) [block, draw=white, minimum width=5cm, minimum
+		height=4.6cm] at
+        (0, 0.3cm)  {};
+    \node (evaluation) [block] at ($(level3-assister.north)$) {\small evaluation of
+        learning rules};
+    \node (reproduction) [block] at ($(level3-assister.south)$) {\small reproduction of
+        learning rules};
+
+    \draw[->] ($(evaluation.south)+(0.3cm,0cm)$) --
+        ($(level2.north)+(0.3cm,0cm)$) node[auto=left, pos=0.5] {\small learning
+        rule}; 
+    \draw[<-] ($(evaluation.south)+(-0.3cm,0cm)$) --
+        ($(level2.north)+(-0.3cm,0cm)$) node[auto=right, pos=0.5] {\small fitness}; 
+
+    \draw[white] (evaluation.west) coordinate (A) -- ++(-1.3cm,0) coordinate (B);
+    \draw[white] (reproduction.west) -- ++(-0.3cm,0) coordinate (C) -- ++(0,4cm) coordinate
+        (D);
+    \draw[black] (reproduction.west) -- ++(-0.3cm,0) -- (intersection cs:
+        first line={(A)--(B)}, second line={(C)--(D)}) coordinate (E);
+    \draw[->] (E) -- (evaluation.west);
+
+    \draw[white] (evaluation.east) coordinate (E) -- ++(2cm,0) coordinate (F);
+    \draw[white] (reproduction.east) -- ++(0.3cm,0) coordinate (G) -- ++(0,4cm) coordinate
+        (H);
+    \draw[<-] (reproduction.east) -- ++(0.3cm,0) -- (intersection cs:
+        first line={(E)--(F)}, second line={(G)--(H)}) coordinate (I);
+    \draw (I) -- (evaluation.east);
+   % fourth level
+    \node (level4) [block, draw=black, minimum width=5.5cm, minimum
+        height=6.0cm] at
+        (0, 0.4cm)  {};
+    \node [align=left] at ($(level4.north)+(0,-0.25cm)$) {\tiny THE EVOLUTION
+        OF LEARNING RULES};
+    % level five
+    \node (level5-assister) [block, draw=white, minimum width=6.4cm, minimum
+        height=7.0cm] at
+        (0, 0.4cm)  {};
+    \node (evaluation) [block] at ($(level5-assister.north)$) {\small evaluation of
+        architecture};
+    \node (reproduction) [block] at ($(level5-assister.south)$) {\small reproduction of
+        learning architecture};
+
+    \draw[white] (evaluation.west) coordinate (A) -- ++(-1.5cm,0) coordinate (B);
+    \draw[white] (reproduction.west) -- ++(-0.6cm,0) coordinate (C) -- ++(0,4cm) coordinate
+        (D);
+    \draw[black] (reproduction.west) -- ++(-0.6cm,0) -- (intersection cs:
+        first line={(A)--(B)}, second line={(C)--(D)}) coordinate (E);
+    \draw[->] (E) -- (evaluation.west);
+
+    \draw[white] (evaluation.east) coordinate (E) -- ++(2cm,0) coordinate (F);
+    \draw[white] (reproduction.east) -- ++(0.6cm,0) coordinate (G) -- ++(0,4cm) coordinate
+        (H);
+    \draw[<-] (reproduction.east) -- ++(0.6cm,0) -- (intersection cs:
+        first line={(E)--(F)}, second line={(G)--(H)}) coordinate (I);
+    \draw (I) -- (evaluation.east);
+    % level 6
+    \node (level6) [block, minimum width=7.0cm, minimum
+        height=8.1cm] at
+        (0, 0.5cm)  {};
+    \node [align=left] at ($(level6.north)+(0,-0.2cm)$) {\tiny THE EVOLUTION OF
+            ARCHITECTURE
+        };
+\end{tikzpicture}
+\caption{Genetic algorithm and artificial neural network}
+\end{figure}
 
