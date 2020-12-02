@@ -1,0 +1,128 @@
+\section{Failure criteria for a lamina}
+
+Failure criteria for composite materials are more difficult to predict due to
+structural and material complexity in comparison to isotropic materials. The
+failure process of a composite materials can be regarded from microscopic and
+macroscopic points of view. Most proposed criteria about the failure of an angle
+lamina are in terms of macroscopic failure criteria, which are based on the
+tensile, compressive and shear strengths.  such as the maximum stress failure
+theory, maximum strain failure theory, and Tsai-Wu failure theory. The failure
+criterion of a lamina are based on the stresses in the local axes instead of
+principal normal stresses and maximum shear stresses. There are four normal
+strength parameters and one shear stress for a unidirectional lamina. The five
+strength parameters are
+
+$(\sigma _1^{T})_{ult}= $ ultimate longitudinal tensile strength(in direction 1),
+
+$(\sigma _1^{C})_{ult}= $ ultimate longitudinal compressive strength(in direction 1),
+
+$(\sigma _2^{T})_{ult}= $ ultimate transverse tensile strength(in direction 2),
+
+$(\sigma _2^{C})_{ult}= $ ultimate transverse compressive strength(in direction 2), and
+
+$(\tau_{12})_{ult}= $ and ultimate in-plane shear strength(in plane 12).
+
+\subsection{Tsai-wu failure criterion}(TW)
+The TW criterion is one of the most reliable static failure criteria which is derived from the von
+Mises yield criterion.  
+A lamina is considered to fail
+if \begin{equation} \label{eq:tsai_wu}
+\begin{split}
+	H_1 \sigma_1  & + H_2 \sigma_2 + H_6 \tau_{12} + H_{11}\sigma_1^2 + H_{22} \sigma_2^2 \\
+				  & + H_{66}  \tau_{12}^2 + 2H_{12}\sigma_1\sigma_2 < 1
+\end{split}
+\end{equation}
+
+is violated, where
+
+\begin{equation}
+	\begin{split}
+		H_{1}&=\frac{1}{\left(\sigma_{1}^{T}\right)_{u l t}}-\frac{1}{\left(\sigma_{1}^{C}\right)_{u l t}} \\
+		H_{11}&=\frac{1}{\left(\sigma_{1}^{T}\right)_{u l t}\left(\sigma_{1}^{C}\right)_{u l t}} \\
+		H_{2}&=\frac{1}{\left(\sigma_{2}^{T}\right)_{u l t}}-\frac{1}{\left(\sigma_{2}^{C}\right)_{u l t}} \\
+		H_{22}&=\frac{1}{\left(\sigma_{2}^{T}\right)_{u l t}\left(\sigma_{2}^{C}\right)_{u l t}} \\
+		H_{66}&=\frac{1}{\left(\tau_{12}\right)_{u l t}^{2}} \\
+		H_{12}&=-\frac{1}{2} \sqrt{\frac{1}{\left(\sigma_{1}^{T}\right)_{u l
+		t}\left(\sigma_{1}^{C}\right)_{u l t}\left(\sigma_{2}^{T}\right)_{u l
+		t}\left(\sigma_{2}^{C}\right)_{u l t}}}
+	\end{split}
+\end{equation}
+
+\begin{equation} \label{eq:sr}S R=\frac{\text {Maximum Load Which Can Be Applied}}{\text {Load Applied}}
+\end{equation}
+
+\subsection{Maximum stress failure criterion}(MS)
+Maximum stress failure theory consists of maximum normal stress theory proposed by Rankine and maximum 
+shearing stress theory by Tresca. The stresses applied on a lamina can be resolved into the normal and shear stresses 
+in the local axes. If any of the normal or shear stresses in the local axes of a lamina is equal or exceeds the corresponding 
+ultimate strengths of the unidirectional lamina, the lamina is considered to be failed. That is,
+
+
+$\sigma_1 \geq (\sigma _1^{T})_{ult} $ or $\sigma_1 \leq -(\sigma _1^{C})_{ult} $
+
+$\sigma_2 \geq (\sigma _2^{T})_{ult} $ or $\sigma_2 \leq -(\sigma _2^{C})_{ult} $
+
+$\tau_{12} \geq (\tau_{12})_{ult} $  or $\tau_{12} \leq -(\tau_{12})_{ult} $
+
+where $\sigma_1$ and $\sigma_2$ are the normal stresses in the local axes 1 and 2, respectively;
+$\tau_{12}$ is the shear stress in the symmetry plane 1-2.
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+	\begin{scope}
+		%\draw[style=help lines] (-3,-3) grid (3,3);
+		\draw (0,0) rectangle (2,3);
+		\draw[->] (1.3,1.2) -- (2.6,1.2);
+		\draw[->] (1.3,1.2) -- (1.3,3.4);
+		\node at (2.2,1) {$X_T$};
+		\node at (1.5, 3.2) {$Y_T$};
+		\node at (-0.2, 0.9) {$X_C$};
+		\node at (1.8, -0.2) {$Y_C$};
+	\end{scope}
+	\begin{scope}[xshift=6cm,yshift=1.15cm]
+		%\draw[style=help lines] (-3,-3) grid (3,3);
+		\draw[rotate=30] (0,0) ellipse (2cm and 1cm);
+		\draw[->] (0.2,0) -- (0.2,2.2);
+		\draw[->] (0.2,0) -- (1.9,0);
+		\node at (1.6,-0.2) {$X_T$};
+		\node at (0.3, 1.3) {$Y_T$};
+		\node at (-1.6, 0) {$X_C$};
+		\node at (-0.5, -1.5) {$Y_C$};
+	\end{scope}
+\end{tikzpicture}
+\caption{Schematic failure surfaces for maximum stress and quadratic failure
+criteria}
+\end{figure}
+
+
+\subsection{Failure Theories for a Laminate}
+If keep increasing the loading applied to a laminate, the laminate will fails. The failure process
+of a laminate is more complicate than a lamina, because a laminate consists of multiple plies, and
+the fiber orientation, material, thickness of each ply maybe different from the others. In most
+situations, some layer fails first and the remains continue to take more loads until all the plies
+fail.  If one ply fails, it means this lamina does not contribute to the load carrying capacity of
+the laminate. The procedure for finding the first failure ply given follows the fully discounted
+method:
+
+\begin{enumerate}
+\item Compute the reduced stiffness matrix [Q] referred to as the local axis for each ply using its
+	four engineering elastic constants $E_1 $, $E_2 $, $E_{12} $, and $G_{12} $.
+
+\item Calculate the transformed reduced stiffness $[\bar{Q}] $ referring to the global coordinate
+	system (x, y) using the reduced stiffness matrix [Q] obtained in step 1 and the ply angle for
+	each layer.
+
+\item  Given the thickness and location of each layer, the three laminate stiffness matrices [A],
+	[B], and [D] are determined.
+
+\item  Apply the forces and moments, $[N]_{xy}, [M]_{xy} $ solve Equation
+	\ref{eq:force_and_moments}, and calculate the middle plane strain $[\sigma ^{0}]_{xy} $ and
+	curvature $[k]_{xy} $.
+
+\item Determine the local strain and stress of each layer under the applied load.
+
+\item  Use the ply-by-ply stresses and strains in the Tsai-wu failure theory to find the strength
+	ratio, and the layer with smallest strenght ratio is the first failed ply. 
+\end{enumerate}
