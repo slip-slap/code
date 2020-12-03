@@ -42,26 +42,28 @@ where
 
 \begin{equation}
 	\begin{array}{l}
-		\resizebox{.35\textwidth}{!}{$\bar{Q}_{11}=Q_{11} c^{4}+Q_{22} s^{4}+2\left(Q_{12}+2
-		Q_{66}\right) s^{2} c^{2}$} \\
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{11}=Q_{11} cos^{4}\theta+Q_{22} sin^{4}\theta+2\left(Q_{12}+2
+		Q_{66}\right) sin^{2}\theta cos^{2}\theta$} \\
 
-		\resizebox{.35\textwidth}{!}{$\bar{Q}_{12}=\left(Q_{11}+Q_{22}-4 Q_{66}\right) s^{2}
-		c^{2}+Q_{12}\left(c^{4}+s^{2}\right)$} \\
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{12}=\left(Q_{11}+Q_{22}-4 Q_{66}\right) sin^{2}\theta
+		cos^{2}\theta+Q_{12}\left(cos^{4}\theta+sin^{2}\theta \right)$} \\
 
-		\resizebox{.35\textwidth}{!}{$\bar{Q}_{22}=Q_{11} s^{4}+Q_{22} c^{4}+2\left(Q_{12}+2
-		Q_{66}\right) s^{2} c^{2}$} \\
+		\resizebox{.35\textwidth}{!}{$\bar{Q}_{22}=Q_{11} sin^{4}\theta+Q_{22} cos^{4}\theta+2\left(Q_{12}+2
+		Q_{66}\right) sin^{2}\theta cos^{2}\theta$} \\
 
-		\resizebox{.4\textwidth}{!}{$\bar{Q}_{16}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c^{3} s-\left(Q_{22}-Q_{12}-2Q_{66}\right) s^{3} c$}
-		 \\ 
-		\resizebox{.4\textwidth}{!}{$\bar{Q}_{26}=\left(Q_{11}-Q_{12}-2 Q_{66}\right) c s^{3}-\left(Q_{22}-Q_{12}-2 Q_{66}\right)c^{3} s$}
+		\resizebox{.4\textwidth}{!}{$\bar{Q}_{16}=\left(Q_{11}-Q_{12}-2
+		Q_{66}\right) cos^{3}\theta sin\theta-\left(Q_{22}-Q_{12}-2Q_{66}\right)
+	sin^{3}\theta cos\theta$} \\ 
+		\resizebox{.4\textwidth}{!}{$\bar{Q}_{26}=\left(Q_{11}-Q_{12}-2
+		Q_{66}\right) cos\theta sin^{3}\theta-\left(Q_{22}-Q_{12}-2
+Q_{66}\right)cos^{3}\theta sin\theta$}
 		 \\ 
 	\resizebox{.4\textwidth}{!}	{$\bar{Q}_{66}=\left(Q_{11}+Q_{22}-2 Q_{12}-2 Q_{66}\right)
-	s^{2}c^{2}+Q_{66}\left(s^{4}+c^{4}\right)$}\\
+	sin\theta^{2}cos\theta^{2}+Q_{66}\left(sin\theta^{4}+cos\theta^{4}\right)$}\\
 	\end{array}
 \end{equation}
 
 
-The c and s denotes $cos\theta $ and $sin\theta $.
 
 The local and global stresses in an angle lamina are related
 
@@ -70,12 +72,22 @@ to each other through the angle of the lamina $\theta $
 \end{equation}
 
 where
-\begin{equation}[T]=\left[\begin{array}{ccc}c^{2} & s^{2} & 2 s c \\ s^{2} & c^{2} & -2 s c \\ -s c & s c &c^{2}-s^{2}\end{array}\right] 
+\begin{equation}
+	[T]=\left[\begin{array}{ccc}cos^{2}\theta & sin^{2}\theta & 2
+		sin\theta cos\theta \\ 
+sin^{2}\theta & cos^{2}\theta & -2 sin\theta cos\theta \\
+-sin\theta cos\theta
+			  & sin\theta cos\theta  &cos^{2}\theta -sin^{2}\theta
+\end{array}\right] 
 \end{equation}
 
 
 
 \subsection{Stress and Strain in a Laminate}
+For forces and moment resultants acting on laminates, such as in plate and shell
+structures, the relationship between applied forces and moment and displacement
+can be given by
+
 \begin{equation} \label{eq:force_and_moments}
 	\begin{array}{l}
 		\begin{aligned}

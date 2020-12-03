@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex Paper_format"] 1606892057 "Paper_format.aux" "Paper_format.bbl" "Paper_format" 1606892075
+["bibtex Paper_format"] 1606972412 "Paper_format.aux" "Paper_format.bbl" "Paper_format" 1606972436
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/IEEEtran/IEEEtran.bst" 1480098433 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "Paper_format.aux" 1606892058 5752 3c402539736a178c8326744238b31066 ""
+  "Paper_format.aux" 1606972413 5882 b53bb72c4f5fedbaf5ffd45dca9575cf ""
   "a5_reference.bib" 1606122622 10258 ea9efc1021afee551303444dca066aae ""
   (generated)
   "Paper_format.blg"
   "Paper_format.bbl"
-["pdflatex"] 1606892057 "Paper_format.tex" "Paper_format.pdf" "Paper_format" 1606892075
+["pdflatex"] 1606972412 "Paper_format.tex" "Paper_format.pdf" "Paper_format" 1606972436
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1480098689 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -150,16 +150,17 @@
   "2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png" 1604983954 37004 84c7c13db1fed410d3af99d784828a1c ""
   "2020-11-10-pre-image/two_distinct_angler_number_change.png" 1604983954 39190 d248d5ffa0578d3e54f4c5acefb031a4 ""
   "IEEEtran.cls" 1353994332 207390 d653df0f34cc52792528fb4a3b56093b ""
-  "Paper_format.aux" 1606892058 5752 3c402539736a178c8326744238b31066 ""
-  "Paper_format.bbl" 1606892057 8286 aa5f79436ab386bad776229149e8d650 "bibtex Paper_format"
-  "Paper_format.tex" 1606892068 19800 aa2689bd9d776046b9c7253ca946c53b ""
+  "Paper_format.aux" 1606972413 5882 b53bb72c4f5fedbaf5ffd45dca9575cf ""
+  "Paper_format.bbl" 1606972412 8286 aa5f79436ab386bad776229149e8d650 "bibtex Paper_format"
+  "Paper_format.tex" 1606972430 19785 c221527e0d5cdf444ea362f0309ff05a ""
+  "a1_abstract.tex" 1606965216 612 f17e6b8153ee1304cf08937b327328c0 ""
   "a1_introduction.tex" 1606890152 6415 d02ef9e7e7a1d8e2e30f34b96153b3f4 ""
-  "a1_introduction_CLT.tex" 1606806579 5450 129a02de90547a57053444131c253242 ""
-  "a1_introduction_failure_criteria.tex" 1606892066 5879 2d53a2d72c710f25d57d2739d70ab2a9 ""
-  "a2_methodology.tex" 1605785575 4002 30214c7efb2b836e629d610fbbe5eb03 ""
+  "a1_introduction_CLT.tex" 1606963935 5897 51d3fef983384106cda6b8961675b5f8 ""
+  "a1_introduction_failure_criteria.tex" 1606966320 6685 9d583068fccdfda6daa90fcda9179a3a ""
+  "a2_methodology.tex" 1606972142 4245 4328e511b79a4723ca31771bf09e1036 ""
   "a3_result.tex" 1605785624 9214 2fe88c6402fea76c937d0d64b083599c ""
   "a4_conclusion.tex" 1605785694 380 7908b82424276fffa2ca5a4b86cd0589 ""
   (generated)
+  "Paper_format.log"
   "Paper_format.pdf"
   "Paper_format.aux"
-  "Paper_format.log"

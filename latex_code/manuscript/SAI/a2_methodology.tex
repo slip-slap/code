@@ -1,10 +1,20 @@
 
 \section{Methodology}
 \subsection{Objective function}
-There are two design variables here, the angles in the laminate, and the number of layers that each
-fiber orientation has. The objective function is as
+The optimization problem can be formulated as searching the optimal stacking
+sequence of composite laminate.  There are two design variables here, the angles
+in the laminate, and the number of layers that each fiber orientation has. The
+objective function is as
 
-$F  = 2t_0 \sum_{k=1}^n n_k$ 
+\begin{equation}
+	\begin{split}
+    	F  &= 2t_0 \sum_{k=1}^n n_k  \\
+    	   &SF_{MS} \geq 0  \\
+    	   &SF_{TW} \geq 0 
+	\end{split}
+\end{equation}
+
+	
 
 The first term represent the total thickness of the composite laminates, $t_0$ is ply thickness;
 $n_k$ is the number of plies in the kth lamina, in which the fiber orientation is $\theta_k$.
