@@ -228,8 +228,6 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT a1_introduction_CLT.tex
 INPUT a1_introduction_CLT.tex
 INPUT a1_introduction_failure_criteria.tex

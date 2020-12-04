@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.5.18)  3 DEC 2020 14:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.5.18)  3 DEC 2020 16:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -495,12 +495,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 387.
  (./a1_introduction.tex
 
-LaTeX Warning: Citation `' on page 1 undefined on input line 18.
-
-
-LaTeX Warning: Citation `' on page 1 undefined on input line 20.
-
-
 Package Fancyhdr Warning: \headheight is too small (20.0pt): 
 Make it at least 21.14493pt.
 We now make it that large for the rest of the document.
@@ -509,7 +503,10 @@ This may cause the page layout to be inconsistent, however.
 [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]) (./a1_introduction_CLT.tex [2]) (./a1_introduction_failure_criteria.tex [3]) (./a2_methodology.tex) (./a3_result.tex [4]
+]) (./a1_introduction_CLT.tex
+Underfull \vbox (badness 3907) has occurred while \output is active []
+
+ [2]) (./a1_introduction_failure_criteria.tex [3]) (./a2_methodology.tex [4]) (./a3_result.tex
 <2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png, id=29, 462.528pt x 346.896pt>
 File: 2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png Graphic file (type png)
 <use 2020-11-10-pre-image/two_distinct_angle_fitness_and_sr.png>
@@ -561,22 +558,19 @@ Before submitting the final camera ready copy, remember to:
 
 [7 <./2020-11-10-pre-image/Three_distinct_angles_fitness_and_sr.png> <./2020-11-10-pre-image/three_distinct_angles_angle_change.png> <./2020-11-10-pre-image/three_distinct_angle_number_of_angle.png>] (./Paper_format.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14316 strings out of 492616
- 284685 string characters out of 6128982
- 344065 words of memory out of 5000000
- 17944 multiletter control sequences out of 15000+600000
- 38680 words of font info for 72 fonts, out of 8000000 for 9000
+ 14314 strings out of 492616
+ 284662 string characters out of 6128982
+ 342061 words of memory out of 5000000
+ 17943 multiletter control sequences out of 15000+600000
+ 37573 words of font info for 71 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  55i,18n,48p,425b,723s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Paper_format.pdf (7 pages, 355786 bytes).
+Output written on Paper_format.pdf (7 pages, 355544 bytes).
 PDF statistics:
  101 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream

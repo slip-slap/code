@@ -1,25 +1,20 @@
 \section{Introduction}
-Composite materials offer improved strength, stiffness, corrosion resistance, etc. over conventional
-materials, and are widely used as alternative materials for applications in various industries
-ranging from electronic packaging to golf clubs, and medical equipment to homebuilding, making
-aircraft structure to space vechicles. One widely known advange of using composite material is can
-significantly reducing the weight of target structure.  
-
-
-thickness\cite { schmit1973optimum, schmit1977optimum, fukunaga1991strength, soares1995discrete,
-	le1995improved, jayatheertha1996application, wang1996optimum, adali1997minimum,
-	correia1997higher, scares1997optimization, abu1998optimum, lombardi1998anti, le1998design,
-	sivakumar1998optimum, barakat1999use, richard2000reliability, moita2000sensitivity,
-soremekun2001composite, walker2003technique, di2003multiconstrained, kere2003using}
-
-
-
-Genetic
-algorithm(GA)\cite{callahan1992optimum,soremekun2001composite,park2001stacking,walker2003technique,deka2005multiobjective,pelletier2006multi,jadhav2007parametric,kim2007development,park2008improved,}
-
-Colony Optimization\cite{aymerich2006ant,}
-
-
+Composite materials offer improved strength, stiffness, corrosion resistance,
+etc. over conventional materials, and are widely used as alternative materials
+for applications in various industries ranging from electronic packaging to golf
+clubs, and medical equipment to homebuilding, making aircraft structure to space
+vechicles. The stacking sequence and fiber orientation of composite laminates
+give the designer additional 'degree of freedom' to tailor the design with
+respect to strength or stiffness.  One widely known advange of using composite
+material is can significantly reducing the weight of target structure, and many
+researchers attempted to improve the efficiency of using composite materail by
+mimimizing the thickness\cite { schmit1973optimum, schmit1977optimum,
+	fukunaga1991strength, soares1995discrete, le1995improved,
+	jayatheertha1996application, wang1996optimum, adali1997minimum,
+	correia1997higher, scares1997optimization, abu1998optimum, lombardi1998anti,
+	le1998design, sivakumar1998optimum, barakat1999use, richard2000reliability,
+moita2000sensitivity, soremekun2001composite, walker2003technique,
+di2003multiconstrained, kere2003using}.
 
 In practice, fiber orientations are restricted to a finite set of angles, and ply thickness is a
 specific numberic value.  Because the design variables are not continueous, a gradient based
@@ -29,7 +24,7 @@ many local optimum may exist in structural optimization problems. A stochastic o
 genetic algorithm(GA) and simulated annealing(SA), is able to deal with optimization problem with
 discrete variables. Besides, stochastic method could escape from local optimum, and obtain global
 optimum.  GA is one of the most reliably stochastic algorithm, which has been widely used in solving
-constraint desgin for composite laminate. Although GA gains different advantages for solving
+constraint desgin for composite laminate\cite{callahan1992optimum,soremekun2001composite,park2001stacking,walker2003technique,deka2005multiobjective,pelletier2006multi,jadhav2007parametric,kim2007development,park2008improved}. Although GA gains different advantages for solving
 discrete problems, many disadvantages exists within this approach. First, the optimization process
 of GA parameters, such as the population size, parent population,mutation percentage, etc., is very
 tedious; Second, the GA needs to evaluate the objective functions many times to acheive the
@@ -64,25 +59,31 @@ method to solve constrained problem is introducing repair strategy by Todoroki a
 \cite{todoroki1998stacking}, which is aim to transform infeasible solutions to feasible solution by
 incorporating problem-specific knowledge.. 
 
-Another major concern within GA is the convergence speed in terms of the time and computation cost needed
-to reach a solution of desired quality. The objective function based on the CLT is excessively
-time-consuming and complicate to evaluate, in addition, the target function of GA  needs to be
-calculate many times. The traditional method to deal with this issue is by increasing the selection
-pressure to accelerate the convergence speed, however, in some cases, this approach does not acheive an
-ideal result. Becasue the GAs just provides a methodological framework to deal with trickey
-problems, which is heavily inspired by evolution of biology, it is unnecessary to exactly follow all
-the  GA operation. It is possible to just perform one or more GA operations, and incorporate other
-techiques into GA. In present study, a variant of mutation operator is introduced to accelerate the
-convergence process.
+Another major concern within GA is the convergence speed in terms of the time
+and computation cost needed to reach a solution of desired quality. The
+objective function based on the CLT is excessively time-consuming and complicate
+to evaluate, in addition, the target function of GA  needs to be calculate many
+times. The traditional method to deal with this issue is by increasing the
+selection pressure to accelerate the convergence speed, however, in some cases,
+this approach does not acheive an ideal result. Becasue the GAs just provides a
+methodological framework to deal with trickey problems, which is heavily
+inspired by evolution of biology, it is unnecessary to exactly follow all the
+GA operation. It is possible to just perform one or more GA operations, and
+incorporate other techiques into GA. In present study, a variant of mutation
+operator is introduced to accelerate the convergence process.
   
 
-To check the feasibility of a laminate composite by imposing a strength constraint, various failure
-criterion have been proposed to decide whether it fails or not. Rankine and Tresca invented maximum
-normal stress theory and maximum shearing stress theory, respectively. It is know as Maximum stress
-theory.  St. Venant and Tresca proposed maximum normal strain theory and maximum shear theory,
-respectively, also know as Maximum strain failure theory. Tsai-Hill Failure theory is came up based
-on the distortion energy failure theory of Von-Mises's distortional energy yield criterion for
-isotropic materials. 
+To check the feasibility of a laminate composite by imposing a strength
+constraint, various failure criterion have been proposed to decide whether it
+fails or not, such as  maximum stress failure theory, maximum strain failure
+theory, Tsai-Hill Failure theory and Tsai-Wu criterion. Each theory is proposed
+based on massive experiment data or complicate mathematical model, however
+single use any of them may lead to false optimum design for some loading case
+due to the particular shape of its failure envelope. In order to overcome this
+disadvantage within every failure theory, two reliably failure criteria, maximum
+stress theory and Tsai-wu criterion are employed to check whether the composite
+laminate fullfils the constraint.
+
 
 
 The rest of the paper is organized as follows. Section 2 explains the classical laminate theory and
