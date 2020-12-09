@@ -46,7 +46,9 @@ class data:
             if(data[i,13]>0):
                 data[i,13] = 1
         return data
-
+    """
+    parameter: index is an array, 1 means selected, 0 doesn't. [1,0,0,0,1,1,0]    
+    """
     def get_batch_train_data_with_specific_attributes(self, index):
         batch_data = self.get_batch_train_data()
         list_result = list()

@@ -1,5 +1,15 @@
 import numpy as np
 
+
+def binary_to_decimal(binary_number):
+    """TODO: Docstring for binary_to_decimal.
+    :returns: decimal value
+    """
+    decimal = 0
+    for i in range(len(binary_number)):
+        decimal = decimal + binary_number[i]*np.power(2,len(binary_number)-i-1)
+    return int(decimal)
+
 """
 def get_result(neural_network_result):
     if(neural_network_result<=0.125):
