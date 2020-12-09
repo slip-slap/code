@@ -4,16 +4,20 @@ import numpy as np
 
 
 class data:
-    def __init__(self,batch=60,total_data_number=240):
+    def __init__(self,batch=60,total_data_number=300,training_percent=0.98,
+            file_path="./train_data/",file_name="train_data.csv"):
         self.batch = batch
         self.total_data_number = total_data_number
         self.current = 0
+        self.training_percent = training_percent
+        self.file_path = file_path
+        self.file_name = file_name
         self.data = self.get_data()
 
     def get_batch_train_data(self):
 
         # check whether out of range
-        if(self.current+self.batch>self.total_data_number):
+        if(self.current+self.batch>self.total_data_number*self.training_percent):
             self.current = 0
         train_data = self.data[self.current:self.current+self.batch]
         # reset current
@@ -21,22 +25,20 @@ class data:
         return train_data
 
     def get_test_data(self):
-        test_data = self.data[240:300]
+        print(self.data.shape)
+        test_data = self.data[int(self.total_data_number*self.training_percent):self.total_data_number]
         return test_data
 
-
-    def get_data(self,file_path="./train_data/",file_name="train_data.csv"):
+    def get_data(self):
         data= []
-        with open(file_path+file_name,'r') as my_file:
+        with open(self.file_path+self.file_name,'r') as my_file:
             csv_reader = csv.reader(my_file,delimiter=',')
             for i in csv_reader:
                 for j in range(len(i)):
                     i[j]=float(i[j])
                 data.append(i)
-
         # convert list to array
         data = np.asarray(data,float)
-
         # data normalization
         for i in range(data.shape[0]):
             for j in range(data.shape[1]):
@@ -64,12 +66,12 @@ class data:
 
 
 if __name__ == '__main__':
-     data = data(10)
-     train_data =data.get_batch_train_data()
+     data = data(batch=5)
+     #train_data =data.get_batch_train_data()
      #index = np.random.randint(0,2,(14))
      #result = data.get_batch_train_data_with_specific_attributes(index)
      test_data = data.get_test_data()
-     print(train_data)
+     print(test_data)
 
 
 # save normalized data

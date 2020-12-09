@@ -58,7 +58,7 @@ def last_layer(input_data):
         b = tf.get_variable(name="bias",shape=[CONFIGURATION['NUMBER_OF_OUTPUTS']])
         y = tf.matmul(input_data,w)
         y = tf.add(y,b)
-        y = tf.sigmoid(y,name="result")
+        y = tf.nn.relu(y,name="result")
     return y
 
 def train_network(chromosome,activation_function_chromosome):
@@ -83,7 +83,10 @@ def train_network(chromosome,activation_function_chromosome):
     init = tf.global_variables_initializer()
     merged = tf.summary.merge_all()
     saver = tf.train.Saver()
-    my_data = data.data()
+    my_data = data.data(
+            batch=CONFIGURATION["BATCH"],total_data_number=CONFIGURATION['TOTAL_DATA_NUMBER'],
+            training_percent=CONFIGURATION["TRAINING_PERCENT"],
+            file_path=CONFIGURATION["FILE_PATH"],file_name=CONFIGURATION["FILE_NAME"])
 
     previous_loss= 0
     current_loss= 0.01 
@@ -111,7 +114,7 @@ def train_network(chromosome,activation_function_chromosome):
                 # can't name this variable loss, it will overwrite the tensor in the 
                 # graph
                 my_loss = sess.run(loss,feed_dict={input_x:train_data_input,input_y:train_data_output})
-                saver.save(sess, rONFIGURATION["SAVING_PLACE_OF_TRAINING_PROCESS"])
+                saver.save(sess, CONFIGURATION["SAVING_PLACE_OF_TRAINING_PROCESS"])
                 summary = sess.run(merged,feed_dict={input_x:train_data_input, input_y:train_data_output})
                 writer.add_summary(summary,step)
                 my_y   = sess.run(y,feed_dict={input_x:train_data_input,input_y:train_data_output})
